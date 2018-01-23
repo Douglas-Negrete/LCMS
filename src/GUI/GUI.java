@@ -11,11 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -26,6 +29,7 @@ public class GUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
+<<<<<<< HEAD
 		clients.add(new Client("Doug", "6375", 20));
 		clients.add(new Client("Halina", "6311", 21));
 		clients.add(new Client("Coach Wilson", "1234", 22));
@@ -37,19 +41,46 @@ public class GUI extends Application {
 		clients.add(new Client("Maddie", "7335", 26));
 		clients.add(new Client("Oso", "7653", 40));
 		clients.add(new Client("Caleb", "7831", 21));
+=======
+		clients.add(new Client("doug", "6375", 20));
+		clients.add(new Client("halina", "6311", 21));
+		clients.add(new Client("coach wilson", "1234", 22));
+		clients.add(new Client("matt", "5678", 23));
+		clients.add(new Client("emily", "9101", 22));
+		clients.add(new Client("sheree", "5343", 25));
+		clients.add(new Client("ryan", "5235", 50));
+		clients.add(new Client("mia", "5656", 23));
+		clients.add(new Client("maddie", "7335", 26));
+		clients.add(new Client("oso", "7653", 40));
+>>>>>>> Douglas
 
 		primaryStage.setTitle("Lawn Care Made Simple");
 
 		GridPane grid = new GridPane();
-		grid.setPadding(new Insets(15, 15, 15, 15));
+		grid.setPadding(new Insets(0, 15, 15, 0));
+
+		MenuBar menuBar = new MenuBar();
+		// --- Menu File
+		Menu menuFile = new Menu("File");
+		// --- Menu Edit
+		Menu menuEdit = new Menu("Edit");
+		// --- Menu View
+		Menu menuView = new Menu("View");
+		menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
+
+		HBox topPane = new HBox();
 
 		HBox searchBox = new HBox();
 		searchBox.setSpacing(10);
 		searchBox.setPadding(new Insets(5, 20, 5, 20));
 
+		VBox rightPane = new VBox();
+		rightPane.setSpacing(10);
+		rightPane.setPadding(new Insets(20, 20, 20, 20));
+
 		HBox add = new HBox();
 		add.setSpacing(10);
-		add.setPadding(new Insets(20, 20, 20, 0));
+		add.setPadding(new Insets(20, 20, 20, 20));
 
 		ListView<String> list;
 		ObservableList<String> clientList;
@@ -84,11 +115,17 @@ public class GUI extends Application {
 
 		searchBox.getChildren().addAll(searchLabel, searchTextField);
 
+		topPane.getChildren().add(menuBar);
+
+		rightPane.getChildren().addAll(searchBox, list);
+
 		//		grid.add(searchLabel, 0, 0);
 		//		grid.add(searchTextField, 1, 0);
+		grid.add(topPane, 0, 0);
 		grid.add(add, 0, 1);
-		grid.add(searchBox, 1, 0);
-		grid.add(list, 1, 2);
+		grid.add(rightPane, 1, 0);
+		//grid.add(searchBox, 1, 0);
+		//grid.add(list, 1, 2);
 
 		primaryStage.setScene(new Scene(grid, 1100, 600));
 
@@ -113,7 +150,7 @@ public class GUI extends Application {
 			System.out.println("Is contained in the list.");
 
 		}
-
+		
 	}//end search
 
 	public String[] getItem(ArrayList<Client> list, int index) {
