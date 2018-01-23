@@ -36,6 +36,7 @@ public class GUI extends Application {
 		clients.add(new Client("mia", "5656", 23));
 		clients.add(new Client("maddie", "7335", 26));
 		clients.add(new Client("oso", "7653", 40));
+		clients.add(new Client("caleb", "7831", 21));
 
 		primaryStage.setTitle("Lawn Care Made Simple");
 
