@@ -1,13 +1,21 @@
 package List;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Lawn {
 
-	private String address, lawnName, genLocation;
+	private String address, lawnName, genLocation, notes;
 	private Date nextMow, lastMow;
 	private int clientID, interval;
 	private double price;
+	private Calendar cal = Calendar.getInstance();
+	
+	public DecimalFormat df = new DecimalFormat("0.00");
+	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+	
 	
 	public Lawn(String address, String lawnName, String genLocation, int clientID, int interval, double price) {
 		
@@ -18,6 +26,8 @@ public class Lawn {
 		this.clientID = clientID;
 		this.interval = interval;
 		this.price = price;
+		this.nextMow = this.cal.getTime();
+		this.notes = "";
 		
 	}//end constructor
 
@@ -123,16 +133,24 @@ public class Lawn {
 		
 	}//end skiplawn
 	
-	public void checkLawnOff() {
-		
-		
-		
+	public void checkLawnOff() 
+	{
+	 this.lastMow = Calendar.getInstance().getTime(); 
+				
+	 lastMow = cal.getTime();
+	 cal.add(Calendar.DATE, interval);
+	 nextMow = cal.getTime();
 	}//end checklawnoff
 	
-	public String toString() {
-		
-		return "";
-		
-	}//end toString
+	public String toString()
+	{
+	 String s = this.lawnName + ", " + this.address + " (" + this.genLocation + 
+			  ") \nPrice: $" + df.format(this.price) +  "\nLast Mowed: " 
+			 + sf.format(this.lastMow) + " Next Mow: " + sf.format(this.nextMow);
+	  if (!notes.isEmpty())
+		  s += "\nNotes: " + this.notes;
+	  s += "\n";
+	 return s;
+	}
 	
 }//end Lawn
