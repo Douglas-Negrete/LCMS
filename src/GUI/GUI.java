@@ -53,7 +53,7 @@ public class GUI extends Application {
 		// --- Menu View
 		Menu menuView = new Menu("View");
 		menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
-		
+
 		HBox topPane = new HBox();
 
 		HBox searchBox = new HBox();
@@ -102,7 +102,7 @@ public class GUI extends Application {
 		searchBox.getChildren().addAll(searchLabel, searchTextField);
 
 		topPane.getChildren().add(menuBar);
-		
+
 		rightPane.getChildren().addAll(searchBox, list);
 
 		//		grid.add(searchLabel, 0, 0);
@@ -136,3 +136,26 @@ public class GUI extends Application {
 			System.out.println("Is contained in the list.");
 
 		}
+		
+	}//end search
+
+	public String[] getItem(ArrayList<Client> list, int index) {
+
+		String[] items = new String[list.size()];  
+
+		for(int i = 0; i < list.size(); i++) {
+
+			if(index == 0)
+				items[i] = list.get(i).getName();
+			else if(index == 1)
+				items[i] = list.get(i).getBillAddress();
+			else if(index == 2)
+				items[i] = "" + list.get(i).getOwed();
+
+		}
+
+		return items;
+
+	}//end getItem
+
+}//end class GUI
