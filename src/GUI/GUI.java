@@ -26,17 +26,17 @@ public class GUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		clients.add(new Client("Doug", "6375", 20));
-		clients.add(new Client("Halina", "6311", 21));
-		clients.add(new Client("Coach Wilson", "1234", 22));
-		clients.add(new Client("Matt", "5678", 23));
-		clients.add(new Client("Emily", "9101", 22));
-		clients.add(new Client("Sheree", "5343", 25));
-		clients.add(new Client("Ryan", "5235", 50));
-		clients.add(new Client("Mia", "5656", 23));
-		clients.add(new Client("Maddie", "7335", 26));
-		clients.add(new Client("Oso", "7653", 40));
-		clients.add(new Client("Caleb", "7831", 21));
+		clients.add(new Client("Doug", "6375"));
+		clients.add(new Client("Halina", "6311"));
+		clients.add(new Client("Coach Wilson", "1234"));
+		clients.add(new Client("Matt", "5678"));
+		clients.add(new Client("Emily", "9101"));
+		clients.add(new Client("Sheree", "5343"));
+		clients.add(new Client("Ryan", "5235"));
+		clients.add(new Client("Mia", "5656"));
+		clients.add(new Client("Maddie", "7335"));
+		clients.add(new Client("Oso", "7653"));
+		clients.add(new Client("Caleb", "7831"));
 
 		primaryStage.setTitle("Lawn Care Made Simple");
 

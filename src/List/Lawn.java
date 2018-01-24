@@ -20,14 +20,14 @@ public class Lawn {
 	public Lawn(String address, String lawnName, String genLocation, int clientID, int interval, double price) {
 		
 		super();
-		this.address = address;
-		this.lawnName = lawnName;
-		this.genLocation = genLocation;
-		this.clientID = clientID;
-		this.interval = interval;
-		this.price = price;
-		this.nextMow = this.cal.getTime();
-		this.notes = "";
+		setAddress(address);
+		setLawnName(lawnName);
+		setGenLocation(genLocation);
+		setClientID(clientID);
+		setInterval(interval);
+		setPrice(price);
+		setNextMow(this.cal.getTime());
+		setNotes("");
 		
 	}//end constructor
 
@@ -45,7 +45,7 @@ public class Lawn {
 	
 	public String getLawnName() {
 		
-		return lawnName;
+		return this.lawnName;
 		
 	}//end getlawnname
 	
@@ -57,7 +57,7 @@ public class Lawn {
 	
 	public String getGenLocation() {
 		
-		return genLocation;
+		return this.genLocation;
 		
 	}//end getgenlocation
 	
@@ -69,7 +69,7 @@ public class Lawn {
 	
 	public Date getNextMow() {
 		
-		return nextMow;
+		return this.nextMow;
 		
 	}//end getnextmow
 	
@@ -81,7 +81,7 @@ public class Lawn {
 	
 	public Date getLastMow() {
 		
-		return lastMow;
+		return this.lastMow;
 		
 	}//end getlastmow
 	
@@ -93,7 +93,7 @@ public class Lawn {
 	
 	public int getClientID() {
 		
-		return clientID;
+		return this.clientID;
 		
 	}//end getclientid
 	
@@ -105,7 +105,7 @@ public class Lawn {
 	
 	public int getInterval() {
 		
-		return interval;
+		return this.interval;
 		
 	}//end getinterval
 	
@@ -117,7 +117,7 @@ public class Lawn {
 	
 	public double getPrice() {
 		
-		return price;
+		return this.price;
 		
 	}//end getprice
 	
@@ -127,9 +127,21 @@ public class Lawn {
 		
 	}//end setprice
 	
+	public void setNotes(String str) {
+		
+		this.notes = str;
+	}
+	
+	public String getNotes() {
+		
+		return this.notes;
+		
+	}//end getprice
+	
 	public void skipLawn() {
 		
-		
+		cal.add(Calendar.DATE, interval);
+		nextMow = cal.getTime();
 		
 	}//end skiplawn
 	
@@ -144,11 +156,11 @@ public class Lawn {
 	
 	public String toString()
 	{
-	 String s = this.lawnName + ", " + this.address + " (" + this.genLocation + 
-			  ") \nPrice: $" + df.format(this.price) +  "\nLast Mowed: " 
-			 + sf.format(this.lastMow) + " Next Mow: " + sf.format(this.nextMow);
+	 String s = getLawnName() + ", " + getAddress() + " (" + getGenLocation() + 
+			 ") \nPrice: $" + df.format(getPrice()) +  "\nLast Mowed: " 
+			 + sf.format(getLastMow()) + " Next Mow: " + sf.format(getNextMow());
 	  if (!notes.isEmpty())
-		  s += "\nNotes: " + this.notes;
+		  s += "\nNotes: " + getNotes();
 	  s += "\n";
 	 return s;
 	}
