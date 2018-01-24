@@ -2,9 +2,11 @@ package GUI;
 import java.util.ArrayList;
 
 import List.Client;
+import List.FileIO;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -32,25 +34,14 @@ import javafx.stage.WindowEvent;
 
 public class GUI extends Application {
 
-	ArrayList<Client> clients = new ArrayList<>();
+	FileIO io = new FileIO();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		clients.add(new Client("doug", "6375", 20));
-		clients.add(new Client("halina", "6311", 21));
-		clients.add(new Client("coach wilson", "1234", 22));
-		clients.add(new Client("matt", "5678", 23));
-		clients.add(new Client("emily", "9101", 22));
-		clients.add(new Client("sheree", "5343", 25));
-		clients.add(new Client("ryan", "5235", 50));
-		clients.add(new Client("mia", "5656", 23));
-		clients.add(new Client("maddie", "7335", 26));
-		clients.add(new Client("oso", "7653", 40));
-
 		primaryStage.setTitle("Lawn Care Made Simple");//title
 		Scene scene = new Scene(new VBox(), 1100, 600);//window size
-		//primaryStage.getIcons().add(new Image("file:\\LCMS/src/lawnMower.png"));
+		//primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
 		Menu menuFile = new Menu("File");//file submenu for the menu
@@ -73,12 +64,21 @@ public class GUI extends Application {
 		client = new MenuItem("Clients");
 
 		lawn = new MenuItem("Lawns");
+		lawn.setOnAction(new EventHandler<ActionEvent>() {
+			
+            public void handle(ActionEvent t) {
+                
+            	//clientList = FXCollections.<String>observableArrayList(io.getLawnName());
+            	
+            }//end handle
+            
+        });//end setonaction
 
 		chkdLwn = new MenuItem("Checked Lawns");
 
 		menuView.getItems().addAll(client, lawn, chkdLwn);
 
-		clientList = FXCollections.<String>observableArrayList(getItem(clients, 0));
+		clientList = FXCollections.<String>observableArrayList(io.getClientName());
 
 		list = new ListView<>(clientList);
 

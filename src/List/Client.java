@@ -15,7 +15,13 @@ public class Client {
 		this.name = name;
 		this.billAddress = billAddress;
 		this.owed = owed;
-	}
+	}//end constructor
+	
+	public int lawnListSize() {
+		
+		return this.lawnList.size();
+		
+	}//end lawnListSize
 
 	public String getName() {
 		
