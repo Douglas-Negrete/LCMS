@@ -23,6 +23,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -47,44 +48,53 @@ public class GUI extends Application {
 		Menu menuFile = new Menu("File");//file submenu for the menu
 		Menu menuEdit = new Menu("Edit");//edit submenu
 		Menu menuView = new Menu("View");//view what is displayed in the right pane list
-		MenuItem client, lawn, chkdLwn;//menu items for the view option: current clients, current lawns, which lawns have been taken care of
-		ObservableList<String> clientList;//the actual string list that will go in the list pane
-		ListView<String> list;//the list pane in the right pane
-		Label searchLabel;//makes a label for the search bar
-		TextField searchTextField;//makes a search bar to search the list in the right pane
-		Button addClient, addLawn;//temporary buttons to play with
+		MenuItem client = new MenuItem("Clients"),//menu items for the view option: current clients,
+				lawn = new MenuItem("Lawns"),//     current lawns, which lawns have been taken care of
+				chkdLwn = new MenuItem("Checked Lawns");
+		
+		ObservableList<String> list = FXCollections.<String>observableArrayList(io.getClientName());//the actual string list that
+																									//will go in the list pane
+		
+		ListView<String> listView = new ListView<>(list);//the list pane in the right pane
+		
+		Label searchLabel = new Label("Search");//makes a label for the search bar
+		Label cNameLbl  = new Label("              Name:"), 
+				cBiAdLbl  = new Label("Billing Address:"),
+				cOwedLbl = new Label("Amount Owed:");
+		TextField searchTextField = new TextField();//makes a search bar to search the list in the right pane
+		TextField cNameTF  = new TextField(),
+				cBiAdTF = new TextField(),
+				cOwedTF = new TextField();
+		
+		Button clntPageBtn = new Button("Client"),
+				lwnPageBtn = new Button("Lawn"),
+				addClntBtn = new Button("Add Client");
+		
 		HBox topPane = new HBox();//what goes in the top section of the layout
 		HBox searchBox = new HBox();//contains the search label, and the search box
-		HBox add = new HBox();//temp for what goes in the center section
+		HBox centerPane = new HBox();//temp for what goes in the center section
 		VBox rightPane = new VBox();//what goes in the right section of the layout
+		VBox addClntLbl = new VBox(),
+				addClntTF = new VBox();
+		
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
 		menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
-
-		client = new MenuItem("Clients");
-
-		lawn = new MenuItem("Lawns");
+		
 		lawn.setOnAction(new EventHandler<ActionEvent>() {
 			
             public void handle(ActionEvent t) {
                 
-            	//clientList = FXCollections.<String>observableArrayList(io.getLawnName());
+            	//list = FXCollections.<String>observableArrayList(io.getLawnName());
+            	populateList(listView, list, io.getLawnName());
+            	listView.setVisible(true);
             	
             }//end handle
             
         });//end setonaction
 
-		chkdLwn = new MenuItem("Checked Lawns");
-
 		menuView.getItems().addAll(client, lawn, chkdLwn);
-
-		clientList = FXCollections.<String>observableArrayList(io.getClientName());
-
-		list = new ListView<>(clientList);
-
-		searchLabel = new Label("Search");
-
-		searchTextField = new TextField();
+		
 		searchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {//creates a keylistener on the searchbox
 
 			@Override
@@ -92,17 +102,45 @@ public class GUI extends Application {
 
 				if(event.getCode().equals(KeyCode.ENTER)) {//when the enter key is pressed
 
-					search(searchTextField, list);//search the list for the name entered in the searchbox
+					search(searchTextField, listView);//search the list for the name entered in the searchbox
 
 				}
 
 			}//end handle
 
 		});//end setonkeypressed
+		
+		clntPageBtn.setOnAction(new EventHandler<ActionEvent>() {
 
-		addClient = new Button("Client");
+			@Override
+			public void handle(ActionEvent event) {
+				
+				//add.setVisible(false);
+				centerPane.getChildren().removeAll(clntPageBtn, lwnPageBtn);
+				centerPane.getChildren().addAll(addClntLbl, addClntTF);
+				border.setCenter(centerPane);
+				
+			}//end handle
+			
+		});//end setOnAction
+		
+		addClntBtn.setOnAction(new EventHandler<ActionEvent>() {
 
-		addLawn = new Button("Lawn");
+			@Override
+			public void handle(ActionEvent event) {
+				
+				io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText(), Double.parseDouble(cOwedTF.getText())));
+				rightPane.getChildren().remove(1);
+				rightPane.getChildren().add(1, populateList(listView, list, io.getClientName()));
+				cNameTF.setText("");
+				cBiAdTF.setText("");
+				cOwedTF.setText("");
+				centerPane.getChildren().removeAll(addClntLbl, addClntTF);
+				centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
+				
+			}//end handle
+			
+		});//end setonaction
 
 		topPane.getChildren().add(menuBar);
 
@@ -110,17 +148,24 @@ public class GUI extends Application {
 		searchBox.setPadding(new Insets(0, 20, 5, 20));
 		searchBox.getChildren().addAll(searchLabel, searchTextField);
 
-		add.setSpacing(10);
-		add.setPadding(new Insets(20, 20, 20, 20));
+		centerPane.setSpacing(10);
+		centerPane.setPadding(new Insets(20, 20, 20, 20));
 
-		add.getChildren().addAll(addClient, addLawn);
+		centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
 
 		rightPane.setSpacing(10);
 		rightPane.setPadding(new Insets(20, 20, 20, 20));
-		rightPane.getChildren().addAll(searchBox, list);
+		rightPane.getChildren().addAll(searchBox, listView);
+		
+		addClntLbl.setSpacing(20);
+		addClntLbl.setPadding(new Insets(20,2,20,20));
+		addClntLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwedLbl);
+		addClntTF.setSpacing(10);
+		addClntTF.setPadding(new Insets(20,20,20,2));
+		addClntTF.getChildren().addAll(cNameTF, cBiAdTF, cOwedTF, addClntBtn);
 
 		border.setTop(topPane);
-		border.setCenter(add);
+		border.setCenter(centerPane);
 		border.setRight(rightPane);
 
 		//primaryStage.setScene(new Scene(border, 1100, 600));
@@ -139,6 +184,14 @@ public class GUI extends Application {
 
 	}//end start
 
+	public ListView<String> populateList(ListView<String> lv, ObservableList<String> list, String[] s) {
+		
+		list = FXCollections.<String>observableArrayList(s);
+		return new ListView<>(list);
+		//System.out.println(list.toString());
+		
+	}//end populateList
+	
 	public void search(TextField search, ListView<String> list) {
 
 		if(list.getItems().contains(search.getText())) {

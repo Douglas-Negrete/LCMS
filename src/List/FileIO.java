@@ -5,8 +5,8 @@ import java.util.LinkedList;
 
 public class FileIO {
 
-	File backupFile;
-	LinkedList<Client> clientList;
+	private File backupFile;
+	private LinkedList<Client> clientList;
 
 	public FileIO() {
 
@@ -24,6 +24,12 @@ public class FileIO {
 		clientList.add(new Client("oso", "7653", 40));
 
 	}//end default constructor
+	
+	public void addClient(Client c) {
+		
+		clientList.add(c);
+		
+	}//end addClient
 
 	public void generateBackupFile(Lawn[] list){
 
@@ -101,9 +107,16 @@ public class FileIO {
 		else
 			return null;
 
+		int t = 0;
+		
 		for(int i = 0; i < this.clientList.size(); i++) {
 
-			names[i] = clientList.get(i).getName();
+			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
+				
+				names[t] = clientList.get(i).getLawnName(j);
+				t++;
+				
+			}
 
 		}
 
