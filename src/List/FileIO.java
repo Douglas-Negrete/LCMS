@@ -25,6 +25,12 @@ public class FileIO {
 
 	}//end default constructor
 	
+	public void addLawn(int i, Lawn l) {
+		
+		clientList.get(i).addLawn(l);
+		
+	}//end addlawn
+	
 	public void addClient(Client c) {
 		
 		clientList.add(c);
@@ -72,6 +78,19 @@ public class FileIO {
 
 
 	}//end populateLawns
+	
+	public int getClientIndex(String name) {
+		
+		for(int i = 0; i < clientList.size(); i++) {
+			
+			if(clientList.get(i).getName().equals(name))
+				return i;
+			
+		}
+		
+		return -1;
+		
+	}//end getclientindex
 
 	public String[] getClientName() {
 

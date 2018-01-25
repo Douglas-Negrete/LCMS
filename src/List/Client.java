@@ -5,7 +5,6 @@ import java.util.LinkedList;
 public class Client {
 
 	private String name, billAddress;
-	private int clientID;
 	private double owed;
 	private LinkedList<Lawn> lawnList;
 	int lawnNumber;
@@ -80,17 +79,5 @@ public class Client {
 		lawnList.remove(l);
 
 	}//end removeLawn
-
-	public int getClientID() {
-
-		return clientID;
-
-	}//end getClientID
-
-	public void setClientID(int clientID) {
-
-		this.clientID = clientID;
-
-	}//end setClientID
 
 }//end class
