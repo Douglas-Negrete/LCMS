@@ -85,10 +85,12 @@ public class GUI extends Application {
 				lwnPageBtn = new Button("Lawn"),
 				addClntBtn = new Button("Add Client"),
 				addLwnBtn = new Button("Add Lawn");
+		Button cnclAddBtn = new Button("Cancel");
 
 		HBox topPane = new HBox();//what goes in the top section of the layout
 		HBox searchBox = new HBox();//contains the search label, and the search box
 		HBox centerPane = new HBox();//temp for what goes in the center section
+		HBox btnPane = new HBox();//pane for the buttons to populate
 		VBox rightPane = new VBox();//what goes in the right section of the layout
 		VBox addClntLwnLbl = new VBox(),
 				addClntLwnTF = new VBox();
@@ -131,14 +133,13 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				//add.setVisible(false);
-				centerPane.getChildren().removeAll(clntPageBtn, lwnPageBtn);
+				centerPane.getChildren().clear();
 				addClntLwnLbl.setSpacing(20);
 				addClntLwnLbl.setPadding(new Insets(20,2,20,20));
-				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwedLbl);
+				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwedLbl, addClntBtn);
 				addClntLwnTF.setSpacing(10);
 				addClntLwnTF.setPadding(new Insets(20,20,20,2));
-				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cOwedTF, addClntBtn);
+				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cOwedTF, cnclAddBtn);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -151,13 +152,13 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				centerPane.getChildren().removeAll(clntPageBtn, lwnPageBtn);
+				centerPane.getChildren().clear();
 				addClntLwnLbl.setSpacing(20);
 				addClntLwnLbl.setPadding(new Insets(20,2,20,20));
-				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl);
+				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, addLwnBtn);
 				addClntLwnTF.setSpacing(10);
 				addClntLwnTF.setPadding(new Insets(20,20,20,2));
-				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, addLwnBtn);
+				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, cnclAddBtn);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -176,7 +177,8 @@ public class GUI extends Application {
 				cNameTF.setText("");
 				cBiAdTF.setText("");
 				cOwedTF.setText("");
-				centerPane.getChildren().removeAll(addClntLwnLbl, addClntLwnTF);
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
 				centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
 
 			}//end handle
@@ -188,8 +190,8 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				int i = io.getClientIndex(lClientTF.getText());
-				if(i != -1) {
+				int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
+				if(i != -1) {//if the client exists
 					
 					io.addLawn(i, new Lawn(lClientTF.getText(), lAddressTF.getText(), lLawnNameTF.getText(),
 							lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText())));
@@ -199,15 +201,16 @@ public class GUI extends Application {
 					lGenLocationTF.setText("");
 					lIntervalTF.setText("");
 					lPriceTF.setText("");
-					centerPane.getChildren().removeAll(addClntLwnLbl, addClntLwnTF);
+					addClntLwnLbl.getChildren().clear();
+					addClntLwnTF.getChildren().clear();
 					centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
 					
 				}
-				else {
+				else {//the client does not exist
 					
-					lClientTF.setText("");
+					lClientTF.setText("");//clears the client name area
 					
-					Alert alert = new Alert(AlertType.INFORMATION);
+					Alert alert = new Alert(AlertType.INFORMATION);//creates a dialog box warning the user that the client does not exist
 					alert.setTitle("Lawn Creation Error");
 					alert.setHeaderText(null);
 					alert.setContentText("The client entered does not exist!");
@@ -217,6 +220,19 @@ public class GUI extends Application {
 
 			}//end handle
 
+		});//end setonaction
+		
+		cnclAddBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
+				centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
+				
+			}//end handle
+			
 		});//end setonaction
 
 		topPane.getChildren().add(menuBar);
