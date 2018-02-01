@@ -1,28 +1,27 @@
 package List;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.util.LinkedList;
 
 public class FileIO {
 
 	private File backupFile;
-	private LinkedList<Client> clientList;
+	public LinkedList<Client> clientList;
 
 	public FileIO() {
 
 		clientList = new LinkedList<>();
 
-		clientList.add(new Client("doug", "6375", 20));
-		clientList.add(new Client("halina", "6311", 21));
-		clientList.add(new Client("coach wilson", "1234", 22));
-		clientList.add(new Client("matt", "5678", 23));
-		clientList.add(new Client("emily", "9101", 22));
-		clientList.add(new Client("sheree", "5343", 25));
-		clientList.add(new Client("ryan", "5235", 50));
-		clientList.add(new Client("mia", "5656", 23));
-		clientList.add(new Client("maddie", "7335", 26));
-		clientList.add(new Client("oso", "7653", 40));
+		clientList.add(new Client("doug", "6375"));
+		clientList.add(new Client("halina", "6311"));
+		clientList.add(new Client("coach wilson", "1234"));
+		clientList.add(new Client("matt", "5678"));
+		clientList.add(new Client("emily", "9101"));
+		clientList.add(new Client("sheree", "5343"));
+		clientList.add(new Client("ryan", "5235"));
+		clientList.add(new Client("mia", "5656"));
+		clientList.add(new Client("maddie", "7335"));
+		clientList.add(new Client("oso", "7653"));
 
 	}//end default constructor
 	
@@ -145,8 +144,3 @@ public class FileIO {
 	}//end getLawnName
 
 }//end class
-=======
-public class FileIO {
-
-}
->>>>>>> Caleb

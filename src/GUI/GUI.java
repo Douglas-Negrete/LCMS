@@ -42,59 +42,33 @@ public class GUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		clients.add(new Client("Doug", "6375", 20));
-		clients.add(new Client("Halina", "6311", 21));
-		clients.add(new Client("Coach Wilson", "1234", 22));
-		clients.add(new Client("Matt", "5678", 23));
-		clients.add(new Client("Emily", "9101", 22));
-		clients.add(new Client("Sheree", "5343", 25));
-		clients.add(new Client("Ryan", "5235", 50));
-		clients.add(new Client("Mia", "5656", 23));
-		clients.add(new Client("Maddie", "7335", 26));
-		clients.add(new Client("Oso", "7653", 40));
-		clients.add(new Client("Caleb", "7831", 21));
-=======
-		clients.add(new Client("doug", "6375", 20));
-		clients.add(new Client("halina", "6311", 21));
-		clients.add(new Client("coach wilson", "1234", 22));
-		clients.add(new Client("matt", "5678", 23));
-		clients.add(new Client("emily", "9101", 22));
-		clients.add(new Client("sheree", "5343", 25));
-		clients.add(new Client("ryan", "5235", 50));
-		clients.add(new Client("mia", "5656", 23));
-		clients.add(new Client("maddie", "7335", 26));
-		clients.add(new Client("oso", "7653", 40));
->>>>>>> Douglas
-=======
-		clients.add(new Client("Doug", "6375"));
-		clients.add(new Client("Halina", "6311"));
-		clients.add(new Client("Coach Wilson", "1234"));
-		clients.add(new Client("Matt", "5678"));
-		clients.add(new Client("Emily", "9101"));
-		clients.add(new Client("Sheree", "5343"));
-		clients.add(new Client("Ryan", "5235"));
-		clients.add(new Client("Mia", "5656"));
-		clients.add(new Client("Maddie", "7335"));
-		clients.add(new Client("Oso", "7653"));
-		clients.add(new Client("Caleb", "7831"));
->>>>>>> Caleb
 
-		primaryStage.setTitle("Lawn Care Made Simple");
+		io.clientList.add(new Client("Doug", "6375"));
+		io.clientList.add(new Client("Halina", "6311"));
+		io.clientList.add(new Client("Coach Wilson", "1234"));
+		io.clientList.add(new Client("Matt", "5678"));
+		io.clientList.add(new Client("Emily", "9101"));
+		io.clientList.add(new Client("Sheree", "5343"));
+		io.clientList.add(new Client("Ryan", "5235"));
+		io.clientList.add(new Client("Mia", "5656"));
+		io.clientList.add(new Client("Maddie", "7335"));
+		io.clientList.add(new Client("Oso", "7653"));
+		io.clientList.add(new Client("Caleb", "7831"));
 
-		GridPane grid = new GridPane();
-		grid.setPadding(new Insets(0, 15, 15, 0));
 
-		MenuBar menuBar = new MenuBar();
+		//primaryStage.setTitle("Lawn Care Made Simple");
+
+		//GridPane grid = new GridPane();
+		//grid.setPadding(new Insets(0, 15, 15, 0));
+
+		//MenuBar menuBar = new MenuBar();
 		// --- Menu File
-		Menu menuFile = new Menu("File");
+		//Menu menuFile = new Menu("File");
 		// --- Menu Edit
-		Menu menuEdit = new Menu("Edit");
+		//Menu menuEdit = new Menu("Edit");
 		// --- Menu View
-		Menu menuView = new Menu("View");
-=======
+		//Menu menuView = new Menu("View");
+
 		primaryStage.setTitle("Lawn Care Made Simple");//title
 		Scene scene = new Scene(new VBox(), 1100, 600);//window size
 		//primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
@@ -150,7 +124,6 @@ public class GUI extends Application {
 
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
->>>>>>> Douglas
 		menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
 
 		lawn.setOnAction(new EventHandler<ActionEvent>() {
@@ -225,7 +198,7 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText(), Double.parseDouble(cOwedTF.getText())));
+				io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText()));
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, list, io.getClientName()));
 				cNameTF.setText("");
@@ -247,7 +220,7 @@ public class GUI extends Application {
 				int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
 				if(i != -1) {//if the client exists
 					
-					io.addLawn(i, new Lawn(lClientTF.getText(), lAddressTF.getText(), lLawnNameTF.getText(),
+					io.addLawn(i, new Lawn(io.clientList.get(i), lAddressTF.getText(), lLawnNameTF.getText(),
 							lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText())));
 					lClientTF.setText("");
 					lAddressTF.setText("");

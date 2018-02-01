@@ -7,52 +7,38 @@ import java.util.Date;
 
 public class Lawn {
 
-<<<<<<< HEAD
 	private String address, lawnName, genLocation, notes;
-=======
-	private String client, address, lawnName, genLocation;
->>>>>>> Douglas
 	private Date nextMow, lastMow;
 	private int interval;
 	private double price;
+	private Client client;
 	private Calendar cal = Calendar.getInstance();
 	
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 	
 	
-	public Lawn(String client, String address, String lawnName, String genLocation, int interval, double price) {
+	public Lawn(Client client, String address, String lawnName, String genLocation, int interval, double price) {
 		
 		super();
-<<<<<<< HEAD
-		this.client = client;
-		this.address = address;
-		this.lawnName = lawnName;
-		this.genLocation = genLocation;
-		this.interval = interval;
-		this.price = price;
-		this.nextMow = this.cal.getTime();
-		this.notes = "";
-=======
 		setAddress(address);
 		setLawnName(lawnName);
 		setGenLocation(genLocation);
-		setClientID(clientID);
 		setInterval(interval);
+		setClient(client);
 		setPrice(price);
 		setNextMow(this.cal.getTime());
 		setNotes("");
->>>>>>> Caleb
 		
 	}//end constructor
 
-	public String getClient() {
+	public Client getClient() {
 		
 		return client;
 		
 	}//end getclient
 
-	public void setClient(String client) {
+	public void setClient(Client client) {
 		
 		this.client = client;
 		
@@ -118,21 +104,6 @@ public class Lawn {
 		
 	}//end setlastmow
 	
-<<<<<<< HEAD
-=======
-	public int getClientID() {
-		
-		return this.clientID;
-		
-	}//end getclientid
-	
-	public void setClientID(int clientID) {
-		
-		this.clientID = clientID;
-		
-	}//end setclientid
-	
->>>>>>> Caleb
 	public int getInterval() {
 		
 		return this.interval;
