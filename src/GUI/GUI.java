@@ -44,6 +44,7 @@ public class GUI extends Application {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		clients.add(new Client("Doug", "6375", 20));
 		clients.add(new Client("Halina", "6311", 21));
 		clients.add(new Client("Coach Wilson", "1234", 22));
@@ -67,6 +68,19 @@ public class GUI extends Application {
 		clients.add(new Client("maddie", "7335", 26));
 		clients.add(new Client("oso", "7653", 40));
 >>>>>>> Douglas
+=======
+		clients.add(new Client("Doug", "6375"));
+		clients.add(new Client("Halina", "6311"));
+		clients.add(new Client("Coach Wilson", "1234"));
+		clients.add(new Client("Matt", "5678"));
+		clients.add(new Client("Emily", "9101"));
+		clients.add(new Client("Sheree", "5343"));
+		clients.add(new Client("Ryan", "5235"));
+		clients.add(new Client("Mia", "5656"));
+		clients.add(new Client("Maddie", "7335"));
+		clients.add(new Client("Oso", "7653"));
+		clients.add(new Client("Caleb", "7831"));
+>>>>>>> Caleb
 
 		primaryStage.setTitle("Lawn Care Made Simple");
 

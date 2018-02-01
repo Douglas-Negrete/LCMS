@@ -8,12 +8,18 @@ public class Client {
 	private double owed;
 	private LinkedList<Lawn> lawnList;
 	int lawnNumber;
+<<<<<<< HEAD
 
 	public Client(String name, String billAddress, double owed) {
+=======
+	
+	public Client(String name, String billAddress) {
+>>>>>>> Caleb
 		super();
 		this.lawnList = new LinkedList<>();
 		this.name = name;
 		this.billAddress = billAddress;
+<<<<<<< HEAD
 		this.owed = owed;
 	}//end constructor
 
@@ -30,6 +36,14 @@ public class Client {
 
 		return name;
 
+=======
+	}
+
+	public String getName() {
+		
+		return this.name;
+		
+>>>>>>> Caleb
 	}//end getname
 
 	public void setName(String name) {
@@ -39,9 +53,15 @@ public class Client {
 	}//end setname
 
 	public String getBillAddress() {
+<<<<<<< HEAD
 
 		return billAddress;
 
+=======
+		
+		return this.billAddress;
+		
+>>>>>>> Caleb
 	}//end getbilladdress
 
 	public void setBillAddress(String billAddress) {
@@ -51,9 +71,15 @@ public class Client {
 	}//end setbilladdress
 
 	public double getOwed() {
+<<<<<<< HEAD
 
 		return owed;
 
+=======
+		
+		return this.owed;
+		
+>>>>>>> Caleb
 	}//end getowed
 
 	public void setOwed(double owed) {
@@ -71,13 +97,26 @@ public class Client {
 	public void addLawn(Lawn l) {
 
 		lawnList.add(l);
+<<<<<<< HEAD
 
+=======
+		lawnNumber++;
+		
+>>>>>>> Caleb
 	}//end addLawn
 
 	public void removeLawn(Lawn l) {
 
 		lawnList.remove(l);
+<<<<<<< HEAD
 
 	}//end removeLawn
 
+=======
+		lawnNumber--;
+		
+	}//end removeLawn
+
+	
+>>>>>>> Caleb
 }//end class
