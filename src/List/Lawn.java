@@ -7,9 +7,13 @@ import java.util.Date;
 
 public class Lawn {
 
+<<<<<<< HEAD
 	private String address, lawnName, genLocation, notes;
+=======
+	private String client, address, lawnName, genLocation;
+>>>>>>> Douglas
 	private Date nextMow, lastMow;
-	private int clientID, interval;
+	private int interval;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
 	
@@ -17,19 +21,31 @@ public class Lawn {
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 	
 	
-	public Lawn(String address, String lawnName, String genLocation, int clientID, int interval, double price) {
+	public Lawn(String client, String address, String lawnName, String genLocation, int interval, double price) {
 		
 		super();
+		this.client = client;
 		this.address = address;
 		this.lawnName = lawnName;
 		this.genLocation = genLocation;
-		this.clientID = clientID;
 		this.interval = interval;
 		this.price = price;
 		this.nextMow = this.cal.getTime();
 		this.notes = "";
 		
 	}//end constructor
+
+	public String getClient() {
+		
+		return client;
+		
+	}//end getclient
+
+	public void setClient(String client) {
+		
+		this.client = client;
+		
+	}//end setclient
 
 	public String getAddress() {
 		
@@ -90,18 +106,6 @@ public class Lawn {
 		this.lastMow = lastMow;
 		
 	}//end setlastmow
-	
-	public int getClientID() {
-		
-		return clientID;
-		
-	}//end getclientid
-	
-	public void setClientID(int clientID) {
-		
-		this.clientID = clientID;
-		
-	}//end setclientid
 	
 	public int getInterval() {
 		
