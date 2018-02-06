@@ -64,7 +64,7 @@ public class Client {
 
 	public String getLawnName(int i) {
 
-		return this.lawnList.get(i).getLawnName();
+		return this.getName() + ", " + this.lawnList.get(i).getLawnName();
 
 	}//end getLawnName
 

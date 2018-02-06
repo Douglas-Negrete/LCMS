@@ -23,6 +23,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -38,6 +39,7 @@ import javafx.stage.WindowEvent;
 public class GUI extends Application {
 
 	FileIO io = new FileIO();
+	int shown = -1;// 0 == client, 1 == lawn, 2 == checkedLawn
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -89,6 +91,8 @@ public class GUI extends Application {
 		Menu menuFile = new Menu("File");//file submenu for the menu
 		Menu menuEdit = new Menu("Edit");//edit submenu
 		Menu menuView = new Menu("View");//view what is displayed in the right pane list
+		MenuItem importList = new MenuItem("Import"),
+				backUp = new MenuItem("Back Up");
 		MenuItem client = new MenuItem("Clients"),//menu items for the view option: current clients,
 				lawn = new MenuItem("Lawns"),//     current lawns, which lawns have been taken care of
 				chkdLwn = new MenuItem("Checked Lawns");
@@ -138,20 +142,46 @@ public class GUI extends Application {
 
 >>>>>>> Douglas
 		menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
+		
+		menuFile.getItems().addAll(importList, backUp);
 
-		lawn.setOnAction(new EventHandler<ActionEvent>() {
+		menuView.getItems().addAll(client, lawn, chkdLwn);
+
+		client.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent t) {
 
-				//list = FXCollections.<String>observableArrayList(io.getLawnName());
-				populateList(listView, list, io.getLawnName());
-				listView.setVisible(true);
+				shown = 0;
+				rightPane.getChildren().remove(1);
+				rightPane.getChildren().add(1, populateList(list, io.getClientName()));
 
 			}//end handle
 
 		});//end setonaction
+		
+		lawn.setOnAction(new EventHandler<ActionEvent>() {
 
-		menuView.getItems().addAll(client, lawn, chkdLwn);
+			public void handle(ActionEvent t) {
+
+				shown = 1;
+				rightPane.getChildren().remove(1);
+				rightPane.getChildren().add(1, populateList(list, io.getLawnName()));
+
+			}//end handle
+
+		});//end setonaction
+		
+		listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				
+				System.out.println(listView.getFocusModel().getFocusedItem());
+				
+				
+			}//end handle
+			
+		});//end setonmouseclicked
 
 		searchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {//creates a keylistener on the searchbox
 
@@ -174,12 +204,14 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				centerPane.getChildren().clear();
+				btnPane.getChildren().clear();
+				btnPane.getChildren().addAll(addClntBtn, cnclAddBtn);
 				addClntLwnLbl.setSpacing(20);
 				addClntLwnLbl.setPadding(new Insets(20,2,20,20));
-				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwedLbl, addClntBtn);
-				addClntLwnTF.setSpacing(10);
+				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwedLbl);
+				addClntLwnTF.setSpacing(11);
 				addClntLwnTF.setPadding(new Insets(20,20,20,2));
-				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cOwedTF, cnclAddBtn);
+				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cOwedTF, btnPane);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -193,12 +225,14 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				centerPane.getChildren().clear();
+				btnPane.getChildren().clear();
+				btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 				addClntLwnLbl.setSpacing(20);
-				addClntLwnLbl.setPadding(new Insets(20,2,20,20));
-				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, addLwnBtn);
-				addClntLwnTF.setSpacing(10);
+				addClntLwnLbl.setPadding(new Insets(21,2,20,20));
+				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl);
+				addClntLwnTF.setSpacing(11);
 				addClntLwnTF.setPadding(new Insets(20,20,20,2));
-				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, cnclAddBtn);
+				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, btnPane);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -213,7 +247,10 @@ public class GUI extends Application {
 
 				io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText(), Double.parseDouble(cOwedTF.getText())));
 				rightPane.getChildren().remove(1);
-				rightPane.getChildren().add(1, populateList(listView, list, io.getClientName()));
+				if(shown == 0)
+					rightPane.getChildren().add(1, populateList(list, io.getClientName()));
+				else if(shown == 1)
+					rightPane.getChildren().add(1, populateList(list, io.getLawnName()));
 				cNameTF.setText("");
 				cBiAdTF.setText("");
 				cOwedTF.setText("");
@@ -232,9 +269,14 @@ public class GUI extends Application {
 
 				int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
 				if(i != -1) {//if the client exists
-					
+
 					io.addLawn(i, new Lawn(lClientTF.getText(), lAddressTF.getText(), lLawnNameTF.getText(),
 							lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText())));
+					rightPane.getChildren().remove(1);
+					if(shown == 0)
+						rightPane.getChildren().add(1, populateList(list, io.getClientName()));
+					else if(shown == 1)
+						rightPane.getChildren().add(1, populateList(list, io.getLawnName()));
 					lClientTF.setText("");
 					lAddressTF.setText("");
 					lLawnNameTF.setText("");
@@ -244,35 +286,35 @@ public class GUI extends Application {
 					addClntLwnLbl.getChildren().clear();
 					addClntLwnTF.getChildren().clear();
 					centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
-					
+
 				}
 				else {//the client does not exist
-					
+
 					lClientTF.setText("");//clears the client name area
-					
+
 					Alert alert = new Alert(AlertType.INFORMATION);//creates a dialog box warning the user that the client does not exist
 					alert.setTitle("Lawn Creation Error");
 					alert.setHeaderText(null);
 					alert.setContentText("The client entered does not exist!");
 					alert.showAndWait();
-					
+
 				}
 
 			}//end handle
 
 		});//end setonaction
-		
+
 		cnclAddBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				
+
 				addClntLwnLbl.getChildren().clear();
 				addClntLwnTF.getChildren().clear();
 				centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
-				
+
 			}//end handle
-			
+
 		});//end setonaction
 
 		topPane.getChildren().add(menuBar);
@@ -283,8 +325,10 @@ public class GUI extends Application {
 
 		centerPane.setSpacing(10);
 		centerPane.setPadding(new Insets(20, 20, 20, 20));
-
 		centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
+		
+		btnPane.setSpacing(10);
+		btnPane.setPadding(new Insets(0, 20, 20, 20));
 
 		rightPane.setSpacing(10);
 		rightPane.setPadding(new Insets(20, 20, 20, 20));
@@ -310,11 +354,10 @@ public class GUI extends Application {
 
 	}//end start
 
-	public ListView<String> populateList(ListView<String> lv, ObservableList<String> list, String[] s) {
+	public ListView<String> populateList(ObservableList<String> list, String[] s) {
 
 		list = FXCollections.<String>observableArrayList(s);
 		return new ListView<>(list);
-		//System.out.println(list.toString());
 
 	}//end populateList
 
