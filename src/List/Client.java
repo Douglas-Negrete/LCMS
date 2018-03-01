@@ -84,6 +84,16 @@ public class Client {
 
 	}//end getLawnName
 	
+	public Lawn getLawnFromAddress(String s) {
+		
+		for(int i = 0; i < this.lawnList.size(); i++)
+			if(this.lawnList.get(i).getAddress().equals(s))
+				return this.lawnList.get(i);
+		
+		return null;
+		
+	}//end getlawnfromaddress
+	
 	public Lawn getSingleLawn(int i) {
 		
 		return this.lawnList.get(i);

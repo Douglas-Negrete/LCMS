@@ -609,6 +609,37 @@ public class GUI extends Application {
 				final ComboBox<String> comboBox = new ComboBox<>(options);
 				centerPane.getChildren().clear();
 				centerPane.getChildren().add(comboBox);
+				
+				comboBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+					@Override
+					public void handle(MouseEvent event) {
+						
+						tempLwn = tempClnt.getLawnFromAddress(comboBox.getValue());
+						centerPane.getChildren().clear();
+						btnPane.getChildren().clear();
+						addClntLwnLbl.getChildren().clear();
+						lClientTF.setText(tempLwn.getClient().toString());
+						lAddressTF.setText(tempLwn.getAddress().toString());
+						lLawnNameTF.setText(tempLwn.getLawnName().toString());
+						lGenLocationTF.setText(tempLwn.getGenLocation().toString());
+						lIntervalTF.setText("" + tempLwn.getInterval());
+						lPriceTF.setText("" + tempLwn.getPrice());
+						btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
+						addClntLwnLbl.getChildren().clear();
+						addClntLwnLbl.setSpacing(20);
+						addClntLwnLbl.setPadding(new Insets(21,2,20,20));
+						addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl);
+						addClntLwnTF.getChildren().clear();
+						addClntLwnTF.setSpacing(11);
+						addClntLwnTF.setPadding(new Insets(20,20,20,2));
+						addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, btnPane);
+						centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
+						border.setCenter(centerPane);
+						
+					}//end handle
+					
+				});//end setonmouseclicked
 
 			}//end handle
 
