@@ -1,53 +1,244 @@
 package List;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Scanner;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class FileIO {
 
-	private File backupFile;
+	private File backupFile, backupFileLocation = new File("backupFileLocation.txt");
+	private int numClients;
 	private LinkedList<Client> clientList;
+	public LinkedList<String> emailList;
+	public String companyName;
 
 	public FileIO() {
 
-		clientList = new LinkedList<>();
+		readBackupFileLocation();
 
-		clientList.add(new Client("doug", "6375", 20));
-		clientList.add(new Client("halina", "6311", 21));
-		clientList.add(new Client("coach wilson", "1234", 22));
-		clientList.add(new Client("matt", "5678", 23));
-		clientList.add(new Client("emily", "9101", 22));
-		clientList.add(new Client("sheree", "5343", 25));
-		clientList.add(new Client("ryan", "5235", 50));
-		clientList.add(new Client("mia", "5656", 23));
-		clientList.add(new Client("maddie", "7335", 26));
-		clientList.add(new Client("oso", "7653", 40));
+		clientList = new LinkedList<>();
+		emailList = new LinkedList<>();
+
+		//readInBackupFile();//clientList
+
+		//generateBackupFile();
 
 	}//end default constructor
 	
+	public void removefiles() {
+		
+		backupFile.delete();
+		backupFileLocation.delete();
+		
+	}
+
 	public void addLawn(int i, Lawn l) {
-		
+
 		clientList.get(i).addLawn(l);
-		
+
 	}//end addlawn
-	
+
 	public void addClient(Client c) {
-		
+
 		clientList.add(c);
-		
+		this.numClients++;
+
 	}//end addClient
+	
+	public void removeClient(int i) {
+		
+		this.clientList.remove(i);
+		
+	}//end remove client
 
-	public void generateBackupFile(Lawn[] list){
+	public void generateBackupFile()
+	{
+		FileWriter writer;
+		PrintWriter outFile;
 
+		try
+		{
+			writer = new FileWriter(backupFile);
+			outFile = new PrintWriter(writer);
 
+			outFile.println("#FILESTART");
+			for (int i = 0; i < clientList.size(); i++)
+			{
+				outFile.println(clientList.get(i).toFile());
+			}
+			outFile.println("#ENDCLIENT");
+			for (int i = 0; i < emailList.size(); i++)
+				outFile.println(emailList.get(i));
+			outFile.println("#ENDEMAILS");
+			outFile.println(companyName);
+			outFile.println("#ENDALL");
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
 
 	}//end generatebackuplist
 
-	public void readInBackupFile(File file) {
+	public void readInBackupFile()//LinkedList<Client> list) 
+	{
+		FileReader reader;
+		Scanner inFile;
 
+		//backupFile = new File("C:\\Users\\ama82\\workspace\\LCMS\\src\\backupOutputTest.txt");
+
+		try
+		{
+			reader = new FileReader(backupFile);
+			inFile = new Scanner(reader);
+			int i = 0;
+			String delims = ";";
+
+			while(inFile.hasNext())
+			{
+				String temp = inFile.nextLine();
+				while (!temp.equals("#ENDCLIENT"))
+				{
+					temp = inFile.nextLine();
+					if (temp.equals("#ENDCLIENT"))
+						break;
+					String[] line = temp.split(delims);
+					System.out.println(Arrays.toString(line));
+					Client tempClient = new Client(line[0], line[1]);
+					tempClient.setOwed(Double.parseDouble(line[2]));
+					clientList.add(tempClient);
+					i++;
+
+					while (!temp.equals("#ENDLAWN"))
+					{
+						temp = inFile.nextLine();
+						if (temp.equals("#ENDLAWN") || temp.equals("#ENDCLIENT"))
+							break;
+						line = temp.split(delims);
+						// System.out.println(Arrays.toString(line));
+						Lawn tempLawn = new Lawn(tempClient,line[0],line[1],line[2],
+								Integer.parseInt(line[3]), Double.parseDouble(line[4]));
+						//tempLawn.setLastMow(line[5]);
+						tempLawn.setLastMow(line[5]);
+						tempLawn.setNextMow(line[6]);
+						tempLawn.setNotes(inFile.nextLine());
+
+						tempClient.addLawn(tempLawn);
+
+					}
+				}
+				System.out.println("here");
+				while (!temp.equals("#ENDEMAILS"))
+				{
+					temp = inFile.nextLine();
+					if (temp.equals("#ENDEMAILS") || temp.equals(""))
+						break;
+					emailList.add(temp);
+					System.out.println(temp);
+				}
+				companyName = inFile.nextLine();
+				inFile.nextLine();
+			}
+			System.out.println("All info read in for " + companyName);
+			System.out.println("Contains " + i + " Clients");
+			setNumClients(i);
+
+			inFile.close();
+			reader.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (java.lang.ArrayIndexOutOfBoundsException e) 
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Input Dialog");
+			alert.setHeaderText("System Error");
+			alert.setContentText("An error has occured reading in the client information.");
+
+			alert.showAndWait();
+			// frame.setEnabled(false);
+			e.printStackTrace();
+		} catch (ParseException e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Input Dialog");
+			alert.setHeaderText("System Error");
+			alert.setContentText("An error has occured reading in the client information.");
+
+			alert.showAndWait();
+			e.printStackTrace();
+		}
 
 
 	}//end readinbackupfile
+	
+	public void readBackupFileLocation() {
+		
+		FileReader reader;
+		Scanner inFile;
+
+
+		try
+		{
+			reader = new FileReader(backupFileLocation);
+			inFile = new Scanner(reader);
+
+			while(inFile.hasNext())
+			{
+				String temp = inFile.nextLine();
+				backupFile = new File(temp);
+				System.out.println("Does the file exist - " + backupFile.exists());
+			}
+
+			inFile.close();
+			reader.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void setBackupFileLocation(String s) {
+		
+		FileWriter writer;
+		PrintWriter outFile;
+
+		try
+		{
+			writer = new FileWriter(backupFileLocation);
+			outFile = new PrintWriter(writer);
+
+			outFile.println(s);
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
+		
+	}
+
+	public void setBackupFile(File f) {
+
+		this.backupFile = f;
+
+	}//end setbackupfile
+
+	public boolean isNew() {
+
+		if(backupFile == null)
+			return true;
+
+		return false;
+
+	}//end isnew
 
 	public String encryptInformation() {
 
@@ -78,21 +269,43 @@ public class FileIO {
 
 
 	}//end populateLawns
-	
+
+	public int getNumClients() {
+		return numClients;
+	}
+
+	public void setNumClients(int numClients) {
+		this.numClients = numClients;
+	}
+
+	public String printClients()
+	{
+		String s = "";
+		for (int i = 0; i < getNumClients(); i++)
+			s += clientList.get(i);
+		return s;
+	}
+
+	public Client getClient(int i) {
+
+		return clientList.get(i);
+
+	}//end getClient
+
 	public int getClientIndex(String name) {
-		
+
 		for(int i = 0; i < clientList.size(); i++) {
-			
+
 			if(clientList.get(i).getName().equals(name))
 				return i;
-			
+
 		}
-		
+
 		return -1;
-		
+
 	}//end getclientindex
 
-	public String[] getClientName() {
+	public String[] getClientNames() {
 
 		String[] names;
 		if(clientList.size() != 0)
@@ -109,17 +322,17 @@ public class FileIO {
 		return names;
 
 	}//end getclientname
-	
-	public String[] getLawnName() {
+
+	public String[] getLawnNames() {
 
 		int lawns = 0;
-		
+
 		for(int i = 0; i < clientList.size(); i++) {
-			
+
 			lawns += clientList.get(i).lawnListSize();
-			
+
 		}
-		
+
 		String[] names;
 		if(clientList.size() != 0)
 			names = new String[lawns];
@@ -127,20 +340,20 @@ public class FileIO {
 			return null;
 
 		int t = 0;
-		
+
 		for(int i = 0; i < this.clientList.size(); i++) {
 
 			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
-				
-				names[t] = clientList.get(i).getLawnName(j);
+
+				names[t] = clientList.get(i).getSingleLawnName(j);
 				t++;
-				
+
 			}
 
 		}
 
 		return names;
-		
+
 	}//end getLawnName
 
 }//end class
