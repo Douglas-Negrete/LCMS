@@ -80,7 +80,7 @@ public class Client {
 
 	public String getSingleLawnName(int i) {
 
-		return this.getName() + ", " + this.lawnList.get(i).getLawnName();
+		return this.getName() + ", " + this.lawnList.get(i).getAddress() + ", " + this.lawnList.get(i).getLawnName();
 
 	}//end getLawnName
 	

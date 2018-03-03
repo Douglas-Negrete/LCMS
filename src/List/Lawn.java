@@ -40,14 +40,16 @@ public class Lawn {
 		
 	}//end setActive
 	
-	public void setNumMows(int num)
-	{
+	public void setNumMows(int num) {
+		
 	  this.numMows = num;
+	  
 	}
 	
-	public int setNumMows()
-	{
+	public int setNumMows() {
+		
 	 return this.numMows;
+	 
 	}
 
 	public Client getClient() {

@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -39,6 +41,19 @@ public class FileIO {
 		//generateBackupFile();
 
 	}//end default constructor
+	
+	public Lawn getLawn(String s) {
+		
+		for(int i = 0; i < lawnList.size(); i++) {
+			
+			if(lawnList.get(i).getAddress().equals(s))
+				return lawnList.get(i);
+			
+		}
+		
+		return null;
+		
+	}//end getLawn
 	
 	public void setBackupEmail(String s) {
 		
@@ -148,7 +163,7 @@ public class FileIO {
 						tempLawn.setLastMow(line[5]);
 						tempLawn.setNextMow(line[6]);
 						tempLawn.setNotes(inFile.nextLine());
-
+						lawnList.add(tempLawn);
 						tempClient.addLawn(tempLawn);
 
 					}
@@ -167,6 +182,8 @@ public class FileIO {
 			System.out.println("All info read in for " + companyName);
 			System.out.println("Contains " + i + " Clients");
 			setNumClients(i);
+			
+			sortLawns();
 
 			inFile.close();
 			reader.close();
@@ -358,8 +375,33 @@ public class FileIO {
 				lawnList.add(getClient(i).getSingleLawn(j));
 			
 		}
+		
+		sortLawns();
 
 	}//end populateLawns
+	
+	public void sortLawns() {
+		
+		Collections.sort(lawnList, new Comparator<Lawn>() {
+
+			@Override
+			public int compare(Lawn c1, Lawn c2) {
+				
+				if(c1.sf.format(c1.getNextMow()).equals(c1.sf.format(c2.getNextMow()))) {
+					
+					if(c1.getGenLocation().compareTo(c2.getGenLocation()) == 0)
+						return c1.getLawnName().compareTo(c2.getLawnName());
+					return c1.getGenLocation().compareTo(c2.getGenLocation());
+					
+				}
+				else
+					return c1.getNextMow().compareTo(c2.getNextMow());
+				
+			}//end compare
+			
+		});//end sort
+		
+	}//end sortLawns
 
 	public int getNumClients() {
 		return numClients;
@@ -416,31 +458,37 @@ public class FileIO {
 
 	public String[] getLawnNames() {
 
-		int lawns = 0;
-
-		for(int i = 0; i < clientList.size(); i++) {
-
-			lawns += clientList.get(i).lawnListSize();
-
-		}
-
-		String[] names;
-		if(clientList.size() != 0)
-			names = new String[lawns];
-		else
-			return null;
-
-		int t = 0;
-
-		for(int i = 0; i < this.clientList.size(); i++) {
-
-			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
-
-				names[t] = clientList.get(i).getSingleLawnName(j);
-				t++;
-
-			}
-
+//		int lawns = 0;
+//
+//		for(int i = 0; i < clientList.size(); i++) {
+//
+//			lawns += clientList.get(i).lawnListSize();
+//
+//		}
+//
+		String[] names = new String[lawnList.size()];
+//		if(clientList.size() != 0)
+//			names = new String[lawns];
+//		else
+//			return null;
+//
+//		int t = 0;
+//
+//		for(int i = 0; i < this.clientList.size(); i++) {
+//
+//			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
+//
+//				names[t] = clientList.get(i).getSingleLawnName(j);
+//				t++;
+//
+//			}
+//
+//		}
+		
+		for(int i = 0; i < lawnList.size(); i++) {
+			
+			names[i] = lawnList.get(i).getClient().getName() + ", " + lawnList.get(i).getAddress() + ", " + lawnList.get(i).getLawnName();
+			
 		}
 
 		return names;
