@@ -404,20 +404,25 @@ public class FileIO {
 	}//end sortLawns
 
 	public int getNumClients() {
+		
 		return numClients;
+		
 	}
 
 	public void setNumClients(int numClients) {
+		
 		this.numClients = numClients;
+		
 	}
 
-	public String printClients()
-	{
+	public String printClients() {
+		
 		String s = "";
 		for (int i = 0; i < getNumClients(); i++)
 			s += clientList.get(i);
 		return s;
-	}
+		
+	}//end printclients
 
 	public Client getClient(int i) {
 
@@ -458,32 +463,7 @@ public class FileIO {
 
 	public String[] getLawnNames() {
 
-//		int lawns = 0;
-//
-//		for(int i = 0; i < clientList.size(); i++) {
-//
-//			lawns += clientList.get(i).lawnListSize();
-//
-//		}
-//
 		String[] names = new String[lawnList.size()];
-//		if(clientList.size() != 0)
-//			names = new String[lawns];
-//		else
-//			return null;
-//
-//		int t = 0;
-//
-//		for(int i = 0; i < this.clientList.size(); i++) {
-//
-//			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
-//
-//				names[t] = clientList.get(i).getSingleLawnName(j);
-//				t++;
-//
-//			}
-//
-//		}
 		
 		for(int i = 0; i < lawnList.size(); i++) {
 			

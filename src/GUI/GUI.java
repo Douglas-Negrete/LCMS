@@ -29,6 +29,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -144,7 +145,7 @@ public class GUI extends Application {
 
 		primaryStage.setTitle("Lawn Care Made Simple");//title
 		Scene scene = new Scene(new VBox(), 1100, 600);//window size
-		//primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
+		primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
 		Menu menuFile = new Menu("File");//file submenu for the menu
@@ -346,6 +347,7 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
+				displayInfo.getChildren().clear();
 
 				shown = 0;
 				rightPane.getChildren().remove(1);
@@ -361,6 +363,7 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				centerPane.getChildren().clear();
+				displayInfo.getChildren().clear();
 
 				shown = 1;
 				rightPane.getChildren().remove(1);
@@ -600,6 +603,8 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonkeypressed
+		
+		iSortedLawnsLbl.setFont(new Font(20));
 
 		searchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {//creates a keylistener on the searchbox
 
@@ -624,7 +629,7 @@ public class GUI extends Application {
 
 		lawnTA.setEditable(false);
 		lawnTA.setMinWidth(325);
-		lawnTA.setMaxWidth(325);
+		lawnTA.setMaxWidth(440);
 		lawnTA.setMinHeight(400);
 		lawnTA.setMaxHeight(500);
 		
@@ -879,9 +884,7 @@ public class GUI extends Application {
 				addClntLwnTF.getChildren().clear();
 				centerPane.getChildren().clear();
 
-				if(addClntBtn.getText().equals("Add Client"))
-					centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
-				else if(addClntBtn.getText().equals("Update Client") || addClntBtn.getText().equals("Update Lawn")) {
+				if(addClntBtn.getText().equals("Update Client") || addClntBtn.getText().equals("Update Lawn")) {
 
 					centerPane.getChildren().clear();
 					addClntLwnLbl.getChildren().clear();
@@ -1199,14 +1202,12 @@ public class GUI extends Application {
 
 	public String[] search(TextField search, String[] list) {
 
-		//String[] s;
 		ArrayList<String> temp = new ArrayList<>();
 
 		for(int i = 0; i < list.length; i++)
 			if(list[i].startsWith(search.getText()))
 				temp.add(list[i]);
 
-		//return s = temp.toArray(new String[temp.size()]);
 		return temp.toArray(new String[temp.size()]);
 
 	}//end search
