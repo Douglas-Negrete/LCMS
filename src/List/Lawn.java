@@ -11,9 +11,10 @@ public class Lawn {
 	private Client client;
 	private String address, lawnName, genLocation, notes;
 	private Date nextMow, lastMow;
-	private int interval;
+	private int interval, numMows;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
+	private boolean active = true;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
@@ -30,8 +31,24 @@ public class Lawn {
 		setLastMow(this.cal.getTime());
 		setNextMow(this.cal.getTime());
 		setNotes("");
-
+		
 	}//end constructor
+	
+	public void setActive(boolean b) {
+		
+		this.active = b;
+		
+	}//end setActive
+	
+	public void setNumMows(int num)
+	{
+	  this.numMows = num;
+	}
+	
+	public int setNumMows()
+	{
+	 return this.numMows;
+	}
 
 	public Client getClient() {
 
