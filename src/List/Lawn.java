@@ -14,12 +14,11 @@ public class Lawn {
 	private int interval, numMows;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
-	private boolean active = true;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 
-	public Lawn(Client client, String address, String lawnName, String genLocation, int interval, double price) {
+	public Lawn(Client client, String address, String lawnName, String genLocation, int interval, double price, int numMows) {
 
 		super();
 		setAddress(address);
@@ -31,22 +30,43 @@ public class Lawn {
 		setLastMow(this.cal.getTime());
 		setNextMow(this.cal.getTime());
 		setNotes("");
+		setNumMows(numMows);
 		
 	}//end constructor
 	
-	public void setActive(boolean b) {
-		
-		this.active = b;
-		
-	}//end setActive
+	public boolean isActive()
+	{
+	  if (getNumMows() == 999) //999 is the flag if a lawn is being mowed or not 
+	  return false;
+	  else
+	  return true;
+	}
 	
-	public void setNumMows(int num) {
+	public void switchActive()
+	{
+	 if (getNumMows() == 999)
+		 setNumMows(0);
+	 else
+	     setNumMows(999);
+	}
+	
+	private void setNumMows(int num) {
 		
 	  this.numMows = num;
 	  
 	}
 	
-	public int setNumMows() {
+	public void iterateNumMows()
+	{
+	 setNumMows(getNumMows() + 1);
+	}
+	
+	public void resetMows()
+	{
+	 setNumMows(0);
+	}
+	
+	public int getNumMows() {
 		
 	 return this.numMows;
 	 
@@ -102,19 +122,20 @@ public class Lawn {
 
 	public Date getNextMow() {
 
-		return nextMow;
+		return this.nextMow;
 
 	}//end getnextmow
 
 	public void setNextMow(String nextMow) throws ParseException {
 
 		this.lastMow = sf.parse(nextMow);
+		System.out.println(nextMow);
 
 	}//end setnextmow
 
 	public Date getLastMow() {
 
-		return lastMow;
+		return this.lastMow;
 
 	}//end getlastmow
 
@@ -203,7 +224,7 @@ public class Lawn {
 	{
 		String s;
 		s = getAddress() + ";" + getLawnName() +";"+ getGenLocation() +";"+getInterval()+";";
-		s += df.format(getPrice()) +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
+		s += df.format(getPrice()) +";"+ getNumMows() +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
 		s += "\n" + getNotes();
 		return s;
 	}

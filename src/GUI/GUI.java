@@ -91,7 +91,7 @@ public class GUI extends Application {
 				temp = new File("BackupFile.txt");
 				io.setBackupFile(temp);
 				io.setBackupFileLocation(temp.getAbsolutePath());
-				io.addClient(new Client("Example Client", "123 Example Billing Address Ave"));
+				io.addClient(new Client("Example Client", "123 Example Billing Address Ave", "(999) 999-9999"));
 
 				TextInputDialog dialog = new TextInputDialog();
 				dialog.setTitle("Backup Email");
@@ -699,7 +699,7 @@ public class GUI extends Application {
 						io.getClient(io.getClientIndex(tempClnt.getName())).setBillAddress(cBiAdTF.getText());;
 					}
 					else
-						io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText()));
+						io.addClient(new Client(cNameTF.getText(), cBiAdTF.getText(), "DUMMY PHONE NUMBER"));
 
 					rightPane.getChildren().remove(1);
 					if(shown == 0)
@@ -741,7 +741,7 @@ public class GUI extends Application {
 							!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {
 
 						io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText(), lLawnNameTF.getText(),
-								lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText())));
+								lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText()),0));
 
 						rightPane.getChildren().remove(1);
 						if(shown == 0)
@@ -811,12 +811,12 @@ public class GUI extends Application {
 								Optional<ButtonType> confirmEmailBtn = confirmAddress.showAndWait();
 								if (confirmEmailBtn.get() == correct){
 
-									io.addClient(new Client(lClientTF.getText(), resultAddress.get()));
+									io.addClient(new Client(lClientTF.getText(), resultAddress.get(), "DUMMY PHONE NUMBER"));
 
 									io.addLawn(io.getClientIndex(lClientTF.getText()), 
 											new Lawn(io.getClient(io.getClientIndex(lClientTF.getText())), lAddressTF.getText(), 
 													lLawnNameTF.getText(), lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), 
-													Double.parseDouble(lPriceTF.getText())));
+													Double.parseDouble(lPriceTF.getText()),0));
 
 									rightPane.getChildren().remove(1);
 									if(shown == 0)

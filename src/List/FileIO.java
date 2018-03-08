@@ -146,8 +146,8 @@ public class FileIO {
 						break;
 					String[] line = temp.split(delims);
 					System.out.println(Arrays.toString(line));
-					Client tempClient = new Client(line[0], line[1]);
-					tempClient.setOwed(Double.parseDouble(line[2]));
+					Client tempClient = new Client(line[0], line[1], line[2]);
+					tempClient.setOwed(Double.parseDouble(line[3]));
 					clientList.add(tempClient);
 					i++;
 
@@ -159,9 +159,9 @@ public class FileIO {
 						line = temp.split(delims);
 						//System.out.println(Arrays.toString(line));
 						Lawn tempLawn = new Lawn(tempClient,line[0],line[1],line[2],
-								Integer.parseInt(line[3]), Double.parseDouble(line[4]));
-						tempLawn.setLastMow(line[5]);
-						tempLawn.setNextMow(line[6]);
+								Integer.parseInt(line[3]), Double.parseDouble(line[4]), Integer.parseInt(line[5]));
+						tempLawn.setLastMow(line[6]);
+						tempLawn.setNextMow(line[7]);
 						tempLawn.setNotes(inFile.nextLine());
 						lawnList.add(tempLawn);
 						tempClient.addLawn(tempLawn);

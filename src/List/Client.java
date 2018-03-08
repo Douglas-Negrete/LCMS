@@ -6,19 +6,20 @@ import java.util.LinkedList;
 
 public class Client {
 
-	private String name, billAddress;
+	private String name, billAddress, phoneNumber;
 	private double owed;
 	private LinkedList<Lawn> lawnList;
 	int lawnNumber;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 
-	public Client(String name, String billAddress) {
+	public Client(String name, String billAddress, String phoneNumber) {
 		super();
 		this.lawnList = new LinkedList<>();
 		this.name = name;
 		this.billAddress = billAddress;
 		this.owed = 0;
+		this.phoneNumber = phoneNumber;
 	}//end constructor
 
 	public int lawnListSize() {
@@ -114,7 +115,8 @@ public class Client {
 
 	public String toString()
 	{
-		String s = "Name: " + name + " Billing Address: " +  billAddress + " " + owed + "\n";
+		String s = "Name: " + name + " Billing Address: " +  billAddress + " PhoneNumber: " +
+				   phoneNumber + " " + owed + "\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toString();
 		return s;
@@ -123,7 +125,7 @@ public class Client {
 	public String toFile()
 	{
 		String s;
-		s = name+";"+billAddress+";"+df.format(owed)+"\n";
+		s = name+";"+billAddress+";"+phoneNumber+";"+df.format(owed)+"\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toFile() + "\n";
 		s += "#ENDLAWN";
