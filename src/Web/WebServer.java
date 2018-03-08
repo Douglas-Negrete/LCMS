@@ -1,3 +1,5 @@
+
+//public class WebServer {
 package Web;
 
 //package application;
@@ -11,7 +13,7 @@ public class WebServer {
 
 	public static String startServer() {
 
-		Server server = new Server(80);
+		Server server = new Server(1025);
 
 		String ipAddress = "";
 		try {
@@ -29,21 +31,21 @@ public class WebServer {
 			//ipAddress = inet.getHostAddress();
 			//System.out.println("This is the new address "+ipAddress);
 		} catch (UnknownHostException e) {
-			
+
 			System.out.println("ERROR1");
-			
+
 		}
 
-//		ServerConnector http = new ServerConnector(server);
-//		http.setHost(ipAddress);
-//		http.setHost("localhost");
-//		http.setIdleTimeout(30000);
-//		http.setPort(80);
-//		server.addConnector(http);
+		//			ServerConnector http = new ServerConnector(server);
+		//			http.setHost(ipAddress);
+		//			http.setHost("localhost");
+		//			http.setIdleTimeout(30000);
+		//			http.setPort(80);
+		//			server.addConnector(http);
 		server.setHandler(new WebHandler());
-		
-		try {
 
+		try {
+			//server.stop();
 			server.start();
 			//server.join();
 
@@ -52,9 +54,13 @@ public class WebServer {
 			e.printStackTrace();
 			System.out.println("ERROR2");
 		}
-		
+
 		return ipAddress;
 
 	}//end startServer
 
+	//		public static void main(String[] args) {startServer();}
+
 }//end class webServer
+
+//}

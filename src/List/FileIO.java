@@ -222,48 +222,12 @@ public class FileIO {
 		{
 			reader = new FileReader(backupFile);
 			inFile = new Scanner(reader);
-			int i = 0;
-			String delims = ";";
 
 			while(inFile.hasNext())
 			{
 				String temp = inFile.nextLine();
 				ta.appendText(temp+"\n");
-				while (!temp.equals("#ENDCLIENT"))
-				{
-					temp = inFile.nextLine();
-					ta.appendText(temp+"\n");
-					if (temp.equals("#ENDCLIENT"))
-						break;
-					String[] line = temp.split(delims);
-					System.out.println(Arrays.toString(line));
-					i++;
-
-					while (!temp.equals("#ENDLAWN"))
-					{
-						temp = inFile.nextLine();
-						ta.appendText(temp+"\n");
-						if (temp.equals("#ENDLAWN") || temp.equals("#ENDCLIENT"))
-							break;
-						line = temp.split(delims);
-					}
-				}
-				while (!temp.equals("#ENDEMAILS"))
-				{
-					temp = inFile.nextLine();
-					ta.appendText(temp+"\n");
-					if (temp.equals("#ENDEMAILS") || temp.equals(""))
-						break;
-					//emailList.add(temp);
-					System.out.println(temp);
-				}
-				//companyName = inFile.nextLine();
-				ta.appendText(inFile.nextLine()+"\n");
-				inFile.nextLine();
 			}
-			System.out.println("All info read in for " + companyName);
-			System.out.println("Contains " + i + " Clients");
-			setNumClients(i);
 
 			inFile.close();
 			reader.close();

@@ -29,13 +29,15 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -145,7 +147,7 @@ public class GUI extends Application {
 
 		primaryStage.setTitle("Lawn Care Made Simple");//title
 		Scene scene = new Scene(new VBox(), 1100, 600);//window size
-		primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
+		//primaryStage.getIcons().add(new Image("/src/lawnMower.png"));
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
 		Menu menuFile = new Menu("File");//file submenu for the menu
@@ -182,16 +184,7 @@ public class GUI extends Application {
 				lGenLocationLbl = new Label("General Location:"),
 				lIntervalLbl = new Label("Interval(Days):"),
 				lPriceLbl = new Label("Price:");
-		Label iLawnNameLbl = new Label(),
-				iAddressLbl = new Label(),
-				iGenLocationLbl = new Label(),
-				iClientLbl = new Label(),
-				iLastMowedLbl = new Label(),
-				iNextMowLbl = new Label(),
-				iCostLbl = new Label(),
-				iIntervalLbl = new Label(),
-				iNotesLbl = new Label("Notes"),
-				iSortedLawnsLbl = new Label("Lawns by Next Mow Date");
+		Label iSortedLawnsLbl = new Label("Lawns by Next Mow Date");
 		Label sCompanyNameLbl = new Label("Set Company Name:"),
 				sAutoBackupLbl = new Label("Set Auto Backup:"),
 				sDisableServerLbl = new Label("Disable Server:"),
@@ -228,6 +221,9 @@ public class GUI extends Application {
 				editLwnBtn = new Button("Edit Lawn"),
 				delClntBtn = new Button("Delete Client"),
 				delLwnBtn = new Button("Delete Lawn");
+		Button lSkipBtn = new Button("Skip"),
+				lMowedBtn = new Button("Mowed"),
+				lStopMowBtn = new Button("Stop Mowing");
 		Button sAddBtn = new Button("Add"),
 				sDelBtn = new Button("Delete"),
 				sUpdateBtn = new Button("Update");
@@ -398,6 +394,7 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 				
 				sidePanelBtn.getChildren().clear();
+				leftPane.getChildren().clear();
 				
 				displayInfo.getChildren().clear();
 				backupTitleLbl.setText("Backup File");
@@ -407,7 +404,7 @@ public class GUI extends Application {
 				bEmail.setFocusTraversable(false);
 				centerPane.getChildren().addAll(backupEmailLbl, bEmail, bSendBtn);
 				lawnTA.clear();
-				//lawnTA.autosize();
+				lawnTA.autosize();
 				io.printBackupFileTA(lawnTA);
 				lawnTA.autosize();
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
@@ -527,22 +524,22 @@ public class GUI extends Application {
 					tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
 					System.out.println(tempLwn.toString());
 					displayInfo.getChildren().clear();
-					iLawnNameLbl.setText("Name: " + tempLwn.getLawnName());
-					iAddressLbl.setText("Address: " + tempLwn.getAddress() + ", ");
-					iGenLocationLbl.setText("General Location: " + tempLwn.getGenLocation());
-					iAddressBox.getChildren().clear();
-					iAddressBox.getChildren().addAll(iAddressLbl, iGenLocationLbl);
-					iClientLbl.setText("Client: " + tempLwn.getClient().getName());
-					iLastMowedLbl.setText("Last Mowed: " + tempLwn.getLastMow());
-					iNextMowLbl.setText("Next Mow: " + tempLwn.getNextMow());
-					iCostLbl.setText("Cost: " + tempLwn.getPrice() + ", ");
-					iIntervalLbl.setText("Interval: " + tempLwn.getInterval());
-					iCostIntervalBox.getChildren().clear();
-					iCostIntervalBox.getChildren().addAll(iCostLbl, iIntervalLbl);
 					notesTA.clear();
 					notesTA.setMaxWidth(325);
-					displayInfo.getChildren().addAll(iLawnNameLbl, iAddressBox, iClientLbl, iLastMowedLbl,
-							iNextMowLbl, iCostIntervalBox, iNotesLbl, notesTA);
+					notesTA.setMinHeight(400);
+					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
+					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
+					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
+					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
+					notesTA.appendText("Last Mowed:\t\t" + tempLwn.getLastMow() + "\n");
+					notesTA.appendText("Next Mow:\t\t" + tempLwn.getNextMow() + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
+					notesTA.appendText("------------------------------------------------------\n");
+					notesTA.appendText("Notes\n");
+					btnPane.getChildren().clear();
+					btnPane.getChildren().addAll(lMowedBtn, lSkipBtn, lStopMowBtn, editLwnBtn);
+					displayInfo.getChildren().addAll(notesTA, btnPane);
 					border.setCenter(displayInfo);
 					
 				}
@@ -580,22 +577,22 @@ public class GUI extends Application {
 					tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
 					System.out.println(tempLwn.toString());
 					displayInfo.getChildren().clear();
-					iLawnNameLbl.setText("Name: " + tempLwn.getLawnName());
-					iAddressLbl.setText("Address: " + tempLwn.getAddress() + ", ");
-					iGenLocationLbl.setText("General Location: " + tempLwn.getGenLocation());
-					iAddressBox.getChildren().clear();
-					iAddressBox.getChildren().addAll(iAddressLbl, iGenLocationLbl);
-					iClientLbl.setText("Client: " + tempLwn.getClient().getName());
-					iLastMowedLbl.setText("Last Mowed: " + tempLwn.getLastMow());
-					iNextMowLbl.setText("Next Mow: " + tempLwn.getNextMow());
-					iCostLbl.setText("Cost: " + tempLwn.getPrice() + ", ");
-					iIntervalLbl.setText("Interval: " + tempLwn.getInterval());
-					iCostIntervalBox.getChildren().clear();
-					iCostIntervalBox.getChildren().addAll(iCostLbl, iIntervalLbl);
 					notesTA.clear();
 					notesTA.setMaxWidth(325);
-					displayInfo.getChildren().addAll(iLawnNameLbl, iAddressBox, iClientLbl, iLastMowedLbl,
-							iNextMowLbl, iCostIntervalBox, iNotesLbl, notesTA);
+					notesTA.setMinHeight(400);
+					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
+					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
+					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
+					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
+					notesTA.appendText("Last Mowed:\t\t" + tempLwn.getLastMow() + "\n");
+					notesTA.appendText("Next Mow:\t\t" + tempLwn.getNextMow() + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
+					notesTA.appendText("------------------------------------------------------\n");
+					notesTA.appendText("Notes\n");
+					btnPane.getChildren().clear();
+					btnPane.getChildren().addAll(lMowedBtn, lSkipBtn, lStopMowBtn, editLwnBtn);
+					displayInfo.getChildren().addAll(notesTA, btnPane);
 					border.setCenter(displayInfo);
 					
 				}
@@ -612,7 +609,6 @@ public class GUI extends Application {
 			public void handle(KeyEvent event) {
 
 				if(event.getCode().equals(KeyCode.ENTER)) {//when the enter key is pressed
-					//if(event.getCode().isLetterKey()) {
 
 					rightPane.getChildren().remove(1);
 					if(shown == 0)
@@ -632,6 +628,7 @@ public class GUI extends Application {
 		lawnTA.setMaxWidth(440);
 		lawnTA.setMinHeight(400);
 		lawnTA.setMaxHeight(500);
+		//lawnTA.setBackground(new Background(new BackgroundFill(Color.CRIMSON, null, null)));
 		
 		sortedLawnTA.setEditable(false);
 		sortedLawnTA.setMinWidth(250);
@@ -716,7 +713,7 @@ public class GUI extends Application {
 					addClntLwnLbl.getChildren().clear();
 					addClntLwnTF.getChildren().clear();
 					centerPane.getChildren().clear();
-					//centerPane.getChildren().addAll(clntPageBtn, lwnPageBtn);
+					
 				}
 				else {
 
@@ -738,8 +735,6 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
-
-				//if(Integer.
 
 				if(i != -1) {//if the client exists
 
@@ -935,7 +930,6 @@ public class GUI extends Application {
 				centerPane.getChildren().clear();
 				centerPane.getChildren().add(comboBox);
 
-				//comboBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				comboBox.setOnAction(new EventHandler<ActionEvent>() {
 
 					@Override
@@ -1104,7 +1098,6 @@ public class GUI extends Application {
 		iCostIntervalBox.setAlignment(Pos.CENTER);
 
 		settingsTFPane.setSpacing(10);
-		//settingsBtnPane.setPadding(new Insets(0, 10, 10, 10));
 		settingsTFPane.setAlignment(Pos.CENTER);
 		settingsTFPane.getChildren().addAll(sCompanyNameTF, sUpdateBtn);
 
@@ -1177,7 +1170,6 @@ public class GUI extends Application {
 	
 	public void populateSortedLawnTA(TextArea ta) {
 		
-		//io.sortLawns();
 		for(int i = 0; i < io.lawnList.size(); i++) {
 			
 			ta.insertText(i, "-------------------------------------------------\n" +
@@ -1193,7 +1185,6 @@ public class GUI extends Application {
 
 	public ListView<String> populateList(ListView<String> listView, String[] s) {
 
-		//list = FXCollections.<String>observableArrayList(s);
 		listView.getItems().clear();
 		listView.getItems().addAll(s);
 		return listView;
