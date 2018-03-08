@@ -1,10 +1,10 @@
 #FILESTART
 Douglas Negrete;6375;0.00
-6375 Syracuse Street Chino;Front;Chino;7;20.00;03-06-2018;03-08-2018
+6375 Syracuse Street Chino;Front;Chino;7;20.00;03-08-2018;03-08-2018
 
-6311 Chipola Ct Chino;Front;Chino;8;17.00;03-06-2018;03-08-2018
+6311 Chipola Ct Chino;Front;Chino;8;17.00;03-08-2018;03-08-2018
 
-1234 Test Lawn;Front;Chino;7;25.00;03-06-2018;03-08-2018
+1234 Test Lawn;Front;Chino;7;25.00;03-08-2018;03-08-2018
 
 #ENDLAWN
 Halina Carrera;6311;0.00
@@ -24,19 +24,19 @@ Mia Carrera;5656;0.00
 Maddie Negrete;7335;0.00
 #ENDLAWN
 Fred Myers;11 Freedom Lane;30.00
-11 Freedom Lane;Myers;Shady;10;30.00;03-06-2018;03-08-2018
+11 Freedom Lane;Myers;Shady;10;30.00;03-08-2018;03-08-2018
 Pull weeds along fence line
-65 Business District;Friendly Insurance;Beckley;7;20.00;03-06-2018;03-08-2018
+65 Business District;Friendly Insurance;Beckley;7;20.00;03-08-2018;03-08-2018
 
 #ENDLAWN
 Joe Smith;45 Townhouse St;100.00
-45 Townhouse St;Smith;Shady;7;45.00;03-06-2018;03-08-2018
+45 Townhouse St;Smith;Shady;7;45.00;03-08-2018;03-08-2018
 Pick up sticks along house
 #ENDLAWN
 Sandy Ruth;129 Laudry St;0.00
 #ENDLAWN
 Francine Rinner;31 Orange Road;30.00
-31 Orange Road;Rinner;Beckley;7;50.00;03-06-2018;03-08-2018
+31 Orange Road;Rinner;Beckley;7;50.00;03-08-2018;03-08-2018
 
 #ENDLAWN
 #ENDCLIENT

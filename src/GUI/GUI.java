@@ -32,12 +32,9 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -515,6 +512,7 @@ public class GUI extends Application {
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes);
 					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
 					border.setCenter(centerPane);
+					sidePanelBtn.getChildren().clear();
 					sidePanelBtn.getChildren().addAll(editClntBtn, editLwnBtn, delClntBtn, delLwnBtn);
 					border.setLeft(sidePanelBtn);
 
@@ -568,6 +566,7 @@ public class GUI extends Application {
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes);
 					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
 					border.setCenter(centerPane);
+					sidePanelBtn.getChildren().clear();
 					sidePanelBtn.getChildren().addAll(editClntBtn, editLwnBtn, delClntBtn, delLwnBtn);
 					border.setLeft(sidePanelBtn);
 

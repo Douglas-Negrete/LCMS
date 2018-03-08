@@ -11,13 +11,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		System.setProperty("glass.accessible.force", "false");
+		
+		GUI gui = new GUI();
 
 		new Thread() {//creates anonymous thread object
 
 			@Override
 			public void run() {
 
-				Application.launch(GUI.class);
+				//Application.launch(GUI.class);
+				Application.launch(gui.getClass());
 
 			}//end run method
 
