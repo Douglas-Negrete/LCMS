@@ -165,9 +165,9 @@ public class FileIO {
 						line = temp.split(delims);
 						//System.out.println(Arrays.toString(line));
 						Lawn tempLawn = new Lawn(tempClient,line[0],line[1],line[2],
-								Integer.parseInt(line[3]), Double.parseDouble(line[4]), Integer.parseInt(line[5]));
-						tempLawn.setLastMow(line[6]);
-						tempLawn.setNextMow(line[7]);
+								Integer.parseInt(line[3]), Double.parseDouble(line[4]));
+						tempLawn.setLastMow(line[5]);
+						tempLawn.setNextMow(line[6]);
 						tempLawn.setNotes(inFile.nextLine());
 						lawnList.add(tempLawn);
 						tempClient.addLawn(tempLawn);

@@ -163,4 +163,3 @@ public class Mailer {
 	}
 
 }//end class mailer
-

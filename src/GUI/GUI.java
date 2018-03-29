@@ -110,7 +110,7 @@ public class GUI extends Application {
 				temp = new File("BackupFile.txt");
 				io.setBackupFile(temp);
 				io.setBackupFileLocation(temp.getAbsolutePath());
-				io.addClient(new Client("Example Client", "123 Example Billing Address Ave", "(999) 999-9999"));
+				io.addClient(new Client("Example Client", "123 Example Billing Address Ave","8008888888"));
 
 				TextInputDialog dialog = new TextInputDialog();
 				dialog.setTitle("Backup Email");
@@ -911,12 +911,7 @@ public class GUI extends Application {
 
 						int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
 
-//<<<<<<< HEAD
 						if(i != -1) {//if the client exists
-//=======
-						io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText(), lLawnNameTF.getText(),
-								lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText()),0));
-//>>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 
 							if(!lAddressTF.getText().equals("") && !lLawnNameTF.getText().equals("") && !lGenLocationTF.getText().equals("") && 
 									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {
@@ -1042,7 +1037,7 @@ public class GUI extends Application {
 									io.addLawn(io.getClientIndex(lClientTF.getText()), 
 											new Lawn(io.getClient(io.getClientIndex(lClientTF.getText())), lAddressTF.getText(), 
 													lLawnNameTF.getText(), lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), 
-													Double.parseDouble(lPriceTF.getText()),0));
+													Double.parseDouble(lPriceTF.getText())));
 
 									rightPane.getChildren().remove(1);
 									if(shown == 0)

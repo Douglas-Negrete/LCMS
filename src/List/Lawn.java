@@ -19,7 +19,7 @@ public class Lawn {
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 
-	public Lawn(Client client, String address, String lawnName, String genLocation, int interval, double price, int numMows) {
+	public Lawn(Client client, String address, String lawnName, String genLocation, int interval, double price) {
 
 		super();
 		setAddress(address);
@@ -39,27 +39,17 @@ public class Lawn {
 		this.active = b;
 
 	}//end setActive
-	
-	private void setNumMows(int num) {
-		
-	  this.numMows = num;
-	  
+
+	public void setNumMows(int num) {
+
+		this.numMows = num;
+
 	}
-	
-	public void iterateNumMows()
-	{
-	 setNumMows(getNumMows() + 1);
-	}
-	
-	public void resetMows()
-	{
-	 setNumMows(0);
-	}
-	
-	public int getNumMows() {
-		
-	 return this.numMows;
-	 
+
+	public int setNumMows() {
+
+		return this.numMows;
+
 	}
 
 	public Client getClient() {
@@ -118,7 +108,7 @@ public class Lawn {
 
 	public Date getNextMow() {
 
-		return this.nextMow;
+		return nextMow;
 
 	}//end getnextmow
 
@@ -130,7 +120,7 @@ public class Lawn {
 
 	public Date getLastMow() {
 
-		return this.lastMow;
+		return lastMow;
 
 	}//end getlastmow
 
@@ -280,7 +270,7 @@ public class Lawn {
 	{
 		String s;
 		s = getAddress() + ";" + getLawnName() +";"+ getGenLocation() +";"+getInterval()+";";
-		s += df.format(getPrice()) +";"+ getNumMows() +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
+		s += df.format(getPrice()) +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
 		s += "\n" + getNotes();
 		return s;
 	}

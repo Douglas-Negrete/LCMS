@@ -1,5 +1,4 @@
 #FILESTART
-<<<<<<< HEAD
 Douglas Negrete;6375 Syracuse st Chino CA 91710;9095914130;0.00
 6375 Syracuse Street Chino;Front;Chino;7;20.00;03-20-2018;03-29-2018
 
@@ -32,36 +31,6 @@ Sandy Ruth;129 Laudry St;8008888888;0.00
 #ENDLAWN
 Francine Rinner;31 Orange Road;8008888888;30.00
 31 Orange Road;Rinner;Beckley;5;50.00;03-27-2018;04-01-2018
-=======
-Douglas Negrete;6375;(304) phone number;0.00
-6375 Syracuse Street Chino;Front;Chino;7;20.00;3;03-08-2018;03-08-2018
-
-6311 Chipola Ct Chino;Front;Chino;8;17.00;3;03-08-2018;03-08-2018
-
-1234 Test Lawn;Front;Chino;7;25.00;3;03-08-2018;03-08-2018
-
-#ENDLAWN
-Halina Carrera;6311;304 123 1234;0.00
-#ENDLAWN
-Coach Wilson;1234;(304) 482 9128;0.00
-#ENDLAWN
-Matthew Zoeter;5678;304-789-1234;0.00
-#ENDLAWN
-Fred Myers;11 Freedom Lane;304 817 1242;30.00
-11 Freedom Lane;Myers;Shady;10;30.00;0;03-08-2018;03-08-2018
-Pull weeds along fence line
-65 Business District;Friendly Insurance;Beckley;7;20.00;5;03-08-2018;03-08-2018
-
-#ENDLAWN
-Joe Smith;45 Townhouse St;128 123 3847;100.00
-45 Townhouse St;Smith;Shady;7;45.00;4;03-08-2018;03-08-2018
-Pick up sticks along house
-#ENDLAWN
-Sandy Ruth;129 Laudry St; ;0.00
-#ENDLAWN
-Francine Rinner;31 Orange Road; ;30.00
-31 Orange Road;Rinner;Beckley;7;50.00;7;03-08-2018;03-08-2018
->>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 
 #ENDLAWN
 #ENDCLIENT
