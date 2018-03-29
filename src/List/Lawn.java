@@ -14,6 +14,7 @@ public class Lawn {
 	private int interval, numMows;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
+	private boolean active = true;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
@@ -30,7 +31,6 @@ public class Lawn {
 		//		setLastMow(this.cal.getTime());
 		//		setNextMow(this.cal.getTime());
 		setNotes("");
-<<<<<<< HEAD
 
 	}//end constructor
 
@@ -39,37 +39,6 @@ public class Lawn {
 		this.active = b;
 
 	}//end setActive
-
-	public void setNumMows(int num) {
-
-		this.numMows = num;
-
-	}
-
-	public int setNumMows() {
-
-		return this.numMows;
-
-=======
-		setNumMows(numMows);
-		
-	}//end constructor
-	
-	public boolean isActive()
-	{
-	  if (getNumMows() == 999) //999 is the flag if a lawn is being mowed or not 
-	  return false;
-	  else
-	  return true;
-	}
-	
-	public void switchActive()
-	{
-	 if (getNumMows() == 999)
-		 setNumMows(0);
-	 else
-	     setNumMows(999);
-	}
 	
 	private void setNumMows(int num) {
 		
@@ -91,7 +60,6 @@ public class Lawn {
 		
 	 return this.numMows;
 	 
->>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 	}
 
 	public Client getClient() {
@@ -156,12 +124,7 @@ public class Lawn {
 
 	public String getStringLastMow() {
 
-<<<<<<< HEAD
 		return sf.format(lastMow);
-=======
-		this.lastMow = sf.parse(nextMow);
-		System.out.println(nextMow);
->>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 
 	}//end getlastmow
 
