@@ -8,10 +8,10 @@ public class Main {
 
 	static String ip;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		System.setProperty("glass.accessible.force", "false");
-		
+
 		GUI gui = new GUI();
 
 		new Thread() {//creates anonymous thread object
@@ -26,7 +26,11 @@ public class Main {
 
 		}.start();//end thread object
 
-		ip = WebServer.startServer();
+		if(gui.io.readServerFromFile()) {
+			
+			ip = WebServer.startServer();
+
+		}
 
 	}//end main
 

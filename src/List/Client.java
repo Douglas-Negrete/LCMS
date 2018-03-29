@@ -6,18 +6,19 @@ import java.util.LinkedList;
 
 public class Client {
 
-	private String name, billAddress;
+	private String name, billAddress, phoneNum;
 	private double owed;
 	private LinkedList<Lawn> lawnList;
 	int lawnNumber;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 
-	public Client(String name, String billAddress) {
+	public Client(String name, String billAddress, String phone) {
 		super();
 		this.lawnList = new LinkedList<>();
 		this.name = name;
 		this.billAddress = billAddress;
+		this.phoneNum = phone;
 		this.owed = 0;
 	}//end constructor
 
@@ -53,6 +54,18 @@ public class Client {
 		this.billAddress = billAddress;
 
 	}//end setbilladdress
+	
+	public String getPhoneNum() {
+
+		return phoneNum;
+
+	}//end getname
+
+	public void setPhoneNum(String phone) {
+
+		this.phoneNum = phone;
+
+	}//end setname
 
 	public double getOwed() {
 
@@ -114,7 +127,7 @@ public class Client {
 
 	public String toString()
 	{
-		String s = "Name: " + name + " Billing Address: " +  billAddress + " " + owed + "\n";
+		String s = "Name: " + name + " Billing Address: " +  billAddress + " Phone Number: " + phoneNum + " Owed: " + owed + "\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toString();
 		return s;
@@ -123,7 +136,7 @@ public class Client {
 	public String toFile()
 	{
 		String s;
-		s = name+";"+billAddress+";"+df.format(owed)+"\n";
+		s = name+";"+billAddress+";"+phoneNum+";"+df.format(owed)+"\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toFile() + "\n";
 		s += "#ENDLAWN";

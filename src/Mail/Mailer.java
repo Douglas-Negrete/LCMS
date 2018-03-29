@@ -19,9 +19,9 @@ import javax.mail.internet.MimeMultipart;
 public class Mailer {
 
 	static String from = "automatedlcms@gmail.com", 
-				password = "lawncare5";
+			password = "lawncare5";
 
-	public static void send(String[] to,String sub,String msg, String att){
+	public static int send(String[] to,String sub,String msg, String att){
 
 		//Get properties object    
 		Properties props = new Properties();    
@@ -66,14 +66,14 @@ public class Mailer {
 
 			// Part two is attachment
 			if(!att.equals("")){
-				
+
 				messageBodyPart = new MimeBodyPart();
 				//String filename = "C:\\Users\\ama82\\Documents\\TechOSProjectProgrammerManual.pdf";
 				DataSource source = new FileDataSource(att);
 				messageBodyPart.setDataHandler(new DataHandler(source));
 				messageBodyPart.setFileName(att);
 				multipart.addBodyPart(messageBodyPart);
-				
+
 			}
 
 			// Send the complete message parts
@@ -82,14 +82,85 @@ public class Mailer {
 			//send message  
 			Transport.send(message);
 			System.out.printf("message sent successfully\n");
+			return 1;
 
 		} catch (MessagingException e) {
 
 			throw new RuntimeException(e);
 
-		}    
+		}
 
 	}//end send array
+
+	public static int send(String backupEmail, String sub, String msg, String att) {
+
+		//Get properties object    
+		Properties props = new Properties();    
+		props.put("mail.smtp.host", "smtp.gmail.com");    
+		props.put("mail.smtp.socketFactory.port", "465");    
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");    
+		props.put("mail.smtp.auth", "true");    
+		props.put("mail.smtp.port", "465");    
+		//get Session   
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+
+			protected PasswordAuthentication getPasswordAuthentication() {
+
+				return new PasswordAuthentication(from,password);
+
+			}//end PasswordAuthentication
+
+		});//end getDefaultInstance
+
+		//compose message    
+		try {
+
+			MimeMessage message = new MimeMessage(session);
+
+			message.addRecipient(Message.RecipientType.TO,new InternetAddress(backupEmail));
+
+			message.setSubject(sub);   
+			//message.setText(msg);
+
+			// Create the message part 
+			BodyPart messageBodyPart = new MimeBodyPart();
+
+			// Fill the message
+			messageBodyPart.setText(msg);
+
+			// Create a multipar message
+			Multipart multipart = new MimeMultipart();
+
+			// Set text message part
+			multipart.addBodyPart(messageBodyPart);
+
+			// Part two is attachment
+			if(!att.equals("")){
+
+				messageBodyPart = new MimeBodyPart();
+				//String filename = "C:\\Users\\ama82\\Documents\\TechOSProjectProgrammerManual.pdf";
+				DataSource source = new FileDataSource(att);
+				messageBodyPart.setDataHandler(new DataHandler(source));
+				messageBodyPart.setFileName(att);
+				multipart.addBodyPart(messageBodyPart);
+
+			}
+
+			// Send the complete message parts
+			message.setContent(multipart);
+
+			//send message  
+			Transport.send(message);
+			System.out.printf("message sent successfully\n");
+			return 1;
+
+		} catch (MessagingException e) {
+
+			throw new RuntimeException(e);
+
+		}
+
+	}
 
 }//end class mailer
 

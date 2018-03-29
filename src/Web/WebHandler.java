@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
-import GUI.GUI;
-
 public class WebHandler extends AbstractHandler {
 
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
@@ -95,6 +93,7 @@ public class WebHandler extends AbstractHandler {
 		
 		//website += "<button type=\"button\" onclick=\"document.getElementById('demo').innerHTML = Date()\">Click me to display Date and Time.</button>";
 		website += "<input type=\"submit\" value=\"Submit Lawns\"></form>";
+		
 //**************************************************************************************************************
 
 		//end tags

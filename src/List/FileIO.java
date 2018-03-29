@@ -6,14 +6,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import Mail.Mailer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
@@ -27,6 +30,8 @@ public class FileIO {
 	private String backupEmail = "";
 	public LinkedList<Lawn> lawnList;
 	public String companyName;
+	private boolean server;// true means disable, false means enable
+	private Date lastBackUp;
 
 	public FileIO() {
 
@@ -35,10 +40,6 @@ public class FileIO {
 		clientList = new LinkedList<>();
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
-
-		//readInBackupFile();//clientList
-
-		//generateBackupFile();
 
 	}//end default constructor
 	
@@ -113,6 +114,11 @@ public class FileIO {
 			for (int i = 0; i < emailList.size(); i++)
 				outFile.println(emailList.get(i));
 			outFile.println("#ENDEMAILS");
+			outFile.println(new SimpleDateFormat("MM-dd-yyyy").format(lastBackUp));
+			if(server)
+				outFile.println("T");
+			else
+				outFile.println("F");
 			outFile.println(companyName);
 			outFile.println("#ENDALL");
 
@@ -146,8 +152,8 @@ public class FileIO {
 						break;
 					String[] line = temp.split(delims);
 					System.out.println(Arrays.toString(line));
-					Client tempClient = new Client(line[0], line[1]);
-					tempClient.setOwed(Double.parseDouble(line[2]));
+					Client tempClient = new Client(line[0], line[1], line[2]);
+					tempClient.setOwed(Double.parseDouble(line[3]));
 					clientList.add(tempClient);
 					i++;
 
@@ -176,6 +182,12 @@ public class FileIO {
 					emailList.add(temp);
 					System.out.println(temp);
 				}
+				lastBackUp = new SimpleDateFormat("MM-dd-yyyy").parse(inFile.nextLine());
+				if(inFile.nextLine().equals("T"))
+					server = true;
+				else
+					server = false;
+				System.out.println("Server - " + server);
 				companyName = inFile.nextLine();
 				inFile.nextLine();
 			}
@@ -351,7 +363,7 @@ public class FileIO {
 			@Override
 			public int compare(Lawn c1, Lawn c2) {
 				
-				if(c1.sf.format(c1.getNextMow()).equals(c1.sf.format(c2.getNextMow()))) {
+				if(c1.sf.format(c1.getNextMow()).equals(c2.sf.format(c2.getNextMow()))) {
 					
 					if(c1.getGenLocation().compareTo(c2.getGenLocation()) == 0)
 						return c1.getLawnName().compareTo(c2.getLawnName());
@@ -473,5 +485,100 @@ public class FileIO {
 		emailList.removeFirst();
 		
 	}//end setemaildata
+	
+	public boolean readServerFromFile() {
+		
+		String temp;
+		
+		if(!isNew()) {
+			
+			FileReader reader;
+			Scanner inFile;
+
+			try
+			{
+				reader = new FileReader(backupFile);
+				inFile = new Scanner(reader);
+
+				while(inFile.hasNext())
+				{
+					temp = inFile.nextLine();
+					if(temp.equals("#ENDEMAILS")) {
+						inFile.nextLine();
+						temp = inFile.nextLine();
+						if(temp.equals("T")) {
+							inFile.close();
+							reader.close();
+							return false;
+						}
+						else {
+							inFile.close();
+							reader.close();
+							return true;
+						}
+						
+					}
+					
+				}
+
+			}
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return true;
+		
+	}//end readserverfromfile
+	
+	public boolean getServer() {
+		
+		return server;
+		
+	}//end getServer
+	
+	public void setServer(boolean b) {
+		
+		this.server = b;
+		
+	}//end setServer
+	
+	public String[] getAddresses() {
+		
+		return (String[]) emailList.toArray();
+		
+	}//end getAddresses
+	
+	public void checkAutoBackup() {
+		
+		if(new SimpleDateFormat("MM-dd-yyyy").format(lastBackUp).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))){
+			
+			new Thread() {//creates anonymous thread object
+
+				@Override
+				public void run() {
+
+					if(Mailer.send(backupEmail, "LCMS Backup", "This is a backup of the ", getBackupLocation()) == 1) {
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("Backup");
+						alert.setHeaderText("Email sent successfully!");
+						alert.showAndWait();
+					}
+					else {
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Backup");
+						alert.setHeaderText("Email sent unsuccessfully!");
+						alert.showAndWait();
+					}
+
+				}//end run method
+
+			}.start();//end thread object
+			
+		}
+			
+		
+	}//end checkAutoBackup
 
 }//end class

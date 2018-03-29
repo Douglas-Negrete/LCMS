@@ -10,7 +10,7 @@ public class Lawn {
 
 	private Client client;
 	private String address, lawnName, genLocation, notes;
-	private Date nextMow, lastMow;
+	private Date nextMow, lastMow, tempN, tempL;
 	private int interval, numMows;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
@@ -28,28 +28,28 @@ public class Lawn {
 		setInterval(interval);
 		setClient(client);
 		setPrice(price);
-		setLastMow(this.cal.getTime());
-		setNextMow(this.cal.getTime());
+		//		setLastMow(this.cal.getTime());
+		//		setNextMow(this.cal.getTime());
 		setNotes("");
-		
+
 	}//end constructor
-	
+
 	public void setActive(boolean b) {
-		
+
 		this.active = b;
-		
+
 	}//end setActive
-	
+
 	public void setNumMows(int num) {
-		
-	  this.numMows = num;
-	  
+
+		this.numMows = num;
+
 	}
-	
+
 	public int setNumMows() {
-		
-	 return this.numMows;
-	 
+
+		return this.numMows;
+
 	}
 
 	public Client getClient() {
@@ -100,17 +100,23 @@ public class Lawn {
 
 	}//end setgenlocation
 
+	public String getStringNextMow() {
+
+		return sf.format(nextMow);
+
+	}//end getnextmow
+
 	public Date getNextMow() {
 
 		return nextMow;
 
 	}//end getnextmow
 
-	public void setNextMow(String nextMow) throws ParseException {
+	public String getStringLastMow() {
 
-		this.lastMow = sf.parse(nextMow);
+		return sf.format(lastMow);
 
-	}//end setnextmow
+	}//end getlastmow
 
 	public Date getLastMow() {
 
@@ -118,23 +124,28 @@ public class Lawn {
 
 	}//end getlastmow
 
+	public void setNextMow(Date nextMow) {
+
+		this.nextMow = nextMow;
+
+	}//end setnextmow
+
+	public void setNextMow(String nextMow) throws ParseException {
+
+		this.nextMow = sf.parse(nextMow);
+
+	}//end setnextmow
+
+	public void setLastMow(Date lastMow) {
+
+		this.lastMow = lastMow;
+
+	}//end setlastmow
+
 	public void setLastMow(String lastMow) throws ParseException {
 
 		this.lastMow = sf.parse(lastMow);
 
-	}//end setlastmow
-	
-	public void setNextMow(Date nextMow)
-	{
-		
-	  this.nextMow = nextMow;
-	  
-	}
-	
-	public void setLastMow(Date lastMow) {
-		
-		this.lastMow = lastMow;
-		
 	}//end setlastmow
 
 	public int getInterval() {
@@ -172,21 +183,77 @@ public class Lawn {
 
 	}//end getprice
 
-	public void skipLawn() {
+	public void skipLawn() 
+	{
+		this.tempL = this.lastMow;
+		this.tempN = this.nextMow;
 
+		this.lastMow = Calendar.getInstance().getTime();
+		cal.setTime(lastMow);
 		cal.add(Calendar.DATE, interval);
-		nextMow = cal.getTime();
+		this.nextMow = cal.getTime();
 
-	}//end skiplawn
+	}//end checklawnoff
+
+	public void unSkipLawn() {
+
+		if(tempL != null && tempN != null) {
+
+			this.lastMow = this.tempL;
+			this.nextMow = this.tempN;
+
+		}
+		else {
+			
+			cal.setTime(lastMow);
+			cal.add(Calendar.DATE, -interval);
+			this.lastMow = cal.getTime();
+			
+			cal.setTime(nextMow);
+			cal.add(Calendar.DATE, -interval);
+			this.nextMow = cal.getTime();
+			
+		}
+
+	}//end unCheckLawnOff
 
 	public void checkLawnOff() 
 	{
-		this.lastMow = Calendar.getInstance().getTime(); 
+		this.tempL = this.lastMow;
+		this.tempN = this.nextMow;
 
-		lastMow = cal.getTime();
+		this.lastMow = Calendar.getInstance().getTime();
+		cal.setTime(lastMow);
 		cal.add(Calendar.DATE, interval);
-		nextMow = cal.getTime();
+		this.nextMow = cal.getTime();
+
+		this.client.setOwed(this.client.getOwed() + this.price);
+
 	}//end checklawnoff
+
+	public void unCheckLawnOff() {
+
+		if(tempL != null && tempN != null) {
+
+			this.lastMow = this.tempL;
+			this.nextMow = this.tempN;
+
+		}
+		else {
+			
+			cal.setTime(lastMow);
+			cal.add(Calendar.DATE, -interval);
+			this.lastMow = cal.getTime();
+			
+			cal.setTime(nextMow);
+			cal.add(Calendar.DATE, -interval);
+			this.nextMow = cal.getTime();
+			
+		}
+			
+		this.client.setOwed(this.client.getOwed() - this.price);
+
+	}//end unCheckLawnOff
 
 	public String toString()
 	{

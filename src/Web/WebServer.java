@@ -29,7 +29,7 @@ public class WebServer {
 			}
 			//ipAddress = inet.getHostName();
 			//System.out.println("This is the new address "+ipAddress);
-			ipAddress = ips[1].toString();
+			ipAddress = ips[0].toString();
 			//ipAddress = inet.getHostAddress();
 			//System.out.println("This is the new address "+ipAddress);
 		} catch (UnknownHostException e) {
