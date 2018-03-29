@@ -6,20 +6,29 @@ import java.util.LinkedList;
 
 public class Client {
 
+<<<<<<< HEAD
 	private String name, billAddress, phoneNum;
+=======
+	private String name, billAddress, phoneNumber;
+>>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 	private double owed;
 	private LinkedList<Lawn> lawnList;
 	int lawnNumber;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 
+<<<<<<< HEAD
 	public Client(String name, String billAddress, String phone) {
+=======
+	public Client(String name, String billAddress, String phoneNumber) {
+>>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 		super();
 		this.lawnList = new LinkedList<>();
 		this.name = name;
 		this.billAddress = billAddress;
 		this.phoneNum = phone;
 		this.owed = 0;
+		this.phoneNumber = phoneNumber;
 	}//end constructor
 
 	public int lawnListSize() {
@@ -127,7 +136,12 @@ public class Client {
 
 	public String toString()
 	{
+<<<<<<< HEAD
 		String s = "Name: " + name + " Billing Address: " +  billAddress + " Phone Number: " + phoneNum + " Owed: " + owed + "\n";
+=======
+		String s = "Name: " + name + " Billing Address: " +  billAddress + " PhoneNumber: " +
+				   phoneNumber + " " + owed + "\n";
+>>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toString();
 		return s;
@@ -136,7 +150,11 @@ public class Client {
 	public String toFile()
 	{
 		String s;
+<<<<<<< HEAD
 		s = name+";"+billAddress+";"+phoneNum+";"+df.format(owed)+"\n";
+=======
+		s = name+";"+billAddress+";"+phoneNumber+";"+df.format(owed)+"\n";
+>>>>>>> a66b5abfffd69d7bb83d06bc60777ad8d02d1f99
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toFile() + "\n";
 		s += "#ENDLAWN";

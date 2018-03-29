@@ -7,9 +7,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
-
-import GUI.GUI;
 
 public class WebServer {
 
