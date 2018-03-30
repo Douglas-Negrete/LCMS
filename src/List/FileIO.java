@@ -62,6 +62,12 @@ public class FileIO {
 		
 	}//end setbackupemail
 	
+	public void initializeLastBackup()
+	{
+	 this.companyName = "Lawn Care Made Simple";
+	 this.lastBackUp = Calendar.getInstance().getTime();
+	}
+	
 	public String getBackupEmail() {
 		
 		return backupEmail;
@@ -78,6 +84,9 @@ public class FileIO {
 	public void addLawn(int i, Lawn l) {
 
 		clientList.get(i).addLawn(l);
+		lawnList.add(l);
+		sortLawns();
+		appendToTransactionFile("Added Lawn: " + l.toTransaction());
 
 	}//end addlawn
 
@@ -85,12 +94,14 @@ public class FileIO {
 
 		clientList.add(c);
 		this.numClients++;
+		appendToTransactionFile("Added Client: " + c.toTransaction());
 
 	}//end addClient
 	
 	public void removeClient(int i) {
 		
-		this.clientList.remove(i);
+		Client c = this.clientList.remove(i);
+		appendToTransactionFile("Removed Client: " + c.toTransaction());
 		
 	}//end remove client
 
@@ -119,7 +130,7 @@ public class FileIO {
 				outFile.println("T");
 			else
 				outFile.println("F");
-			outFile.println(companyName);
+			outFile.println(companyName.replaceAll(";",","));
 			outFile.println("#ENDALL");
 
 			outFile.close();
@@ -177,7 +188,7 @@ public class FileIO {
 				while (!temp.equals("#ENDEMAILS"))
 				{
 					temp = inFile.nextLine();
-					if (temp.equals("#ENDEMAILS") || temp.equals(""))
+					if (temp.equals("#ENDEMAILS"))
 						break;
 					emailList.add(temp);
 					System.out.println(temp);
@@ -527,10 +538,51 @@ public class FileIO {
 			}
 			
 		}
-		
-		return true;
+	
+		return false;
 		
 	}//end readserverfromfile
+	
+	public void appendToTransactionFile(String s) 
+	{
+		FileWriter writer;
+		PrintWriter outFile;
+
+		File file = new File("Transactions.txt");
+		
+		try
+		{
+			writer = new FileWriter(file, true);
+			outFile = new PrintWriter(writer);
+
+			outFile.append(new Date().toString() + " :: " + s + "\n\n");
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
+		
+	}
+	
+	public File createBillFile()
+	{
+		FileWriter writer;
+		PrintWriter outFile;
+
+		File file = new File("bill.txt");
+		
+		try
+		{
+			writer = new FileWriter(file);
+			outFile = new PrintWriter(writer);
+
+			//for ()
+			outFile.println();
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
+		return file;
+	}
 	
 	public boolean getServer() {
 		

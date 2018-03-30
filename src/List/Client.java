@@ -132,11 +132,18 @@ public class Client {
 			s += lawnList.get(i).toString();
 		return s;
 	}
+	
+	public String toTransaction()
+	{
+	 String s = name + " " + billAddress + " " + owed;
+		return s;
+	}
 
 	public String toFile()
 	{
 		String s;
-		s = name+";"+billAddress+";"+phoneNum+";"+df.format(owed)+"\n";
+		s = name.replaceAll(";",",") +";"+billAddress.replaceAll(";",",")+";"+
+		phoneNum.replaceAll(";",",")+";"+df.format(owed)+"\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toFile() + "\n";
 		s += "#ENDLAWN";

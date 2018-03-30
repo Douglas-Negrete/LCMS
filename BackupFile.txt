@@ -1,0 +1,13 @@
+#FILESTART
+Example Client;123 Example Billing Address Ave;(888) 888-8888;0.00
+#ENDLAWN
+Caleb Dingus;112 Goldcrest Drive;(304) 860-5146;0.00
+#ENDLAWN
+#ENDCLIENT
+
+calebsterpo@gmail.com
+#ENDEMAILS
+03-29-2018
+F
+Lawn Care Made Simple
+#ENDALL

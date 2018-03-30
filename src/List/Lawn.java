@@ -28,8 +28,8 @@ public class Lawn {
 		setInterval(interval);
 		setClient(client);
 		setPrice(price);
-		//		setLastMow(this.cal.getTime());
-		//		setNextMow(this.cal.getTime());
+		setLastMow(this.cal.getTime());
+		setNextMow(this.cal.getTime());
 		setNotes("");
 
 	}//end constructor
@@ -265,11 +265,19 @@ public class Lawn {
 		s += "\n";
 		return s;
 	}
+	
+	public String toTransaction()
+	{
+	 String s = getClient().getName() + " - " +  getLawnName() + ", " + getAddress() + " for $" + 
+			 		df.format(getPrice()) + " every " + getInterval() + " days";
+	 return s;
+	}
 
 	public String toFile()
 	{
 		String s;
-		s = getAddress() + ";" + getLawnName() +";"+ getGenLocation() +";"+getInterval()+";";
+		s = getAddress().replaceAll(";",",") + ";" + getLawnName().replaceAll(";",",") +";"+ 
+		getGenLocation().replaceAll(";",",") + ";"+getInterval() +";";
 		s += df.format(getPrice()) +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
 		s += "\n" + getNotes();
 		return s;

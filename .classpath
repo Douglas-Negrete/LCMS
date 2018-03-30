@@ -2,11 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/javax.mail.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/jetty-http-9.4.7.v20170914.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/jetty-io-9.4.7.v20170914.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/jetty-server-9.4.7.v20170914.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/jetty-util-9.4.7.v20170914.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ama82/Downloads/servlet-api-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/jetty-all-7.0.2.v20100331.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
