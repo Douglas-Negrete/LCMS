@@ -9,12 +9,12 @@ import java.util.Date;
 public class Lawn {
 
 	private Client client;
-	private String address, lawnName, genLocation, notes;
+	private String address, lawnName, genLocation, notes = "";
 	private Date nextMow, lastMow, tempN, tempL;
 	private int interval, numMows;
 	private double price;
 	private Calendar cal = Calendar.getInstance();
-	private boolean active = true;
+	private boolean active = true, skip = false;
 
 	public DecimalFormat df = new DecimalFormat("0.00");
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
@@ -28,11 +28,23 @@ public class Lawn {
 		setInterval(interval);
 		setClient(client);
 		setPrice(price);
-		//		setLastMow(this.cal.getTime());
-		//		setNextMow(this.cal.getTime());
-		setNotes("");
+		setLastMow(this.cal.getTime());
+		setNextMow(this.cal.getTime());
+		//setNotes("");
 
 	}//end constructor
+	
+	public boolean getSkip() {
+
+		return this.skip;
+
+	}//end setActive
+	
+	public void setSkip(boolean b) {
+
+		this.skip = b;
+
+	}//end setActive
 
 	public void setActive(boolean b) {
 
@@ -171,10 +183,16 @@ public class Lawn {
 		this.price = price;
 
 	}//end setprice
+	
+	public void addNotes(String str) {
+		
+		this.notes = str.replace("\n", "") + ".  ";
+		
+	}//end addNotes
 
 	public void setNotes(String str) {
 
-		this.notes = str;
+		this.notes = str.replace("\n", "");
 	}
 
 	public String getNotes() {
@@ -204,15 +222,15 @@ public class Lawn {
 
 		}
 		else {
-			
+
 			cal.setTime(lastMow);
 			cal.add(Calendar.DATE, -interval);
 			this.lastMow = cal.getTime();
-			
+
 			cal.setTime(nextMow);
 			cal.add(Calendar.DATE, -interval);
 			this.nextMow = cal.getTime();
-			
+
 		}
 
 	}//end unCheckLawnOff
@@ -240,18 +258,19 @@ public class Lawn {
 
 		}
 		else {
-			
+
 			cal.setTime(lastMow);
 			cal.add(Calendar.DATE, -interval);
 			this.lastMow = cal.getTime();
-			
+
 			cal.setTime(nextMow);
 			cal.add(Calendar.DATE, -interval);
 			this.nextMow = cal.getTime();
-			
+
 		}
-			
-		this.client.setOwed(this.client.getOwed() - this.price);
+
+		if(this.client.getOwed() > 0)
+			this.client.setOwed(this.client.getOwed() - this.price);
 
 	}//end unCheckLawnOff
 
@@ -266,10 +285,18 @@ public class Lawn {
 		return s;
 	}
 
+	public String toTransaction()
+	{
+		String s = getClient().getName() + " - " +  getLawnName() + ", " + getAddress() + " for $" + 
+				df.format(getPrice()) + " every " + getInterval() + " days";
+		return s;
+	}
+
 	public String toFile()
 	{
 		String s;
-		s = getAddress() + ";" + getLawnName() +";"+ getGenLocation() +";"+getInterval()+";";
+		s = getAddress().replaceAll(";",",") + ";" + getLawnName().replaceAll(";",",") +";"+ 
+				getGenLocation().replaceAll(";",",") + ";"+getInterval() +";";
 		s += df.format(getPrice()) +";"+ sf.format(getLastMow()) +";"+ sf.format(getNextMow());
 		s += "\n" + getNotes();
 		return s;

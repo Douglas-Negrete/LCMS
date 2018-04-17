@@ -15,7 +15,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Scanner;
-
 import Mail.Mailer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -62,6 +61,12 @@ public class FileIO {
 		
 	}//end setbackupemail
 	
+	public void initializeLastBackup()
+	{
+		this.companyName = "Lawn Care Made Simple";
+		this.lastBackUp = Calendar.getInstance().getTime();
+	}
+	
 	public String getBackupEmail() {
 		
 		return backupEmail;
@@ -78,6 +83,9 @@ public class FileIO {
 	public void addLawn(int i, Lawn l) {
 
 		clientList.get(i).addLawn(l);
+		lawnList.add(l);
+		sortLawns();
+		appendToTransactionFile("Added Lawn: " + l.toTransaction());
 
 	}//end addlawn
 
@@ -85,17 +93,54 @@ public class FileIO {
 
 		clientList.add(c);
 		this.numClients++;
+		appendToTransactionFile("Added Client: " + c.toTransaction());
 
 	}//end addClient
 	
 	public void removeClient(int i) {
 		
-		this.clientList.remove(i);
+		Client c = this.clientList.remove(i);
+		appendToTransactionFile("Removed Client: " + c.toTransaction());
 		
 	}//end remove client
+	
+	public void writeLawnsHTML() {
+		
+		if(new File("lawns.txt").exists()) {
+			
+			File file = new File("lawns.txt");
+			FileWriter writer;
+			PrintWriter outFile;
+
+			try
+			{
+				writer = new FileWriter(file);
+				outFile = new PrintWriter(writer);
+				
+				for(int i = 0; i < lawnList.size(); i++) {
+
+					if(new SimpleDateFormat("MM-dd-yyyy").format(lawnList.get((lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+
+						outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
+								"unmowed\n"+
+								lawnList.get(lawnList.size()-1).getNotes() + "\n");
+
+					}
+
+				}
+				
+			} catch (IOException e) { e.printStackTrace(); }
+			
+		}//end if file exists
+		else {
+			
+		}
+		
+	}//end writeLawnsHTML
 
 	public void generateBackupFile()
 	{
+		
 		FileWriter writer;
 		PrintWriter outFile;
 
@@ -119,7 +164,7 @@ public class FileIO {
 				outFile.println("T");
 			else
 				outFile.println("F");
-			outFile.println(companyName);
+			outFile.println(companyName.replaceAll(";",","));
 			outFile.println("#ENDALL");
 
 			outFile.close();
@@ -177,7 +222,7 @@ public class FileIO {
 				while (!temp.equals("#ENDEMAILS"))
 				{
 					temp = inFile.nextLine();
-					if (temp.equals("#ENDEMAILS") || temp.equals(""))
+					if (temp.equals("#ENDEMAILS"))
 						break;
 					emailList.add(temp);
 					System.out.println(temp);
@@ -527,10 +572,52 @@ public class FileIO {
 			}
 			
 		}
-		
-		return true;
+	
+		return false;
 		
 	}//end readserverfromfile
+	
+	public void appendToTransactionFile(String s) 
+	{
+		
+		File trans = new File("Transactions.txt");
+		
+		FileWriter writer;
+		PrintWriter outFile;
+
+		try
+		{
+			writer = new FileWriter(trans, true);
+			outFile = new PrintWriter(writer);
+
+			outFile.append(new Date().toString() + " :: " + s + "\n\n");
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
+		
+	}
+	
+	public File createBillFile()
+	{
+		FileWriter writer;
+		PrintWriter outFile;
+
+		File bill = new File("bill.txt");
+		
+		try
+		{
+			writer = new FileWriter(bill);
+			outFile = new PrintWriter(writer);
+
+			//for ()
+			outFile.println();
+
+			outFile.close();
+			writer.close();
+		} catch (IOException e) { e.printStackTrace(); }
+		return bill;
+	}
 	
 	public boolean getServer() {
 		
