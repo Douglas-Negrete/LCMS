@@ -6,45 +6,12 @@
 <%
 try
 {
-	//FileReader reader;
-	//Scanner inFile;
-	//File file = new File("test.txt");
-	//String temp;
-	//String val;
-	//String paramName;
-
-//	PrintWriter pw = new PrintWriter(new FileOutputStream("temp.txt"), true);
-
-//	temp = request.getParameter("lawn1");
-//	pw.println(temp);
-
-//	temp = request.getParameter("comments1");
-//	pw.println(temp);
-
-//	temp = request.getParameter("lawn2");
-//	pw.println(temp);
-
-//	temp = request.getParameter("comments2");
-//	pw.println(temp);
-
-//	temp = request.getParameter("lawn3");
-//	pw.println(temp);
-
-//	temp = request.getParameter("comments3");
-//	pw.println(temp);
-
-//	pw.close();
-
-
-
 
 	FileReader reader;
 	Scanner inFile;
 	File file = new File("lawns.txt");
 	String temp;
 	String val;
-	String test;
-	String bkpVal;
 	String paramName;
 
 	PrintWriter pw = new PrintWriter(new FileOutputStream("temp.txt"), true);
@@ -75,8 +42,6 @@ try
 	Iterator it = ss.iterator();
 	while (it.hasNext()) 
 	{
-		//paramName = String.valueOf(it.next());
-		//bkpVal = request.getParameter(paramName);
 		
 		paramName = String.valueOf(it.next());
 
@@ -104,7 +69,14 @@ try
 				}
 				else
 				{
-					pw.println("No Comment");
+                    if(temp != null && !temp.isEmpty())
+                    {
+                        pw.println(temp);
+                    }
+                    else
+                    {
+                        pw.println("No Comment");
+                    }
 				}
 			}
 			
@@ -115,7 +87,6 @@ try
 				
 				paramName = String.valueOf(it.next());
 				
-				//val = "test";
 				val = request.getParameter(paramName);
 
 				if(val != null && !val.isEmpty())
@@ -126,7 +97,14 @@ try
 
 				else
 				{
-					pw.println("No Comment");
+                    if(temp != null && !temp.isEmpty())
+                    {
+                        pw.println(temp);
+                    }
+                    else
+                    {
+                        pw.println("No Comment");
+                    }
 				}
 
 			}
@@ -152,27 +130,6 @@ try
 	file2.delete();
 
 /*****END HERE*********************************************/
-
-
-
-
-
-	//while(paramNames.hasMoreElements())
-	//{
-	//paramName = (String)paramNames.nextElement();
-	//pw.println(paramName);
-	//temp = request.getParameter(paramName);
-
-	//pw.println(temp);
-	//}
-
-	//Map<String, String[]> parameters = request.getParameterMap();
-	//for(String parameter : parameters.keySet())
-	//{
-		//vals = parameters.get(parameter);
-		//pw.println(parameter);
-		//pw.println(vals);
-	//}
 
 }catch(FileNotFoundException e){e.printStackTrace();}
 %>

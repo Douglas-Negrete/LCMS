@@ -26,18 +26,20 @@ public class Main {
 			}//end run method
 
 		}.start();//end thread object
+		
+		ip = gui.ip;
 
-		if(gui.io.readServerFromFile()) {
-			
-			//ip = WebServer.startServer();
-			try {
-				ip = WebMain.startServer();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
+//		if(gui.io.readServerFromFile()) {
+//			
+//			//ip = WebServer.startServer();
+//			try {
+//				ip = WebMain.startServer();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//		}
 
 	}//end main
 

@@ -186,7 +186,10 @@ public class Lawn {
 	
 	public void addNotes(String str) {
 		
-		this.notes = str.replace("\n", "") + ".  ";
+		if(str.charAt(str.length() - 1) != '.')
+			this.notes = str.replace("\n", "") + ".  ";
+		else
+			this.notes = str.replace("\n", "") + "  ";
 		
 	}//end addNotes
 

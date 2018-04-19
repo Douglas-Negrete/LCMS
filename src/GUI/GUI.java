@@ -68,6 +68,7 @@ public class GUI extends Application {
 	Client tempClnt;
 	Lawn tempLwn;
 	SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+	public String ip;
 
 	public GUI() {
 
@@ -160,6 +161,18 @@ public class GUI extends Application {
 			io.populateLawns();
 			io.setEmailData();
 			io.writeLawnsHTML();
+
+			if(io.readServerFromFile()) {
+
+				//ip = WebServer.startServer();
+				try {
+					ip = WebMain.startServer();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
 		}
 
 		primaryStage.setTitle("Lawn Care Made Simple");//title
@@ -952,7 +965,7 @@ public class GUI extends Application {
 										Double.parseDouble(lPriceTF.getText())));
 
 								io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
-								
+
 								WebMain.serverRestart();
 
 								rightPane.getChildren().remove(1);
@@ -1041,7 +1054,7 @@ public class GUI extends Application {
 													Double.parseDouble(lPriceTF.getText())));
 
 									io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
-									
+
 									WebMain.serverRestart();
 
 									rightPane.getChildren().remove(1);
@@ -1346,7 +1359,7 @@ public class GUI extends Application {
 				owes.setTitle("Edit Owes");
 				owes.setHeaderText("Edit the amount owed by the client");
 				owes.setContentText("New Amount:");
-				
+
 				Optional<String> newOwes = owes.showAndWait();
 				try {
 					tempClnt.setOwed(Double.parseDouble(newOwes.get()));
@@ -1360,11 +1373,11 @@ public class GUI extends Application {
 					alert.setHeaderText("Amount must be a number.");
 					alert.show();
 				}
-				
+
 			}//end handle
-			
+
 		});//end editOwesBtn
-		
+
 		delClntBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1467,7 +1480,10 @@ public class GUI extends Application {
 				if(backupTitleLbl.getText().equals("Add Note")) {
 
 					backupTitleLbl.setText("");
-					tempLwn.addNotes(notesTA.getText());
+					if(!notesTA.getText().equals(""))
+						tempLwn.addNotes(notesTA.getText());
+					else
+						tempLwn.setNotes("");
 					notesTA.setEditable(false);
 
 					displayInfo.getChildren().clear();
@@ -1636,9 +1652,9 @@ public class GUI extends Application {
 						String temp = emailComboBox.getValue();
 
 						Task<Integer> task = new Task<Integer>() {
-							
+
 							public String populateMailLawnList() {
-								
+
 								String att = "";
 
 								for(int i = 0; i < io.lawnList.size(); i++) {

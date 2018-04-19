@@ -41,43 +41,43 @@ public class FileIO {
 		lawnList = new LinkedList<>();
 
 	}//end default constructor
-	
+
 	public Lawn getLawn(String s) {
-		
+
 		for(int i = 0; i < lawnList.size(); i++) {
-			
+
 			if(lawnList.get(i).getAddress().equals(s))
 				return lawnList.get(i);
-			
+
 		}
-		
+
 		return null;
-		
+
 	}//end getLawn
-	
+
 	public void setBackupEmail(String s) {
-		
+
 		this.backupEmail = s;
-		
+
 	}//end setbackupemail
-	
+
 	public void initializeLastBackup()
 	{
 		this.companyName = "Lawn Care Made Simple";
 		this.lastBackUp = Calendar.getInstance().getTime();
 	}
-	
+
 	public String getBackupEmail() {
-		
+
 		return backupEmail;
-		
+
 	}//end getbackupemail
-	
+
 	public void removeFiles() {
-		
+
 		backupFile.delete();
 		backupFileLocation.delete();
-		
+
 	}//end removeFiles()
 
 	public void addLawn(int i, Lawn l) {
@@ -96,18 +96,18 @@ public class FileIO {
 		appendToTransactionFile("Added Client: " + c.toTransaction());
 
 	}//end addClient
-	
+
 	public void removeClient(int i) {
-		
+
 		Client c = this.clientList.remove(i);
 		appendToTransactionFile("Removed Client: " + c.toTransaction());
-		
+
 	}//end remove client
-	
+
 	public void writeLawnsHTML() {
-		
+
 		if(new File("lawns.txt").exists()) {
-			
+
 			File file = new File("lawns.txt");
 			FileWriter writer;
 			PrintWriter outFile;
@@ -116,31 +116,35 @@ public class FileIO {
 			{
 				writer = new FileWriter(file);
 				outFile = new PrintWriter(writer);
-				
+
 				for(int i = 0; i < lawnList.size(); i++) {
 
 					if(new SimpleDateFormat("MM-dd-yyyy").format(lawnList.get((lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
-
 						outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
 								"unmowed\n"+
-								lawnList.get(lawnList.size()-1).getNotes() + "\n");
+								lawnList.get(lawnList.size()-1).getNotes());
 
 					}
 
 				}
-				
-			} catch (IOException e) { e.printStackTrace(); }
+
+				outFile.close();
+				writer.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			
 		}//end if file exists
 		else {
-			
+
 		}
-		
+
 	}//end writeLawnsHTML
 
 	public void generateBackupFile()
 	{
-		
+
 		FileWriter writer;
 		PrintWriter outFile;
 
@@ -239,7 +243,7 @@ public class FileIO {
 			System.out.println("All info read in for " + companyName);
 			System.out.println("Contains " + i + " Clients");
 			setNumClients(i);
-			
+
 			sortLawns();
 
 			inFile.close();
@@ -269,7 +273,7 @@ public class FileIO {
 
 
 	}//end readinbackupfile
-	
+
 	public void printBackupFileTA(TextArea ta)//LinkedList<Client> list) 
 	{
 		FileReader reader;
@@ -304,9 +308,9 @@ public class FileIO {
 		}
 
 	}//end readinbackupfile
-	
+
 	public void readBackupFileLocation() {
-		
+
 		FileReader reader;
 		Scanner inFile;
 
@@ -328,11 +332,11 @@ public class FileIO {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void setBackupFileLocation(String s) {
-		
+
 		FileWriter writer;
 		PrintWriter outFile;
 
@@ -346,7 +350,7 @@ public class FileIO {
 			outFile.close();
 			writer.close();
 		} catch (IOException e) { e.printStackTrace(); }
-		
+
 	}
 
 	public void setBackupFile(File f) {
@@ -391,58 +395,58 @@ public class FileIO {
 	public void populateLawns() {
 
 		for(int i = 0; i < numClients; i++) {
-			
+
 			for(int j = 0; j < getClient(i).lawnNumber; j++)
 				lawnList.add(getClient(i).getSingleLawn(j));
-			
+
 		}
-		
+
 		sortLawns();
 
 	}//end populateLawns
-	
+
 	public void sortLawns() {
-		
+
 		Collections.sort(lawnList, new Comparator<Lawn>() {
 
 			@Override
 			public int compare(Lawn c1, Lawn c2) {
-				
+
 				if(c1.sf.format(c1.getNextMow()).equals(c2.sf.format(c2.getNextMow()))) {
-					
+
 					if(c1.getGenLocation().compareTo(c2.getGenLocation()) == 0)
 						return c1.getLawnName().compareTo(c2.getLawnName());
 					return c1.getGenLocation().compareTo(c2.getGenLocation());
-					
+
 				}
 				else
 					return c1.getNextMow().compareTo(c2.getNextMow());
-				
+
 			}//end compare
-			
+
 		});//end sort
-		
+
 	}//end sortLawns
 
 	public int getNumClients() {
-		
+
 		return numClients;
-		
+
 	}
 
 	public void setNumClients(int numClients) {
-		
+
 		this.numClients = numClients;
-		
+
 	}
 
 	public String printClients() {
-		
+
 		String s = "";
 		for (int i = 0; i < getNumClients(); i++)
 			s += clientList.get(i);
 		return s;
-		
+
 	}//end printclients
 
 	public Client getClient(int i) {
@@ -485,19 +489,19 @@ public class FileIO {
 	public String[] getLawnNames() {
 
 		String[] names = new String[lawnList.size()];
-		
+
 		for(int i = 0; i < lawnList.size(); i++) {
-			
+
 			names[i] = lawnList.get(i).getClient().getName() + ", " + lawnList.get(i).getAddress() + ", " + lawnList.get(i).getLawnName();
-			
+
 		}
 
 		return names;
 
 	}//end getLawnName
-	
+
 	public String[] getCheckedLawns() {
-		
+
 		ArrayList<String> cLawns = new ArrayList<>();
 
 		for(int i = 0; i < this.clientList.size(); i++) {
@@ -505,9 +509,9 @@ public class FileIO {
 			for(int j = 0; j < clientList.get(i).lawnListSize(); j++) {
 
 				if(clientList.get(i).getSingleLawn(j).getLastMow().equals(new Date())) {
-					
+
 					cLawns.add(clientList.get(i).getSingleLawnName(j));
-					
+
 				}
 
 			}
@@ -515,28 +519,28 @@ public class FileIO {
 		}
 
 		return cLawns.toArray(new String[cLawns.size()]);
-		
+
 	}//end getcheckedLawns
-	
+
 	public String getBackupLocation() {
-		
+
 		return this.backupFile.getAbsolutePath();
-		
+
 	}//end getBackupLocation
-	
+
 	public void setEmailData() {
-		
+
 		this.backupEmail = emailList.get(0);
 		emailList.removeFirst();
-		
+
 	}//end setemaildata
-	
+
 	public boolean readServerFromFile() {
-		
+
 		String temp;
-		
+
 		if(!isNew()) {
-			
+
 			FileReader reader;
 			Scanner inFile;
 
@@ -561,27 +565,27 @@ public class FileIO {
 							reader.close();
 							return true;
 						}
-						
+
 					}
-					
+
 				}
 
 			}
 			catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-	
+
 		return false;
-		
+
 	}//end readserverfromfile
-	
+
 	public void appendToTransactionFile(String s) 
 	{
-		
+
 		File trans = new File("Transactions.txt");
-		
+
 		FileWriter writer;
 		PrintWriter outFile;
 
@@ -590,21 +594,21 @@ public class FileIO {
 			writer = new FileWriter(trans, true);
 			outFile = new PrintWriter(writer);
 
-			outFile.append(new Date().toString() + " :: " + s + "\n\n");
+			outFile.append(new Date().toString() + " :: " + s + System.lineSeparator());
 
 			outFile.close();
 			writer.close();
 		} catch (IOException e) { e.printStackTrace(); }
-		
+
 	}
-	
+
 	public File createBillFile()
 	{
 		FileWriter writer;
 		PrintWriter outFile;
 
 		File bill = new File("bill.txt");
-		
+
 		try
 		{
 			writer = new FileWriter(bill);
@@ -618,29 +622,29 @@ public class FileIO {
 		} catch (IOException e) { e.printStackTrace(); }
 		return bill;
 	}
-	
+
 	public boolean getServer() {
-		
+
 		return server;
-		
+
 	}//end getServer
-	
+
 	public void setServer(boolean b) {
-		
+
 		this.server = b;
-		
+
 	}//end setServer
-	
+
 	public String[] getAddresses() {
-		
+
 		return (String[]) emailList.toArray();
-		
+
 	}//end getAddresses
-	
+
 	public void checkAutoBackup() {
-		
+
 		if(new SimpleDateFormat("MM-dd-yyyy").format(lastBackUp).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))){
-			
+
 			new Thread() {//creates anonymous thread object
 
 				@Override
@@ -662,10 +666,10 @@ public class FileIO {
 				}//end run method
 
 			}.start();//end thread object
-			
+
 		}
-			
-		
+
+
 	}//end checkAutoBackup
 
 }//end class
