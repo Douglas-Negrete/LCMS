@@ -1646,7 +1646,8 @@ public class GUI extends Application {
   primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
    public void handle(WindowEvent we) {
-
+		
+	io.createBillFile();
     io.generateBackupFile();
     System.exit(0);
     System.out.println("window is closing");

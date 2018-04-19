@@ -40,7 +40,7 @@ public class FileIO {
 		clientList = new LinkedList<>();
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
-
+		
 	}//end default constructor
 	
 	public Lawn getLawn(String s) {
@@ -182,7 +182,6 @@ public class FileIO {
 						tempLawn.setNotes(inFile.nextLine());
 						lawnList.add(tempLawn);
 						tempClient.addLawn(tempLawn);
-
 					}
 				}
 				while (!temp.equals("#ENDEMAILS"))
@@ -555,7 +554,7 @@ public class FileIO {
 			writer = new FileWriter(file, true);
 			outFile = new PrintWriter(writer);
 
-			outFile.append(new Date().toString() + " :: " + s + "\n\n");
+			outFile.append(new Date().toString() + " \n" + s + " \n");
 
 			outFile.close();
 			writer.close();
@@ -569,15 +568,25 @@ public class FileIO {
 		PrintWriter outFile;
 
 		File file = new File("bill.txt");
-		
+
 		try
 		{
 			writer = new FileWriter(file);
 			outFile = new PrintWriter(writer);
 
-			//for ()
-			outFile.println();
-
+			LinkedList<Client> sortedList = clientList;
+			
+			Collections.sort(sortedList, new Comparator<Client>() 
+			{   @Override
+			    public int compare(Client o1, Client o2) 
+				{ return (int) (o2.getOwed() - (o1.getOwed())); }
+			});
+			
+			for (int i = 0; i < getNumClients(); i++)
+			{
+			 if (sortedList.get(i).getOwed() > 0)
+			 outFile.println(sortedList.get(i).toBill());
+			}
 			outFile.close();
 			writer.close();
 		} catch (IOException e) { e.printStackTrace(); }

@@ -10,3 +10,29 @@ Thu Mar 29 22:26:14 EDT 2018 :: Added Client: Example Client 123 Example Billing
 
 Thu Mar 29 22:26:47 EDT 2018 :: Added Client: Caleb Dingus 112 Goldcrest Drive 0.0
 
+Fri Mar 30 13:05:34 EDT 2018 :: Added Lawn: Caleb Dingus - Caleb1, 112 Goldcrest Drive for $40.00 every 7 days
+
+Fri Mar 30 13:57:55 EDT 2018 :: Added Client: Dan Gonzales 116 dewey Daye Ave 0.0
+
+Fri Mar 30 13:59:15 EDT 2018 :: Added Lawn: Dan Gonzales - DG watch for dog, 116 Dewey Daye ave` for $75.00 every 7 days
+
+Sat Mar 31 11:29:46 EDT 2018 :: Removed Client: Example Client 123 Example Billing Address Ave 0.0
+
+Sat Mar 31 11:31:21 EDT 2018 :: Added Lawn: Dan Gonzales - 999999999999999999999999999999999999999999999999999999999999999, 8888888888888888888888888888888888888888888888 for $30.00 every 7 days
+
+Sat Mar 31 11:34:27 EDT 2018 :: Added Lawn: Dan Gonzales - dfgh, fghdgh for $7.00 every 8 days
+
+Sat Mar 31 12:15:42 EDT 2018 :: Added Client: Joe 122 gladffds 0.0
+
+Sat Mar 31 12:17:56 EDT 2018 :: Added Client: Fred Calvin 153 Charlotte Lane 0.0
+
+Sat Mar 31 12:19:21 EDT 2018 :: Added Client: Sam Smith 89 Fallow Drive 0.0
+
+Sat Mar 31 12:20:45 EDT 2018 :: Added Client: Greg House 19 Hanshore Drive 0.0
+
+Sat Mar 31 12:23:36 EDT 2018 :: Added Client: Jane Furrow 36 Main Street 0.0
+
+Sat Mar 31 12:28:04 EDT 2018 :: Added Lawn: Greg House - Greg House, 19 Hanshore Drive for $45.00 every 7 days
+
+Sat Mar 31 12:29:58 EDT 2018 :: Added Client: Sarah Gorgas 14 French lane 0.0
+

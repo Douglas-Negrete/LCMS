@@ -138,6 +138,12 @@ public class Client {
 	 String s = name + " " + billAddress + " " + owed;
 		return s;
 	}
+	
+	public String toBill()
+	{
+	 String s = name + ": " + billAddress + " - $" + df.format(owed);
+		return s;
+	}
 
 	public String toFile()
 	{
