@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.Scanner;
 
 import Mail.Mailer;
@@ -42,6 +43,83 @@ public class FileIO {
 		lawnList = new LinkedList<>();
 		
 	}//end default constructor
+
+	static String[] names = { "John", "James", "Jim", "Bill", "Fred", "Alex", "Ben", "Joe", "Don",
+	"Dan", "Sam", "Sarah", "Rick", "Richard", "Carl", "Ted", "Greg", "Alice" };
+	static String[] lastNames = { "san", "don", "us", "red", "jin", "lo", "free", "thorn", "tin",
+	"done", "man", "ford", "bat","son", "sel", "din", "gus", "trey", "las", "der",
+	"burg", "men", "mill", "stan", "rich", "el", "isson", "er", "thin", "kin" };
+	static String[] street = { "Street", "Drive", "Way", "Path", "Boulevard", "Circle", "Lane" };
+	static String[] streetName1 = { "Birch", "Gold", "River", "Water", "Silver", "Sun", "Metal",
+	"Bronze", "Laurel", "High", "Winter", "Frost", "Ice", "Oak", "Shady", "Iron" };
+	static String[] streetName2 = { "crest", "boar", "shield", "winter", "lane", "stone", "fish",
+	"stile", "core", "mist", "town", "fresh", "shin", "tree", "store", "market" };
+
+
+	public static void clientCreator()
+	{
+	Random rand = new Random();
+	 
+	int num1 = rand.nextInt(names.length);
+	int num2 = rand.nextInt(lastNames.length);
+	int num3 = rand.nextInt(lastNames.length);
+	int num4 = rand.nextInt(streetName1.length);
+	int num5 = rand.nextInt(streetName2.length);
+	int num6 = rand.nextInt(street.length);
+	 
+	String lastName = lastNames[num2];
+	lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
+	String name = names[num1] + " " + lastName + lastNames[num3];
+	 
+	String address = (rand.nextInt(680) + 20) + " " + streetName1[num4] + 
+	streetName2[num5] + " " + street[num6];
+	 
+	String phone = "(" + (rand.nextInt(799) + 200) + ") " + (rand.nextInt(899) + 100) + 
+	" " + (rand.nextInt(8999) + 1000);
+	 
+	num1 = rand.nextInt(10);
+	
+	if (num1 == 0)
+	num1 = 0;
+	else if (num1 < 7)
+	num1 = 1;
+	else if (num1 < 9)
+	num1 = 2;
+	else // if (num1 < 11)
+	num1 = 3;
+	System.out.println(num1);
+	//System.out.println(" -- " + num1);
+	
+	Client one = new Client(name, address, phone);
+	for (int i = 1; i < num1; i++)
+	{
+	String genLoc = "";
+	int interval = 7;
+	num2 = rand.nextInt(10);
+	if (num2 == 0)
+	interval = 30;
+	else if (num2 < 6)
+	interval = 7;
+	else if (num2 < 8)
+	interval = 10;
+	else if (num2 < 11)
+	interval = 14;
+	// int interval = 7; //10,14, 30
+	 
+	double price = rand.nextDouble()*100;
+	
+	num4 = rand.nextInt(streetName1.length);
+	num5 = rand.nextInt(streetName2.length);
+	num6 = rand.nextInt(street.length);
+	 
+	      Lawn l = new Lawn(one, address, one.getName()+i,genLoc,interval, price);
+	      address = (rand.nextInt(680) + 20) + " " + streetName1[num4] + 
+	streetName2[num5] + " " + street[num6];
+	  one.addLawn(l);
+	}
+	 System.out.println(one);
+	}
+
 	
 	public Lawn getLawn(String s) {
 		
