@@ -82,6 +82,7 @@ public class WebMain {
 		File writeFile = new File("src/Web/webapp/lawns.html");
 		String website = "";
 		String temp = "";
+		String mowVal = "";
 		
 		try
 		{
@@ -115,7 +116,7 @@ public class WebMain {
 		pw.println("<div class=\"w3-display-top w3-center\">");
 	    pw.println("<h1 class=\"w3-jumbo w3-animate-top\">Lawn Care Made Simple</h1>");
 	    pw.println("<hr class=\"w3-border-grey\" style=\"margin:auto;width:100%\">");
-	    pw.println("<p class=\"w3-large w3-center\">Lawn List</p>");
+	    pw.println("<font size=\"5\">Lawn List</font><br><br>");
 	    pw.println("</div>");
 		
 		
@@ -129,16 +130,26 @@ public class WebMain {
 		while(inFile.hasNext()){
 						
 			temp = inFile.nextLine();
+			mowVal = inFile.nextLine();
 			//pw.println("<input type=\"checkbox\" name=\"" + i + "_lawn\" value=\"mowed\">" + temp + "<br>");
 			//pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" name=\"" + (i+1) + "_comments\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
-			
-			pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\">" + temp + "<br>");
+			if(mowVal.equals("unmowed"))
+			{
+				pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\">" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+			}
+			else
+			{
+				pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\" checked>" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+			}
 			pw.println("<input type=\"hidden\" name=\"" + i + "\" value=\"0\">");
-			
-			pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" name=\"" + (i+1) + "\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
-			
+			//temp = inFile.nextLine();
 			temp = inFile.nextLine();
-			temp = inFile.nextLine();
+			pw.println("&nbsp" + temp + "<br>");
+			
+			pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" autocomplete = \"off\" name=\"" + (i+1) + "\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
+			
+			//temp = inFile.nextLine();
+			//temp = inFile.nextLine();
 			//website += temp + "<br>";
 			i++;
 			i++;

@@ -65,15 +65,7 @@ try
 				
 				if(val != null && !val.isEmpty())
 				{
-					if(temp.equals("No Comment"))
-					{
-						pw.println(val);
-					}
-					
-					else
-					{
-						pw.println(temp + " " + val);
-					}
+					pw.println(val);
 				}
 				else
 				{
@@ -99,15 +91,7 @@ try
 
 				if(val != null && !val.isEmpty())
 				{
-					if(temp.equals("No Comment"))
-					{
-						pw.println(val);
-					}
-					
-					else
-					{
-						pw.println(temp + " " + val);
-					}
+					pw.println(val);
 					
 				}
 
@@ -149,7 +133,6 @@ try
 
 }catch(FileNotFoundException e){e.printStackTrace();}
 %>
-<h2> Comment Changes won't be reflected on the Web Page </h2>
-<h2> You Can Hit Back in Your Browser to Return </h2>
+<h2> You Can Hit the Back Page in Your Browser to Return </h2>
 </body>
 </html>

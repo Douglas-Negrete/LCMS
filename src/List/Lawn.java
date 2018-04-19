@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class Lawn {
 
 	private Client client;
@@ -233,6 +236,35 @@ public class Lawn {
 			cal.setTime(nextMow);
 			cal.add(Calendar.DATE, -interval);
 			this.nextMow = cal.getTime();
+
+		}
+
+	}//end unCheckLawnOff
+	
+	public void stopLawn() 
+	{
+		this.tempL = this.lastMow;
+		this.tempN = this.nextMow;
+
+		this.lastMow = java.sql.Date.valueOf("2000-01-01");
+		this.nextMow = java.sql.Date.valueOf("2000-01-01");
+
+	}//end checklawnoff
+
+	public void unStopLawn() {
+
+		if(tempL != null && tempN != null) {
+
+			this.lastMow = this.tempL;
+			this.nextMow = this.tempN;
+
+		}
+		else {
+
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Activate Lawn");
+			alert.setHeaderText("To activate lawn, edit the \"Next Mow Date\" in the edit lawn option.");
+			alert.show();
 
 		}
 

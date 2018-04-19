@@ -1,9 +1,9 @@
 package GUI;
 
 import java.io.File;
-import java.text.ParseException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,6 +15,8 @@ import Mail.Mailer;
 import Web.WebMain;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -68,6 +70,7 @@ public class GUI extends Application {
 	Client tempClnt;
 	Lawn tempLwn;
 	SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+	NumberFormat formatter = new DecimalFormat("#0.00");
 	public String ip;
 
 	public GUI() {
@@ -144,7 +147,8 @@ public class GUI extends Application {
 						Optional<ButtonType> confirmEmailBtn = confirmEmail.showAndWait();
 						if (confirmEmailBtn.get() == correct){
 
-							io.setBackupEmail(resultEmail.get());
+							//io.setBackupEmail(resultEmail.get());
+							io.emailList.add(resultEmail.get());
 							flag = false;
 
 						} else if (confirmEmailBtn.get() == notCorrect) {
@@ -161,6 +165,7 @@ public class GUI extends Application {
 			io.populateLawns();
 			io.setEmailData();
 			io.writeLawnsHTML();
+			io.checkAutoBackup();
 
 			if(io.readServerFromFile()) {
 
@@ -175,8 +180,13 @@ public class GUI extends Application {
 			}
 		}
 
-		primaryStage.setTitle("Lawn Care Made Simple");//title
+		if(!io.companyName.equals(""))
+			primaryStage.setTitle("Lawn Care Made Simple ("+io.companyName+")");//title
+		else
+			primaryStage.setTitle("Lawn Care Made Simple");
 		Scene scene = new Scene(new VBox(), 1150, 600);//window size
+		primaryStage.setMinHeight(600);
+		primaryStage.setMinWidth(1150);
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
 		Menu menuFile = new Menu("File");//file submenu for the menu
@@ -240,11 +250,12 @@ public class GUI extends Application {
 
 		DatePicker datePicker = new DatePicker();
 
-		Spinner<Integer> spin = new Spinner<>(0,31,7,1);
+		Spinner<Integer> spin = new Spinner<>(1,7,io.getBackupInterval(),1);
 
 		CheckBox disableServerCheckBox = new CheckBox();
 		CheckBox lMowedCheckBox = new CheckBox("Mowed"),
-				lSkipCheckBox = new CheckBox("Skip");
+				lSkipCheckBox = new CheckBox("Skip"),
+				lStopMowCheckBox = new CheckBox("Stop Mowing");
 
 		ComboBox<String> emailComboBox = new ComboBox<>();
 
@@ -263,8 +274,7 @@ public class GUI extends Application {
 				editOwesBtn = new Button("Edit Owes"),
 				delClntBtn = new Button("Delete Client"),
 				delLwnBtn = new Button("Delete Lawn");
-		Button lStopMowBtn = new Button("Stop Mowing"),
-				lAddNoteBtn = new Button("Add Note");
+		Button lAddNoteBtn = new Button("Add Note");
 		Button sAddBtn = new Button("Add"),
 				sDelBtn = new Button("Delete"),
 				sUpdateBtn = new Button("Update");
@@ -371,6 +381,7 @@ public class GUI extends Application {
 				shown = 0;
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+				listView.getSelectionModel().select(0);
 
 			}//end handle
 
@@ -389,6 +400,7 @@ public class GUI extends Application {
 				shown = 1;
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+				listView.getFocusModel().focus(0);
 				leftPane.getChildren().clear();
 				sortedLawnTA.clear();
 				populateSortedLawnTA(sortedLawnTA);
@@ -404,10 +416,15 @@ public class GUI extends Application {
 			public void handle(ActionEvent t) {
 
 				sidePanelBtn.getChildren().clear();
+				leftPane.getChildren().clear();
 
-				//shown = 2;
-				//rightPane.getChildren().remove(1);
-				//rightPane.getChildren().add(1, populateList(listView, io.getCheckedLawns()));
+				displayInfo.getChildren().clear();
+				backupTitleLbl.setText("Transactions");
+				lawnTA.clear();
+				lawnTA.autosize();
+				io.printTransactionFileTA(lawnTA);
+				displayInfo.getChildren().addAll(backupTitleLbl, lawnTA);
+				border.setCenter(displayInfo);
 
 			}//end handle
 
@@ -426,11 +443,6 @@ public class GUI extends Application {
 				centerPane.getChildren().clear();
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				//bEmail.setPromptText(io.getBackupEmail());
-				//bEmail.setText(io.getBackupEmail());
-				//bEmail.setEditable(false);
-				//bEmail.setFocusTraversable(false);
-				//centerPane.getChildren().addAll(backupEmailLbl, bEmail, bSendBtn);
 				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				lawnTA.clear();
 				lawnTA.autosize();
@@ -457,10 +469,6 @@ public class GUI extends Application {
 				centerPane.getChildren().clear();
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				//				bEmail.setPromptText(io.getBackupEmail());
-				//				bEmail.setEditable(false);
-				//				bEmail.setFocusTraversable(false);
-				//				centerPane.getChildren().addAll(backupEmailLbl, bEmail, bSendBtn);
 				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				lawnTA.clear();
 				lawnTA.autosize();
@@ -476,6 +484,8 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				io.createBillFile();
+
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
 
@@ -484,13 +494,10 @@ public class GUI extends Application {
 				centerPane.getChildren().clear();
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				//				bEmail.setPromptText(io.getBackupEmail());
-				//				bEmail.setEditable(false);
-				//				bEmail.setFocusTraversable(false);
-				//				centerPane.getChildren().addAll(backupEmailLbl, bEmail, bSendBtn);
 				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				lawnTA.clear();
 				lawnTA.autosize();
+				io.printBillFileTA(lawnTA);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -563,7 +570,7 @@ public class GUI extends Application {
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
 					cAddr.setText(tempClnt.getBillAddress());
-					cOwes.setText("" + tempClnt.getOwed());
+					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
@@ -605,7 +612,11 @@ public class GUI extends Application {
 						lSkipCheckBox.setSelected(true);
 					else
 						lSkipCheckBox.setSelected(false);
-					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowBtn, editLwnBtn, lAddNoteBtn);
+					if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) == 0)
+						lStopMowCheckBox.setSelected(true);
+					else
+						lStopMowCheckBox.setSelected(false);
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
@@ -628,7 +639,7 @@ public class GUI extends Application {
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
 					cAddr.setText(tempClnt.getBillAddress());
-					cOwes.setText("" + tempClnt.getOwed());
+					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
@@ -670,7 +681,11 @@ public class GUI extends Application {
 						lSkipCheckBox.setSelected(true);
 					else
 						lSkipCheckBox.setSelected(false);
-					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowBtn, editLwnBtn, lAddNoteBtn);
+					if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) == 0)
+						lStopMowCheckBox.setSelected(true);
+					else
+						lStopMowCheckBox.setSelected(false);
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
@@ -709,6 +724,16 @@ public class GUI extends Application {
 
 		});//end setonkeypressed
 
+		spin.valueProperty().addListener(new ChangeListener<Integer>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+				
+				io.setBackupInterval(newValue);
+				
+			}
+        });
+		
 		disableServerCheckBox.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -748,7 +773,7 @@ public class GUI extends Application {
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
 				btnPane.getChildren().clear();
-				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowBtn, editLwnBtn, lAddNoteBtn);
+				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 
 			}//end handle
@@ -784,12 +809,44 @@ public class GUI extends Application {
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
 				btnPane.getChildren().clear();
-				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowBtn, editLwnBtn, lAddNoteBtn);
+				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 
 			}//end handle
 
 		});//end setonaction
+		
+		lStopMowCheckBox.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				if(lStopMowCheckBox.isSelected())
+					tempLwn.stopLawn();
+				else
+					tempLwn.unStopLawn();
+				
+				displayInfo.getChildren().clear();
+				notesTA.clear();
+				notesTA.setMaxWidth(325);
+				notesTA.setMinHeight(400);
+				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
+				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
+				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
+				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
+				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
+				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
+				notesTA.appendText("------------------------------------------------------\n");
+				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
+				btnPane.getChildren().clear();
+				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
+				displayInfo.getChildren().addAll(notesTA, btnPane);
+				
+			}//end handle
+			
+		});//end setonaction stopmowcheckbox
 
 		lawnTA.setEditable(false);
 		lawnTA.setWrapText(true);
@@ -856,6 +913,7 @@ public class GUI extends Application {
 				addClntLwnLbl.getChildren().clear();
 				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
 				addClntLwnTF.getChildren().clear();
+				datePicker.setValue(Calendar.getInstance().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
@@ -940,6 +998,14 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
+								
+								lClientTF.setText("");
+								lClientTF.setPromptText("");
+								lAddressTF.setText("");
+								lLawnNameTF.setText("");
+								lGenLocationTF.setText("");
+								lIntervalTF.setText("");
+								lPriceTF.setText("");
 
 							}
 							else {
@@ -978,6 +1044,14 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
+								
+								lClientTF.setText("");
+								lClientTF.setPromptText("");
+								lAddressTF.setText("");
+								lLawnNameTF.setText("");
+								lGenLocationTF.setText("");
+								lIntervalTF.setText("");
+								lPriceTF.setText("");
 
 							}
 							else {
@@ -1067,6 +1141,14 @@ public class GUI extends Application {
 									addClntLwnTF.getChildren().clear();
 									sidePanelBtn.getChildren().clear();
 									centerPane.getChildren().clear();
+									
+									lClientTF.setText("");
+									lClientTF.setPromptText("");
+									lAddressTF.setText("");
+									lLawnNameTF.setText("");
+									lGenLocationTF.setText("");
+									lIntervalTF.setText("");
+									lPriceTF.setText("");
 
 								});
 
@@ -1106,6 +1188,14 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
+								
+								lClientTF.setText("");
+								lClientTF.setPromptText("");
+								lAddressTF.setText("");
+								lLawnNameTF.setText("");
+								lGenLocationTF.setText("");
+								lIntervalTF.setText("");
+								lPriceTF.setText("");
 
 							}
 							else {
@@ -1129,14 +1219,6 @@ public class GUI extends Application {
 						}
 
 					}
-
-					lClientTF.setText("");
-					lClientTF.setPromptText("");
-					lAddressTF.setText("");
-					lLawnNameTF.setText("");
-					lGenLocationTF.setText("");
-					lIntervalTF.setText("");
-					lPriceTF.setText("");
 
 				}catch(NumberFormatException e) {
 
@@ -1364,7 +1446,7 @@ public class GUI extends Application {
 				try {
 					tempClnt.setOwed(Double.parseDouble(newOwes.get()));
 					displayInfo.getChildren().clear();
-					cOwes.setText("" + tempClnt.getOwed());
+					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 				}
 				catch(Exception e) {
@@ -1452,7 +1534,7 @@ public class GUI extends Application {
 						else {
 							cName.setText(tempClnt.getName());
 							cAddr.setText(tempClnt.getBillAddress());
-							cOwes.setText("" + tempClnt.getOwed());
+							cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
 							lawnTA.clear();
 							populateLawnTA(lawnTA, cName.getText());
 							centerPane.getChildren().clear();
@@ -1506,7 +1588,7 @@ public class GUI extends Application {
 						lMowedCheckBox.setSelected(true);
 					else
 						lMowedCheckBox.setSelected(false);
-					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowBtn, editLwnBtn, lAddNoteBtn);
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
@@ -1580,6 +1662,7 @@ public class GUI extends Application {
 
 				if(!sCompanyNameTF.getText().equals("")) {
 					io.companyName = sCompanyNameTF.getText();
+					primaryStage.setTitle("Lawn Care Made Simple ("+io.companyName+")");//title
 				}
 
 			}//end handle
@@ -1656,6 +1739,8 @@ public class GUI extends Application {
 							public String populateMailLawnList() {
 
 								String att = "";
+
+								att += "Link to webserver: " + ip + ":8080\n";
 
 								for(int i = 0; i < io.lawnList.size(); i++) {
 
@@ -1846,7 +1931,7 @@ public class GUI extends Application {
 
 		for(int i = 0; i < temp.lawnListSize(); i++) {
 
-			ta.insertText(i, "---------------------------------------------------------\n" + 
+			ta.appendText("---------------------------------------------------------\n" + 
 					temp.getSingleLawn(i).toString() + "\n");
 
 		}
@@ -1857,13 +1942,15 @@ public class GUI extends Application {
 
 		for(int i = 0; i < io.lawnList.size(); i++) {
 
-			if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+			//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+			if(io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+					io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
 
 				ta.appendText("-------------------------------------------------\n" +
-						"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
-						"Address:\t\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n" +
-						"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getLastMow()) + "\n" +
-						"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()) + "\n");
+						"Lawn Name:\t" + io.lawnList.get(i).getLawnName() + "\n" +
+						"Address:\t\t" + io.lawnList.get(i).getAddress() + "\n" +
+						"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get(i).getLastMow()) + "\n" +
+						"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get(i).getNextMow()) + "\n");
 
 			}
 
@@ -1875,7 +1962,13 @@ public class GUI extends Application {
 
 		for(int i = 0; i < io.lawnList.size(); i++) {
 
-			ta.insertText(i, "-------------------------------------------------\n" +
+			//			ta.insertText(i, "-------------------------------------------------\n" +
+			//					"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
+			//					"Address:\t\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n" +
+			//					"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getLastMow()) + "\n" +
+			//					"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()) + "\n");
+
+			ta.appendText("-------------------------------------------------\n" +
 					"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
 					"Address:\t\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n" +
 					"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getLastMow()) + "\n" +

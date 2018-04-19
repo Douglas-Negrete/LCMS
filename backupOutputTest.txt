@@ -1,13 +1,27 @@
 #FILESTART
+Joe Smith;45 Townhouse St;8008888888;145.00
+45 Townhouse St;Smith;Shady;7;45.00;04-17-2018;04-24-2018
+this is a test.  
+#ENDLAWN
+Fred Myers;11 Freedom Lane;3045642013;80.00
+11 Freedom Lane;Myers;Shady;10;30.00;04-12-2018;04-22-2018
+Pull weeds along fence line.  
+65 Business District;Friendly Insurance;Beckley;4;20.00;04-10-2018;04-17-2018
+Second note for a lawn.  
+#ENDLAWN
+Francine Rinner;31 Orange Road;8008888888;80.00
+31 Orange Road;Rinner;Beckley;5;50.00;04-10-2018;04-15-2018
+Adding notes to all lawns.  
+#ENDLAWN
 Douglas Negrete;6375 Syracuse st Chino CA 91710;9095914130;0.00
-6375 Syracuse Street Chino;Front;Chino;7;20.00;04-01-2018;04-17-2018
-
-6311 Chipola Ct Chino;Front;Chino;8;17.00;04-01-2018;04-17-2018
-
+6375 Syracuse Street Chino;Front;Chino;7;20.00;04-01-2018;04-19-2018
+Glad to see that my function still works.  
+6311 Chipola Ct Chino;Front;Chino;8;17.00;04-01-2018;04-19-2018
+Still adding notes.  
 #ENDLAWN
 Halina Carrera;6311;8005671234;0.00
-4862 test lawn ave;Front;Chino;6;7.00;04-08-2018;04-17-2018
-
+4862 test lawn ave;Front;Chino;6;7.00;04-08-2018;04-19-2018
+I think this is the last note.  
 #ENDLAWN
 Matthew Zoeter;5678;8008888888;0.00
 #ENDLAWN
@@ -17,25 +31,7 @@ Sheree Mai;5343;8008888888;0.00
 #ENDLAWN
 Ryan Peters;5235;8008888888;0.00
 #ENDLAWN
-Fred Myers;11 Freedom Lane;3045642013;80.00
-11 Freedom Lane;Myers;Shady;10;30.00;04-12-2018;04-22-2018
-Pull weeds along fence line.  
-65 Business District;Friendly Insurance;Beckley;4;20.00;04-10-2018;04-17-2018
-
-#ENDLAWN
-Joe Smith;45 Townhouse St;8008888888;145.00
-45 Townhouse St;Smith;Shady;7;45.00;04-17-2018;04-24-2018
-this is a test.  
-#ENDLAWN
 Sandy Ruth;129 Laudry St;8008888888;0.00
-#ENDLAWN
-Francine Rinner;31 Orange Road;8008888888;80.00
-31 Orange Road;Rinner;Beckley;5;50.00;04-10-2018;04-15-2018
-
-#ENDLAWN
-test client;1234 test lane;9519662082;0.00
-#ENDLAWN
-Frank;franks house;franks phone number;0.00
 #ENDLAWN
 #ENDCLIENT
 test@gmail.com
