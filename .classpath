@@ -5,5 +5,58 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/jetty-all-7.0.2.v20100331.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/servlet-api-2.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/alpn-api-1.1.3.v20160715.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/annotations-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/asm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/cdi-2-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/cdi-core-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/cdi-servlet-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-alpn-conscrypt-server-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-alpn-java-server-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-alpn-openjdk8-server-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-alpn-server-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-annotations-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-client-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-continuation-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-deploy-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-gcloud-session-manager-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-hazelcast-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-http-9.4.7.v20170914.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-http-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-infinispan-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-io-9.4.7.v20170914.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-io-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-jaas-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-jaspi-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-jmx-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-jndi-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-memcached-sessions-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-nosql-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-plus-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-proxy-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-quickstart-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-rewrite-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-schemas-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-security-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-server-9.4.7.v20170914.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-server-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-servlet-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-servlets-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-unixsocket-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-util-9.4.7.v20170914.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-util-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-webapp-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/jetty-xml-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.apache.taglibs.taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.apache.taglibs.taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.eclipse.jdt.ecj-3.12.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.eclipse.jetty.apache-jsp-9.4.8.v20171121.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.mortbay.jasper.apache-el-8.5.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/org.mortbay.jasper.apache-jsp-8.5.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Caleb/Desktop/Caleb&apos;s Folder/Java Programs/Java Jars/Jars for LCMS/servlet-api-3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
