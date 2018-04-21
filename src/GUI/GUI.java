@@ -169,11 +169,10 @@ public class GUI extends Application {
 
 			if(io.readServerFromFile()) {
 
-				//ip = WebServer.startServer();
 				try {
 					ip = WebMain.startServer();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 
@@ -201,7 +200,6 @@ public class GUI extends Application {
 		MenuItem emailFile = new MenuItem("Backup File"),
 				emailTrans = new MenuItem("Backup Transactions"),
 				emailBill = new MenuItem("Backup Bills");
-		//addBackupMail = new MenuItem("Edit Backup Email");
 		MenuItem settings = new MenuItem("Settings"),
 				help = new MenuItem("Help");
 
@@ -246,7 +244,6 @@ public class GUI extends Application {
 				lIntervalTF = new TextField(),
 				lPriceTF = new TextField();
 		TextField sCompanyNameTF = new TextField();
-		//TextField bEmail = new TextField();// gonna not use this anymore
 
 		DatePicker datePicker = new DatePicker();
 
@@ -308,7 +305,6 @@ public class GUI extends Application {
 
 		menuView.getItems().addAll(client, lawn, transactions);
 
-		//menuBackup.getItems().addAll(emailFile, emailTrans, emailBill, addBackupMail);
 		menuBackup.getItems().addAll(emailFile, emailTrans, emailBill);
 
 		menuPreferences.getItems().addAll(settings, help);
@@ -360,10 +356,7 @@ public class GUI extends Application {
 					alert.setHeaderText("You have successfully saved!");
 					alert.setContentText("You have saved the file to the location: " + io.getBackupLocation());
 					alert.show();
-				} else {
-					// ... user chose CANCEL or closed the dialog
 				}
-
 
 			}//end handle
 
@@ -377,11 +370,27 @@ public class GUI extends Application {
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
 				displayInfo.getChildren().clear();
-
 				shown = 0;
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
-				listView.getSelectionModel().select(0);
+				listView.getFocusModel().focus(0);
+				tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
+				cName.setText(tempClnt.getName());
+				cAddr.setText(tempClnt.getBillAddress());
+				cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
+				cNum.setText(tempClnt.getPhoneNum());
+				lawnTA.clear();
+				populateLawnTA(lawnTA, cName.getText());
+				centerPane.getChildren().clear();
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
+				displayInfo.getChildren().clear();
+				displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+				centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
+				border.setCenter(centerPane);
+				sidePanelBtn.getChildren().clear();
+				sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
+				border.setLeft(sidePanelBtn);
 
 			}//end handle
 
@@ -396,11 +405,44 @@ public class GUI extends Application {
 				sidePanelBtn.getChildren().clear();
 				centerPane.getChildren().clear();
 				displayInfo.getChildren().clear();
-
 				shown = 1;
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
 				listView.getFocusModel().focus(0);
+				tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+				displayInfo.getChildren().clear();
+				notesTA.clear();
+				notesTA.setMaxWidth(325);
+				notesTA.setMinHeight(400);
+				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
+				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
+				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
+				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
+				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
+				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
+				notesTA.appendText("------------------------------------------------------\n");
+				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
+				btnPane.getChildren().clear();
+				if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
+					lMowedCheckBox.setSelected(true);
+				else
+					lMowedCheckBox.setSelected(false);
+				if(tempLwn.getSkip())
+					lSkipCheckBox.setSelected(true);
+				else
+					lSkipCheckBox.setSelected(false);
+				if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) == 0)
+					lStopMowCheckBox.setSelected(true);
+				else
+					lStopMowCheckBox.setSelected(false);
+				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
+				displayInfo.getChildren().addAll(notesTA, btnPane);
+				leftPane.getChildren().clear();
+				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
+				border.setLeft(leftPane);
+				border.setCenter(displayInfo);
 				leftPane.getChildren().clear();
 				sortedLawnTA.clear();
 				populateSortedLawnTA(sortedLawnTA);
@@ -728,12 +770,12 @@ public class GUI extends Application {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
-				
+
 				io.setBackupInterval(newValue);
-				
+
 			}
-        });
-		
+		});
+
 		disableServerCheckBox.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -815,17 +857,17 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonaction
-		
+
 		lStopMowCheckBox.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				
+
 				if(lStopMowCheckBox.isSelected())
 					tempLwn.stopLawn();
 				else
 					tempLwn.unStopLawn();
-				
+
 				displayInfo.getChildren().clear();
 				notesTA.clear();
 				notesTA.setMaxWidth(325);
@@ -843,9 +885,9 @@ public class GUI extends Application {
 				btnPane.getChildren().clear();
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
-				
+
 			}//end handle
-			
+
 		});//end setonaction stopmowcheckbox
 
 		lawnTA.setEditable(false);
@@ -998,7 +1040,7 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
-								
+
 								lClientTF.setText("");
 								lClientTF.setPromptText("");
 								lAddressTF.setText("");
@@ -1044,7 +1086,7 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
-								
+
 								lClientTF.setText("");
 								lClientTF.setPromptText("");
 								lAddressTF.setText("");
@@ -1141,7 +1183,7 @@ public class GUI extends Application {
 									addClntLwnTF.getChildren().clear();
 									sidePanelBtn.getChildren().clear();
 									centerPane.getChildren().clear();
-									
+
 									lClientTF.setText("");
 									lClientTF.setPromptText("");
 									lAddressTF.setText("");
@@ -1188,7 +1230,7 @@ public class GUI extends Application {
 								addClntLwnTF.getChildren().clear();
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
-								
+
 								lClientTF.setText("");
 								lClientTF.setPromptText("");
 								lAddressTF.setText("");
@@ -1962,17 +2004,15 @@ public class GUI extends Application {
 
 		for(int i = 0; i < io.lawnList.size(); i++) {
 
-			//			ta.insertText(i, "-------------------------------------------------\n" +
-			//					"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
-			//					"Address:\t\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n" +
-			//					"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getLastMow()) + "\n" +
-			//					"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()) + "\n");
+			if(!sf.format(io.lawnList.get(i).getNextMow()).equals("01-01-2000")) {
 
-			ta.appendText("-------------------------------------------------\n" +
-					"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
-					"Address:\t\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n" +
-					"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getLastMow()) + "\n" +
-					"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()) + "\n");
+				ta.appendText("-------------------------------------------------\n" +
+						"Lawn Name:\t" + io.lawnList.get(i).getLawnName() + "\n" +
+						"Address:\t\t" + io.lawnList.get(i).getAddress() + "\n" +
+						"Last Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get(i).getLastMow()) + "\n" +
+						"Next Mow:\t" + new SimpleDateFormat("E MMMM d, y").format(io.lawnList.get(i).getNextMow()) + "\n");
+
+			}
 
 
 		}

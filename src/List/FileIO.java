@@ -42,8 +42,8 @@ public class FileIO {
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
 
-		//for (int i = 0; i < 100; i++)
-		//clientCreator();
+		for (int i = 0; i < 100; i++)
+			clientCreator();
 
 	}//end default constructor
 
@@ -800,9 +800,14 @@ public class FileIO {
 
 	public void checkAutoBackup() {
 
+		Calendar cal = Calendar.getInstance();
+		
 		if(backupInterval != 0) {
 
-			if(new SimpleDateFormat("MM-dd-yyyy").format(lastBackUp).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))){
+			cal.setTime(lastBackUp);
+			cal.add(cal.DATE, backupInterval);
+			Date temp = cal.getTime();
+			if(new SimpleDateFormat("MM-dd-yyyy").format(temp).compareTo(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime())) < 0){
 				
 				Task<Integer> task = new Task<Integer>() {
 
@@ -820,6 +825,8 @@ public class FileIO {
 
 					if(task.getValue() == 1) {
 
+						lastBackUp = Calendar.getInstance().getTime();
+						
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("Backup");
 						alert.setHeaderText("Email sent successfully!");
