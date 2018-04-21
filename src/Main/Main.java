@@ -1,7 +1,8 @@
 package Main;
 
 import GUI.GUI;
-import Web.WebServer;
+import Web.WebMain;
+//import Web.WebServer;
 import javafx.application.Application;
 
 public class Main {
@@ -25,12 +26,20 @@ public class Main {
 			}//end run method
 
 		}.start();//end thread object
+		
+		ip = gui.ip;
 
-		if(gui.io.readServerFromFile()) {
-			
-			ip = WebServer.startServer();
-
-		}
+//		if(gui.io.readServerFromFile()) {
+//			
+//			//ip = WebServer.startServer();
+//			try {
+//				ip = WebMain.startServer();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//		}
 
 	}//end main
 
