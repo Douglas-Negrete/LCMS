@@ -118,6 +118,12 @@ public class Client {
 		lawnList.add(l);
 
 	}//end addLawn
+	
+	public String getOwes() {
+		
+		return "$"+df.format(owed);
+		
+	}
 
 	public void removeLawn(Lawn l) {
 
@@ -135,7 +141,7 @@ public class Client {
 	
 	public String toTransaction()
 	{
-	 String s = name + " " + billAddress + " " + owed;
+	 String s = name + " " + billAddress + " $" + df.format(owed);
 		return s;
 	}
 	

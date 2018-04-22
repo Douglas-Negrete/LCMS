@@ -194,6 +194,8 @@ public class Lawn {
 		else
 			this.notes = str.replace("\n", "") + "  ";
 		
+		System.out.println("THIS.NOTES- "+this.notes);
+		
 	}//end addNotes
 
 	public void setNotes(String str) {
@@ -261,7 +263,7 @@ public class Lawn {
 		}
 		else {
 
-			Alert alert = new Alert(AlertType.ERROR);
+			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Activate Lawn");
 			alert.setHeaderText("To activate lawn, edit the \"Next Mow Date\" in the edit lawn option.");
 			alert.show();
@@ -322,8 +324,7 @@ public class Lawn {
 
 	public String toTransaction()
 	{
-		String s = getClient().getName() + " - " +  getLawnName() + ", " + getAddress() + " for $" + 
-				df.format(getPrice()) + " every " + getInterval() + " days";
+		String s = getClient().getName() + " - " +  getLawnName() + ", " + getAddress() + " for $" + df.format(getPrice());
 		return s;
 	}
 

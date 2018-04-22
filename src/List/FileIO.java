@@ -240,21 +240,43 @@ public class FileIO {
 				temp = getLawn(addr);
 				if((sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) != 0 && status.equals("mowed")) ||
 						(sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) == 0 && status.equals("unmowed"))) {
-					lawnList.remove(getLawnIndex(addr));
+					//lawnList.remove(getLawnIndex(addr));
 
 					System.out.println(addr + ":" + status);
-					if(status.equals("mowed"))
+					if(status.equals("mowed")) {
+						appendToTransactionFile("(From Web)Lawn checked off: " + temp.toTransaction());
 						temp.checkLawnOff();
-					else
+						appendToTransactionFile("(From Web)Client " + temp.getClient().getName() + " now owes: " + temp.getClient().getOwes());
+					}
+					else {
+						appendToTransactionFile("(From Web)Lawn unchecked: " + temp.toTransaction());
 						temp.unCheckLawnOff();
+						appendToTransactionFile("(From Web)Client " + temp.getClient().getName() + " now owes: " + temp.getClient().getOwes());
+					}
+					
+					System.out.println(notes);
+					
+					System.out.println(!notes.equals("No Comment"));
 
-					if(!notes.equals("No Comment"))
+					if(!notes.equals("No Comment") && !notes.equals(lawnList.get(getLawnIndex(addr)).getNotes()))
 						temp.addNotes(notes);
+					
+					System.out.println(temp.getNotes());
 
-					lawnList.add(temp);
+					//lawnList.add(temp);
+					
+					System.out.println(lawnList.get(getLawnIndex(addr)).getNotes());
 
 					sortLawns();
 
+				}
+				else if(!notes.equals("No Comment") && !notes.equals(lawnList.get(getLawnIndex(addr)).getNotes())) {
+					
+					temp = getLawn(addr);
+					//lawnList.remove(getLawnIndex(addr));
+					temp.addNotes(notes);
+					//lawnList.add(temp);
+					
 				}
 
 			}
@@ -399,23 +421,63 @@ public class FileIO {
 		}
 
 	}//end readinbackupfile
-
-	public void printTransactionFileTA(TextArea ta)//LinkedList<Client> list) 
+	
+	public void printFAQFileTA(TextArea ta)//LinkedList<Client> list) 
 	{
 		FileReader reader;
 		Scanner inFile;
 
 		try
 		{
-			reader = new FileReader("Transactions.txt");
+			reader = new FileReader("LCMS_HelpFile.txt");
 			inFile = new Scanner(reader);
 
 			while(inFile.hasNext())
 			{
 				String temp = inFile.nextLine();
-				ta.appendText(temp+"\n");
+				ta.appendText(temp + "\n");
 			}
 
+			inFile.close();
+			reader.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (java.lang.ArrayIndexOutOfBoundsException e) 
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Input Dialog");
+			alert.setHeaderText("System Error");
+			alert.setContentText("An error has occured reading in the client information.");
+
+			alert.showAndWait();
+			e.printStackTrace();
+		}
+
+	}//end readinbackupfile
+
+	public void printTransactionFileTA(TextArea ta)//LinkedList<Client> list) 
+	{
+		FileReader reader;
+		Scanner inFile;
+		String[] in = new String[500];
+		int count = 0;
+
+		try
+		{
+			reader = new FileReader("Transactions.txt");
+			inFile = new Scanner(reader);
+
+			while(inFile.hasNext() && count < in.length) {
+				in[count] = inFile.nextLine();
+				count++;
+			}
+			
+			for(int i = count-1; i > 0; i--) {
+				ta.appendText(in[i] + "\n");
+			}
+			
 			inFile.close();
 			reader.close();
 		}
@@ -528,30 +590,6 @@ public class FileIO {
 		return false;
 
 	}//end isnew
-
-	public String encryptInformation() {
-
-		return "";
-
-	}//end encryptinformation
-
-	public void findBackupFile() {
-
-
-
-	}//end findbackupfile
-
-	public void search(String s) {
-
-
-
-	}//end search
-
-	public void createClientList() {
-
-
-
-	}//end createclientlist
 
 	public void populateLawns() {
 
@@ -756,7 +794,7 @@ public class FileIO {
 			writer = new FileWriter(trans, true);
 			outFile = new PrintWriter(writer);
 
-			outFile.append(new Date().toString() + " :: " + s + System.lineSeparator());
+			outFile.append(new SimpleDateFormat("EEE MMMM dd h:mm:ss aa").format(new Date()) + " :: " + s + System.lineSeparator());
 
 			outFile.close();
 			writer.close();

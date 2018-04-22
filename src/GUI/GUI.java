@@ -290,6 +290,7 @@ public class GUI extends Application {
 				settingsTFPane = new HBox();
 		HBox iAddressBox = new HBox(),
 				iCostIntervalBox = new HBox();
+		HBox serverBtn = new HBox();
 
 		VBox rightPane = new VBox();//what goes in the right section of the layout
 		VBox leftPane = new VBox();//the lawn information that goes on the left
@@ -299,7 +300,6 @@ public class GUI extends Application {
 		VBox sidePanelBtn = new VBox();
 		VBox settingsLbl = new VBox();
 		VBox settingsItems = new VBox();
-		VBox serverBtn = new VBox();
 
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
@@ -424,7 +424,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -444,13 +444,16 @@ public class GUI extends Application {
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 				leftPane.getChildren().clear();
-				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
-				border.setLeft(leftPane);
+				//leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
+				//border.setLeft(leftPane);
 				border.setCenter(displayInfo);
-				leftPane.getChildren().clear();
+				//leftPane.getChildren().clear();
 				sortedLawnTA.clear();
 				populateSortedLawnTA(sortedLawnTA);
-				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
+				sortedLawnTA.positionCaret(1);
+				serverBtn.getChildren().clear();
+				serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 				border.setLeft(leftPane);
 
 			}//end handle
@@ -469,6 +472,7 @@ public class GUI extends Application {
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.printTransactionFileTA(lawnTA);
+				lawnTA.positionCaret(1);
 				displayInfo.getChildren().addAll(backupTitleLbl, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -494,6 +498,7 @@ public class GUI extends Application {
 				lawnTA.autosize();
 				io.generateBackupFile();
 				io.printBackupFileTA(lawnTA);
+				lawnTA.positionCaret(1);
 				lawnTA.autosize();
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
@@ -518,6 +523,8 @@ public class GUI extends Application {
 				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				lawnTA.clear();
 				lawnTA.autosize();
+				io.printTransactionFileTA(lawnTA);
+				lawnTA.positionCaret(1);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -544,6 +551,7 @@ public class GUI extends Application {
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.printBillFileTA(lawnTA);
+				lawnTA.positionCaret(1);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -594,7 +602,8 @@ public class GUI extends Application {
 				backupTitleLbl.setText("FAQ");
 
 				notesTA.clear();
-
+				io.printFAQFileTA(notesTA);
+				notesTA.positionCaret(1);
 				displayInfo.getChildren().clear();
 				displayInfo.getChildren().addAll(backupTitleLbl, notesTA);
 
@@ -648,7 +657,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -668,7 +677,9 @@ public class GUI extends Application {
 					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
-					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
+					serverBtn.getChildren().clear();
+					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
 
@@ -719,7 +730,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -739,7 +750,9 @@ public class GUI extends Application {
 					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
-					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
+					serverBtn.getChildren().clear();
+					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
 
@@ -804,10 +817,16 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				if(lMowedCheckBox.isSelected())
+				if(lMowedCheckBox.isSelected()) {
+					io.appendToTransactionFile("Lawn checked off: " + tempLwn.toTransaction());
 					tempLwn.checkLawnOff();
-				else
+					io.appendToTransactionFile("Client " + tempLwn.getClient().getName() + " now owes: " + tempLwn.getClient().getOwes());
+				}
+				else {
+					io.appendToTransactionFile("Lawn unchecked: " + tempLwn.toTransaction());
 					tempLwn.unCheckLawnOff();
+					io.appendToTransactionFile("Client " + tempLwn.getClient().getName() + " now owes: " + tempLwn.getClient().getOwes());
+				}
 
 				displayInfo.getChildren().clear();
 				notesTA.clear();
@@ -819,7 +838,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -855,7 +874,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -887,7 +906,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -909,6 +928,7 @@ public class GUI extends Application {
 
 		notesTA.setWrapText(true);
 		notesTA.setEditable(false);
+		notesTA.setMinHeight(400);
 
 		sortedLawnTA.setEditable(false);
 		sortedLawnTA.setMinWidth(250);
@@ -1409,7 +1429,7 @@ public class GUI extends Application {
 								lLawnNameTF.setText(tempLwn.getLawnName().toString());
 								lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 								lIntervalTF.setText("" + tempLwn.getInterval());
-								lPriceTF.setText("" + tempLwn.getPrice());
+								lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
 								datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 								btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 								addClntLwnLbl.getChildren().clear();
@@ -1435,7 +1455,7 @@ public class GUI extends Application {
 						lLawnNameTF.setText(tempLwn.getLawnName().toString());
 						lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 						lIntervalTF.setText("" + tempLwn.getInterval());
-						lPriceTF.setText("" + tempLwn.getPrice());
+						lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
 						datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 						btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 						addClntLwnLbl.getChildren().clear();
@@ -1467,7 +1487,7 @@ public class GUI extends Application {
 					lLawnNameTF.setText(tempLwn.getLawnName().toString());
 					lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 					lIntervalTF.setText("" + tempLwn.getInterval());
-					lPriceTF.setText("" + tempLwn.getPrice());
+					lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
 					datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 					btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 					addClntLwnLbl.getChildren().clear();
@@ -1495,10 +1515,12 @@ public class GUI extends Application {
 
 				Optional<String> newOwes = owes.showAndWait();
 				try {
+					String oldOwes = tempClnt.getOwes();
 					tempClnt.setOwed(Double.parseDouble(newOwes.get()));
 					displayInfo.getChildren().clear();
 					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+					io.appendToTransactionFile("Owed amount for " + tempClnt.getName() + " changed from " + oldOwes + " to " + tempClnt.getOwes());
 				}
 				catch(Exception e) {
 					Alert alert = new Alert(AlertType.ERROR);
@@ -1629,7 +1651,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + tempLwn.getPrice() + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -1916,6 +1938,10 @@ public class GUI extends Application {
 		btnPane.setSpacing(10);
 		btnPane.setPadding(new Insets(0, 10, 10, 10));
 		btnPane.setAlignment(Pos.CENTER);
+		
+		serverBtn.setSpacing(10);
+		serverBtn.setPadding(new Insets(0, 10, 10, 10));
+		serverBtn.setAlignment(Pos.CENTER);
 
 		settingsBtnPane.setSpacing(10);
 		settingsBtnPane.setPadding(new Insets(0, 10, 10, 10));

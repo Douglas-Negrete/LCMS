@@ -1,0 +1,40 @@
+--------------------  HELP  --------------------
+
+              LAWN CARE MADE SIMPLE
+
+Q: How can I save my lawns?
+A: Use the top bar under File and click on the save tab then press okay
+
+
+Q: How do I use the backup file
+A: If you are starting up a new instance of the program you can search your computer for the file and select the backup file to get all of your clients back into the program
+
+
+Q: How can I add an email to send files to?
+A: Go into the settings file and click on the add email button and enter your email
+
+
+Q: What is auto backup?
+A: Auto Backup will send you an email containing the client and lawn file after the number of days you enter in the settings menu. If you enter a 0 auto backup will be disabled
+
+
+Q: What does Backup Bill do?
+A: This sends an email containing a file of all clients that owe money and the addresses for these clients
+
+
+Q: What does skip lawn do?
+A: Skip lawn will assume that the lawn was taken care of without charging the customer and increments the next mow date by a given interval
+
+
+Q: What does stop mowing do?
+A: Stop mowing will remove a lawn from the list of lawns you mow permanently unless you change the next mow date
+
+Q: What does disable server do?
+A: This will shut off the server and prevent people from connecting to view the lawns. The server can only be viewed by the recipient of the send lawns list email
+
+
+Other Questions?
+
+Email AutomatedLCMS@gmail.com
+
+
