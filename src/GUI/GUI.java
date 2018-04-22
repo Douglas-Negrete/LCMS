@@ -168,6 +168,8 @@ public class GUI extends Application {
 			io.checkAutoBackup();
 
 			if(io.readServerFromFile()) {
+				
+				System.out.println("SERVER CHECK:"+io.readServerFromFile());
 
 				try {
 					ip = WebMain.startServer();
@@ -227,7 +229,7 @@ public class GUI extends Application {
 				lLawnLbl = new Label("");
 		Label iSortedLawnsLbl = new Label("Lawns by Next Mow Date");
 		Label sCompanyNameLbl = new Label("Set Company Name:"),
-				sAutoBackupLbl = new Label("Set Auto Backup:"),
+				sAutoBackupLbl = new Label("Set Auto Backup (Days) :"),
 				sDisableServerLbl = new Label("Disable Server:"),
 				sEditEmailsLbl = new Label("Edit Emails:");
 		Label backupEmailLbl = new Label("The backup will be sent to this email:"),
@@ -276,7 +278,8 @@ public class GUI extends Application {
 				sDelBtn = new Button("Delete"),
 				sUpdateBtn = new Button("Update");
 		Button bSendBtn = new Button("Send"),
-				lSendBtn = new Button("Send Lawn Lists");
+				lSendBtn = new Button("Send Lawn Lists"),
+				lUpdateFromHTML = new Button("Update from Server");
 
 		HBox topPane = new HBox();//what goes in the top section of the layout
 		HBox searchBox = new HBox();//contains the search label, and the search box
@@ -296,6 +299,7 @@ public class GUI extends Application {
 		VBox sidePanelBtn = new VBox();
 		VBox settingsLbl = new VBox();
 		VBox settingsItems = new VBox();
+		VBox serverBtn = new VBox();
 
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
@@ -564,9 +568,9 @@ public class GUI extends Application {
 
 				settingsItems.getChildren().clear();
 				if(io.getServer())
-					disableServerCheckBox.setSelected(true);
-				else
 					disableServerCheckBox.setSelected(false);
+				else
+					disableServerCheckBox.setSelected(true);
 				settingsItems.getChildren().addAll(settingsTFPane, spin, disableServerCheckBox, emailComboBox, settingsBtnPane);
 				settingsItems.setAlignment(Pos.CENTER_LEFT);
 
@@ -630,7 +634,10 @@ public class GUI extends Application {
 				}
 				else if(shown == 1) {
 
-					tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+					//tempLwn = io.getl
+					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedItem());
+					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
 					displayInfo.getChildren().clear();
 					notesTA.clear();
 					notesTA.setMaxWidth(325);
@@ -675,7 +682,7 @@ public class GUI extends Application {
 
 			@Override
 			public void handle(KeyEvent event) {
-
+				
 				if(shown == 0) {
 
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
@@ -699,7 +706,9 @@ public class GUI extends Application {
 				}
 				else if(shown == 1) {
 
-					tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
 					displayInfo.getChildren().clear();
 					notesTA.clear();
 					notesTA.setMaxWidth(325);
@@ -782,9 +791,9 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				if(disableServerCheckBox.isSelected())
-					io.setServer(true);
-				else
 					io.setServer(false);
+				else
+					io.setServer(true);
 
 			}//end handle
 
@@ -1874,6 +1883,17 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonaction
+		
+		lUpdateFromHTML.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				io.readInLawnsHTML();
+				
+			}//end handle
+			
+		});//end setonaction
 
 		backupTitleLbl.setFont(new Font(30));
 
@@ -1958,6 +1978,7 @@ public class GUI extends Application {
 			public void handle(WindowEvent we) {
 
 				io.generateBackupFile();
+				System.out.println("program is almost closed!");
 				System.exit(0);
 				System.out.println("window is closing");
 

@@ -33,6 +33,7 @@ public class FileIO {
 	public String companyName;
 	private boolean server;// true means disable, false means enable
 	private Date lastBackUp;
+	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 
 	public FileIO() {
 
@@ -42,8 +43,9 @@ public class FileIO {
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
 
-		for (int i = 0; i < 100; i++)
-			clientCreator();
+		if(isNew())
+			for (int i = 0; i < 100; i++)
+				clientCreator();
 
 	}//end default constructor
 
@@ -67,6 +69,32 @@ public class FileIO {
 		return null;
 
 	}//end getLawn
+
+	public int getLawnIndex(String s) {
+
+		for(int i = 0; i < lawnList.size(); i++) {
+
+			if(lawnList.get(i).getAddress().equals(s))
+				return i;
+
+		}
+
+		return -1;
+
+	}//end getLawn
+
+	public int getFromLawnName(String s) {
+
+		for(int i = 0; i < lawnList.size(); i++) {
+
+			if(lawnList.get(i).getLawnName().equals(s))
+				return i;
+
+		}
+
+		return -1;
+
+	}
 
 	public void setBackupEmail(String s) {
 
@@ -120,75 +148,36 @@ public class FileIO {
 
 	public void writeLawnsHTML() {
 
-		if(new File("lawns.txt").exists()) {
+		File file = new File("lawns.txt");
+		FileWriter writer;
+		PrintWriter outFile;
 
-			File file = new File("lawns.txt");
-			FileWriter writer;
-			PrintWriter outFile;
+		try
+		{
+			writer = new FileWriter(file);
+			outFile = new PrintWriter(writer);
 
-			try
-			{
-				writer = new FileWriter(file);
-				outFile = new PrintWriter(writer);
+			for(int i = 0; i < lawnList.size(); i++) {
 
-				for(int i = 0; i < lawnList.size(); i++) {
+				if(lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+						lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
 
-					if(lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
-							lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
+					//if(new SimpleDateFormat("MM-dd-yyyy").format(lawnList.get((lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+					outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
+							"unmowed\n"+
+							lawnList.get((lawnList.size()-1) - i).getNotes());
 
-						if(new SimpleDateFormat("MM-dd-yyyy").format(lawnList.get((lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
-							outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
-									"unmowed\n"+
-									lawnList.get((lawnList.size()-1) - i).getNotes());
-
-						}
-
-					}
+					//}
 
 				}
 
-				outFile.close();
-				writer.close();
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
 
-		}//end if file exists
-		else {
+			outFile.close();
+			writer.close();
 
-			File file = new File("lawns.txt");
-			FileWriter writer;
-			PrintWriter outFile;
-
-			try
-			{
-				writer = new FileWriter(file);
-				outFile = new PrintWriter(writer);
-
-				for(int i = 0; i < lawnList.size(); i++) {
-
-					if(lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
-							lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
-
-						if(new SimpleDateFormat("MM-dd-yyyy").format(lawnList.get((lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
-							outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
-									"unmowed\n"+
-									lawnList.get((lawnList.size()-1) - i).getNotes());
-
-						}
-
-					}
-
-				}
-
-				outFile.close();
-				writer.close();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}//end writeLawnsHTML
@@ -217,9 +206,9 @@ public class FileIO {
 			outFile.println(backupInterval);
 			outFile.println(new SimpleDateFormat("MM-dd-yyyy").format(lastBackUp));
 			if(server)
-				outFile.println("T");
-			else
 				outFile.println("F");
+			else
+				outFile.println("T");
 			outFile.println(companyName.replaceAll(";",","));
 			outFile.println("#ENDALL");
 
@@ -234,6 +223,9 @@ public class FileIO {
 		FileReader reader;
 		Scanner inFile;
 
+		String addr, status, notes;
+		Lawn temp;
+
 		try
 		{
 			reader = new FileReader("lawns.txt");
@@ -241,9 +233,33 @@ public class FileIO {
 
 			while(inFile.hasNext()) {
 
-				inFile.nextLine();
+				addr = inFile.nextLine();
+				status = inFile.nextLine();
+				notes = inFile.nextLine();
+
+				temp = getLawn(addr);
+				if((sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) != 0 && status.equals("mowed")) ||
+						(sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) == 0 && status.equals("unmowed"))) {
+					lawnList.remove(getLawnIndex(addr));
+
+					System.out.println(addr + ":" + status);
+					if(status.equals("mowed"))
+						temp.checkLawnOff();
+					else
+						temp.unCheckLawnOff();
+
+					if(!notes.equals("No Comment"))
+						temp.addNotes(notes);
+
+					lawnList.add(temp);
+
+					sortLawns();
+
+				}
 
 			}
+
+			inFile.close();
 
 		}
 		catch(Exception e) {
@@ -308,9 +324,9 @@ public class FileIO {
 				backupInterval = Integer.parseInt(inFile.nextLine());
 				lastBackUp = new SimpleDateFormat("MM-dd-yyyy").parse(inFile.nextLine());
 				if(inFile.nextLine().equals("T"))
-					server = true;
-				else
 					server = false;
+				else
+					server = true;
 				System.out.println("Server - " + server);
 				companyName = inFile.nextLine();
 				inFile.nextLine();
@@ -383,7 +399,7 @@ public class FileIO {
 		}
 
 	}//end readinbackupfile
-	
+
 	public void printTransactionFileTA(TextArea ta)//LinkedList<Client> list) 
 	{
 		FileReader reader;
@@ -699,6 +715,7 @@ public class FileIO {
 					temp = inFile.nextLine();
 					if(temp.equals("#ENDEMAILS")) {
 						inFile.nextLine();
+						inFile.nextLine();
 						temp = inFile.nextLine();
 						if(temp.equals("T")) {
 							inFile.close();
@@ -801,14 +818,14 @@ public class FileIO {
 	public void checkAutoBackup() {
 
 		Calendar cal = Calendar.getInstance();
-		
+
 		if(backupInterval != 0) {
 
 			cal.setTime(lastBackUp);
 			cal.add(cal.DATE, backupInterval);
 			Date temp = cal.getTime();
-			if(new SimpleDateFormat("MM-dd-yyyy").format(temp).compareTo(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime())) < 0){
-				
+			if(sf.format(temp).compareTo(sf.format(Calendar.getInstance().getTime())) < 0){
+
 				Task<Integer> task = new Task<Integer>() {
 
 					@Override
@@ -826,7 +843,7 @@ public class FileIO {
 					if(task.getValue() == 1) {
 
 						lastBackUp = Calendar.getInstance().getTime();
-						
+
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("Backup");
 						alert.setHeaderText("Email sent successfully!");

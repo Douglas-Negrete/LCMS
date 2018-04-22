@@ -1,7 +1,6 @@
 package Main;
 
 import GUI.GUI;
-import Web.WebMain;
 //import Web.WebServer;
 import javafx.application.Application;
 
