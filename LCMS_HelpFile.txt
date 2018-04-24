@@ -3,19 +3,27 @@
               				   LAWN CARE MADE SIMPLE
 
 Q: How can I save my lawns?
-A: Use the top bar under File and click on the save tab then press okay
+A: Use the top bar under the File tab and click on the save tab then press okay
+
+
+Q: How do I delete a lawn?
+A: To delete a lawn you must go into the client view and select the client that owns the lawn. Then select the lawn you wish to delete from the drop down and delete the lawn. Alternatively, you can simply press stop mowing on a lawn in the view lawns tab and this will remove it from the lawn list rotation 
 
 
 Q: How do I use the backup file
-A: If you are starting up a new instance of the program you can search your computer for the file and select the backup file to get all of your clients back into the program
+A: If you are starting up a new instance of the program you can search your computer for the file and select the backup file to get all of your clients back into the program. If it is not a new instance of the program, you can go into the File tab and select import and choose the backup file you want to read from for the program 
 
 
 Q: How can I add an email to send files to?
-A: Go into the settings file and click on the add email button and enter your email
+A: Go into the settings tab under preferences and click on the add email button and enter your email
 
 
 Q: What is auto backup?
 A: Auto Backup will send you an email containing the client and lawn file after the number of days you enter in the settings menu. If you enter a 0 auto backup will be disabled
+
+
+Q: Why are my changes from the website not being displayed?
+A: Please use the Update from Server button to refresh the list and pull in information from the website
 
 
 Q: What does Backup Bill do?
@@ -29,8 +37,13 @@ A: Skip lawn will assume that the lawn was taken care of without charging the cu
 Q: What does stop mowing do?
 A: Stop mowing will remove a lawn from the list of lawns you mow permanently unless you change the next mow date
 
+
 Q: What does disable server do?
-A: This will shut off the server and prevent people from connecting to view the lawns. The server can only be viewed by the recipient of the send lawns list email
+A: This will shut off the server and prevent people with a link to the website from connecting to the website to view the lawns
+
+
+Q: What does send lawn lists do?
+A: This button will show the lawn list you are about to send and give you the option to choose an email address to send it to. If you have the server enabled, then the email will also include a link for the website that the recipient can access
 
 
 Other Questions?
