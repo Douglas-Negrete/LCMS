@@ -1,475 +1,66 @@
-Sat Apr 21 17:51:10 EDT 2018 :: Ted Manjin 604 Oakfish Path 0.0
-Sat Apr 21 17:51:10 EDT 2018 :: Ben Fordder 231 Wintermarket Lane 6.0
-Sat Apr 21 17:51:10 EDT 2018 :: Ben Fordder - Ben Fordder0, 231 Wintermarket Lane for $29.75 every 14 days
-Sat Apr 21 17:51:10 EDT 2018 :: Joe Redstan 220 Rivertown Path 3.0
-Sat Apr 21 17:51:10 EDT 2018 :: Joe Redstan - Joe Redstan0, 220 Rivertown Path for $29.75 every 14 days
-Sat Apr 21 17:51:10 EDT 2018 :: Greg Jinsel 38 Shadymarket Drive 2.0
-Sat Apr 21 17:51:10 EDT 2018 :: Greg Jinsel - Greg Jinsel0, 38 Shadymarket Drive for $33.88 every 7 days
-Sat Apr 21 17:51:10 EDT 2018 :: Greg Jinsel - Greg Jinsel1, 665 Highshield Way for $33.88 every 7 days
-Sat Apr 21 17:51:10 EDT 2018 :: Ted Richdone 322 Goldshin Drive 1.0
-Sat Apr 21 17:51:10 EDT 2018 :: Ted Richdone - Ted Richdone0, 322 Goldshin Drive for $3.43 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Donedone 372 Laurellane Circle 5.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Donedone - Sarah Donedone0, 372 Laurellane Circle for $75.49 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Issonthorn 651 Watertree Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Issonthorn - Sam Issonthorn0, 651 Watertree Street for $75.49 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Derburg 442 Ironmarket Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Sonkin 423 Goldstone Path 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Sonkin - Sarah Sonkin0, 423 Goldstone Path for $45.04 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Sonkin - Sarah Sonkin1, 52 Oakmarket Path for $9.49 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Elsel 436 Laurelfish Drive 1.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Elsel - Fred Elsel0, 436 Laurelfish Drive for $9.49 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Millder 213 Birchlane Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Don Millder - Don Millder0, 213 Birchlane Street for $79.04 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Greg Millthorn 667 Oakmarket Drive 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Joe Gusred 96 Icetree Path 3.0
-Sat Apr 21 17:51:11 EDT 2018 :: Joe Gusred - Joe Gusred0, 96 Icetree Path for $70.39 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Dan Fordjin 696 Laurelcore Circle 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Stanrich 527 Shadystone Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Stanrich - Fred Stanrich0, 527 Shadystone Street for $66.33 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Stanrich - Fred Stanrich1, 304 Shadystone Street for $35.88 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Erus 680 Bronzestore Way 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Erus - Ben Erus0, 680 Bronzestore Way for $35.88 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Burgkin 563 Goldmist Drive 1.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Burgkin - James Burgkin0, 563 Goldmist Drive for $40.01 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Ustin 48 Frostboar Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Ustin - Richard Ustin0, 48 Frostboar Street for $74.01 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Issontin 484 Waterstile Circle 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Jinthin 583 Waterboar Path 3.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Jinthin - James Jinthin0, 583 Waterboar Path for $24.27 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Sondon 295 Highshin Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Sondon - Alice Sondon0, 295 Highshin Lane for $15.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Menthin 612 Suncrest Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Menthin - Alice Menthin0, 612 Suncrest Street for $15.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Menthin - Alice Menthin1, 656 Sunwinter Drive for $85.17 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Sanford 634 Silvershin Lane 12.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Sanford - James Sanford0, 634 Silvershin Lane for $85.17 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Sanford - James Sanford1, 146 Laurelboar Lane for $49.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Dondon 135 Oaktree Way 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Dondon - Ben Dondon0, 135 Oaktree Way for $49.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Manson 472 Goldshin Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Manson - Carl Manson0, 472 Goldshin Lane for $19.17 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Burgtin 44 Sunmarket Way 4.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Burgtin - Ted Burgtin0, 44 Sunmarket Way for $23.30 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Burgtin - Ted Burgtin1, 303 Frostshield Drive for $23.30 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Doneisson 626 Waterfresh Boulevard 4.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Doneisson - Ben Doneisson0, 626 Waterfresh Boulevard for $58.33 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Menfree 201 Ironwinter Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Menfree - Fred Menfree0, 201 Ironwinter Lane for $49.69 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Freethin 693 Shadyshin Path 3.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Freethin - Alex Freethin0, 693 Shadyshin Path for $49.69 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Kinman 55 Shadyboar Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Kinman - Sarah Kinman0, 55 Shadyboar Street for $92.33 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Kinman - Sarah Kinman1, 468 Frosttree Path for $92.33 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Manman 472 Icestore Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Manman - Sarah Manman0, 472 Icestore Lane for $83.69 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Rick Issonred 222 Ironstore Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Rick Issonred - Rick Issonred0, 222 Ironstore Street for $53.23 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Fordmen 668 Goldmist Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Fordmen - Carl Fordmen0, 668 Goldmist Lane for $53.23 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Dersan 404 Laurelfish Lane 12.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Dersan - Fred Dersan0, 404 Laurelfish Lane for $25.30 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Dersan - Fred Dersan1, 111 Watershield Way for $25.30 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: John Kingus 82 Bronzecore Boulevard 8.0
-Sat Apr 21 17:51:11 EDT 2018 :: John Kingus - John Kingus0, 82 Bronzecore Boulevard for $94.85 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: John Kingus - John Kingus1, 281 Metalcrest Street for $94.85 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Treythorn 249 Goldfish Boulevard 8.0
-Sat Apr 21 17:51:11 EDT 2018 :: Don Treythorn - Don Treythorn0, 249 Goldfish Boulevard for $47.88 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Treythorn - Don Treythorn1, 131 Goldfish Lane for $47.88 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Dan Manus 468 Sunmarket Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Dan Manus - Dan Manus0, 468 Sunmarket Street for $90.52 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Dan Manus - Dan Manus1, 38 Bronzefresh Circle for $90.52 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Dan Manus - Dan Manus2, 38 Bronzefresh Circle for $90.52 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Greg Sanfree 100 Shadyfish Boulevard 4.0
-Sat Apr 21 17:51:11 EDT 2018 :: Greg Sanfree - Greg Sanfree0, 100 Shadyfish Boulevard for $8.26 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Fordmen 481 Shadywinter Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Fordmen - Ben Fordmen0, 481 Shadywinter Lane for $8.26 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Stanred 254 Birchcore Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Stanred - Fred Stanred0, 254 Birchcore Street for $77.81 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Dinbat 644 Oakcore Way 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Dinbat - Richard Dinbat0, 644 Oakcore Way for $42.26 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Lasmen 521 Metalwinter Circle 5.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Lasmen - Alice Lasmen0, 521 Metalwinter Circle for $42.26 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Rick Fordsel 505 Waterwinter Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Don Elel 313 Bronzemarket Drive 3.0
-Sat Apr 21 17:51:11 EDT 2018 :: Don Elel - Don Elel0, 313 Bronzemarket Drive for $11.81 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Elel - Don Elel1, 290 Highcrest Street for $15.94 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Don Elel - Don Elel2, 370 Ironfish Boulevard for $15.94 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Laslo 149 Goldstile Path 3.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Laslo - Alex Laslo0, 149 Goldstile Path for $66.20 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Greg Millus 620 Bronzeshin Circle 5.0
-Sat Apr 21 17:51:11 EDT 2018 :: Greg Millus - Greg Millus0, 620 Bronzeshin Circle for $66.20 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Bill Lolas 638 Goldcore Drive 1.0
-Sat Apr 21 17:51:11 EDT 2018 :: Bill Lolas - Bill Lolas0, 638 Goldcore Drive for $57.55 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Doneson 529 Winterstile Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Doneson - Alice Doneson0, 529 Winterstile Street for $91.55 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Doneson - Alice Doneson1, 472 Oakboar Lane for $91.55 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Doneson - Alice Doneson2, 472 Oakboar Lane for $61.10 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Richlo 352 Highwinter Way 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Richlo - Carl Richlo0, 352 Highwinter Way for $61.10 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Stanbat 141 Silvercrest Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Stanbat - Sam Stanbat0, 141 Silvercrest Lane for $17.94 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Richel 595 Frostboar Boulevard 4.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alice Richel - Alice Richel0, 595 Frostboar Boulevard for $87.49 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Staner 342 Shadyfresh Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Staner - James Staner0, 342 Shadyfresh Lane for $87.49 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: James Forder 141 Frosttown Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: James Forder - James Forder0, 141 Frosttown Street for $91.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Manbat 390 Riverwinter Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Manbat - Ben Manbat0, 390 Riverwinter Street for $34.26 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Jim Kinrich 356 Silverstore Boulevard 8.0
-Sat Apr 21 17:51:11 EDT 2018 :: Jim Kinrich - Jim Kinrich0, 356 Silverstore Boulevard for $34.26 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Jim Kinrich - Jim Kinrich1, 207 Metalcrest Way for $25.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Jim Issonlo 339 Frostwinter Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Jim Issonlo - Jim Issonlo0, 339 Frostwinter Street for $25.62 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Batlas 22 Icemist Way 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Batlas - Ben Batlas0, 22 Icemist Way for $75.88 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Batlas - Ben Batlas1, 104 Bronzemarket Street for $67.23 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Batlas - Ben Batlas2, 530 Shadystone Drive for $67.23 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Menus 630 Suntree Way 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Menus - Richard Menus0, 630 Suntree Way for $1.23 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Sonisson 492 Metaltown Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Sonisson - Ben Sonisson0, 492 Metaltown Lane for $70.78 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Batfree 358 Silverstile Way 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Batfree - Ted Batfree0, 358 Silverstile Way for $74.91 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Batfree - Ted Batfree1, 177 Silverlane Circle for $74.91 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Batfree - Ted Batfree2, 177 Silverlane Circle for $74.91 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Thornmill 566 Oakboar Boulevard 12.0
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Thornmill - Carl Thornmill0, 566 Oakboar Boulevard for $40.39 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Thornmill - Carl Thornmill1, 95 Silverstile Drive for $40.39 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Carl Thornmill - Carl Thornmill2, 95 Silverstile Drive for $4.85 every 14 days
-Sat Apr 21 17:51:11 EDT 2018 :: Fred Lasred 198 Bronzemarket Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Manson 351 Winterfish Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ted Manson - Ted Manson0, 351 Winterfish Lane for $74.39 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Lasmill 402 Birchshield Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Lasmill - Sam Lasmill0, 402 Birchshield Street for $65.75 every 10 days
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Batsan 228 Laurelfresh Lane 6.0
-Sat Apr 21 17:51:11 EDT 2018 :: Alex Batsan - Alex Batsan0, 228 Laurelfresh Lane for $76.91 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Freedone 67 Winterboar Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sarah Freedone - Sarah Freedone0, 67 Winterboar Street for $7.44 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Donlas 233 Goldmarket Circle 15.0
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Donlas - Richard Donlas0, 233 Goldmarket Circle for $7.44 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Donlas - Richard Donlas1, 109 Metalshield Way for $76.99 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Donlas - Richard Donlas2, 151 Highcrest Drive for $76.99 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Erbat 580 Frostlane Boulevard 4.0
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Erbat - Sam Erbat0, 580 Frostlane Boulevard for $33.83 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Bill Forddon 94 Icefresh Drive 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Bill Forddon - Bill Forddon0, 94 Icefresh Drive for $33.83 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Bill Forddon - Bill Forddon1, 495 Birchmist Path for $3.37 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Burger 495 Highfish Boulevard 12.0
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Burger - Richard Burger0, 495 Highfish Boulevard for $94.73 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Burger - Richard Burger1, 283 Wintertree Way for $94.73 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Richard Burger - Richard Burger2, 283 Wintertree Way for $94.73 every 30 days
-Sat Apr 21 17:51:11 EDT 2018 :: Sam Freered 682 Goldtown Street 0.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Selsan 391 Oakstile Drive 2.0
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Selsan - Ben Selsan0, 391 Oakstile Drive for $28.73 every 7 days
-Sat Apr 21 17:51:11 EDT 2018 :: Ben Selsan - Ben Selsan1, 361 Bronzecore Lane for $98.28 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Lasfree 160 Laurelcrest Lane 6.0
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Lasfree - Fred Lasfree0, 160 Laurelcrest Lane for $83.12 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Rick Redrich 185 Highboar Boulevard 4.0
-Sat Apr 21 17:51:12 EDT 2018 :: Rick Redrich - Rick Redrich0, 185 Highboar Boulevard for $52.67 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Jim Thornburg 498 Icefish Boulevard 12.0
-Sat Apr 21 17:51:12 EDT 2018 :: Jim Thornburg - Jim Thornburg0, 498 Icefish Boulevard for $17.12 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Jim Thornburg - Jim Thornburg1, 244 Silvershield Path for $17.12 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Jim Thornburg - Jim Thornburg2, 244 Silvershield Path for $86.67 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Dinford 679 Ironmarket Drive 3.0
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Dinford - Joe Dinford0, 679 Ironmarket Drive for $78.02 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Dinford - Joe Dinford1, 33 Shadyfish Way for $78.02 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Dinford - Joe Dinford2, 33 Shadyfish Way for $78.02 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Don Donmill 70 Bronzeshield Boulevard 8.0
-Sat Apr 21 17:51:12 EDT 2018 :: Don Donmill - Don Donmill0, 70 Bronzeshield Boulevard for $13.05 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Don Donmill - Don Donmill1, 672 Goldfish Street for $4.41 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Richsel 554 Icestone Boulevard 8.0
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Richsel - Ted Richsel0, 554 Icestone Boulevard for $73.96 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Richsel - Ted Richsel1, 461 Frosttown Lane for $73.96 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: James Milldon 447 Highshield Drive 1.0
-Sat Apr 21 17:51:12 EDT 2018 :: James Milldon - James Milldon0, 447 Highshield Drive for $20.73 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Stanthin 565 Bronzecore Circle 5.0
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Stanthin - Carl Stanthin0, 565 Bronzecore Circle for $92.80 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Sarah Treysan 152 Metalmarket Way 2.0
-Sat Apr 21 17:51:12 EDT 2018 :: Sarah Treysan - Sarah Treysan0, 152 Metalmarket Way for $92.80 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: James Lasford 632 Metalmist Drive 2.0
-Sat Apr 21 17:51:12 EDT 2018 :: James Lasford - James Lasford0, 632 Metalmist Drive for $89.25 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: James Lasford - James Lasford1, 607 Sunstore Way for $65.38 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Derthin 657 Frostfresh Boulevard 8.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Derthin - Alice Derthin0, 657 Frostfresh Boulevard for $88.21 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Derthin - Alice Derthin1, 173 Ironcore Path for $88.21 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Tinford 615 Wintershin Path 3.0
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Tinford - Joe Tinford0, 615 Wintershin Path for $57.76 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Uslo 377 Goldlane Way 6.0
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Uslo - Fred Uslo0, 377 Goldlane Way for $57.76 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Uslo - Fred Uslo1, 215 Riverfish Lane for $49.12 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Uslo - Fred Uslo2, 642 Highshin Street for $49.12 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: John Mener 362 Sunshield Lane 12.0
-Sat Apr 21 17:51:12 EDT 2018 :: John Mener - John Mener0, 362 Sunshield Lane for $99.38 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: John Mener - John Mener1, 240 Waterfish Boulevard for $99.38 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Bill Thornred 474 Ironcrest Drive 1.0
-Sat Apr 21 17:51:12 EDT 2018 :: Bill Thornred - Bill Thornred0, 474 Ironcrest Drive for $3.51 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Freerich 85 Suncore Path 3.0
-Sat Apr 21 17:51:12 EDT 2018 :: Joe Freerich - Joe Freerich0, 85 Suncore Path for $7.05 every 30 days
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Lostan 449 Silvershin Lane 18.0
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Lostan - Carl Lostan0, 449 Silvershin Lane for $63.89 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Lostan - Carl Lostan1, 103 Birchtree Circle for $63.89 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Carl Lostan - Carl Lostan2, 103 Birchtree Circle for $33.44 every 30 days
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Millman 324 Birchcore Way 2.0
-Sat Apr 21 17:51:12 EDT 2018 :: Fred Millman - Fred Millman0, 324 Birchcore Way for $33.44 every 30 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alex Batdone 401 Riverstile Path 3.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alex Batdone - Alex Batdone0, 401 Riverstile Path for $24.80 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Dinmen 265 Oakshield Way 4.0
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Dinmen - Ted Dinmen0, 265 Oakshield Way for $67.44 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Ted Dinmen - Ted Dinmen1, 351 Birchfish Street for $70.73 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Rick Donlo 490 Riverfresh Way 4.0
-Sat Apr 21 17:51:12 EDT 2018 :: Rick Donlo - Rick Donlo0, 490 Riverfresh Way for $70.73 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Rick Donlo - Rick Donlo1, 607 Sunstone Boulevard for $62.08 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Richard Freeer 199 Oakmist Way 4.0
-Sat Apr 21 17:51:12 EDT 2018 :: Richard Freeer - Richard Freeer0, 199 Oakmist Way for $31.63 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Richard Freeer - Richard Freeer1, 395 Ironmist Path for $31.63 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Don Selisson 552 Icewinter Boulevard 4.0
-Sat Apr 21 17:51:12 EDT 2018 :: Don Selisson - Don Selisson0, 552 Icewinter Boulevard for $96.08 every 10 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Donrich 146 Metalcrest Lane 6.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Donrich - Alice Donrich0, 146 Metalcrest Lane for $65.63 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Sarah Manlas 139 Silvermarket Boulevard 0.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Freeisson 593 Waterlane Boulevard 12.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Freeisson - Alice Freeisson0, 593 Waterlane Boulevard for $56.99 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Freeisson - Alice Freeisson1, 219 Silvertown Street for $92.02 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alice Freeisson - Alice Freeisson2, 307 Metaltown Lane for $92.02 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Don Elman 607 Sunboar Street 0.0
-Sat Apr 21 17:51:12 EDT 2018 :: Don Elman - Don Elman0, 607 Sunboar Street for $96.15 every 7 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alex Erus 141 Goldshield Drive 2.0
-Sat Apr 21 17:51:12 EDT 2018 :: Alex Erus - Alex Erus0, 141 Goldshield Drive for $38.79 every 14 days
-Sat Apr 21 17:51:12 EDT 2018 :: Alex Erus - Alex Erus1, 166 Riverstone Street for $30.15 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Batthin 601 Froststile Circle 5.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Batthin - Alex Batthin0, 601 Froststile Circle for $41.69 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Richard Dergus 606 Wintershin Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Richard Dergus - Richard Dergus0, 606 Wintershin Drive for $22.92 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Richard Dergus - Richard Dergus1, 186 Waterstone Boulevard for $33.57 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Dan Tintrey 413 Birchmist Boulevard 4.0
-Sat Apr 21 17:51:13 EDT 2018 :: Dan Tintrey - Dan Tintrey0, 413 Birchmist Boulevard for $51.82 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Kinlo 421 Silverfresh Boulevard 4.0
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Kinlo - Fred Kinlo0, 421 Silverfresh Boulevard for $59.95 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Derlo 403 Laurelcrest Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Derlo - Greg Derlo0, 403 Laurelcrest Lane for $44.79 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Jinder 351 Laurelcore Boulevard 8.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Jinder - Alex Jinder0, 351 Laurelcore Boulevard for $33.63 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Jinder - Alex Jinder1, 204 Bronzetown Boulevard for $78.79 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Donel 101 Irontree Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: John Donel - John Donel0, 101 Irontree Lane for $29.05 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Gusgus 266 Suncore Circle 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Laskin 241 Iceshield Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Laskin - Alice Laskin0, 241 Iceshield Lane for $74.73 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Fordmen 143 Oaklane Way 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Fordmen - Jim Fordmen0, 143 Oaklane Way for $19.89 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Usfree 582 Bronzeshield Lane 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Ben Richstan 478 Metalshield Street 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Richard Redbat 529 Frostmarket Street 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Richard Redbat - Richard Redbat0, 529 Frostmarket Street for $54.14 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Thornstan 596 Frostcrest Boulevard 4.0
-Sat Apr 21 17:51:13 EDT 2018 :: John Thornstan - John Thornstan0, 596 Frostcrest Boulevard for $4.40 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Batford 536 Silverwinter Way 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Batford - Fred Batford0, 536 Silverwinter Way for $73.43 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Lolo 404 Wintercore Way 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Lolo - Fred Lolo0, 404 Wintercore Way for $37.88 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Stanthorn 472 Ironstone Boulevard 8.0
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Stanthorn - Ted Stanthorn0, 472 Ironstone Boulevard for $61.24 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Stanthorn - Ted Stanthorn1, 530 Frostlane Lane for $2.85 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Reddin 328 Oakwinter Drive 1.0
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Reddin - Greg Reddin0, 328 Oakwinter Drive for $72.40 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Milldin 471 Metalstone Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Milldin - Bill Milldin0, 471 Metalstone Drive for $83.05 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Milldin - Bill Milldin1, 107 Ironshin Drive for $37.43 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Lasman 333 Froststile Circle 10.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Lasman - Alex Lasman0, 333 Froststile Circle for $60.79 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Lasman - Alex Lasman1, 481 Frostshin Circle for $49.11 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: James Lasdin 443 Highcore Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: James Lasdin - James Lasdin0, 443 Highcore Drive for $79.05 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: James Lasdin - James Lasdin1, 362 Ironfresh Lane for $74.98 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Millmen 222 Bronzeboar Circle 5.0
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Millmen - Greg Millmen0, 222 Bronzeboar Circle for $83.11 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Reddon 208 Icefresh Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Reddon - Bill Reddon0, 208 Icefresh Drive for $47.56 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Bill Reddon - Bill Reddon1, 650 Icewinter Drive for $82.59 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ben Millmen 464 Icefresh Lane 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Tinrich 583 Silvercrest Boulevard 8.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Tinrich - Alice Tinrich0, 583 Silvercrest Boulevard for $93.24 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Tinrich - Alice Tinrich1, 119 Birchstore Path for $81.56 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Richrich 61 Metalboar Path 9.0
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Richrich - Ted Richrich0, 61 Metalboar Path for $89.69 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Richrich - Ted Richrich1, 552 Birchstone Street for $51.11 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Richrich - Ted Richrich2, 217 Iceshin Boulevard for $85.63 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: James Derred 145 Waterfresh Drive 1.0
-Sat Apr 21 17:51:13 EDT 2018 :: James Derred - James Derred0, 145 Waterfresh Drive for $16.66 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Standon 116 Bronzestore Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Standon - Jim Standon0, 116 Bronzestore Lane for $51.69 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Rick Gusus 142 Rivershield Path 3.0
-Sat Apr 21 17:51:13 EDT 2018 :: Rick Gusus - Rick Gusus0, 142 Rivershield Path for $43.05 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Sonthorn 417 Laurelwinter Boulevard 4.0
-Sat Apr 21 17:51:13 EDT 2018 :: Ted Sonthorn - Ted Sonthorn0, 417 Laurelwinter Boulevard for $12.60 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Redred 619 Shadyfish Drive 1.0
-Sat Apr 21 17:51:13 EDT 2018 :: Fred Redred - Fred Redred0, 619 Shadyfish Drive for $57.76 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: Carl Dongus 123 Oakmarket Way 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alex Reder 433 Birchcore Lane 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Sarah Sanisson 146 Waterstile Path 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: Sarah Sanisson - Sarah Sanisson0, 146 Waterstile Path for $3.43 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Sarah Sanisson - Sarah Sanisson1, 260 Goldboar Boulevard for $76.53 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Derjin 546 Winterfish Street 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: John Derjin - John Derjin0, 546 Winterfish Street for $19.18 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Joe Milljin 545 Laurelcrest Street 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Joe Milljin - Joe Milljin0, 545 Laurelcrest Street for $22.72 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Joe Milljin - Joe Milljin1, 23 Winterstone Boulevard for $11.63 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Joe Milljin - Joe Milljin2, 464 Wintershield Way for $92.34 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Don Burgus 584 Highcore Circle 5.0
-Sat Apr 21 17:51:13 EDT 2018 :: Don Burgus - Don Burgus0, 584 Highcore Circle for $92.85 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Donetin 593 Frostcrest Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: John Donetin - John Donetin0, 593 Frostcrest Lane for $45.63 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Kiner 567 Metalfish Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: John Kiner - John Kiner0, 567 Metalfish Drive for $80.66 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: John Kiner - John Kiner1, 629 Winterstore Street for $95.89 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: James Issonrich 561 Shadycrest Way 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: James Issonrich - James Issonrich0, 561 Shadycrest Way for $87.24 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Menred 135 Highfish Lane 6.0
-Sat Apr 21 17:51:13 EDT 2018 :: Jim Menred - Jim Menred0, 135 Highfish Lane for $83.69 every 30 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Treysel 273 Bronzestore Street 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Treysel - Alice Treysel0, 273 Bronzestore Street for $86.72 every 14 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Erdin 112 Laurelboar Drive 3.0
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Erdin - Alice Erdin0, 112 Laurelboar Drive for $55.76 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Erdin - Alice Erdin1, 174 Sunstone Way for $83.18 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Alice Erdin - Alice Erdin2, 442 Sunboar Drive for $79.11 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Rick Issonlo 63 Icewinter Lane 0.0
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Lostan 421 Riverstone Lane 12.0
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Lostan - Greg Lostan0, 421 Riverstone Lane for $83.25 every 10 days
-Sat Apr 21 17:51:13 EDT 2018 :: Greg Lostan - Greg Lostan1, 607 Goldtree Drive for $71.58 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Carl Lasder 120 Riverfresh Path 3.0
-Sat Apr 21 17:51:13 EDT 2018 :: Carl Lasder - Carl Lasder0, 120 Riverfresh Path for $82.22 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Dan Gustrey 260 Birchstone Drive 2.0
-Sat Apr 21 17:51:13 EDT 2018 :: Dan Gustrey - Dan Gustrey0, 260 Birchstone Drive for $90.35 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Dan Gustrey - Dan Gustrey1, 550 Riverstore Drive for $78.67 every 7 days
-Sat Apr 21 17:51:13 EDT 2018 :: Carl Menmen 484 Icestone Drive 1.0
-Sat Apr 21 17:51:13 EDT 2018 :: Carl Menmen - Carl Menmen0, 484 Icestone Drive for $89.32 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Thinbat 258 Suntown Way 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Thinbat - Sam Thinbat0, 258 Suntown Way for $31.96 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Thinbat - Sam Thinbat1, 447 Waterstore Boulevard for $1.00 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Thinbat - Sam Thinbat2, 611 Watermist Way for $77.12 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Elsel 693 Icemarket Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Elsel - Richard Elsel0, 693 Icemarket Boulevard for $85.25 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Burgisson 77 Winterstone Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Burgisson - Rick Burgisson0, 77 Winterstone Lane for $35.00 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Joe Kinfree 488 Silverwinter Path 3.0
-Sat Apr 21 17:51:14 EDT 2018 :: Joe Kinfree - Joe Kinfree0, 488 Silverwinter Path for $58.93 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Joe Fordder 505 Metaltree Path 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Issonlo 320 Bronzecore Way 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Issonlo - Greg Issonlo0, 320 Bronzecore Way for $46.22 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Milldin 51 Shadywinter Circle 5.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Milldin - Sam Milldin0, 51 Shadywinter Circle for $54.35 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Gusmill 100 Metalcrest Circle 10.0
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Gusmill - Greg Gusmill0, 100 Metalcrest Circle for $99.51 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Gusmill - Greg Gusmill1, 680 Oakfresh Lane for $87.84 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Jiner 343 Goldboar Lane 18.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Jiner - Alex Jiner0, 343 Goldboar Lane for $76.67 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Jiner - Alex Jiner1, 670 Silverstore Path for $25.90 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Jiner - Alex Jiner2, 386 Laurelboar Street for $6.61 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Thindone 237 Birchstore Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Thindone - Fred Thindone0, 237 Birchstore Boulevard for $3.06 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Carl Batlo 608 Icestone Drive 1.0
-Sat Apr 21 17:51:14 EDT 2018 :: Carl Batlo - Carl Batlo0, 608 Icestone Drive for $45.77 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Ergus 603 Ironstone Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Ergus - Sam Ergus0, 603 Ironstone Boulevard for $95.51 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sarah Elred 547 Ironlane Way 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sarah Elred - Sarah Elred0, 547 Ironlane Way for $38.16 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Treyrich 483 Ironmist Drive 1.0
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Treyrich - Fred Treyrich0, 483 Ironmist Drive for $83.32 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Carl Manfree 257 Watertown Circle 5.0
-Sat Apr 21 17:51:14 EDT 2018 :: Carl Manfree - Carl Manfree0, 257 Watertown Circle for $72.16 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Redrich 550 Laureltree Path 9.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Redrich - Alex Redrich0, 550 Laureltree Path for $36.61 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Redrich - Alex Redrich1, 404 Froststile Street for $17.32 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Redrich - Alex Redrich2, 640 Rivershield Lane for $44.74 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Issondon 32 Icemist Drive 1.0
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Issondon - Bill Issondon0, 32 Icemist Drive for $16.80 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sarah Usder 285 Waterwinter Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sarah Usder - Sarah Usder0, 285 Waterwinter Lane for $24.93 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Gusjin 618 Bronzefresh Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Gusjin - Bill Gusjin0, 618 Bronzefresh Lane for $29.06 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Dinel 352 Highstore Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Dinel - Rick Dinel0, 352 Highstore Street for $25.51 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Dinel - Rick Dinel1, 165 Frostlane Boulevard for $6.22 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Dinel - Rick Dinel2, 401 Goldmarket Boulevard for $94.55 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Batbat 318 Silverboar Circle 5.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Batbat - Sam Batbat0, 318 Silverboar Circle for $78.29 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ted Seltin 456 Silverstone Drive 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Ted Seltin - Ted Seltin0, 456 Silverstone Drive for $67.13 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ted Seltin - Ted Seltin1, 189 Frostwinter Way for $55.45 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Thornsel 521 Oakstone Drive 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Thornsel - Alex Thornsel0, 521 Oakstone Drive for $0.61 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Thornsel - Alex Thornsel1, 390 Metalfresh Lane for $20.42 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Redburg 288 Watermarket Boulevard 8.0
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Redburg - Richard Redburg0, 288 Watermarket Boulevard for $38.67 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Redburg - Richard Redburg1, 168 Metalshield Way for $19.38 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Joe Lothin 130 Bronzecore Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Joe Lothin - Joe Lothin0, 130 Bronzecore Lane for $42.74 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Donetin 53 Oakshin Circle 15.0
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Donetin - Ben Donetin0, 53 Oakshin Circle for $7.45 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Donetin - Ben Donetin1, 214 Frostwinter Drive for $3.38 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Donetin - Ben Donetin2, 89 Laurelstile Circle for $80.54 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Issonjin 542 Winterfresh Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Issonjin - Sam Issonjin0, 542 Winterfresh Lane for $83.57 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Elford 149 Birchmist Circle 5.0
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Elford - Jim Elford0, 149 Birchmist Circle for $5.90 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Milltrey 593 Icetree Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Milltrey - Alex Milltrey0, 593 Icetree Street for $94.74 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Milltrey - Alex Milltrey1, 388 Irontree Circle for $43.96 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Usder 132 Ironstore Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Usder - Alice Usder0, 132 Ironstore Boulevard for $39.90 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Batburg 294 Birchshin Path 3.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Batburg - Alice Batburg0, 294 Birchshin Path for $82.54 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Selsel 277 Rivershield Drive 1.0
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Selsel - Rick Selsel0, 277 Rivershield Drive for $40.48 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Lasdone 152 Silvermist Circle 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Fordjin 223 Laurelshield Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Fordjin - Fred Fordjin0, 223 Laurelshield Boulevard for $13.06 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Tinjin 661 Wintercore Circle 5.0
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Tinjin - Ben Tinjin0, 661 Wintercore Circle for $47.58 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Erder 432 Waterstone Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Erder - Ben Erder0, 432 Waterstone Street for $63.32 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Erder - Ben Erder1, 503 Ironcrest Drive for $36.41 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: John Burgsan 484 Birchcrest Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: John Burgsan - John Burgsan0, 484 Birchcrest Street for $0.87 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: John Burgsan - John Burgsan1, 276 Oaklane Drive for $89.19 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: John Burgsan - John Burgsan2, 332 Bronzelane Lane for $16.61 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Burgdon 356 Bronzelane Way 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Sam Burgdon - Sam Burgdon0, 356 Bronzelane Way for $46.54 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Gusus 625 Bronzecore Drive 1.0
-Sat Apr 21 17:51:14 EDT 2018 :: Rick Gusus - Rick Gusus0, 625 Bronzecore Drive for $23.19 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Dan Burger 121 Birchtown Way 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Dan Burger - Dan Burger0, 121 Birchtown Way for $23.70 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Selsel 278 Frostshin Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Selsel - Fred Selsel0, 278 Frostshin Street for $89.25 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Fred Selsel - Fred Selsel1, 160 Highstore Lane for $62.35 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Menred 289 Oaktown Path 9.0
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Menred - Richard Menred0, 289 Oaktown Path for $97.38 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Menred - Richard Menred1, 537 Birchfish Circle for $12.61 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Menred - Richard Menred2, 176 Metalmarket Boulevard for $69.45 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Doneson 115 Birchstone Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Ben Doneson - Ben Doneson0, 115 Birchstone Street for $77.58 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Derburg 450 Laurelstone Circle 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Lojin 367 Birchfresh Boulevard 12.0
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Lojin - Richard Lojin0, 367 Birchfresh Boulevard for $0.41 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Lojin - Richard Lojin1, 227 Oakshin Way for $49.64 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Richard Lojin - Richard Lojin2, 623 Goldcrest Boulevard for $45.58 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Sontrey 175 Riverstone Drive 2.0
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Sontrey - Jim Sontrey0, 175 Riverstone Drive for $88.22 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Sontrey - Jim Sontrey1, 278 Silvermist Street for $29.83 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Tinthorn 618 Metalshin Lane 12.0
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Tinthorn - Bill Tinthorn0, 618 Metalshin Lane for $53.19 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Bill Tinthorn - Bill Tinthorn1, 319 Goldmist Lane for $41.51 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Fordthorn 82 Bronzecore Lane 12.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Fordthorn - Alice Fordthorn0, 82 Bronzecore Lane for $91.83 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alice Fordthorn - Alice Fordthorn1, 481 Bronzeshin Drive for $26.87 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Jinred 598 Metalstone Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Jim Jinred - Jim Jinred0, 598 Metalstone Street for $95.90 every 7 days
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Soner 642 Sunstore Street 0.0
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Soner - Greg Soner0, 642 Sunstore Street for $79.64 every 10 days
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Soner - Greg Soner1, 532 Shadymist Lane for $7.06 every 14 days
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Issonford 470 Goldstore Boulevard 4.0
-Sat Apr 21 17:51:14 EDT 2018 :: Greg Issonford - Greg Issonford0, 470 Goldstore Boulevard for $56.80 every 30 days
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Tinthin 303 Laurelstone Lane 6.0
-Sat Apr 21 17:51:14 EDT 2018 :: Alex Tinthin - Alex Tinthin0, 303 Laurelstone Lane for $21.25 every 7 days
-Sat Apr 21 17:51:20 EDT 2018 :: Added Client: Example Client 123 Example Billing Address Ave 0.0
+Mon April 23 9:10:00 PM :: Added Client: Example Client 123 Example Billing Address Ave $0.00
+Mon April 23 9:11:39 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:39 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:39 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:39 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:39 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:39 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:39 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:39 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:39 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:39 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:40 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:40 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:40 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:40 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:40 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:40 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:40 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:40 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:41 PM :: Lawn unchecked: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:41 PM :: Client Alex Batman now owes: $-7.57
+Mon April 23 9:11:41 PM :: Lawn checked off: Alex Batman - Alex Batman0, 450 Sourshin Circle for $32.51
+Mon April 23 9:11:41 PM :: Client Alex Batman now owes: $24.94
+Mon April 23 9:11:43 PM :: Lawn unchecked: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:43 PM :: Client Greg Erfree now owes: $-77.18
+Mon April 23 9:11:43 PM :: Lawn checked off: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:43 PM :: Client Greg Erfree now owes: $21.14
+Mon April 23 9:11:43 PM :: Lawn unchecked: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:43 PM :: Client Greg Erfree now owes: $-77.18
+Mon April 23 9:11:43 PM :: Lawn checked off: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:43 PM :: Client Greg Erfree now owes: $21.14
+Mon April 23 9:11:43 PM :: Lawn unchecked: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:43 PM :: Client Greg Erfree now owes: $-77.18
+Mon April 23 9:11:44 PM :: Lawn checked off: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:44 PM :: Client Greg Erfree now owes: $21.14
+Mon April 23 9:11:44 PM :: Lawn unchecked: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:44 PM :: Client Greg Erfree now owes: $-77.18
+Mon April 23 9:11:44 PM :: Lawn checked off: Greg Erfree - Greg Erfree0, 382 Ironfresh Path for $98.32
+Mon April 23 9:11:44 PM :: Client Greg Erfree now owes: $21.14
+Mon April 23 9:14:03 PM :: Removed Client: Example Client 123 Example Billing Address Ave $0.00
+Mon April 23 9:14:15 PM :: Lawn checked off: Greg Guskin - Greg Guskin0, 462 Frosttree Drive for $50.31
+Mon April 23 9:14:15 PM :: Client Greg Guskin now owes: $146.11
+Mon April 23 9:14:17 PM :: Lawn checked off: Matt Richthorn - Matt Richthorn0, 82 Birchwinter Boulevard for $29.80
+Mon April 23 9:14:17 PM :: Client Matt Richthorn now owes: $37.39
+Mon April 23 9:14:19 PM :: Lawn checked off: Alice Gusthorn - Alice Gusthorn0, 661 Shadywinter Way for $35.14
+Mon April 23 9:14:19 PM :: Client Alice Gusthorn now owes: $81.84
+Mon April 23 9:14:21 PM :: Lawn checked off: John Issonbat - John Issonbat1, 473 Watershield Circle for $77.00
+Mon April 23 9:14:21 PM :: Client John Issonbat now owes: $120.72
+Mon April 23 9:14:22 PM :: Lawn checked off: Lucas Burnel - Lucas Burnel0, 137 Icemarket Street for $94.16
+Mon April 23 9:14:22 PM :: Client Lucas Burnel now owes: $167.24
+Mon April 23 9:14:24 PM :: Lawn checked off: Don Battrey - Don Battrey1, 519 Eastcrest Way for $57.96
+Mon April 23 9:14:24 PM :: Client Don Battrey now owes: $132.34
+Mon April 23 9:14:25 PM :: Lawn checked off: Sam Donedone - Sam Donedone1, 78 Frostboar Lane for $89.44
+Mon April 23 9:14:25 PM :: Client Sam Donedone now owes: $137.43
+Mon April 23 9:14:27 PM :: Lawn checked off: Rick Batrich - Rick Batrich2, 117 Goldstile Avenue for $49.77
+Mon April 23 9:14:27 PM :: Client Rick Batrich now owes: $83.77
+Mon April 23 9:14:29 PM :: Lawn checked off: Sam Redmill - Sam Redmill0, 487 Shadyshield Drive for $31.28
+Mon April 23 9:14:29 PM :: Client Sam Redmill now owes: $81.53
+Mon April 23 9:14:38 PM :: Lawn checked off: Douglas Issonford - Douglas Issonford0, 444 Sunlane Way for $61.86
+Mon April 23 9:14:38 PM :: Client Douglas Issonford now owes: $79.66

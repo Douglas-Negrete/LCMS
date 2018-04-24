@@ -70,7 +70,7 @@ public class GUI extends Application {
 	Client tempClnt;
 	Lawn tempLwn;
 	SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
-	NumberFormat formatter = new DecimalFormat("#0.00");
+	NumberFormat df = new DecimalFormat("#0.00");
 	public String ip;
 
 	public GUI() {
@@ -163,18 +163,18 @@ public class GUI extends Application {
 		else {
 			io.readInBackupFile();
 			io.populateLawns();
-			io.setEmailData();
+			//io.setEmailData();
 			io.writeLawnsHTML();
 			io.checkAutoBackup();
 
 			if(io.readServerFromFile()) {
-				
+
 				System.out.println("SERVER CHECK:"+io.readServerFromFile());
 
 				try {
 					ip = WebMain.startServer();
 				} catch (Exception e) {
-					
+
 					e.printStackTrace();
 				}
 
@@ -233,7 +233,8 @@ public class GUI extends Application {
 				sDisableServerLbl = new Label("Disable Server:"),
 				sEditEmailsLbl = new Label("Edit Emails:");
 		Label backupEmailLbl = new Label("The backup will be sent to this email:"),
-				backupTitleLbl = new Label("");
+				backupTitleLbl = new Label(""),
+				transactionsLbl = new Label("A full transaction sheet can be found at " + new File("Transactions.txt").getAbsolutePath());
 
 		TextField searchTextField = new TextField();//makes a search bar to search the list in the right pane
 		TextField cNameTF  = new TextField(),
@@ -249,7 +250,7 @@ public class GUI extends Application {
 
 		DatePicker datePicker = new DatePicker();
 
-		Spinner<Integer> spin = new Spinner<>(1,7,io.getBackupInterval(),1);
+		Spinner<Integer> spin = new Spinner<>(0,30,io.getBackupInterval(),1);
 
 		CheckBox disableServerCheckBox = new CheckBox();
 		CheckBox lMowedCheckBox = new CheckBox("Mowed"),
@@ -276,7 +277,8 @@ public class GUI extends Application {
 		Button lAddNoteBtn = new Button("Add Note");
 		Button sAddBtn = new Button("Add"),
 				sDelBtn = new Button("Delete"),
-				sUpdateBtn = new Button("Update");
+				sUpdateBtn = new Button("Update"),
+				sEditBackupBtn = new Button("Edit Backup Email");
 		Button bSendBtn = new Button("Send"),
 				lSendBtn = new Button("Send Lawn Lists"),
 				lUpdateFromHTML = new Button("Update from Server");
@@ -287,7 +289,8 @@ public class GUI extends Application {
 		HBox centerPane = new HBox();//temp for what goes in the center section
 		HBox btnPane = new HBox();//pane for the buttons to populate
 		HBox settingsBtnPane = new HBox(),
-				settingsTFPane = new HBox();
+				settingsTFPane = new HBox(),
+				sBackupBtnPane = new HBox();
 		HBox iAddressBox = new HBox(),
 				iCostIntervalBox = new HBox();
 		HBox serverBtn = new HBox();
@@ -318,8 +321,6 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				sidePanelBtn.getChildren().clear();
-
 				File selectedFile = null;
 				while(selectedFile == null) {
 					FileChooser fileChooser = new FileChooser();
@@ -343,12 +344,10 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				sidePanelBtn.getChildren().clear();
-
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Save Confirmation");
 				alert.setHeaderText("You have selected save file");
-				alert.setContentText("This does not create a new backup file, this option saves current data. Do you wish to continue?");
+				alert.setContentText("This does not create a new backup file, this option saves current data.");
 
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK){
@@ -381,7 +380,7 @@ public class GUI extends Application {
 				tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 				cName.setText(tempClnt.getName());
 				cAddr.setText(tempClnt.getBillAddress());
-				cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
+				cOwes.setText("$" + df.format(tempClnt.getOwed()));
 				cNum.setText(tempClnt.getPhoneNum());
 				lawnTA.clear();
 				populateLawnTA(lawnTA, cName.getText());
@@ -424,7 +423,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -444,10 +443,7 @@ public class GUI extends Application {
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 				leftPane.getChildren().clear();
-				//leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
-				//border.setLeft(leftPane);
 				border.setCenter(displayInfo);
-				//leftPane.getChildren().clear();
 				sortedLawnTA.clear();
 				populateSortedLawnTA(sortedLawnTA);
 				sortedLawnTA.positionCaret(1);
@@ -473,7 +469,7 @@ public class GUI extends Application {
 				lawnTA.autosize();
 				io.printTransactionFileTA(lawnTA);
 				lawnTA.positionCaret(1);
-				displayInfo.getChildren().addAll(backupTitleLbl, lawnTA);
+				displayInfo.getChildren().addAll(backupTitleLbl, transactionsLbl, lawnTA);
 				border.setCenter(displayInfo);
 
 			}//end handle
@@ -579,7 +575,7 @@ public class GUI extends Application {
 					disableServerCheckBox.setSelected(false);
 				else
 					disableServerCheckBox.setSelected(true);
-				settingsItems.getChildren().addAll(settingsTFPane, spin, disableServerCheckBox, emailComboBox, settingsBtnPane);
+				settingsItems.getChildren().addAll(settingsTFPane, sBackupBtnPane, disableServerCheckBox, emailComboBox, settingsBtnPane);
 				settingsItems.setAlignment(Pos.CENTER_LEFT);
 
 				centerPane.getChildren().clear();
@@ -625,7 +621,7 @@ public class GUI extends Application {
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
 					cAddr.setText(tempClnt.getBillAddress());
-					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
+					cOwes.setText("$" + df.format(tempClnt.getOwed()));
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
@@ -657,7 +653,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -693,13 +689,13 @@ public class GUI extends Application {
 
 			@Override
 			public void handle(KeyEvent event) {
-				
+
 				if(shown == 0) {
 
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
 					cAddr.setText(tempClnt.getBillAddress());
-					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
+					cOwes.setText("$" + df.format(tempClnt.getOwed()));
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
@@ -730,7 +726,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -838,7 +834,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -874,7 +870,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -906,7 +902,7 @@ public class GUI extends Application {
 				notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 				notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 				notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-				notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+				notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -1429,7 +1425,7 @@ public class GUI extends Application {
 								lLawnNameTF.setText(tempLwn.getLawnName().toString());
 								lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 								lIntervalTF.setText("" + tempLwn.getInterval());
-								lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
+								lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 								datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 								btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 								addClntLwnLbl.getChildren().clear();
@@ -1455,7 +1451,7 @@ public class GUI extends Application {
 						lLawnNameTF.setText(tempLwn.getLawnName().toString());
 						lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 						lIntervalTF.setText("" + tempLwn.getInterval());
-						lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
+						lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 						datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 						btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 						addClntLwnLbl.getChildren().clear();
@@ -1487,7 +1483,7 @@ public class GUI extends Application {
 					lLawnNameTF.setText(tempLwn.getLawnName().toString());
 					lGenLocationTF.setText(tempLwn.getGenLocation().toString());
 					lIntervalTF.setText("" + tempLwn.getInterval());
-					lPriceTF.setText("" + formatter.format(tempLwn.getPrice()));
+					lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 					datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 					btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 					addClntLwnLbl.getChildren().clear();
@@ -1515,12 +1511,14 @@ public class GUI extends Application {
 
 				Optional<String> newOwes = owes.showAndWait();
 				try {
-					String oldOwes = tempClnt.getOwes();
-					tempClnt.setOwed(Double.parseDouble(newOwes.get()));
-					displayInfo.getChildren().clear();
-					cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
-					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
-					io.appendToTransactionFile("Owed amount for " + tempClnt.getName() + " changed from " + oldOwes + " to " + tempClnt.getOwes());
+					if(newOwes.isPresent()) {
+						String oldOwes = tempClnt.getOwes();
+						tempClnt.setOwed(Double.parseDouble(newOwes.get()));
+						displayInfo.getChildren().clear();
+						cOwes.setText("$" + df.format(tempClnt.getOwed()));
+						displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+						io.appendToTransactionFile("Owed amount for " + tempClnt.getName() + " changed from " + oldOwes + " to " + tempClnt.getOwes());
+					}
 				}
 				catch(Exception e) {
 					Alert alert = new Alert(AlertType.ERROR);
@@ -1607,7 +1605,7 @@ public class GUI extends Application {
 						else {
 							cName.setText(tempClnt.getName());
 							cAddr.setText(tempClnt.getBillAddress());
-							cOwes.setText("$" + formatter.format(tempClnt.getOwed()));
+							cOwes.setText("$" + df.format(tempClnt.getOwed()));
 							lawnTA.clear();
 							populateLawnTA(lawnTA, cName.getText());
 							centerPane.getChildren().clear();
@@ -1651,7 +1649,7 @@ public class GUI extends Application {
 					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
 					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
 					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
-					notesTA.appendText("Cost:\t\t\t\t" + formatter.format(tempLwn.getPrice()) + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
@@ -1742,6 +1740,40 @@ public class GUI extends Application {
 
 		});//end setonaction sSubmitbtn
 
+		sEditBackupBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+
+				TextInputDialog edit = new TextInputDialog();
+				edit.setTitle("Edit Backup Email");
+				edit.setHeaderText("Change backup email address from: " + io.getBackupEmail());
+				edit.setContentText("New Address:");
+
+				Optional<String> newEmail = edit.showAndWait();
+				try {
+
+					if(newEmail.isPresent()) {
+
+						io.setBackupEmail(newEmail.get());
+						settingsItems.getChildren().remove(3);
+						emailComboBox.setItems(FXCollections.observableArrayList(io.emailList));
+						settingsItems.getChildren().add(3,emailComboBox);
+
+					}
+
+				}
+				catch(Exception e) {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("Error");
+					alert.setHeaderText("Input Error!");
+					alert.show();
+				}
+
+			}//end handle
+
+		});//end setonaction seditbackupbtn
+
 		bSendBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1801,6 +1833,114 @@ public class GUI extends Application {
 					}
 
 				}
+				else if(backupTitleLbl.getText().equals("Backup Transactions")) {
+
+					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
+
+						String temp = emailComboBox.getValue();
+
+						Task<Integer> task = new Task<Integer>() {
+
+							@Override
+							public Integer call() throws Exception {
+								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the program", "Transactions.txt") == 1)
+									return 1 ;
+								else
+									return 0;
+							}//end call
+
+						};//end new task
+
+						task.setOnSucceeded(e -> {
+
+							if(task.getValue() == 1) {
+
+								Alert alert = new Alert(AlertType.CONFIRMATION);
+								alert.setTitle("Backup");
+								alert.setHeaderText("Email sent successfully!");
+								alert.showAndWait();
+
+							}
+							else {
+
+								Alert alert = new Alert(AlertType.ERROR);
+								alert.setTitle("Backup");
+								alert.setHeaderText("Email not sent!");
+								alert.showAndWait();
+
+							}
+
+						});//end setonsucceeded
+
+						new Thread(task).start();
+
+						displayInfo.getChildren().clear();
+
+					}
+					else {//else there is no value being used
+
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Backup");
+						alert.setHeaderText("No email selected!");
+						alert.showAndWait();
+
+					}
+
+				}
+				else if(backupTitleLbl.getText().equals("Backup Transactions")) {
+
+					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
+
+						String temp = emailComboBox.getValue();
+
+						Task<Integer> task = new Task<Integer>() {
+
+							@Override
+							public Integer call() throws Exception {
+								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the program", "Transactions.txt") == 1)
+									return 1 ;
+								else
+									return 0;
+							}//end call
+
+						};//end new task
+
+						task.setOnSucceeded(e -> {
+
+							if(task.getValue() == 1) {
+
+								Alert alert = new Alert(AlertType.CONFIRMATION);
+								alert.setTitle("Backup");
+								alert.setHeaderText("Email sent successfully!");
+								alert.showAndWait();
+
+							}
+							else {
+
+								Alert alert = new Alert(AlertType.ERROR);
+								alert.setTitle("Backup");
+								alert.setHeaderText("Email not sent!");
+								alert.showAndWait();
+
+							}
+
+						});//end setonsucceeded
+
+						new Thread(task).start();
+
+						displayInfo.getChildren().clear();
+
+					}
+					else {//else there is no value being used
+
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Backup");
+						alert.setHeaderText("No email selected!");
+						alert.showAndWait();
+
+					}
+
+				}
 				else if(backupTitleLbl.getText().equals("Send Lawn List")) {
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
@@ -1813,11 +1953,16 @@ public class GUI extends Application {
 
 								String att = "";
 
-								att += "Link to webserver: " + ip + ":8080\n";
+								att += "Lawn Lists for: " + io.companyName + "\n";
+
+								if(!disableServerCheckBox.isSelected())
+									att += "Link to webserver: " + ip + ":8080\n";
 
 								for(int i = 0; i < io.lawnList.size(); i++) {
 
-									if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+									//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
+									if(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+											io.lawnList.get((io.lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
 
 										att += "-------------------------------------------------\n" +
 												"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
@@ -1832,7 +1977,7 @@ public class GUI extends Application {
 
 							@Override
 							public Integer call() throws Exception {
-								if(Mailer.sendList(temp, "LCMS Backup", "This is a list of lawns that need to be mowed\n", populateMailLawnList()) == 1)
+								if(Mailer.sendList(temp, "This is a list of lawns that need to be mowed", "", populateMailLawnList()) == 1)
 									return 1;
 								else
 									return 0;
@@ -1905,16 +2050,16 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonaction
-		
+
 		lUpdateFromHTML.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				
+
 				io.readInLawnsHTML();
-				
+
 			}//end handle
-			
+
 		});//end setonaction
 
 		backupTitleLbl.setFont(new Font(30));
@@ -1938,7 +2083,7 @@ public class GUI extends Application {
 		btnPane.setSpacing(10);
 		btnPane.setPadding(new Insets(0, 10, 10, 10));
 		btnPane.setAlignment(Pos.CENTER);
-		
+
 		serverBtn.setSpacing(10);
 		serverBtn.setPadding(new Insets(0, 10, 10, 10));
 		serverBtn.setAlignment(Pos.CENTER);
@@ -1955,8 +2100,12 @@ public class GUI extends Application {
 		iCostIntervalBox.setAlignment(Pos.CENTER);
 
 		settingsTFPane.setSpacing(10);
-		settingsTFPane.setAlignment(Pos.CENTER);
+		settingsTFPane.setAlignment(Pos.CENTER_LEFT);
 		settingsTFPane.getChildren().addAll(sCompanyNameTF, sUpdateBtn);
+
+		sBackupBtnPane.setSpacing(10);
+		sBackupBtnPane.setAlignment(Pos.CENTER);
+		sBackupBtnPane.getChildren().addAll(spin, sEditBackupBtn);
 
 		rightPane.setSpacing(10);
 		rightPane.setPadding(new Insets(20, 20, 20, 0));

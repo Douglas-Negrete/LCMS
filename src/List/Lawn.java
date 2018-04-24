@@ -189,10 +189,12 @@ public class Lawn {
 	
 	public void addNotes(String str) {
 		
-		if(str.charAt(str.length() - 1) != '.')
-			this.notes = str.replace("\n", "") + ".  ";
-		else
+		if(str.charAt(str.length() - 1) == '.')
 			this.notes = str.replace("\n", "") + "  ";
+		else if(str.charAt(str.length() - 3) == '.')
+			this.notes = str.replace("\n", "");
+		else
+			this.notes = str.replace("\n", "") + ".  ";
 		
 		System.out.println("THIS.NOTES- "+this.notes);
 		
