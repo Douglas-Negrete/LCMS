@@ -43,13 +43,19 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -72,6 +78,7 @@ public class GUI extends Application {
 	SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
 	NumberFormat df = new DecimalFormat("#0.00");
 	public String ip;
+	private String textFieldsColor = "e9f7e8";
 
 	public GUI() {
 
@@ -84,36 +91,48 @@ public class GUI extends Application {
 
 		if(io.isNew()) {
 
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("First launch of program");
-			alert.setHeaderText("Do you have a backup file, or are you starting for the first time?");
-			alert.initStyle(StageStyle.UNDECORATED);
+			Alert firstStartAlert = new Alert(AlertType.CONFIRMATION);
+			firstStartAlert.setTitle("First launch of program");
+			firstStartAlert.setHeaderText("Do you have a backup file, or are you starting for the first time?");
 
-			ButtonType buttonTypeOne = new ButtonType("Backup from file");
-			ButtonType buttonTypeTwo = new ButtonType("New program");
+			ButtonType fromBackupBtn = new ButtonType("Backup from file");
+			ButtonType newProgramBtn = new ButtonType("New program");
 
-			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+			firstStartAlert.getButtonTypes().setAll(fromBackupBtn, newProgramBtn);
 
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeOne){
+			Optional<ButtonType> result = firstStartAlert.showAndWait();
+
+			if (result.get() == fromBackupBtn){
 				// ... user chose first option
 
 				FileChooser fileChooser = new FileChooser();
 				fileChooser.setTitle("Choose Backup File");
-				fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+				fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("LCMS Files", "*.lcms"));
+
 				File selectedFile = fileChooser.showOpenDialog(primaryStage);
 				if (selectedFile != null) {
+
 					io.setBackupFile(selectedFile);
 					io.setBackupFileLocation(selectedFile.getAbsolutePath());
-					io.readInBackupFile();
+					//io.readInBackupFile();
 					io.populateLawns();
 					io.setEmailData();
+
+				}
+				else {
+
+					Alert fileErrorAlert = new Alert(AlertType.ERROR);
+					fileErrorAlert.setTitle("Program Start Error");
+					fileErrorAlert.setHeaderText("No file selected, please restart program");
+					fileErrorAlert.showAndWait();
+					System.exit(0);
+
 				}
 
 			} else {
 				// ... user chose second option
 				File temp;
-				temp = new File("BackupFile.txt");
+				temp = new File("BackupFile.lcms");
 				io.setBackupFile(temp);
 				io.initializeLastBackup();
 				io.setBackupFileLocation(temp.getAbsolutePath());
@@ -147,8 +166,8 @@ public class GUI extends Application {
 						Optional<ButtonType> confirmEmailBtn = confirmEmail.showAndWait();
 						if (confirmEmailBtn.get() == correct){
 
-							//io.setBackupEmail(resultEmail.get());
-							io.emailList.add(resultEmail.get());
+							io.setBackupEmail(resultEmail.get());
+							//io.emailList.add(resultEmail.get());
 							flag = false;
 
 						} else if (confirmEmailBtn.get() == notCorrect) {
@@ -161,15 +180,22 @@ public class GUI extends Application {
 			}
 		}
 		else {
-			io.readInBackupFile();
-			io.populateLawns();
-			//io.setEmailData();
-			io.writeLawnsHTML();
-			io.checkAutoBackup();
+
+			try {
+				
+				io.readInBackupFile();
+				io.populateLawns();
+				io.writeLawnsHTML();
+				io.checkAutoBackup();
+				
+			}
+			catch(Exception e) {
+
+				io.resetBackup();
+
+			}
 
 			if(io.readServerFromFile()) {
-
-				System.out.println("SERVER CHECK:"+io.readServerFromFile());
 
 				try {
 					ip = WebMain.startServer();
@@ -185,11 +211,19 @@ public class GUI extends Application {
 			primaryStage.setTitle("Lawn Care Made Simple ("+io.companyName+")");//title
 		else
 			primaryStage.setTitle("Lawn Care Made Simple");
-		Scene scene = new Scene(new VBox(), 1150, 600);//window size
+		VBox v = new VBox();
+		v.setStyle("-fx-background-color: #aef2a9");    // #c7ffc4");
+		Scene scene = new Scene(v, 1150, 600);//window size
+		primaryStage.getIcons().add(new Image("file:image/icon/lawnMower.png"));
+
 		primaryStage.setMinHeight(600);
 		primaryStage.setMinWidth(1150);
+		//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/lawnMower.png")));
+		Image image = new Image("file:/image/icon/lawnMower.png");
+		primaryStage.getIcons().add(image);
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
+		menuBar.setStyle("-fx-background-color: #d8e5d7");
 		Menu menuFile = new Menu("File");//file submenu for the menu
 		Menu menuView = new Menu("View");//view what is displayed in the right pane list
 		Menu menuBackup = new Menu("Backup");
@@ -252,7 +286,7 @@ public class GUI extends Application {
 
 		Spinner<Integer> spin = new Spinner<>(0,30,io.getBackupInterval(),1);
 
-		CheckBox disableServerCheckBox = new CheckBox();
+		CheckBox disableServerCheckBox = new CheckBox(" (Change will occur after program restart)");
 		CheckBox lMowedCheckBox = new CheckBox("Mowed"),
 				lSkipCheckBox = new CheckBox("Skip"),
 				lStopMowCheckBox = new CheckBox("Stop Mowing");
@@ -325,11 +359,18 @@ public class GUI extends Application {
 				while(selectedFile == null) {
 					FileChooser fileChooser = new FileChooser();
 					fileChooser.setTitle("Choose Backup File");
-					fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+					fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("LCMS Files", "*.lcms"));
 					selectedFile = fileChooser.showOpenDialog(primaryStage);
 					if (selectedFile != null) {
-						io.setBackupFile(selectedFile);
-						io.setBackupFileLocation(selectedFile.getAbsolutePath());
+						System.out.println(selectedFile);
+						try {
+							io.clearLists();
+							io.setBackupFile(selectedFile);
+							io.setBackupFileLocation(selectedFile.getAbsolutePath());
+						}
+						catch(Exception e) {
+
+						}
 					}
 					else
 						break;
@@ -402,6 +443,8 @@ public class GUI extends Application {
 		lawn.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent t) {
+
+				io.populateLawns();
 
 				tempClnt = null;// added this line to get the edit lawn button to work
 
@@ -611,6 +654,7 @@ public class GUI extends Application {
 
 		});//end setonaction help
 
+		listView.setStyle("-fx-control-inner-background:#" + textFieldsColor);
 		listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
@@ -639,8 +683,6 @@ public class GUI extends Application {
 				}
 				else if(shown == 1) {
 
-					//tempLwn = io.getl
-					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedItem());
 					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
 					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
 					displayInfo.getChildren().clear();
@@ -713,7 +755,6 @@ public class GUI extends Application {
 				}
 				else if(shown == 1) {
 
-					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
 					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
 					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
 					displayInfo.getChildren().clear();
@@ -764,6 +805,7 @@ public class GUI extends Application {
 
 		iSortedLawnsLbl.setFont(new Font(20));
 
+		searchTextField.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 		searchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {//creates a keylistener on the searchbox
 
 			@Override
@@ -784,6 +826,29 @@ public class GUI extends Application {
 
 		});//end setonkeypressed
 
+		cNameTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		cBiAdTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		cPhoneNumTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lClientTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lAddressTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lLawnNameTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lGenLocationTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lIntervalTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		lPriceTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		sCompanyNameTF.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		datePicker.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+
+		spin.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 		spin.valueProperty().addListener(new ChangeListener<Integer>() {
 
 			@Override
@@ -920,17 +985,19 @@ public class GUI extends Application {
 		lawnTA.setMaxWidth(440);
 		lawnTA.setMinHeight(400);
 		lawnTA.setMaxHeight(500);
-		//lawnTA.setBackground(new Background(new BackgroundFill(Color.CRIMSON, null, null)));
+		lawnTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 
 		notesTA.setWrapText(true);
 		notesTA.setEditable(false);
 		notesTA.setMinHeight(400);
+		notesTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 
 		sortedLawnTA.setEditable(false);
 		sortedLawnTA.setMinWidth(250);
 		sortedLawnTA.setMaxWidth(300);
 		sortedLawnTA.setMinHeight(400);
 		sortedLawnTA.setMaxHeight(500);
+		sortedLawnTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 
 		clntPageBtn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -1843,7 +1910,7 @@ public class GUI extends Application {
 
 							@Override
 							public Integer call() throws Exception {
-								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the program", "Transactions.txt") == 1)
+								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the Transactions", "Transactions.txt") == 1)
 									return 1 ;
 								else
 									return 0;
@@ -1887,7 +1954,7 @@ public class GUI extends Application {
 					}
 
 				}
-				else if(backupTitleLbl.getText().equals("Backup Transactions")) {
+				else if(backupTitleLbl.getText().equals("Backup Bills")) {
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
 
@@ -1897,7 +1964,7 @@ public class GUI extends Application {
 
 							@Override
 							public Integer call() throws Exception {
-								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the program", "Transactions.txt") == 1)
+								if(Mailer.send(temp, "LCMS Backup", "This is a backup of the Bills", "bill.txt") == 1)
 									return 1 ;
 								else
 									return 0;
@@ -1961,12 +2028,13 @@ public class GUI extends Application {
 								for(int i = 0; i < io.lawnList.size(); i++) {
 
 									//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
-									if(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
-											io.lawnList.get((io.lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
+									if((io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+											io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
+											io.lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
 
 										att += "-------------------------------------------------\n" +
-												"Lawn Name:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getLawnName() + "\n" +
-												"Address:\t" + io.lawnList.get((io.lawnList.size()-1) - i).getAddress() + "\n";
+												"Lawn Name:\t" + io.lawnList.get(i).getLawnName() + "\n" +
+												"Address:\t" + io.lawnList.get(i).getAddress() + "\n";
 
 									}
 
@@ -2167,12 +2235,15 @@ public class GUI extends Application {
 
 		Client temp = io.getClient(io.getClientIndex(s));
 
-		for(int i = 0; i < temp.lawnListSize(); i++) {
+		if(temp.lawnListSize() == 0)
+			ta.appendText("\n\n\n\n\n\n\n\n\n\n\n\n                                 No lawns associated with this client yet");
+		else
+			for(int i = 0; i < temp.lawnListSize(); i++) {
 
-			ta.appendText("---------------------------------------------------------\n" + 
-					temp.getSingleLawn(i).toString() + "\n");
+				ta.appendText("---------------------------------------------------------\n" + 
+						temp.getSingleLawn(i).toString() + "\n");
 
-		}
+			}
 
 	}//end populateTA
 
@@ -2181,8 +2252,9 @@ public class GUI extends Application {
 		for(int i = 0; i < io.lawnList.size(); i++) {
 
 			//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
-			if(io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
-					io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
+			if((io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+					io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
+					io.lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
 
 				ta.appendText("-------------------------------------------------\n" +
 						"Lawn Name:\t" + io.lawnList.get(i).getLawnName() + "\n" +

@@ -16,7 +16,7 @@ import org.eclipse.jetty.webapp.WebAppContext;
 public class WebMain {
 
 	public static Server server;
-	
+
 	public static String startServer() throws Exception {
 
 		//Find ipAddress
@@ -30,52 +30,53 @@ public class WebMain {
 					System.out.println(ips[i]);
 				}
 			}
-			
-		//ipAddress = ips[1].toString();
-			
+
+			if(ips.length>1)
+				ipAddress = ips[1].toString();
+
 		} catch (UnknownHostException e) {System.out.println("ERROR1");}
-		
+
 		//return ipAddress;
-		
+
 		createHTML();
 		configureServer();
-		
+
 		return ipAddress;
 
 	}
-	
+
 	public static void configureServer()
 	{
 		try
 		{
-		// 1. Creating the server on port 8080
-		server = new Server(8080);
-		
-		// 2. Creating the WebAppContext for the created content
-		WebAppContext ctx = new WebAppContext();
-		ctx.setResourceBase("src/Web/webapp");
-		ctx.setContextPath("/");
-		
-		// 3. Including the JSTL jars for the webapp.
-		ctx.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern",".*/[^/]*jstl.*\\.jar$");
-		
-		// 4. Enabling the Annotation based configuration
-		org.eclipse.jetty.webapp.Configuration.ClassList classlist = org.eclipse.jetty.webapp.Configuration.ClassList.setServerDefault(server);
-		classlist.addAfter("org.eclipse.jetty.webapp.FragmentConfiguration", "org.eclipse.jetty.plus.webapp.EnvConfiguration", "org.eclipse.jetty.plus.webapp.PlusConfiguration");
-		classlist.addBefore("org.eclipse.jetty.webapp.JettyWebXmlConfiguration", "org.eclipse.jetty.annotations.AnnotationConfiguration");
-		        
-		// 5. Setting the handler and starting the Server
-		server.setHandler(ctx);
-		//server.setHandler(new WebHandler());
-		server.start();
-		//server.join();
+			// 1. Creating the server on port 8080
+			server = new Server(8080);
+
+			// 2. Creating the WebAppContext for the created content
+			WebAppContext ctx = new WebAppContext();
+			ctx.setResourceBase("src/Web/webapp");
+			ctx.setContextPath("/");
+
+			// 3. Including the JSTL jars for the webapp.
+			ctx.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern",".*/[^/]*jstl.*\\.jar$");
+
+			// 4. Enabling the Annotation based configuration
+			org.eclipse.jetty.webapp.Configuration.ClassList classlist = org.eclipse.jetty.webapp.Configuration.ClassList.setServerDefault(server);
+			classlist.addAfter("org.eclipse.jetty.webapp.FragmentConfiguration", "org.eclipse.jetty.plus.webapp.EnvConfiguration", "org.eclipse.jetty.plus.webapp.PlusConfiguration");
+			classlist.addBefore("org.eclipse.jetty.webapp.JettyWebXmlConfiguration", "org.eclipse.jetty.annotations.AnnotationConfiguration");
+
+			// 5. Setting the handler and starting the Server
+			server.setHandler(ctx);
+			//server.setHandler(new WebHandler());
+			server.start();
+			//server.join();
 		}
 		catch(Exception e) {e.printStackTrace();}
 	}
-	
+
 	public static void createHTML()
 	{
-		
+
 		FileReader reader;
 		Scanner inFile;
 		File readFile = new File("lawns.txt");
@@ -83,109 +84,113 @@ public class WebMain {
 		String website = "";
 		String temp = "";
 		String mowVal = "";
-		
+		String CompanyName = "";
+
 		try
 		{
-		
-		if( writeFile.exists() && !writeFile.isDirectory() )
-		{
-			writeFile.delete();
-		}
-		
-		PrintWriter pw = new PrintWriter(new FileOutputStream(writeFile), true);
-	
-		pw.println("<html>");
-		
-		pw.println("<meta charset=\"UTF-8\">\r\n" + 
-				"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-		
-		pw.println("<body>");
-		
-		//read in base css
-		//File cssFile = new File("cssTest.txt");
-		//FileReader cssReader = new FileReader(cssFile);
-		//inFile = new Scanner(cssReader);
-						
-		//while(inFile.hasNext())
-		//{
-			//temp = inFile.nextLine();
-			//System.out.println(temp);
-			//pw.println(temp);
-		//}
-		
-		pw.println("<div class=\"w3-display-top w3-center\">");
-	    pw.println("<h1 class=\"w3-jumbo w3-animate-top\">Lawn Care Made Simple</h1>");
-	    pw.println("<hr class=\"w3-border-grey\" style=\"margin:auto;width:100%\">");
-	    pw.println("<font size=\"5\">Lawn List</font><br><br>");
-	    pw.println("</div>");
-		
-		
-		//populate with lawns
-		reader = new FileReader(readFile);
-		inFile = new Scanner(reader);
-		int i = 1;
-		
-		pw.println("<form action=\"FileWrite.jsp\" method=\"POST\">");
-		
-		while(inFile.hasNext()){
-						
-			temp = inFile.nextLine();
-			mowVal = inFile.nextLine();
-			//pw.println("<input type=\"checkbox\" name=\"" + i + "_lawn\" value=\"mowed\">" + temp + "<br>");
-			//pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" name=\"" + (i+1) + "_comments\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
-			if(mowVal.equals("unmowed"))
+
+			if( writeFile.exists() && !writeFile.isDirectory() )
 			{
-				pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\">" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+				writeFile.delete();
+			}
+
+			PrintWriter pw = new PrintWriter(new FileOutputStream(writeFile), true);
+
+			pw.println("<html>");
+
+			pw.println("<link rel=\"stylesheet\" href=\"w3.css\">");
+			pw.println("<meta charset=\"UTF-8\">\r\n" + 
+					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+
+			pw.println("<body>");
+
+			reader = new FileReader(readFile);
+			inFile = new Scanner(reader);
+			int i = 1;
+
+			CompanyName = inFile.nextLine();
+
+			pw.println("<div class=\"bgimg w3-display-container w3-animate-opacity\">");
+			pw.println("<div class=\"w3-display-top w3-center\">");
+
+			if(CompanyName.equals(""))
+			{
+				pw.println("<h1 class=\"w3-jumbo w3-animate-top\">Lawn Care Made Simple</h1>");
 			}
 			else
 			{
-				pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\" checked>" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+				pw.println("<h1 class=\"w3-jumbo w3-animate-top\">" + CompanyName + "</h1>");
 			}
-			pw.println("<input type=\"hidden\" name=\"" + i + "\" value=\"0\">");
-			//temp = inFile.nextLine();
-			temp = inFile.nextLine();
-			pw.println("&nbsp" + temp + "<br>");
-			
-			pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" autocomplete = \"off\" name=\"" + (i+1) + "\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
-			
-			//temp = inFile.nextLine();
-			//temp = inFile.nextLine();
-			//website += temp + "<br>";
-			i++;
-			i++;
+			pw.println("<hr class=\"w3-border-grey\" style=\"margin:auto;width:100%\">");
+			pw.println("<p class=\"w3-large w3-center\">Lawn List</p>");
 
-		}
-				
-		inFile.close();
-		reader.close();	
-		
-		pw.println("<input type=\"submit\" value=\"Submit Lawns\"></form>");
-		
-		pw.println("</body>");
-		pw.println("</html>");
-		
+
+			//pw.println("<div class=\"w3-display-middle w3-large w3-center\">");
+
+			pw.println("<form action=\"FileWrite.jsp\" method=\"POST\">");
+
+			while(inFile.hasNext()){
+
+				temp = inFile.nextLine();
+				mowVal = inFile.nextLine();
+				//pw.println("<input type=\"checkbox\" name=\"" + i + "_lawn\" value=\"mowed\">" + temp + "<br>");
+				//pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" name=\"" + (i+1) + "_comments\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
+				if(mowVal.equals("unmowed"))
+				{
+					pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\">" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+				}
+				else
+				{
+					pw.println("<input type=\"checkbox\" name=\"" + i + "\" value=\"mowed\" checked>" + "<font size=\"4\">" + temp + "</font>" + "<br>");
+				}	
+				pw.println("<input type=\"hidden\" name=\"" + i + "\" value=\"0\">");
+
+				//temp = inFile.nextLine();
+				temp = inFile.nextLine();
+				pw.println("&nbsp" + temp + "<br>");
+
+				pw.println("<input type=\"textarea\" rows=\"1\" cols=\"15\" autocomplete = \"off\" name=\"" + (i+1) + "\" placeholder=\"Enter Comments Here\"></textarea><br><br>");
+
+				//temp = inFile.nextLine();
+				//temp = inFile.nextLine();
+				//website += temp + "<br>";
+				i++;
+				i++;
+
+			}
+
+			inFile.close();
+			reader.close();	
+
+			pw.println("<input type=\"submit\" value=\"Submit Lawns\"></form>");
+
+			pw.println("</div>");
+			pw.println("</div>");
+
+			pw.println("</body>");
+			pw.println("</html>");
+
 		}
 		catch(FileNotFoundException e) {e.printStackTrace();}
 		catch(IOException e) {e.printStackTrace();}
-		
-		//When change made to lawns.txt, triggers separate class with this code to update the html
 	}
-	
+
+
 	public static void serverRestart() {
-		
+
 		try {
-			
+
 			server.stop();
 			createHTML();
 			server.start();
-			
+
 		}
 		catch(Exception e) {
-			
-			
-			
+
+
+
 		}
-		
+
 	}//end serverRestart
-	
+
 }
