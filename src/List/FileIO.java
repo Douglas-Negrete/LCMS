@@ -35,6 +35,7 @@ public class FileIO {
 	private boolean server;// true means disable, false means enable
 	private Date lastBackUp;
 	public SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy");
+	public boolean successful = false;
 
 	public FileIO() {
 
@@ -44,11 +45,19 @@ public class FileIO {
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
 
-		if(isNew())
+		if(isNew()) {
+			System.out.println("GOT HERE");
 			for (int i = 0; i < 100; i++)
 				clientList.add(clientCreator());
+		}
 
 	}//end default constructor
+	
+	public void resetBackup() {
+		
+		this.backupFileLocation.delete();
+		
+	}
 
 	public int getBackupInterval() {
 		return backupInterval;
@@ -160,24 +169,23 @@ public class FileIO {
 			writer = new FileWriter(file);
 			outFile = new PrintWriter(writer);
 
+			outFile.println(companyName);
+
 			for(int i = 0; i < lawnList.size(); i++) {
 
-				if(lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
-						lawnList.get((lawnList.size()-1) - i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) {
+				if((lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
+						lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
+						lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
 
-					//					outFile.println(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
-					//							"unmowed\n"+
-					//							lawnList.get((lawnList.size()-1) - i).getNotes());
-
-					arr.add(lawnList.get((lawnList.size()-1) - i).getAddress() + "\n" +
+					arr.add(lawnList.get(i).getAddress() + "\n" +
 							"unmowed\n"+
-							lawnList.get((lawnList.size()-1) - i).getNotes());
+							lawnList.get(i).getNotes());
 
 				}
 
 			}
 
-			for(int i = arr.size() - 1; i >=0; i--)
+			for(int i = 0; i < arr.size(); i++)
 				outFile.println(arr.get(i));
 
 			outFile.close();
@@ -237,6 +245,8 @@ public class FileIO {
 		{
 			reader = new FileReader("lawns.txt");
 			inFile = new Scanner(reader);
+
+			inFile.nextLine();
 
 			while(inFile.hasNext()) {
 
@@ -298,6 +308,7 @@ public class FileIO {
 
 	public void readInBackupFile()//LinkedList<Client> list) 
 	{
+		
 		FileReader reader;
 		Scanner inFile;
 
@@ -484,7 +495,7 @@ public class FileIO {
 			numLines.close();
 
 			inFile = new Scanner(new FileReader("Transactions.txt"));
-			
+
 			int h = 0;
 			while(inFile.hasNextLine()) 
 			{
@@ -494,7 +505,7 @@ public class FileIO {
 					inFile.nextLine();
 				count++;
 			}
-			
+
 			for(int i = h-1; i >= 0; i--) {
 				if (!arr[i].equals(null))
 					ta.appendText(arr[i] + "\n");
@@ -594,6 +605,8 @@ public class FileIO {
 
 			outFile.close();
 			writer.close();
+
+			readInBackupFile();
 		} catch (IOException e) { e.printStackTrace(); }
 
 	}
@@ -751,7 +764,8 @@ public class FileIO {
 
 	public void setEmailData() {
 
-		this.backupEmail = emailList.get(0);
+		if(emailList.size()>0)
+			this.backupEmail = emailList.get(0);
 		//emailList.removeFirst();
 
 	}//end setemaildata
@@ -929,6 +943,14 @@ public class FileIO {
 
 	}//end checkAutoBackup
 
+	public void clearLists() {
+
+		emailList.clear();
+		clientList.clear();
+		lawnList.clear();
+
+	}//end clearlists
+
 	static String[] names = { "John", "James", "Jim", "Bill", "Fred", "Alex", "Ben", "Joe", "Don",
 			"Dan", "Sam", "Sarah", "Rick", "Richard", "Carl", "Ted", "Greg", "Alice", "Ruth", "Mary",
 			"Greg", "George", "Ted", "Douglas", "Matt", "Lucas", "Jared", "Craig", "Luke", "Jeremy"};
@@ -982,47 +1004,47 @@ public class FileIO {
 
 
 		Client one = new Client(name, address, phone);
-		 
 
-		 Double owes = rand.nextDouble()*100;
-		 one.setOwed(owes);
-		 
 
-		 for (int i = 0; i < num1; i++)
-		 {
-			 int interval = 7;
-			 num2 = rand.nextInt(10);
-			 if (num2 == 0)
-				 interval = 30;
-			 else if (num2 < 6)
-				 interval = 7;
-			 else if (num2 < 8)
-				 interval = 10;
-			 else if (num2 < 11)
-				 interval = 14;
+		Double owes = rand.nextDouble()*100;
+		one.setOwed(owes);
+
+
+		for (int i = 0; i < num1; i++)
+		{
+			int interval = 7;
+			num2 = rand.nextInt(10);
+			if (num2 == 0)
+				interval = 30;
+			else if (num2 < 6)
+				interval = 7;
+			else if (num2 < 8)
+				interval = 10;
+			else if (num2 < 11)
+				interval = 14;
 			// int interval = 7; //10,14, 30
-			 
 
-			 double price = rand.nextDouble()*100;
 
-			 int num7 = rand.nextInt(genLocation.length);
-			 address = (rand.nextInt(680) + 20) + " " + streetName1[num4] + 
-					 streetName2[num5] + " " + street[num6];
-			 
+			double price = rand.nextDouble()*100;
 
-	      Lawn l = new Lawn(one, address, one.getName()+i,genLocation[num7],interval, price);
-	      
+			int num7 = rand.nextInt(genLocation.length);
+			address = (rand.nextInt(680) + 20) + " " + streetName1[num4] + 
+					streetName2[num5] + " " + street[num6];
 
-	      Calendar cal = Calendar.getInstance();
-	      cal.setTime(new Date());
-	      cal.add(cal.DATE, -num7+5);
-	      l.setLastMow(cal.getTime());
-	      cal.setTime(new Date());
-	      cal.add(cal.DATE, interval);
-	      l.setNextMow(cal.getTime());
-	      
 
-		  one.addLawn(l);
+			Lawn l = new Lawn(one, address, one.getName()+i,genLocation[num7],interval, price);
+
+
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date());
+			cal.add(cal.DATE, -num7+5);
+			l.setLastMow(cal.getTime());
+			cal.setTime(new Date());
+			cal.add(cal.DATE, interval);
+			l.setNextMow(cal.getTime());
+
+
+			one.addLawn(l);
 		}
 		return one;
 	}

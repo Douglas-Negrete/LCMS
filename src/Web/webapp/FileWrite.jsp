@@ -31,7 +31,6 @@ try
 
 	while(paramNames.hasMoreElements())
 	{
-		
 		temp = (String)paramNames.nextElement();
 		int t = Integer.parseInt(temp);
 		ss.add(t);
@@ -40,6 +39,10 @@ try
 
 
 	Iterator it = ss.iterator();
+	
+	temp = inFile.nextLine();
+    pw.println(temp);
+	
 	while (it.hasNext()) 
 	{
 		
@@ -149,7 +152,7 @@ try
 
 }catch(FileNotFoundException e){e.printStackTrace();}
 %>
-<h2> Comment Changes won't be reflected on the Web Page </h2>
+<h2> Comment changes won't be reflected on the Web Page </h2>
 <h2> You Can Hit Back in Your Browser to Return </h2>
 </body>
 </html>
