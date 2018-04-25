@@ -54,7 +54,7 @@ public class Client {
 		this.billAddress = billAddress;
 
 	}//end setbilladdress
-	
+
 	public String getPhoneNum() {
 
 		return phoneNum;
@@ -78,17 +78,16 @@ public class Client {
 		this.owed = owed;
 
 	}//end setowed
-	
-	public String[] getLawnNames() {
-		
+
+	public String[] getLawnAddresses() {
+
 		ArrayList<String> temp = new ArrayList<>();
 
 		for(int i = 0; i < lawnList.size(); i++)
-				temp.add(lawnList.get(i).getAddress());
+			temp.add(lawnList.get(i).getAddress());
 
-		//return s = temp.toArray(new String[temp.size()]);
 		return temp.toArray(new String[temp.size()]);
-		
+
 	}
 
 	public String getSingleLawnName(int i) {
@@ -96,21 +95,21 @@ public class Client {
 		return this.getName() + ", " + this.lawnList.get(i).getAddress() + ", " + this.lawnList.get(i).getLawnName();
 
 	}//end getLawnName
-	
+
 	public Lawn getLawnFromAddress(String s) {
-		
+
 		for(int i = 0; i < this.lawnList.size(); i++)
 			if(this.lawnList.get(i).getAddress().equals(s))
 				return this.lawnList.get(i);
-		
+
 		return null;
-		
+
 	}//end getlawnfromaddress
-	
+
 	public Lawn getSingleLawn(int i) {
-		
+
 		return this.lawnList.get(i);
-		
+
 	}//end getlawn
 
 	public void addLawn(Lawn l) {
@@ -118,11 +117,11 @@ public class Client {
 		lawnList.add(l);
 
 	}//end addLawn
-	
+
 	public String getOwes() {
-		
+
 		return "$"+df.format(owed);
-		
+
 	}
 
 	public void removeLawn(Lawn l) {
@@ -131,6 +130,12 @@ public class Client {
 
 	}//end removeLawn
 
+	public void deleteAllLawns() {
+
+		this.lawnList.clear();
+
+	}//end deleteAllLawns
+
 	public String toString()
 	{
 		String s = "Name: " + name + " Billing Address: " +  billAddress + " Phone Number: " + phoneNum + " Owed: " + owed + "\n";
@@ -138,16 +143,16 @@ public class Client {
 			s += lawnList.get(i).toString();
 		return s;
 	}
-	
+
 	public String toTransaction()
 	{
-	 String s = name + " " + billAddress + " $" + df.format(owed);
+		String s = name + " " + billAddress + " $" + df.format(owed);
 		return s;
 	}
-	
+
 	public String toBill()
 	{
-	 String s = name + ": " + billAddress + " - $" + df.format(owed);
+		String s = name + ": " + billAddress + " - $" + df.format(owed);
 		return s;
 	}
 
@@ -155,7 +160,7 @@ public class Client {
 	{
 		String s;
 		s = name.replaceAll(";",",") +";"+billAddress.replaceAll(";",",")+";"+
-		phoneNum.replaceAll(";",",")+";"+df.format(owed)+"\n";
+				phoneNum.replaceAll(";",",")+";"+df.format(owed)+"\n";
 		for (int i = 0; i < lawnList.size(); i++)
 			s += lawnList.get(i).toFile() + "\n";
 		s += "#ENDLAWN";

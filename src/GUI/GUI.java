@@ -414,7 +414,7 @@ public class GUI extends Application {
 				displayInfo.getChildren().clear();
 				shown = 0;
 				rightPane.getChildren().remove(1);
-				rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+				rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 				listView.getFocusModel().focus(0);
 				tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 				cName.setText(tempClnt.getName());
@@ -453,7 +453,7 @@ public class GUI extends Application {
 				displayInfo.getChildren().clear();
 				shown = 1;
 				rightPane.getChildren().remove(1);
-				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 				listView.getFocusModel().focus(0);
 				tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
 				displayInfo.getChildren().clear();
@@ -821,9 +821,9 @@ public class GUI extends Application {
 
 					rightPane.getChildren().remove(1);
 					if(shown == 0)
-						rightPane.getChildren().add(1, populateList(listView, search(searchTextField, io.getClientNames())));
+						rightPane.getChildren().add(1, populateList(listView, search(searchTextField, io.getClientNames()), 0));
 					else if(shown == 1)
-						rightPane.getChildren().add(1, populateList(listView, search(searchTextField, io.getLawnNames())));
+						rightPane.getChildren().add(1, populateList(listView, search(searchTextField, io.getLawnNames()), 1));
 					//search the list for the name entered in the searchbox
 
 				}
@@ -1004,7 +1004,7 @@ public class GUI extends Application {
 		sortedLawnTA.setMinHeight(400);
 		sortedLawnTA.setMaxHeight(500);
 		sortedLawnTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
-		
+
 		helpTA.setWrapText(true);
 		helpTA.setEditable(false);
 		helpTA.setMinHeight(440);
@@ -1085,9 +1085,9 @@ public class GUI extends Application {
 
 					rightPane.getChildren().remove(1);
 					if(shown == 0)
-						rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+						rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 					else if(shown == 1)
-						rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+						rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 					cNameTF.setText("");
 					cBiAdTF.setText("");
@@ -1133,12 +1133,14 @@ public class GUI extends Application {
 										Double.parseDouble(lPriceTF.getText())));
 
 								io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
+								
+								//io.lawnList.add(io.getLawn(lAddressTF.getText()));
 
 								rightPane.getChildren().remove(1);
 								if(shown == 0)
-									rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 								else if(shown == 1)
-									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 								addClntLwnLbl.getChildren().clear();
 								addClntLwnTF.getChildren().clear();
@@ -1182,9 +1184,9 @@ public class GUI extends Application {
 
 								rightPane.getChildren().remove(1);
 								if(shown == 0)
-									rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 								else if(shown == 1)
-									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 								addClntLwnLbl.getChildren().clear();
 								addClntLwnTF.getChildren().clear();
@@ -1279,9 +1281,9 @@ public class GUI extends Application {
 
 									rightPane.getChildren().remove(1);
 									if(shown == 0)
-										rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+										rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 									else if(shown == 1)
-										rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+										rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 									addClntLwnLbl.getChildren().clear();
 									addClntLwnTF.getChildren().clear();
@@ -1326,9 +1328,9 @@ public class GUI extends Application {
 
 								rightPane.getChildren().remove(1);
 								if(shown == 0)
-									rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 								else if(shown == 1)
-									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 								addClntLwnLbl.getChildren().clear();
 								addClntLwnTF.getChildren().clear();
@@ -1482,7 +1484,7 @@ public class GUI extends Application {
 
 					if(tempClnt.lawnListSize() > 1) {//are there more than 1 lawns?
 
-						ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnNames());
+						ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnAddresses());
 						final ComboBox<String> comboBox = new ComboBox<>(options);
 						centerPane.getChildren().clear();
 						if(!tempClnt.getName().endsWith("s"))
@@ -1636,12 +1638,13 @@ public class GUI extends Application {
 				if (result.get() == buttonTypeOne){
 					// ... user chose first option
 
+					io.removeAssociatedLawns(tempClnt);
 					io.removeClient(io.getClientIndex(tempClnt.getName()));
 					rightPane.getChildren().remove(1);
 					if(shown == 0)
-						rightPane.getChildren().add(1, populateList(listView, io.getClientNames()));
+						rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 					else if(shown == 1)
-						rightPane.getChildren().add(1, populateList(listView, io.getLawnNames()));
+						rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 
 				}
 
@@ -1654,7 +1657,7 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnNames());
+				ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnAddresses());
 				final ComboBox<String> comboBox = new ComboBox<>(options);
 				centerPane.getChildren().clear();
 				if(!tempClnt.getName().endsWith("s"))
@@ -1682,8 +1685,8 @@ public class GUI extends Application {
 
 						Optional<ButtonType> result = alert.showAndWait();
 						if (result.get() == buttonTypeOne){
-							tempClnt.removeLawn(tempClnt.getLawnFromAddress(comboBox.getValue()));
 							io.lawnList.remove(tempClnt.getLawnFromAddress(comboBox.getValue()));
+							tempClnt.removeLawn(tempClnt.getLawnFromAddress(comboBox.getValue()));
 						}
 						else {
 							cName.setText(tempClnt.getName());
@@ -2145,6 +2148,25 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonaction
+		
+		listView.getFocusModel().focus(0);
+		tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
+		cName.setText(tempClnt.getName());
+		cAddr.setText(tempClnt.getBillAddress());
+		cOwes.setText("$" + df.format(tempClnt.getOwed()));
+		cNum.setText(tempClnt.getPhoneNum());
+		lawnTA.clear();
+		populateLawnTA(lawnTA, cName.getText());
+		centerPane.getChildren().clear();
+		addClntLwnLbl.getChildren().clear();
+		addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
+		displayInfo.getChildren().clear();
+		displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+		centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
+		border.setCenter(centerPane);
+		sidePanelBtn.getChildren().clear();
+		sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
+		border.setLeft(sidePanelBtn);
 
 		backupTitleLbl.setFont(new Font(30));
 
@@ -2303,34 +2325,47 @@ public class GUI extends Application {
 
 	}//end populateSortedLawnTA
 
-	public ListView<String> populateList(ListView<String> listView, String[] s) {
+	public ListView<String> populateList(ListView<String> listView, String[] s, int n) {
 
-		String[] newList = new String[s.length];
-		String temp[];
-		int count = 1;
-		
-		for(int i = 0; i < s.length; i++) {
-			
-			temp = s[0].split(",");
-			tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
-			
-			if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
-				
-				newList[i] = s[i];
-				
+		if(n == 1) {
+
+			String[] newList = new String[s.length];
+			String temp[];
+			int count = 1;
+
+			for(int i = 0; i < s.length; i++) {
+
+				temp = s[0].split(",");
+				System.out.println(temp[temp.length-1]);
+				tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
+
+				if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
+
+					newList[i] = s[i];
+
+				}
+				else {
+
+					newList[s.length - count] = s[i];
+					count++;
+
+				}
+
 			}
-			else {
-				
-				newList[s.length - count] = s[i];
-				count++;
-				
-			}
+
+			listView.getItems().clear();
+			listView.getItems().addAll(newList);
+			return listView;
+
+		}
+		else {
+			
+			listView.getItems().clear();
+			listView.getItems().addAll(s);
+			return listView;
 			
 		}
-		
-		listView.getItems().clear();
-		listView.getItems().addAll(newList);
-		return listView;
+			
 
 	}//end populateList
 

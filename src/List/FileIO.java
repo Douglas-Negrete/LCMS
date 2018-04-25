@@ -45,11 +45,10 @@ public class FileIO {
 		emailList = new LinkedList<>();
 		lawnList = new LinkedList<>();
 
-		if(isNew()) {
-			System.out.println("GOT HERE");
-			for (int i = 0; i < 100; i++)
-				clientList.add(clientCreator());
-		}
+		//if(isNew()) {
+			//for (int i = 0; i < 100; i++)
+				//clientList.add(clientCreator());
+		//}
 
 	}//end default constructor
 
@@ -155,6 +154,26 @@ public class FileIO {
 		appendToTransactionFile("Removed Client: " + c.toTransaction());
 
 	}//end remove client
+	
+	public void removeAssociatedLawns(Client c) {
+		
+		String[] temp = c.getLawnAddresses();
+		
+		for(int i = 0; i < lawnList.size(); i++) {
+			
+			for(int j = 0; j < temp.length; j++) {
+				
+				if(temp[j].equals(lawnList.get(i).getAddress())) {
+					lawnList.remove(i);
+				}
+				
+			}
+			
+		}
+		
+		c.deleteAllLawns();
+		
+	}//end removeassociatedlawns
 
 	public void writeLawnsHTML() {
 
@@ -265,7 +284,6 @@ public class FileIO {
 				if((sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) != 0 && status.equals("mowed")) ||
 						(sf.format(temp.getLastMow()).compareTo(sf.format(Calendar.getInstance().getTime())) == 0 && status.equals("unmowed"))) {
 
-					System.out.println(addr + ":" + status);
 					if(status.equals("mowed")) {
 						appendToTransactionFile("(From Web)Lawn checked off: " + temp.toTransaction());
 						temp.checkLawnOff();
@@ -277,18 +295,8 @@ public class FileIO {
 						appendToTransactionFile("(From Web)Client " + temp.getClient().getName() + " now owes: " + temp.getClient().getOwes());
 					}
 
-					System.out.println(notes);
-
-					System.out.println(!notes.equals("No Comment"));
-
 					if(!notes.equals("No Comment") && !notes.equals(lawnList.get(getLawnIndex(addr)).getNotes()))
 						temp.addNotes(notes);
-
-					System.out.println(temp.getNotes());
-
-					//lawnList.add(temp);
-
-					System.out.println(lawnList.get(getLawnIndex(addr)).getNotes());
 
 					sortLawns();
 
@@ -296,9 +304,7 @@ public class FileIO {
 				else if(!notes.equals("No Comment") && !notes.equals(lawnList.get(getLawnIndex(addr)).getNotes())) {
 
 					temp = getLawn(addr);
-					//lawnList.remove(getLawnIndex(addr));
 					temp.addNotes(notes);
-					//lawnList.add(temp);
 
 				}
 
@@ -335,7 +341,7 @@ public class FileIO {
 					if (temp.equals("#ENDCLIENT"))
 						break;
 					String[] line = temp.split(delims);
-					System.out.println(Arrays.toString(line));
+					//System.out.println(Arrays.toString(line));
 					Client tempClient = new Client(line[0], line[1], line[2]);
 					tempClient.setOwed(Double.parseDouble(line[3]));
 					clientList.add(tempClient);
@@ -364,7 +370,6 @@ public class FileIO {
 					if (temp.equals("#ENDEMAILS"))
 						break;
 					emailList.add(temp);
-					System.out.println(temp);
 				}
 				backupEmail = emailList.getFirst();
 				emailList.removeFirst();
@@ -377,8 +382,8 @@ public class FileIO {
 				companyName = inFile.nextLine();
 				inFile.nextLine();
 			}
-			System.out.println("All info read in for " + companyName);
-			System.out.println("Contains " + i + " Clients");
+			//System.out.println("All info read in for " + companyName);
+			//System.out.println("Contains " + i + " Clients");
 			setNumClients(i);
 
 			sortLawns();
@@ -586,7 +591,6 @@ public class FileIO {
 			{
 				String temp = inFile.nextLine();
 				backupFile = new File(temp);
-				System.out.println("Does the file exist - " + backupFile.exists());
 			}
 
 			inFile.close();
@@ -977,8 +981,6 @@ public class FileIO {
 	public Client clientCreator() {
 
 		Random rand = new Random();
-
-		rand.setSeed(Calendar.getInstance().getTimeInMillis());
 
 		int num1 = rand.nextInt(names.length);
 		int num2 = rand.nextInt(lastNames.length);

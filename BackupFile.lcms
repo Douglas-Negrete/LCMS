@@ -1,1070 +1,506 @@
 #FILESTART
-Mary Burnfree;353 Silvermist Street;(865) 979 5445;73.57
-71 Silvermist Street;Mary Burnfree0;Shady;7;94.12;04-20-2018;04-25-2018
+Richard Richmill;282 Laureltown Circle;(932) 891 7087;88.85
+23 Laureltown Circle;Richard Richmill0;Mount Hope;14;3.15;04-20-2018;04-25-2018
 
-#ENDLAWN
-Greg Donefree;448 Goldwinter Lane;(550) 604 7080;11.74
-129 Goldwinter Lane;Greg Donefree0;Beckley;10;84.82;04-20-2018;04-25-2018
-
-470 Goldwinter Lane;Greg Donefree1;Beckley;7;36.24;04-20-2018;04-25-2018
-
-556 Goldwinter Lane;Greg Donefree2;Beckley;10;90.19;04-29-2018;05-04-2018
-
-#ENDLAWN
-Greg Batman;532 Smokecore Drive;(241) 323 8722;68.82
-548 Smokecore Drive;Greg Batman0;Beaver;7;8.28;04-24-2018;05-01-2018
-
-#ENDLAWN
-Rick Freemen;603 Millshield Path;(273) 724 2212;28.52
-256 Millshield Path;Rick Freemen0;Mabscott;10;11.60;04-27-2018;05-04-2018
-
-#ENDLAWN
-Craig Lasmill;65 Highfish Path;(363) 338 8229;68.35
-669 Highfish Path;Craig Lasmill0;Beckley;14;19.83;04-29-2018;05-08-2018
-
-#ENDLAWN
-Mary Jinson;133 Fountaintown Lane;(899) 500 2651;53.78
-#ENDLAWN
-Ben Derjin;473 Fountaincrest Street;(255) 620 8571;76.78
-378 Fountaincrest Street;Ben Derjin0;Shady;14;74.09;04-22-2018;05-08-2018
-
-#ENDLAWN
-Ted Sanfree;287 Oakshield Boulevard;(932) 801 6673;31.65
-540 Oakshield Boulevard;Ted Sanfree0;Glade;14;30.54;04-26-2018;05-08-2018
-
-#ENDLAWN
-George Delmen;559 Ironlane Lane;(821) 342 5669;5.47
-398 Ironlane Lane;George Delmen0;Shady;7;53.54;04-22-2018;05-01-2018
-
-511 Ironlane Lane;George Delmen1;Mount Hope;7;62.45;04-28-2018;05-01-2018
-
-325 Ironlane Lane;George Delmen2;Daniels;7;1.36;04-23-2018;05-01-2018
-
-#ENDLAWN
-Sam Eldel;652 Birchmist Avenue;(663) 870 3378;68.08
-179 Birchmist Avenue;Sam Eldel0;Mabscott;30;25.38;04-27-2018;05-24-2018
-
-#ENDLAWN
-Joe Burgson;633 Bronzefresh Path;(497) 866 5343;10.43
-590 Bronzefresh Path;Joe Burgson0;Shady;7;49.93;04-22-2018;05-01-2018
-
-#ENDLAWN
-Alice Laslas;652 Smokemarket Drive;(456) 927 1108;7.52
-200 Smokemarket Drive;Alice Laslas0;Mabscott;14;62.27;04-27-2018;05-08-2018
-
-594 Smokemarket Drive;Alice Laslas1;Daniels;14;98.60;04-23-2018;05-08-2018
-
-#ENDLAWN
-Craig Batmen;581 Bronzecrest Drive;(616) 319 1224;17.82
-175 Bronzecrest Drive;Craig Batmen0;Mabscott;7;6.19;04-27-2018;05-01-2018
-
-#ENDLAWN
-Matt Lothin;557 Metalcrest Lane;(506) 343 4639;45.54
-143 Metalcrest Lane;Matt Lothin0;Beaver;10;22.84;04-24-2018;05-04-2018
-
-309 Metalcrest Lane;Matt Lothin1;Daniels;10;64.12;04-23-2018;05-04-2018
-
-#ENDLAWN
-Greg Burndin;329 Highmist Way;(220) 419 8271;69.76
-85 Highmist Way;Greg Burndin0;Beckley;10;30.27;04-29-2018;05-04-2018
-
-#ENDLAWN
-Jared Gusthin;27 Sourcore Lane;(295) 654 7308;64.67
-557 Sourcore Lane;Jared Gusthin0;Mount Hope;7;37.95;04-28-2018;05-01-2018
-
-#ENDLAWN
-Ben Burgdon;546 Millfresh Boulevard;(532) 938 5530;66.68
-167 Millfresh Boulevard;Ben Burgdon0;Mabscott;10;98.59;04-27-2018;05-04-2018
-
-#ENDLAWN
-Matt Fordisson;398 Northtown Boulevard;(347) 634 7894;17.67
-359 Northtown Boulevard;Matt Fordisson0;Beaver;14;74.42;04-24-2018;05-08-2018
-
-#ENDLAWN
-Jared Redburg;131 Winterstone Drive;(284) 683 1649;87.86
-535 Winterstone Drive;Jared Redburg0;Mount Hope;10;86.20;04-28-2018;05-04-2018
-
-671 Winterstone Drive;Jared Redburg1;Mount Hope;7;26.68;04-28-2018;05-01-2018
-
-185 Winterstone Drive;Jared Redburg2;Daniels;7;65.67;04-23-2018;05-01-2018
-
-#ENDLAWN
-James Errich;73 Bronzetown Street;(282) 662 9309;6.00
-269 Bronzetown Street;James Errich0;Mabscott;7;36.16;04-27-2018;05-01-2018
-
-#ENDLAWN
-George Losan;51 Westfish Drive;(912) 351 7198;37.39
-238 Westfish Drive;George Losan0;Glade;7;56.36;04-26-2018;05-01-2018
-
-145 Westfish Drive;George Losan1;Oak Hill;7;88.34;04-25-2018;05-01-2018
-
-179 Westfish Drive;George Losan2;Mabscott;10;72.20;04-27-2018;05-04-2018
-
-#ENDLAWN
-Bill Jinlas;514 Millfresh Lane;(538) 111 5864;95.36
-383 Millfresh Lane;Bill Jinlas0;Beaver;7;53.47;04-24-2018;05-01-2018
-
-#ENDLAWN
-John Fordtrey;374 Icewinter Drive;(599) 681 7570;86.11
-360 Icewinter Drive;John Fordtrey0;Oak Hill;14;17.59;04-25-2018;05-08-2018
-
-131 Icewinter Drive;John Fordtrey1;Mount Hope;7;64.11;04-28-2018;05-01-2018
-
-188 Icewinter Drive;John Fordtrey2;Daniels;7;9.47;04-23-2018;05-01-2018
-
-#ENDLAWN
-Luke Treyel;604 Birchtown Boulevard;(273) 925 4201;76.60
-327 Birchtown Boulevard;Luke Treyel0;Beckley;7;98.58;04-29-2018;05-01-2018
-
-633 Birchtown Boulevard;Luke Treyel1;Oak Hill;7;67.45;04-25-2018;05-01-2018
-
-571 Birchtown Boulevard;Luke Treyel2;Mount Hope;7;35.45;04-28-2018;05-01-2018
-
-#ENDLAWN
-Matt Seltrey;387 Southfish Circle;(240) 650 7689;99.23
-488 Southfish Circle;Matt Seltrey0;Shady;7;27.32;04-22-2018;05-01-2018
-
-626 Southfish Circle;Matt Seltrey1;Beckley;7;55.22;04-29-2018;05-01-2018
-
-34 Southfish Circle;Matt Seltrey2;Shady;14;37.19;04-22-2018;05-08-2018
-
-#ENDLAWN
-Matt Standel;652 Sourwinter Path;(435) 131 3839;60.86
-684 Sourwinter Path;Matt Standel0;Beaver;30;91.65;04-24-2018;05-24-2018
-
-213 Sourwinter Path;Matt Standel1;Mabscott;14;78.13;04-27-2018;05-08-2018
-
-#ENDLAWN
-Craig Sondon;232 Wintermarket Boulevard;(479) 687 4735;9.66
-92 Wintermarket Boulevard;Craig Sondon0;Daniels;7;67.21;04-23-2018;05-01-2018
-
-81 Wintermarket Boulevard;Craig Sondon1;Beckley;7;37.32;04-29-2018;05-01-2018
-
-98 Wintermarket Boulevard;Craig Sondon2;Beaver;10;99.27;04-24-2018;05-04-2018
-
-#ENDLAWN
-Greg Donsel;408 Bronzemarket Drive;(911) 757 5029;88.45
-493 Bronzemarket Drive;Greg Donsel0;Glade;7;82.19;01-01-2000;01-01-2000
-
-#ENDLAWN
-Sarah Fordlas;284 Eaststone Lane;(251) 612 3801;34.44
-226 Eaststone Lane;Sarah Fordlas0;Beaver;30;46.82;01-01-2000;01-01-2000
-
-#ENDLAWN
-Greg Burgthin;176 Oakcore Circle;(996) 697 5205;15.41
-57 Oakcore Circle;Greg Burgthin0;Beaver;7;55.84;04-24-2018;05-01-2018
-
-450 Oakcore Circle;Greg Burgthin1;Glade;10;61.32;04-26-2018;05-04-2018
-
-#ENDLAWN
-Alice Tinlo;379 Riverstile Avenue;(300) 421 1984;51.67
-132 Riverstile Avenue;Alice Tinlo0;Glade;7;10.65;04-26-2018;05-01-2018
-
-448 Riverstile Avenue;Alice Tinlo1;Oak Hill;7;79.83;04-25-2018;05-01-2018
-
-105 Riverstile Avenue;Alice Tinlo2;Daniels;7;21.89;04-23-2018;05-01-2018
-
-#ENDLAWN
-Mary Jinjin;619 Fountainfish Way;(739) 102 4608;4.43
-24 Fountainfish Way;Mary Jinjin0;Shady;30;91.16;04-22-2018;05-24-2018
-
-#ENDLAWN
-Jared Fordburg;146 Woodstone Drive;(570) 638 6337;52.29
-195 Woodstone Drive;Jared Fordburg0;Daniels;7;88.01;04-23-2018;05-01-2018
-
-#ENDLAWN
-James Selfree;328 Smoketree Path;(973) 472 3923;66.62
-688 Smoketree Path;James Selfree0;Mabscott;14;17.25;04-27-2018;05-08-2018
-
-#ENDLAWN
-Carl Sonsan;559 Birchboar Lane;(729) 287 4836;49.05
-588 Birchboar Lane;Carl Sonsan0;Glade;7;68.66;04-26-2018;05-01-2018
-
-#ENDLAWN
-Joe Thornsel;552 Eastshin Circle;(734) 312 6435;65.09
-411 Eastshin Circle;Joe Thornsel0;Beckley;10;67.81;04-29-2018;05-04-2018
-
-#ENDLAWN
-Rick Eler;613 Ironcore Path;(463) 111 9564;5.55
-539 Ironcore Path;Rick Eler0;Glade;10;77.09;04-26-2018;05-04-2018
-
-#ENDLAWN
-Rick Elsel;106 Westshin Lane;(277) 741 4399;8.49
-446 Westshin Lane;Rick Elsel0;Shady;7;65.62;04-22-2018;05-01-2018
-
-#ENDLAWN
-Bill Sanstan;419 Woodfish Avenue;(860) 436 4195;72.76
-464 Woodfish Avenue;Bill Sanstan0;Oak Hill;10;91.83;04-25-2018;05-04-2018
-
-357 Woodfish Avenue;Bill Sanstan1;Beaver;14;31.99;04-24-2018;05-08-2018
-
-#ENDLAWN
-Carl Dinlo;367 Southmist Boulevard;(650) 405 3592;20.81
-334 Southmist Boulevard;Carl Dinlo0;Beckley;10;18.61;04-29-2018;05-04-2018
-
-#ENDLAWN
-Bill Usred;337 Watertown Street;(795) 651 8615;89.28
-574 Watertown Street;Bill Usred0;Daniels;30;10.08;04-23-2018;05-24-2018
-
-349 Watertown Street;Bill Usred1;Glade;7;74.70;04-26-2018;05-01-2018
-
-400 Watertown Street;Bill Usred2;Mabscott;7;43.79;04-27-2018;05-01-2018
-
-#ENDLAWN
-Rick Delbat;340 Eastfish Boulevard;(371) 474 5556;14.45
-392 Eastfish Boulevard;Rick Delbat0;Shady;7;19.67;04-22-2018;05-01-2018
-
-#ENDLAWN
-Douglas Elel;86 Silvertown Path;(775) 630 2032;49.54
-519 Silvertown Path;Douglas Elel0;Beaver;7;82.82;01-01-2000;01-01-2000
-
-490 Silvertown Path;Douglas Elel1;Oak Hill;7;8.84;04-25-2018;05-01-2018
-
-306 Silvertown Path;Douglas Elel2;Beckley;14;86.63;04-29-2018;05-08-2018
-
-#ENDLAWN
-Lucas Sanred;283 Northstone Street;(780) 788 1179;36.96
-307 Northstone Street;Lucas Sanred0;Beckley;10;94.35;04-29-2018;05-04-2018
-
-401 Northstone Street;Lucas Sanred1;Shady;10;37.08;04-22-2018;05-04-2018
-
-#ENDLAWN
-Luke Derbat;87 Highshield Drive;(252) 234 3953;39.78
-168 Highshield Drive;Luke Derbat0;Glade;14;87.75;04-26-2018;05-08-2018
-
-#ENDLAWN
-Alex Jinrich;494 Smokefish Lane;(421) 921 6062;78.19
-524 Smokefish Lane;Alex Jinrich0;Beckley;7;61.22;04-29-2018;05-01-2018
-
-#ENDLAWN
-George Ustrey;95 Riverfish Lane;(981) 109 8667;38.81
-539 Riverfish Lane;George Ustrey0;Shady;30;56.91;04-22-2018;05-24-2018
-
-#ENDLAWN
-John Burnred;156 Fountainboar Street;(591) 674 9350;77.56
-423 Fountainboar Street;John Burnred0;Mabscott;7;30.33;04-27-2018;05-01-2018
-
-#ENDLAWN
-Greg Lasisson;426 Northlane Circle;(345) 938 4238;89.98
-485 Northlane Circle;Greg Lasisson0;Shady;10;94.30;04-22-2018;05-04-2018
-
-#ENDLAWN
-Ruth Delburn;118 Ironshield Lane;(804) 986 5410;12.09
-453 Ironshield Lane;Ruth Delburn0;Shady;7;68.78;04-22-2018;05-01-2018
-
-#ENDLAWN
-Jared Uslo;625 Iceshield Drive;(783) 118 8767;34.48
-#ENDLAWN
-Joe Treystan;531 Northstone Circle;(427) 795 3020;37.54
-229 Northstone Circle;Joe Treystan0;Beaver;7;57.96;04-24-2018;05-01-2018
-
-426 Northstone Circle;Joe Treystan1;Daniels;7;15.83;04-23-2018;05-01-2018
-
-#ENDLAWN
-Rick Diner;127 Birchlane Circle;(645) 693 5952;76.23
-566 Birchlane Circle;Rick Diner0;Oak Hill;7;55.41;04-25-2018;05-01-2018
-
-81 Birchlane Circle;Rick Diner1;Mount Hope;14;56.02;04-28-2018;05-08-2018
-
-#ENDLAWN
-Bill Treysan;113 Rivershin Avenue;(432) 383 3721;11.87
-389 Rivershin Avenue;Bill Treysan0;Mabscott;14;26.48;04-27-2018;05-08-2018
-
-239 Rivershin Avenue;Bill Treysan1;Mount Hope;7;28.52;04-28-2018;05-01-2018
-
-#ENDLAWN
-Lucas Menford;209 Ironshield Lane;(374) 596 9650;73.80
-599 Ironshield Lane;Lucas Menford0;Mount Hope;14;67.32;04-28-2018;05-08-2018
-
-#ENDLAWN
-Carl Richtrey;511 Irontree Drive;(509) 170 3610;15.11
-265 Irontree Drive;Carl Richtrey0;Daniels;14;25.10;04-23-2018;05-08-2018
-
-408 Irontree Drive;Carl Richtrey1;Mabscott;10;84.49;04-27-2018;05-04-2018
-
-538 Irontree Drive;Carl Richtrey2;Glade;7;69.87;04-26-2018;05-01-2018
-
-#ENDLAWN
-Ted Kindone;108 Birchcore Lane;(814) 716 5464;76.11
-371 Birchcore Lane;Ted Kindone0;Daniels;7;36.10;04-23-2018;05-01-2018
-
-#ENDLAWN
-Douglas Issonkin;424 Oakboar Path;(403) 552 8878;79.95
-663 Oakboar Path;Douglas Issonkin0;Beckley;7;92.70;04-29-2018;05-01-2018
-
-#ENDLAWN
-Don Usrich;417 Silverstore Way;(378) 722 3628;24.26
-637 Silverstore Way;Don Usrich0;Mount Hope;10;85.12;04-28-2018;05-04-2018
-
-#ENDLAWN
-Don Doneer;669 Goldshin Circle;(208) 285 6179;97.75
-434 Goldshin Circle;Don Doneer0;Beckley;14;33.27;04-29-2018;05-08-2018
-
-548 Goldshin Circle;Don Doneer1;Mount Hope;7;72.90;04-28-2018;05-01-2018
-
-#ENDLAWN
-Bill Usjin;583 Highstone Avenue;(714) 698 8753;83.63
-105 Highstone Avenue;Bill Usjin0;Beckley;10;33.86;04-29-2018;05-04-2018
-
-511 Highstone Avenue;Bill Usjin1;Beckley;7;85.60;04-29-2018;05-01-2018
-
-394 Highstone Avenue;Bill Usjin2;Mount Hope;7;31.66;04-28-2018;05-01-2018
-
-#ENDLAWN
-Bill Bater;98 Westtree Street;(880) 587 8966;42.48
-479 Westtree Street;Bill Bater0;Oak Hill;10;13.19;04-25-2018;05-04-2018
-
-#ENDLAWN
-Don Thornsel;195 Laurelstile Boulevard;(500) 553 9853;7.34
-#ENDLAWN
-Carl Donemen;570 Laurelshield Drive;(651) 647 6862;92.38
-308 Laurelshield Drive;Carl Donemen0;Shady;7;19.17;04-22-2018;05-01-2018
+636 Laureltown Circle;Richard Richmill1;Shady;7;57.37;04-20-2018;04-25-2018
 
-271 Laurelshield Drive;Carl Donemen1;Beckley;30;79.59;04-29-2018;05-24-2018
+475 Laureltown Circle;Richard Richmill2;Daniels;10;32.83;04-20-2018;04-25-2018
 
-322 Laurelshield Drive;Carl Donemen2;Shady;7;29.89;04-22-2018;05-01-2018
-
-#ENDLAWN
-Richard Selel;97 Shadycrest Circle;(402) 377 8538;2.96
-#ENDLAWN
-Dan Lomill;354 Birchtown Drive;(923) 538 7411;24.70
-458 Birchtown Drive;Dan Lomill0;Oak Hill;7;66.15;04-25-2018;05-01-2018
-
-534 Birchtown Drive;Dan Lomill1;Shady;7;27.16;04-22-2018;05-01-2018
-
 #ENDLAWN
-Joe Dersel;442 Froststile Circle;(630) 799 5185;57.23
-533 Froststile Circle;Joe Dersel0;Beaver;14;29.62;04-24-2018;05-08-2018
-
-320 Froststile Circle;Joe Dersel1;Mabscott;7;67.20;04-27-2018;05-01-2018
+Ruth Elred;363 Eastwinter Drive;(604) 388 8499;67.78
+481 Eastwinter Drive;Ruth Elred0;Daniels;7;37.90;04-20-2018;04-25-2018
 
 #ENDLAWN
-Carl Treyfree;439 Southcrest Circle;(805) 500 3426;34.56
-105 Southcrest Circle;Carl Treyfree0;Beaver;14;22.53;04-24-2018;05-08-2018
+Jared Sonlas;195 Wintercore Drive;(551) 317 6309;4.40
+174 Wintercore Drive;Jared Sonlas0;Oak Hill;7;50.21;04-26-2018;05-02-2018
 
-597 Southcrest Circle;Carl Treyfree1;Mount Hope;7;43.72;04-28-2018;05-01-2018
-
-351 Southcrest Circle;Carl Treyfree2;Daniels;7;42.12;04-23-2018;05-01-2018
-
 #ENDLAWN
-Richard Burndon;92 Silverstile Circle;(480) 317 4136;38.71
-649 Silverstile Circle;Richard Burndon0;Oak Hill;14;80.72;01-01-2000;01-01-2000
-
-180 Silverstile Circle;Richard Burndon1;Oak Hill;7;65.94;01-01-2000;01-01-2000
+Greg Menkin;527 Shadylane Path;(836) 899 9944;11.23
+46 Shadylane Path;Greg Menkin0;Mount Hope;7;98.24;04-29-2018;05-02-2018
 
-635 Silverstile Circle;Richard Burndon2;Mount Hope;7;12.55;04-28-2018;05-01-2018
+311 Shadylane Path;Greg Menkin1;Shady;7;49.48;04-23-2018;05-02-2018
 
 #ENDLAWN
-Alice Burnbat;421 Sunshield Circle;(978) 224 6702;34.44
-516 Sunshield Circle;Alice Burnbat0;Glade;7;26.39;04-26-2018;05-01-2018
+Lucas Batisson;250 Silverwinter Drive;(861) 824 6088;4.14
+597 Silverwinter Drive;Lucas Batisson0;Oak Hill;14;91.77;04-26-2018;05-09-2018
 
 #ENDLAWN
-Ted Maner;137 Fountainstone Circle;(655) 206 1060;11.35
-584 Fountainstone Circle;Ted Maner0;Shady;7;88.16;04-22-2018;05-01-2018
-
-324 Fountainstone Circle;Ted Maner1;Oak Hill;14;69.47;04-25-2018;05-08-2018
-
-130 Fountainstone Circle;Ted Maner2;Glade;7;57.47;04-26-2018;05-01-2018
-
-#ENDLAWN
-Sarah Elsel;351 Frosttree Lane;(865) 111 8932;53.36
-556 Frosttree Lane;Sarah Elsel0;Mabscott;10;25.45;04-27-2018;05-04-2018
-
+Jim Issonfree;152 Highshield Path;(859) 167 9692;73.36
 #ENDLAWN
-Alex Erford;68 Fountainfish Way;(815) 745 9953;72.03
-285 Fountainfish Way;Alex Erford0;Beaver;10;37.35;04-24-2018;05-04-2018
-
-215 Fountainfish Way;Alex Erford1;Beckley;10;10.30;04-29-2018;05-04-2018
+Ben Stanlas;558 Sunwinter Way;(819) 819 4991;44.89
+262 Sunwinter Way;Ben Stanlas0;Mount Hope;7;22.96;04-29-2018;05-02-2018
 
 #ENDLAWN
-Greg Mangus;627 Sourfish Boulevard;(539) 943 9972;72.05
-#ENDLAWN
-Douglas Miller;139 Northboar Avenue;(667) 284 7061;15.47
-172 Northboar Avenue;Douglas Miller0;Mount Hope;10;75.55;04-28-2018;05-04-2018
+Craig Guslas;40 Laurelcrest Path;(285) 489 2178;57.62
+76 Laurelcrest Path;Craig Guslas0;Oak Hill;7;90.51;04-26-2018;05-02-2018
 
-69 Northboar Avenue;Douglas Miller1;Beaver;7;44.74;04-24-2018;05-01-2018
+343 Laurelcrest Path;Craig Guslas1;Glade;7;92.60;04-27-2018;05-02-2018
 
-121 Northboar Avenue;Douglas Miller2;Beckley;7;51.41;04-29-2018;05-01-2018
+121 Laurelcrest Path;Craig Guslas2;Mabscott;7;39.41;04-28-2018;05-02-2018
 
 #ENDLAWN
-Carl Tinson;37 Northshin Path;(687) 882 8240;27.22
-110 Northshin Path;Carl Tinson0;Mabscott;30;10.48;04-27-2018;05-24-2018
+George Freedone;510 Winterfish Way;(961) 260 4933;96.94
+589 Winterfish Way;George Freedone0;Shady;10;74.16;04-23-2018;05-05-2018
 
-#ENDLAWN
-Jim Freesan;610 Icetown Path;(387) 457 6547;54.85
-108 Icetown Path;Jim Freesan0;Daniels;7;76.21;04-23-2018;05-01-2018
+111 Winterfish Way;George Freedone1;Shady;10;19.60;04-23-2018;05-05-2018
 
 #ENDLAWN
-Alex Burndone;490 Frostboar Boulevard;(584) 500 9489;52.07
-172 Frostboar Boulevard;Alex Burndone0;Mount Hope;10;70.37;04-28-2018;05-04-2018
-
-537 Frostboar Boulevard;Alex Burndone1;Shady;7;79.62;04-22-2018;05-01-2018
-
-504 Frostboar Boulevard;Alex Burndone2;Shady;14;48.11;04-22-2018;05-08-2018
-
+Craig Redrich;305 Bronzestile Drive;(662) 796 3702;46.76
 #ENDLAWN
-Ben Milldone;665 Sunstile Avenue;(354) 763 7551;71.75
-304 Sunstile Avenue;Ben Milldone0;Beckley;7;1.19;04-29-2018;05-01-2018
-
-124 Sunstile Avenue;Ben Milldone1;Oak Hill;7;10.07;04-25-2018;05-01-2018
-
-87 Sunstile Avenue;Ben Milldone2;Beckley;7;5.41;04-29-2018;05-01-2018
+Carl Stanus;393 Birchmist Street;(218) 603 7120;71.57
+651 Birchmist Street;Carl Stanus0;Shady;10;71.04;04-23-2018;05-05-2018
 
 #ENDLAWN
-Dan Batder;81 Metalmarket Path;(386) 183 5640;40.38
-109 Metalmarket Path;Dan Batder0;Mabscott;10;10.58;04-27-2018;05-04-2018
+Ruth Sonlas;189 Coldmist Boulevard;(248) 706 8943;78.51
+563 Coldmist Boulevard;Ruth Sonlas0;Daniels;30;1.48;04-24-2018;05-25-2018
 
-682 Metalmarket Path;Dan Batder1;Mount Hope;10;96.63;04-28-2018;05-04-2018
-
-512 Metalmarket Path;Dan Batder2;Beckley;7;97.99;04-29-2018;05-01-2018
-
 #ENDLAWN
-James Gusisson;494 Shadymist Boulevard;(977) 945 7883;84.66
-208 Shadymist Boulevard;James Gusisson0;Mount Hope;7;20.10;04-28-2018;05-01-2018
+Luke Millgus;693 Shadytree Circle;(922) 362 6011;64.30
+598 Shadytree Circle;Luke Millgus0;Oak Hill;14;3.03;04-26-2018;05-09-2018
 
-#ENDLAWN
-John Burgrich;534 Laurelstone Path;(587) 152 7266;35.95
-598 Laurelstone Path;John Burgrich0;Mount Hope;14;67.16;04-28-2018;05-08-2018
+416 Shadytree Circle;Luke Millgus1;Mabscott;14;46.06;04-28-2018;05-09-2018
 
 #ENDLAWN
-Alex Lasdin;580 Birchboar Way;(651) 479 4654;91.17
-452 Birchboar Way;Alex Lasdin0;Oak Hill;7;25.45;04-25-2018;05-01-2018
-
-679 Birchboar Way;Alex Lasdin1;Glade;7;79.49;04-26-2018;05-01-2018
+George Donstan;29 Eastwinter Circle;(556) 946 3280;93.19
+55 Eastwinter Circle;George Donstan0;Oak Hill;7;80.92;04-26-2018;05-02-2018
 
 #ENDLAWN
-Lucas Freestan;450 Southmist Lane;(530) 620 7572;41.32
-59 Southmist Lane;Lucas Freestan0;Beaver;14;93.38;04-24-2018;05-08-2018
+Sarah Thinisson;447 Goldwinter Circle;(636) 322 1387;57.85
+188 Goldwinter Circle;Sarah Thinisson0;Shady;10;30.21;04-23-2018;05-05-2018
 
 #ENDLAWN
-Ted Richman;91 Westmist Boulevard;(283) 924 6613;8.81
-368 Westmist Boulevard;Ted Richman0;Glade;7;38.64;04-26-2018;05-01-2018
+Luke Manlas;59 Southshield Avenue;(332) 371 3251;88.41
+167 Southshield Avenue;Luke Manlas0;Oak Hill;14;68.28;04-26-2018;05-09-2018
 
-48 Westmist Boulevard;Ted Richman1;Beaver;7;45.01;04-24-2018;05-01-2018
-
 #ENDLAWN
-Don Richdin;188 Frostshield Avenue;(995) 630 8463;15.79
-669 Frostshield Avenue;Don Richdin0;Shady;7;45.61;04-22-2018;05-01-2018
+Fred Thorngus;181 Highstore Drive;(795) 956 1958;95.90
+168 Highstore Drive;Fred Thorngus0;Daniels;7;22.51;04-24-2018;05-02-2018
 
 #ENDLAWN
-Ruth Kiner;361 Weststile Street;(978) 833 2345;28.23
-681 Weststile Street;Ruth Kiner0;Beaver;7;44.80;04-24-2018;05-01-2018
+Rick Burnbat;539 Lonecrest Circle;(925) 168 6794;35.55
+137 Lonecrest Circle;Rick Burnbat0;Oak Hill;7;46.99;04-26-2018;05-02-2018
 
-246 Weststile Street;Ruth Kiner1;Beckley;14;83.07;04-29-2018;05-08-2018
+583 Lonecrest Circle;Rick Burnbat1;Mabscott;7;10.28;04-28-2018;05-02-2018
 
 #ENDLAWN
-Craig Issondon;442 Smokeshield Boulevard;(350) 998 7649;44.09
-654 Smokeshield Boulevard;Craig Issondon0;Beaver;7;35.25;04-24-2018;05-01-2018
+Greg Jinlo;169 Smokefish Boulevard;(585) 451 2841;0.18
+209 Smokefish Boulevard;Greg Jinlo0;Shady;10;68.56;04-23-2018;05-05-2018
 
-263 Smokeshield Boulevard;Craig Issondon1;Beckley;7;75.89;04-29-2018;05-01-2018
+233 Smokefish Boulevard;Greg Jinlo1;Daniels;7;36.84;04-24-2018;05-02-2018
 
 #ENDLAWN
-Dan Lasson;679 Ironcore Avenue;(812) 152 3164;8.87
-274 Ironcore Avenue;Dan Lasson0;Shady;14;64.19;04-22-2018;05-08-2018
+George Laskin;281 Easttree Boulevard;(620) 885 2889;42.21
+208 Easttree Boulevard;George Laskin0;Daniels;7;26.78;04-24-2018;05-02-2018
 
-#ENDLAWN
-Craig Freedel;76 Laurelfish Boulevard;(768) 803 6065;38.73
-627 Laurelfish Boulevard;Craig Freedel0;Mabscott;7;50.20;04-27-2018;05-01-2018
+590 Easttree Boulevard;George Laskin1;Daniels;7;16.93;04-24-2018;05-02-2018
 
 #ENDLAWN
-Mary Gusmill;422 Riverstore Way;(864) 696 7781;61.28
-468 Riverstore Way;Mary Gusmill0;Beaver;14;69.21;04-24-2018;05-08-2018
-
-290 Riverstore Way;Mary Gusmill1;Beckley;7;23.77;04-29-2018;05-01-2018
-
-245 Riverstore Way;Mary Gusmill2;Shady;7;58.48;04-22-2018;05-01-2018
-
+Ruth Freeel;452 Smokecore Lane;(396) 638 3112;15.46
 #ENDLAWN
-Fred Lastrey;283 Wintercore Boulevard;(548) 934 2697;59.01
-20 Wintercore Boulevard;Fred Lastrey0;Glade;7;83.86;04-26-2018;05-01-2018
+Sam Erson;233 Woodfish Boulevard;(513) 526 6636;94.54
+434 Woodfish Boulevard;Sam Erson0;Mabscott;7;22.58;04-28-2018;05-02-2018
 
 #ENDLAWN
-Ruth Delisson;329 Winterfish Boulevard;(929) 780 3126;81.46
-403 Winterfish Boulevard;Ruth Delisson0;Glade;30;50.76;04-26-2018;05-24-2018
-
-612 Winterfish Boulevard;Ruth Delisson1;Beckley;7;30.14;04-29-2018;05-01-2018
+Alice Donthorn;118 Goldstone Drive;(343) 377 4063;82.33
+494 Goldstone Drive;Alice Donthorn0;Beckley;7;17.41;04-30-2018;05-02-2018
 
-290 Winterfish Boulevard;Ruth Delisson2;Shady;7;0.69;04-22-2018;05-01-2018
+487 Goldstone Drive;Alice Donthorn1;Mount Hope;10;37.97;04-29-2018;05-05-2018
 
-#ENDLAWN
-Matt Kinsan;143 Highlane Avenue;(592) 630 1521;73.42
-652 Highlane Avenue;Matt Kinsan0;Mount Hope;7;65.95;04-28-2018;05-01-2018
-
-#ENDLAWN
-Bill Donford;311 Watertown Boulevard;(781) 464 4882;34.79
-691 Watertown Boulevard;Bill Donford0;Shady;7;30.80;04-22-2018;05-01-2018
+473 Goldstone Drive;Alice Donthorn2;Beaver;30;44.35;04-25-2018;05-25-2018
 
 #ENDLAWN
-George Mander;417 Northstile Street;(255) 653 6446;91.16
-128 Northstile Street;George Mander0;Glade;7;5.32;04-26-2018;05-01-2018
+Ted Dergus;31 Laurelshield Boulevard;(223) 630 4945;29.48
+166 Laurelshield Boulevard;Ted Dergus0;Daniels;10;57.42;04-24-2018;05-05-2018
 
 #ENDLAWN
-Mary Elmill;604 Frostshin Boulevard;(404) 884 1809;43.69
-#ENDLAWN
-John Dinfree;537 Milllane Circle;(570) 835 7792;15.23
-376 Milllane Circle;John Dinfree0;Shady;7;64.26;04-22-2018;05-01-2018
-
-246 Milllane Circle;John Dinfree1;Glade;7;43.11;04-26-2018;05-01-2018
+Greg Usisson;77 Laurelcrest Avenue;(545) 290 6680;88.78
+205 Laurelcrest Avenue;Greg Usisson0;Shady;7;91.32;04-23-2018;05-02-2018
 
-653 Milllane Circle;John Dinfree2;Shady;7;62.20;04-22-2018;05-01-2018
-
 #ENDLAWN
-Carl Burgson;689 Bronzestore Boulevard;(685) 959 9889;78.29
-52 Bronzestore Boulevard;Carl Burgson0;Shady;10;48.66;04-22-2018;05-04-2018
+Fred Standone;624 Northlane Drive;(582) 443 7516;53.13
+178 Northlane Drive;Fred Standone0;Mabscott;14;5.16;04-28-2018;05-09-2018
 
-#ENDLAWN
-Ruth Dinisson;251 Smokestore Way;(498) 791 3280;47.03
-33 Smokestore Way;Ruth Dinisson0;Shady;7;59.57;04-22-2018;05-01-2018
+560 Northlane Drive;Fred Standone1;Shady;7;21.56;04-23-2018;05-02-2018
 
 #ENDLAWN
-Alice Selburg;430 Oaklane Boulevard;(432) 579 6365;7.67
-576 Oaklane Boulevard;Alice Selburg0;Oak Hill;14;26.69;04-25-2018;05-08-2018
+Greg Fordrich;295 Goldboar Boulevard;(472) 607 8722;34.00
+642 Goldboar Boulevard;Greg Fordrich0;Daniels;14;89.74;04-24-2018;05-09-2018
 
-638 Oaklane Boulevard;Alice Selburg1;Mabscott;7;97.92;04-27-2018;05-01-2018
-
 #ENDLAWN
-James Gusdon;243 Lonemarket Street;(263) 807 1487;76.37
-685 Lonemarket Street;James Gusdon0;Mabscott;7;29.11;04-27-2018;05-01-2018
+Greg Menford;439 Fountainmist Lane;(459) 950 4800;2.49
+483 Fountainmist Lane;Greg Menford0;Glade;7;4.06;04-27-2018;05-02-2018
 
-#ENDLAWN
-Jeremy Menman;654 Southmarket Way;(417) 601 4924;64.30
-#ENDLAWN
-Alex Freesel;107 Sourstile Drive;(523) 521 8833;29.87
-335 Sourstile Drive;Alex Freesel0;Mabscott;10;54.36;04-27-2018;05-04-2018
+561 Fountainmist Lane;Greg Menford1;Daniels;14;13.55;04-24-2018;05-09-2018
 
 #ENDLAWN
-Sarah Burnder;564 Coldfresh Avenue;(681) 853 2470;31.17
-454 Coldfresh Avenue;Sarah Burnder0;Glade;7;56.02;04-26-2018;05-01-2018
+George Errich;267 Sunshield Avenue;(530) 291 2668;41.65
+673 Sunshield Avenue;George Errich0;Oak Hill;10;18.88;04-26-2018;05-05-2018
 
 #ENDLAWN
-Jeremy Mensel;433 Northtree Lane;(244) 585 2140;56.66
-204 Northtree Lane;Jeremy Mensel0;Mount Hope;7;43.82;04-28-2018;05-01-2018
+Matt Lasisson;322 Wintercrest Street;(207) 852 1782;59.71
+54 Wintercrest Street;Matt Lasisson0;Daniels;10;31.08;04-24-2018;05-05-2018
 
-133 Northtree Lane;Jeremy Mensel1;Glade;14;48.57;04-26-2018;05-08-2018
-
 #ENDLAWN
-Ted Tinus;496 Icetown Street;(709) 290 6621;92.89
-186 Icetown Street;Ted Tinus0;Mabscott;7;48.29;04-27-2018;05-01-2018
-
-660 Icetown Street;Ted Tinus1;Mount Hope;7;48.37;04-28-2018;05-01-2018
+Joe Richlo;644 Fountainstile Street;(389) 898 7077;34.07
+442 Fountainstile Street;Joe Richlo0;Mabscott;14;10.17;04-28-2018;05-09-2018
 
 #ENDLAWN
-Fred Sanmen;613 Eastshin Avenue;(332) 446 6493;85.63
-608 Eastshin Avenue;Fred Sanmen0;Daniels;14;63.80;04-23-2018;05-08-2018
+Fred Sangus;95 Bronzetown Street;(685) 659 8738;10.94
+535 Bronzetown Street;Fred Sangus0;Mount Hope;30;27.28;04-29-2018;05-25-2018
 
-513 Eastshin Avenue;Fred Sanmen1;Oak Hill;14;60.33;04-25-2018;05-08-2018
-
 #ENDLAWN
-John Eljin;531 Waterlane Lane;(219) 990 8109;89.73
-188 Waterlane Lane;John Eljin0;Beaver;7;65.74;04-24-2018;05-01-2018
+Douglas Mandel;361 Westboar Boulevard;(972) 361 7165;51.52
+20 Westboar Boulevard;Douglas Mandel0;Daniels;7;11.15;04-24-2018;05-02-2018
 
 #ENDLAWN
-Jim Selgus;574 Southshield Street;(499) 997 5092;40.97
-423 Southshield Street;Jim Selgus0;Mabscott;14;29.94;04-27-2018;05-08-2018
+James Sanbat;483 Fountainmist Circle;(451) 645 4732;7.38
+464 Fountainmist Circle;James Sanbat0;Beckley;7;86.60;04-30-2018;05-02-2018
 
-493 Southshield Street;Jim Selgus1;Beckley;10;60.33;04-29-2018;05-04-2018
+244 Fountainmist Circle;James Sanbat1;Beaver;10;44.94;04-25-2018;05-05-2018
 
-217 Southshield Street;Jim Selgus2;Glade;14;3.81;04-26-2018;05-08-2018
+380 Fountainmist Circle;James Sanbat2;Mount Hope;7;24.20;04-29-2018;05-02-2018
 
 #ENDLAWN
-Alice Issonjin;575 Smokecore Boulevard;(960) 142 9760;65.83
-347 Smokecore Boulevard;Alice Issonjin0;Daniels;10;99.76;04-23-2018;05-04-2018
+John Lastin;610 Shadystile Lane;(847) 447 6020;68.95
+43 Shadystile Lane;John Lastin0;Glade;14;92.38;04-27-2018;05-09-2018
 
 #ENDLAWN
-Carl Burndel;415 Highshin Lane;(611) 604 7508;41.49
-142 Highshin Lane;Carl Burndel0;Beckley;30;50.97;04-29-2018;05-24-2018
-
+Joe Richtrey;485 Wintershield Lane;(278) 102 1658;71.18
 #ENDLAWN
-Richard Donder;506 Smokewinter Circle;(600) 242 8590;13.14
-290 Smokewinter Circle;Richard Donder0;Beaver;7;11.57;04-24-2018;05-01-2018
+Mary Menkin;294 Northwinter Way;(786) 467 6532;94.60
+499 Northwinter Way;Mary Menkin0;Mabscott;7;62.06;04-28-2018;05-02-2018
 
-430 Smokewinter Circle;Richard Donder1;Mount Hope;7;59.34;04-28-2018;05-01-2018
+335 Northwinter Way;Mary Menkin1;Mabscott;14;61.98;04-28-2018;05-09-2018
 
-148 Smokewinter Circle;Richard Donder2;Mount Hope;7;56.81;04-28-2018;05-01-2018
-
-#ENDLAWN
-Greg Freedone;640 Loneshin Circle;(575) 619 4074;96.97
-485 Loneshin Circle;Greg Freedone0;Beckley;7;17.06;04-29-2018;05-01-2018
+669 Northwinter Way;Mary Menkin2;Beckley;7;64.77;04-30-2018;05-02-2018
 
 #ENDLAWN
-Sarah Milltin;374 Eastfresh Street;(824) 163 1029;52.49
-83 Eastfresh Street;Sarah Milltin0;Daniels;7;73.92;04-23-2018;05-01-2018
+Alex Tindel;684 Woodshield Boulevard;(997) 393 4411;97.32
+631 Woodshield Boulevard;Alex Tindel0;Beaver;10;0.55;04-25-2018;05-05-2018
 
 #ENDLAWN
-Dan Lasrich;190 Northfresh Lane;(766) 391 5670;79.86
-358 Northfresh Lane;Dan Lasrich0;Mabscott;10;37.46;04-27-2018;05-04-2018
+Greg Erisson;158 Riverlane Path;(501) 895 1208;9.71
+149 Riverlane Path;Greg Erisson0;Mabscott;7;7.41;04-28-2018;05-02-2018
 
-300 Northfresh Lane;Dan Lasrich1;Mount Hope;7;56.58;04-28-2018;05-01-2018
-
 #ENDLAWN
-Ted Lasel;601 Watermist Drive;(242) 316 7499;1.82
-254 Watermist Drive;Ted Lasel0;Beckley;7;13.55;04-29-2018;05-01-2018
-
-278 Watermist Drive;Ted Lasel1;Shady;14;85.19;04-22-2018;05-08-2018
+Ben Donfree;243 Loneboar Lane;(660) 346 3236;88.19
+638 Loneboar Lane;Ben Donfree0;Beaver;10;46.60;04-25-2018;05-05-2018
 
-333 Watermist Drive;Ted Lasel2;Mabscott;7;13.12;04-27-2018;05-01-2018
+307 Loneboar Lane;Ben Donfree1;Shady;14;75.92;04-23-2018;05-09-2018
 
 #ENDLAWN
-Jared Burgbat;208 Sourmarket Way;(891) 946 8335;44.81
-310 Sourmarket Way;Jared Burgbat0;Daniels;14;52.40;04-23-2018;05-08-2018
+Don Sanrich;80 Suntown Avenue;(849) 867 8934;20.07
+150 Suntown Avenue;Don Sanrich0;Daniels;14;80.11;04-24-2018;05-09-2018
 
-159 Sourmarket Way;Jared Burgbat1;Mabscott;14;20.57;04-27-2018;05-08-2018
-
 #ENDLAWN
-Jeremy Millson;629 Eastwinter Avenue;(830) 408 3815;86.97
-641 Eastwinter Avenue;Jeremy Millson0;Mabscott;7;70.69;04-27-2018;05-01-2018
+Jared Mendel;461 Smokestone Path;(778) 345 9357;83.91
+488 Smokestone Path;Jared Mendel0;Beckley;7;0.16;04-30-2018;05-02-2018
 
 #ENDLAWN
-Douglas Burgson;272 Woodfish Path;(233) 356 6343;76.72
-510 Woodfish Path;Douglas Burgson0;Daniels;10;56.24;01-01-2000;01-01-2000
+Ben Issonisson;696 Wintercore Circle;(546) 684 9418;0.51
+651 Wintercore Circle;Ben Issonisson0;Daniels;14;19.71;04-24-2018;05-09-2018
 
-240 Woodfish Path;Douglas Burgson1;Mount Hope;30;36.93;04-28-2018;05-24-2018
+576 Wintercore Circle;Ben Issonisson1;Beckley;14;24.32;04-30-2018;05-09-2018
 
 #ENDLAWN
-Lucas Derus;369 Lonestore Lane;(439) 325 5374;92.51
-676 Lonestore Lane;Lucas Derus0;Beaver;7;84.27;04-24-2018;05-01-2018
+George Usthorn;473 Millboar Avenue;(815) 914 4852;95.83
+413 Millboar Avenue;George Usthorn0;Beckley;7;89.72;04-30-2018;05-02-2018
 
-472 Lonestore Lane;Lucas Derus1;Beaver;14;74.80;04-24-2018;05-08-2018
+259 Millboar Avenue;George Usthorn1;Shady;7;84.47;04-23-2018;05-02-2018
 
 #ENDLAWN
-Fred Lasthin;411 Westfresh Path;(894) 749 8338;6.82
-212 Westfresh Path;Fred Lasthin0;Beckley;7;64.06;04-29-2018;05-01-2018
+Luke Freetrey;624 Bronzewinter Boulevard;(339) 432 8811;7.82
+686 Bronzewinter Boulevard;Luke Freetrey0;Beckley;7;93.03;04-30-2018;05-02-2018
 
 #ENDLAWN
-Rick Jinred;215 Shadyfish Street;(295) 963 3442;12.92
-50 Shadyfish Street;Rick Jinred0;Daniels;7;98.61;04-23-2018;05-01-2018
+Rick Burger;239 Westcore Circle;(659) 427 5782;55.79
+167 Westcore Circle;Rick Burger0;Shady;7;76.99;04-23-2018;05-02-2018
 
-275 Shadyfish Street;Rick Jinred1;Beaver;7;45.86;04-24-2018;05-01-2018
-
 #ENDLAWN
-Sam Loford;367 Shadytown Circle;(379) 596 6983;91.72
-250 Shadytown Circle;Sam Loford0;Mount Hope;10;10.14;04-28-2018;05-04-2018
-
-581 Shadytown Circle;Sam Loford1;Daniels;7;68.73;04-23-2018;05-01-2018
+Alice Fordus;155 Bronzemarket Street;(296) 642 2141;33.79
+77 Bronzemarket Street;Alice Fordus0;Glade;7;58.48;04-27-2018;05-02-2018
 
-256 Shadytown Circle;Sam Loford2;Mabscott;7;4.13;04-27-2018;05-01-2018
+444 Bronzemarket Street;Alice Fordus1;Beaver;10;12.37;04-25-2018;05-05-2018
 
 #ENDLAWN
-Dan Elsan;525 Winterstore Path;(735) 996 1164;75.38
-24 Winterstore Path;Dan Elsan0;Beaver;14;76.21;04-24-2018;05-08-2018
+Ben Redburg;497 Smokestore Street;(638) 476 5685;98.14
+22 Smokestore Street;Ben Redburg0;Glade;7;29.71;04-27-2018;05-02-2018
 
 #ENDLAWN
-James Delmen;588 Woodstone Boulevard;(376) 166 9780;86.39
-296 Woodstone Boulevard;James Delmen0;Beaver;7;18.14;04-24-2018;05-01-2018
+Ted Richisson;373 Goldlane Way;(512) 911 1418;21.41
+182 Goldlane Way;Ted Richisson0;Mabscott;7;26.75;04-28-2018;05-02-2018
 
-336 Woodstone Boulevard;James Delmen1;Oak Hill;14;43.41;04-25-2018;05-08-2018
+316 Goldlane Way;Ted Richisson1;Mabscott;7;41.19;04-28-2018;05-02-2018
 
 #ENDLAWN
-Alice Erman;182 Sourlane Avenue;(957) 610 9163;96.43
-657 Sourlane Avenue;Alice Erman0;Beaver;7;51.97;04-24-2018;05-01-2018
+Rick Delman;322 Coldmist Street;(310) 662 8398;62.28
+330 Coldmist Street;Rick Delman0;Daniels;7;84.29;04-24-2018;05-02-2018
 
-#ENDLAWN
-Sam Tinrich;542 Winterstone Boulevard;(550) 617 9537;98.15
-463 Winterstone Boulevard;Sam Tinrich0;Oak Hill;14;87.82;04-25-2018;05-08-2018
-
-#ENDLAWN
-Matt Jindon;330 Westboar Boulevard;(284) 431 3394;17.57
-115 Westboar Boulevard;Matt Jindon0;Shady;10;30.59;04-22-2018;05-04-2018
-
-165 Westboar Boulevard;Matt Jindon1;Glade;10;60.63;04-26-2018;05-04-2018
+92 Coldmist Street;Rick Delman1;Beckley;7;91.08;04-30-2018;05-02-2018
 
-698 Westboar Boulevard;Matt Jindon2;Daniels;7;53.81;04-23-2018;05-01-2018
+319 Coldmist Street;Rick Delman2;Beaver;7;92.11;04-25-2018;05-02-2018
 
 #ENDLAWN
-Richard Jinmill;65 Goldlane Drive;(960) 110 7721;31.81
-309 Goldlane Drive;Richard Jinmill0;Mabscott;10;48.25;04-27-2018;05-04-2018
-
-292 Goldlane Drive;Richard Jinmill1;Beaver;14;71.70;04-24-2018;05-08-2018
-
-#ENDLAWN
-Ruth Burnson;487 Eastmarket Avenue;(702) 815 9120;9.94
-58 Eastmarket Avenue;Ruth Burnson0;Mabscott;7;96.18;04-27-2018;05-01-2018
-
-659 Eastmarket Avenue;Ruth Burnson1;Beckley;14;84.33;04-29-2018;05-08-2018
+Ted Gusmen;440 Oakwinter Path;(794) 523 6144;8.01
+269 Oakwinter Path;Ted Gusmen0;Oak Hill;7;38.24;04-26-2018;05-02-2018
 
-410 Eastmarket Avenue;Ruth Burnson2;Glade;30;96.26;04-26-2018;05-24-2018
+396 Oakwinter Path;Ted Gusmen1;Oak Hill;7;57.23;04-26-2018;05-02-2018
 
 #ENDLAWN
-Luke Richbat;56 Woodlane Drive;(644) 229 4272;97.83
-306 Woodlane Drive;Luke Richbat0;Mabscott;7;13.85;04-27-2018;05-01-2018
+Sam Santhorn;470 Suntown Path;(202) 841 3871;87.41
+331 Suntown Path;Sam Santhorn0;Mount Hope;7;72.91;04-29-2018;05-02-2018
 
-302 Woodlane Drive;Luke Richbat1;Daniels;7;30.35;04-23-2018;05-01-2018
+147 Suntown Path;Sam Santhorn1;Daniels;10;88.06;04-24-2018;05-05-2018
 
-25 Woodlane Drive;Luke Richbat2;Shady;10;2.20;04-22-2018;05-04-2018
+511 Suntown Path;Sam Santhorn2;Beckley;7;30.68;04-30-2018;05-02-2018
 
 #ENDLAWN
-James Sonthin;72 Sunshin Boulevard;(321) 885 4549;26.28
-681 Sunshin Boulevard;James Sonthin0;Beaver;10;99.12;04-24-2018;05-04-2018
+Douglas Delsel;54 Goldshield Street;(652) 422 1135;40.88
+64 Goldshield Street;Douglas Delsel0;Shady;7;36.49;04-23-2018;05-02-2018
 
-#ENDLAWN
-Greg Redrich;356 Frostlane Drive;(402) 403 9239;35.29
-202 Frostlane Drive;Greg Redrich0;Beaver;7;1.50;04-24-2018;05-01-2018
-
-170 Frostlane Drive;Greg Redrich1;Mount Hope;10;95.42;04-28-2018;05-04-2018
+465 Goldshield Street;Douglas Delsel1;Oak Hill;14;67.78;04-26-2018;05-09-2018
 
-100 Frostlane Drive;Greg Redrich2;Shady;10;61.06;04-22-2018;05-04-2018
+43 Goldshield Street;Douglas Delsel2;Oak Hill;7;58.17;04-26-2018;05-02-2018
 
 #ENDLAWN
-Ted Thinel;84 Metalcrest Avenue;(261) 663 8738;13.63
-401 Metalcrest Avenue;Ted Thinel0;Beckley;7;20.46;04-29-2018;05-01-2018
-
+Ted Manmen;207 Bronzemarket Path;(920) 506 3001;42.78
 #ENDLAWN
-John Delburn;261 Shadywinter Avenue;(557) 546 2677;95.52
-314 Shadywinter Avenue;John Delburn0;Beckley;14;68.21;04-29-2018;05-08-2018
-
+Greg Dinmill;129 Coldfish Boulevard;(590) 809 4710;84.16
 #ENDLAWN
-George Treysel;233 Woodfish Way;(641) 176 3273;69.25
-146 Woodfish Way;George Treysel0;Glade;7;91.86;04-26-2018;05-01-2018
+Ted Gusgus;186 Icefish Path;(973) 418 8977;97.47
+97 Icefish Path;Ted Gusgus0;Glade;14;60.07;04-27-2018;05-09-2018
 
-494 Woodfish Way;George Treysel1;Shady;30;55.79;04-22-2018;05-24-2018
+283 Icefish Path;Ted Gusgus1;Glade;7;12.16;04-27-2018;05-02-2018
 
 #ENDLAWN
-Greg Sonlo;487 Suncore Path;(243) 837 3106;57.07
-284 Suncore Path;Greg Sonlo0;Shady;7;10.41;04-22-2018;05-01-2018
+Jim Sansel;332 Riverlane Way;(471) 719 1126;82.10
+615 Riverlane Way;Jim Sansel0;Mount Hope;10;68.67;04-29-2018;05-05-2018
 
 #ENDLAWN
-Jim Tintrey;289 Ironwinter Drive;(236) 841 9109;54.59
-615 Ironwinter Drive;Jim Tintrey0;Glade;14;18.71;04-26-2018;05-08-2018
+Ted Usel;588 Sourcrest Way;(742) 336 5975;63.28
+521 Sourcrest Way;Ted Usel0;Beaver;7;52.55;04-25-2018;05-02-2018
 
-133 Ironwinter Drive;Jim Tintrey1;Shady;7;96.42;04-22-2018;05-01-2018
+354 Sourcrest Way;Ted Usel1;Oak Hill;14;32.32;04-26-2018;05-09-2018
 
 #ENDLAWN
-Matt Selburn;248 Southshin Drive;(837) 248 1713;40.20
-122 Southshin Drive;Matt Selburn0;Shady;7;9.82;04-22-2018;05-01-2018
+Bill Reddon;563 Waterboar Avenue;(529) 127 8589;13.17
+454 Waterboar Avenue;Bill Reddon0;Mount Hope;7;56.13;04-29-2018;05-02-2018
 
-509 Southshin Drive;Matt Selburn1;Mabscott;7;82.42;04-27-2018;05-01-2018
+577 Waterboar Avenue;Bill Reddon1;Beaver;14;1.70;04-25-2018;05-09-2018
 
 #ENDLAWN
-Sam Manus;133 Winterstore Lane;(365) 293 3295;75.14
-284 Winterstore Lane;Sam Manus0;Beaver;7;26.22;04-24-2018;05-01-2018
+Sarah Lothorn;323 Metalfish Boulevard;(946) 873 6750;96.72
+682 Metalfish Boulevard;Sarah Lothorn0;Oak Hill;7;84.47;04-26-2018;05-02-2018
 
-#ENDLAWN
-Fred Millred;402 Southfresh Boulevard;(993) 404 9261;41.51
-385 Southfresh Boulevard;Fred Millred0;Glade;30;61.94;01-01-2000;01-01-2000
-
-345 Southfresh Boulevard;Fred Millred1;Mabscott;7;85.30;04-27-2018;05-01-2018
-
-402 Southfresh Boulevard;Fred Millred2;Shady;10;27.54;04-22-2018;05-04-2018
-
-#ENDLAWN
-Sam Donkin;531 Birchshield Drive;(539) 530 3096;99.91
 #ENDLAWN
-Ruth Jinthorn;531 Suncore Lane;(666) 439 6630;78.00
-483 Suncore Lane;Ruth Jinthorn0;Mount Hope;7;57.54;04-28-2018;05-01-2018
-
+Luke Jinburg;405 Sunstile Circle;(388) 836 9315;77.37
 #ENDLAWN
-Richard Sonred;573 Coldfresh Way;(774) 228 1514;93.22
-349 Coldfresh Way;Richard Sonred0;Beaver;14;40.59;04-24-2018;05-08-2018
+Joe Kinisson;633 Waterlane Circle;(968) 913 5543;72.39
+636 Waterlane Circle;Joe Kinisson0;Glade;7;79.39;04-27-2018;05-02-2018
 
 #ENDLAWN
-Richard Santrey;224 Sourcrest Avenue;(451) 855 6702;66.84
-488 Sourcrest Avenue;Richard Santrey0;Mabscott;7;99.92;04-27-2018;05-01-2018
-
-369 Sourcrest Avenue;Richard Santrey1;Shady;7;21.34;04-22-2018;05-01-2018
+Sarah Redder;558 Icecore Path;(207) 487 7962;72.44
+419 Icecore Path;Sarah Redder0;Mount Hope;7;52.53;04-29-2018;05-02-2018
 
-473 Sourcrest Avenue;Richard Santrey2;Beckley;14;86.76;04-29-2018;05-08-2018
-
-#ENDLAWN
-Lucas Donson;698 Birchfish Avenue;(777) 485 6136;33.07
-604 Birchfish Avenue;Lucas Donson0;Shady;7;11.95;04-22-2018;05-01-2018
+202 Icecore Path;Sarah Redder1;Daniels;7;7.18;04-24-2018;05-02-2018
 
-#ENDLAWN
-Jared Fordford;642 Sourtree Path;(657) 927 7068;56.81
-160 Sourtree Path;Jared Fordford0;Oak Hill;14;27.45;04-25-2018;05-08-2018
+258 Icecore Path;Sarah Redder2;Glade;7;96.67;04-27-2018;05-02-2018
 
 #ENDLAWN
-Greg Burgthorn;697 Winterstone Way;(578) 640 2821;28.16
-104 Winterstone Way;Greg Burgthorn0;Oak Hill;30;49.11;04-25-2018;05-24-2018
+Don Lorich;83 Irontree Lane;(251) 280 3914;26.09
+590 Irontree Lane;Don Lorich0;Daniels;10;98.84;04-24-2018;05-05-2018
 
 #ENDLAWN
-Alice Thinmill;298 Birchwinter Way;(802) 611 5122;31.32
-395 Birchwinter Way;Alice Thinmill0;Mabscott;7;75.08;04-27-2018;05-01-2018
+Douglas Elel;31 Icestile Circle;(816) 514 3595;65.87
+515 Icestile Circle;Douglas Elel0;Daniels;14;60.20;04-24-2018;05-09-2018
 
-516 Birchwinter Way;Alice Thinmill1;Beckley;7;76.42;04-29-2018;05-01-2018
+29 Icestile Circle;Douglas Elel1;Mount Hope;7;31.03;04-29-2018;05-02-2018
 
-684 Birchwinter Way;Alice Thinmill2;Mabscott;10;24.27;04-27-2018;05-04-2018
+555 Icestile Circle;Douglas Elel2;Mount Hope;30;48.43;04-29-2018;05-25-2018
 
-#ENDLAWN
-Sam Sanburg;538 Silverwinter Street;(684) 538 9935;13.79
 #ENDLAWN
-Greg Lasdon;171 Froststore Way;(305) 445 7875;72.09
-458 Froststore Way;Greg Lasdon0;Mabscott;7;95.05;04-27-2018;05-01-2018
+Sarah Donder;650 Laurelboar Circle;(613) 603 9332;91.77
+421 Laurelboar Circle;Sarah Donder0;Mount Hope;7;53.19;04-29-2018;05-02-2018
 
-#ENDLAWN
-Carl Delburg;428 Birchmist Lane;(332) 148 8871;54.69
-183 Birchmist Lane;Carl Delburg0;Daniels;14;82.21;01-01-2000;01-01-2000
+237 Laurelboar Circle;Sarah Donder1;Beaver;30;92.89;04-25-2018;05-25-2018
 
 #ENDLAWN
-Dan Derdin;78 Westmarket Way;(487) 146 7513;90.06
-523 Westmarket Way;Dan Derdin0;Mabscott;7;81.79;04-27-2018;05-01-2018
-
-409 Westmarket Way;Dan Derdin1;Mabscott;7;34.48;04-27-2018;05-01-2018
-
-302 Westmarket Way;Dan Derdin2;Glade;10;27.50;04-26-2018;05-04-2018
+Jeremy Treyson;362 Wintercore Boulevard;(431) 479 6983;99.35
+63 Wintercore Boulevard;Jeremy Treyson0;Beckley;10;48.08;04-30-2018;05-05-2018
 
-#ENDLAWN
-Douglas Standin;510 Oakcore Way;(883) 507 1303;56.88
-533 Oakcore Way;Douglas Standin0;Glade;10;58.96;04-26-2018;05-04-2018
+358 Wintercore Boulevard;Jeremy Treyson1;Daniels;14;32.56;04-24-2018;05-09-2018
 
 #ENDLAWN
-Joe Thinthorn;166 Eastmist Path;(846) 186 8106;15.61
-76 Eastmist Path;Joe Thinthorn0;Mabscott;7;30.05;04-27-2018;05-01-2018
+Richard Richsel;358 Riverstone Drive;(405) 546 1777;77.28
+358 Riverstone Drive;Richard Richsel0;Shady;7;52.48;04-23-2018;05-02-2018
 
-#ENDLAWN
-Bill Doneson;61 Millstone Path;(228) 849 9773;21.10
-444 Millstone Path;Bill Doneson0;Beckley;10;58.93;04-29-2018;05-04-2018
+462 Riverstone Drive;Richard Richsel1;Beckley;7;87.16;04-30-2018;05-02-2018
 
-#ENDLAWN
-Douglas Sansel;243 Riverwinter Drive;(733) 398 1750;68.06
-182 Riverwinter Drive;Douglas Sansel0;Glade;7;36.11;04-26-2018;05-01-2018
+116 Riverstone Drive;Richard Richsel2;Mabscott;14;18.09;04-28-2018;05-09-2018
 
 #ENDLAWN
-Dan Burgel;400 Coldboar Circle;(443) 960 6681;0.25
-389 Coldboar Circle;Dan Burgel0;Daniels;7;25.27;04-23-2018;05-01-2018
-
-462 Coldboar Circle;Dan Burgel1;Glade;7;77.05;04-26-2018;05-01-2018
+Dan Usthorn;431 Smoketown Boulevard;(965) 858 7526;71.86
+159 Smoketown Boulevard;Dan Usthorn0;Mabscott;7;70.00;04-28-2018;05-02-2018
 
-#ENDLAWN
-Greg Mandon;413 Coldstone Drive;(685) 804 3832;90.59
-504 Coldstone Drive;Greg Mandon0;Mount Hope;7;18.15;04-28-2018;05-01-2018
+242 Smoketown Boulevard;Dan Usthorn1;Daniels;14;73.81;04-24-2018;05-09-2018
 
-#ENDLAWN
-Ted Issonisson;491 Sourcrest Street;(605) 167 4319;38.68
-138 Sourcrest Street;Ted Issonisson0;Glade;7;61.53;04-26-2018;05-01-2018
+561 Smoketown Boulevard;Dan Usthorn2;Mabscott;7;86.51;04-28-2018;05-02-2018
 
 #ENDLAWN
-Carl Jinsel;26 Froststore Lane;(460) 354 1638;45.74
-434 Froststore Lane;Carl Jinsel0;Daniels;14;60.32;04-23-2018;05-08-2018
+Jared Loman;462 Frostfresh Circle;(419) 268 4525;50.90
+298 Frostfresh Circle;Jared Loman0;Oak Hill;14;5.06;04-26-2018;05-09-2018
 
-430 Froststore Lane;Carl Jinsel1;Mabscott;7;86.66;04-27-2018;05-01-2018
-
-77 Froststore Lane;Carl Jinsel2;Beckley;7;70.19;04-29-2018;05-01-2018
-
 #ENDLAWN
-Alice Donedon;666 Metalshield Circle;(844) 501 9408;70.68
-194 Metalshield Circle;Alice Donedon0;Mount Hope;7;29.58;04-28-2018;05-01-2018
-
-63 Metalshield Circle;Alice Donedon1;Mabscott;7;55.39;04-27-2018;05-01-2018
+Bill Derlo;223 Birchcrest Path;(374) 558 7511;36.42
+186 Birchcrest Path;Bill Derlo0;Mount Hope;7;86.17;04-29-2018;05-02-2018
 
-431 Metalshield Circle;Alice Donedon2;Shady;14;61.87;04-22-2018;05-08-2018
-
 #ENDLAWN
-Greg Lasdel;162 Icefresh Circle;(549) 713 3496;9.70
-428 Icefresh Circle;Greg Lasdel0;Mount Hope;14;31.01;04-28-2018;05-08-2018
-
-539 Icefresh Circle;Greg Lasdel1;Mabscott;7;33.64;04-27-2018;05-01-2018
+Alice Jinel;374 Laurelstone Avenue;(583) 723 2809;56.68
+667 Laurelstone Avenue;Alice Jinel0;Beckley;30;25.85;04-30-2018;05-25-2018
 
 #ENDLAWN
-Craig Batmen;85 Westmarket Circle;(322) 666 8085;27.01
-698 Westmarket Circle;Craig Batmen0;Shady;10;46.00;04-22-2018;05-04-2018
+Luke Milljin;85 Highshield Boulevard;(471) 197 8376;90.80
+200 Highshield Boulevard;Luke Milljin0;Daniels;7;47.76;04-24-2018;05-02-2018
 
-#ENDLAWN
-Douglas Freefree;149 Metaltown Way;(907) 656 6434;3.11
-#ENDLAWN
-Fred Kingus;264 Southmarket Street;(310) 729 4632;79.57
-455 Southmarket Street;Fred Kingus0;Glade;7;19.75;04-26-2018;05-01-2018
+297 Highshield Boulevard;Luke Milljin1;Beaver;14;13.77;04-25-2018;05-09-2018
 
-415 Southmarket Street;Fred Kingus1;Beckley;14;56.84;04-29-2018;05-08-2018
+396 Highshield Boulevard;Luke Milljin2;Mabscott;7;28.65;04-28-2018;05-02-2018
 
 #ENDLAWN
-Ted Erred;229 Icetree Way;(770) 786 4179;80.67
-276 Icetree Way;Ted Erred0;Mabscott;30;72.24;04-27-2018;05-24-2018
+George Batfree;463 Woodshield Boulevard;(994) 521 5011;30.46
+327 Woodshield Boulevard;George Batfree0;Beckley;7;27.43;04-30-2018;05-02-2018
 
-657 Icetree Way;Ted Erred1;Beaver;7;36.80;04-24-2018;05-01-2018
-
 #ENDLAWN
-Douglas Kinred;663 Watercore Street;(879) 273 5654;31.70
-282 Watercore Street;Douglas Kinred0;Shady;14;78.12;04-22-2018;05-08-2018
-
-425 Watercore Street;Douglas Kinred1;Glade;7;93.40;04-26-2018;05-01-2018
+Don Thinisson;64 Laurelfresh Avenue;(674) 142 9991;85.26
+364 Laurelfresh Avenue;Don Thinisson0;Daniels;7;28.64;04-24-2018;05-02-2018
 
-459 Watercore Street;Douglas Kinred2;Oak Hill;7;6.11;04-25-2018;05-01-2018
-
 #ENDLAWN
-James Delbat;509 Lonetree Lane;(209) 987 8923;97.00
-238 Lonetree Lane;James Delbat0;Daniels;7;56.43;04-23-2018;05-01-2018
+Don Selburg;313 Northstone Way;(456) 297 2198;85.45
+611 Northstone Way;Don Selburg0;Mabscott;7;49.09;04-28-2018;05-02-2018
 
-174 Lonetree Lane;James Delbat1;Glade;7;67.04;04-26-2018;05-01-2018
+389 Northstone Way;Don Selburg1;Daniels;7;91.65;04-24-2018;05-02-2018
 
-693 Lonetree Lane;James Delbat2;Mount Hope;14;89.81;04-28-2018;05-08-2018
-
 #ENDLAWN
-Bill Lokin;247 Sourmist Circle;(335) 584 2959;54.40
-365 Sourmist Circle;Bill Lokin0;Mabscott;30;87.58;04-27-2018;05-24-2018
+Jared Issonjin;514 Riverfresh Circle;(849) 986 5455;60.92
+133 Riverfresh Circle;Jared Issonjin0;Daniels;7;89.49;04-24-2018;05-02-2018
 
-#ENDLAWN
-Ruth Dergus;566 Fountainlane Drive;(252) 624 1139;78.19
 #ENDLAWN
-Jared Donerich;494 Shadymist Drive;(509) 938 8844;75.17
-40 Shadymist Drive;Jared Donerich0;Oak Hill;30;38.56;04-25-2018;05-24-2018
+Bill Tinthin;34 Eastlane Avenue;(672) 200 8666;62.85
+260 Eastlane Avenue;Bill Tinthin0;Mount Hope;7;82.63;04-29-2018;05-02-2018
 
-414 Shadymist Drive;Jared Donerich1;Beaver;7;60.54;04-24-2018;05-01-2018
-
-399 Shadymist Drive;Jared Donerich2;Daniels;7;21.56;04-23-2018;05-01-2018
-
 #ENDLAWN
-Lucas Milltrey;652 Woodmist Way;(268) 405 8343;79.58
-#ENDLAWN
-Ben Sonson;277 Sourboar Street;(624) 722 9614;74.24
-20 Sourboar Street;Ben Sonson0;Oak Hill;14;29.16;04-25-2018;05-08-2018
+James Stanman;614 Silvercore Lane;(663) 578 7089;92.44
+670 Silvercore Lane;James Stanman0;Mount Hope;7;91.41;04-29-2018;05-02-2018
 
 #ENDLAWN
-Jim Ellas;136 Shadystile Drive;(901) 358 8375;44.30
-650 Shadystile Drive;Jim Ellas0;Oak Hill;7;24.59;04-25-2018;05-01-2018
-
-504 Shadystile Drive;Jim Ellas1;Shady;7;88.42;04-22-2018;05-01-2018
+Fred Gusdin;574 Lonefish Way;(705) 371 2709;29.24
+533 Lonefish Way;Fred Gusdin0;Mabscott;7;18.72;04-28-2018;05-02-2018
 
-509 Shadystile Drive;Jim Ellas2;Beckley;30;84.65;04-29-2018;05-24-2018
-
 #ENDLAWN
-Sam Jinjin;659 Fountainboar Lane;(362) 339 1125;67.85
-686 Fountainboar Lane;Sam Jinjin0;Beaver;30;69.11;04-24-2018;05-24-2018
-
-72 Fountainboar Lane;Sam Jinjin1;Oak Hill;14;58.42;04-25-2018;05-08-2018
+George Gussan;202 Millshin Lane;(319) 914 9281;18.01
+575 Millshin Lane;George Gussan0;Mount Hope;7;13.55;04-29-2018;05-02-2018
 
 #ENDLAWN
-Mary Selgus;505 Lonecrest Boulevard;(268) 339 3238;12.78
-462 Lonecrest Boulevard;Mary Selgus0;Beaver;10;19.75;04-24-2018;05-04-2018
+Alice Issonmen;232 Highfresh Lane;(532) 914 9377;5.02
+354 Highfresh Lane;Alice Issonmen0;Beckley;14;63.32;04-30-2018;05-09-2018
 
 #ENDLAWN
-Luke Standon;522 Waterstile Avenue;(995) 293 1586;92.57
+Jim Tinlas;371 Shadytree Street;(312) 730 9073;17.65
 #ENDLAWN
-Sam Sanred;540 Sourfish Lane;(213) 519 5863;16.21
-32 Sourfish Lane;Sam Sanred0;Beaver;10;84.37;04-24-2018;05-04-2018
+Ted Issongus;674 Smokelane Path;(572) 116 5061;15.19
+403 Smokelane Path;Ted Issongus0;Daniels;7;17.95;04-24-2018;05-02-2018
 
-472 Sourfish Lane;Sam Sanred1;Beaver;7;32.81;04-24-2018;05-01-2018
+493 Smokelane Path;Ted Issongus1;Daniels;7;82.10;04-24-2018;05-02-2018
 
-662 Sourfish Lane;Sam Sanred2;Glade;7;9.75;04-26-2018;05-01-2018
-
 #ENDLAWN
-Ruth Treytrey;691 Watertown Street;(985) 564 7496;80.07
-388 Watertown Street;Ruth Treytrey0;Beckley;7;1.20;04-29-2018;05-01-2018
+Craig Donedon;327 Sourtown Drive;(289) 265 5178;77.93
+267 Sourtown Drive;Craig Donedon0;Mount Hope;7;32.70;04-29-2018;05-02-2018
 
 #ENDLAWN
-John Sanburn;461 Frostshield Way;(877) 577 6068;90.95
-662 Frostshield Way;John Sanburn0;Oak Hill;7;72.54;04-25-2018;05-01-2018
+Mary Redel;500 Sunshield Lane;(643) 138 8581;9.32
+222 Sunshield Lane;Mary Redel0;Daniels;10;95.33;04-24-2018;05-05-2018
 
-225 Frostshield Way;John Sanburn1;Daniels;7;49.10;04-23-2018;05-01-2018
-
-#ENDLAWN
-Rick Ellas;139 Ironstore Way;(891) 156 5049;26.52
-536 Ironstore Way;Rick Ellas0;Beckley;10;22.74;04-29-2018;05-04-2018
+51 Sunshield Lane;Mary Redel1;Beckley;7;8.27;04-30-2018;05-02-2018
 
-251 Ironstore Way;Rick Ellas1;Mount Hope;14;78.70;04-28-2018;05-08-2018
+659 Sunshield Lane;Mary Redel2;Beaver;14;66.65;04-25-2018;05-09-2018
 
 #ENDLAWN
-James Gussel;213 Southcore Circle;(977) 889 1988;25.70
-446 Southcore Circle;James Gussel0;Oak Hill;30;64.29;04-25-2018;05-24-2018
+Dan Fordus;121 Fountainstile Lane;(566) 405 7816;89.93
+430 Fountainstile Lane;Dan Fordus0;Mabscott;7;63.40;04-28-2018;05-02-2018
 
-384 Southcore Circle;James Gussel1;Mount Hope;10;87.56;04-28-2018;05-04-2018
+134 Fountainstile Lane;Dan Fordus1;Beckley;7;89.16;04-30-2018;05-02-2018
 
-413 Southcore Circle;James Gussel2;Daniels;7;38.90;04-23-2018;05-01-2018
+644 Fountainstile Lane;Dan Fordus2;Glade;30;77.09;04-27-2018;05-25-2018
 
 #ENDLAWN
-George Kinred;508 Southmarket Way;(728) 328 1767;60.87
-505 Southmarket Way;George Kinred0;Glade;10;16.68;04-26-2018;05-04-2018
+Sarah Tinburn;98 Eastmist Street;(886) 911 3674;72.03
+34 Eastmist Street;Sarah Tinburn0;Mount Hope;14;99.27;04-29-2018;05-09-2018
 
 #ENDLAWN
-Alex Usus;650 Frostshin Lane;(944) 796 9726;16.84
-483 Frostshin Lane;Alex Usus0;Mount Hope;7;66.61;04-28-2018;05-01-2018
+Ted Milltrey;67 Southshield Avenue;(769) 589 6366;78.84
+538 Southshield Avenue;Ted Milltrey0;Shady;7;73.10;04-23-2018;05-02-2018
 
-435 Frostshin Lane;Alex Usus1;Oak Hill;7;15.34;04-25-2018;05-01-2018
+30 Southshield Avenue;Ted Milltrey1;Mabscott;7;75.52;04-28-2018;05-02-2018
 
-503 Frostshin Lane;Alex Usus2;Daniels;14;12.80;04-23-2018;05-08-2018
-
-#ENDLAWN
-Alice Donefree;504 Southstile Circle;(939) 490 4057;22.93
 #ENDLAWN
-Jeremy Erburg;580 Northlane Way;(468) 230 1758;36.91
-28 Northlane Way;Jeremy Erburg0;Glade;10;39.35;04-26-2018;05-04-2018
-
-628 Northlane Way;Jeremy Erburg1;Glade;14;4.75;04-26-2018;05-08-2018
-
-265 Northlane Way;Jeremy Erburg2;Mabscott;14;56.28;04-27-2018;05-08-2018
+Jim Menisson;451 Southfresh Circle;(719) 477 9500;88.11
+165 Southfresh Circle;Jim Menisson0;Mabscott;7;41.22;04-28-2018;05-02-2018
 
 #ENDLAWN
-Jared Fordrich;279 Sourlane Circle;(583) 413 5300;0.49
-691 Sourlane Circle;Jared Fordrich0;Oak Hill;7;30.10;04-25-2018;05-01-2018
+Alex Gusman;272 Wintertree Way;(846) 300 8378;56.41
+679 Wintertree Way;Alex Gusman0;Beaver;7;32.75;04-25-2018;05-02-2018
 
-416 Sourlane Circle;Jared Fordrich1;Oak Hill;7;47.28;04-25-2018;05-01-2018
-
-397 Sourlane Circle;Jared Fordrich2;Oak Hill;7;11.18;04-25-2018;05-01-2018
-
 #ENDLAWN
-Ted Thinder;384 Icestore Avenue;(836) 252 6624;45.98
-34 Icestore Avenue;Ted Thinder0;Oak Hill;7;7.00;04-25-2018;05-01-2018
+Jeremy Dingus;67 Waterfresh Path;(705) 651 7898;52.58
+400 Waterfresh Path;Jeremy Dingus0;Daniels;7;20.18;04-24-2018;05-02-2018
 
 #ENDLAWN
-Greg Delmen;154 Icewinter Avenue;(266) 216 5705;86.89
-256 Icewinter Avenue;Greg Delmen0;Shady;7;99.59;04-22-2018;05-01-2018
-
+James Lomen;478 Goldstore Drive;(218) 826 5627;87.79
 #ENDLAWN
-Craig Erer;290 Birchfish Way;(983) 249 2791;12.70
-592 Birchfish Way;Craig Erer0;Beckley;7;92.16;04-29-2018;05-01-2018
+Jeremy Manthin;26 Sourmist Street;(610) 198 4146;62.15
+232 Sourmist Street;Jeremy Manthin0;Daniels;7;7.27;04-24-2018;05-02-2018
 
-90 Birchfish Way;Craig Erer1;Daniels;7;41.50;04-23-2018;05-01-2018
-
-#ENDLAWN
-Ted Derthorn;279 Laurelfresh Boulevard;(546) 408 6858;59.58
-405 Laurelfresh Boulevard;Ted Derthorn0;Oak Hill;10;53.75;04-25-2018;05-04-2018
+588 Sourmist Street;Jeremy Manthin1;Daniels;30;61.53;04-24-2018;05-25-2018
 
 #ENDLAWN
-Carl Loburg;309 Birchmarket Path;(865) 717 5339;37.27
-168 Birchmarket Path;Carl Loburg0;Beckley;14;67.13;04-29-2018;05-08-2018
+Dan Deldon;134 Highmist Avenue;(337) 944 3518;96.44
+683 Highmist Avenue;Dan Deldon0;Beckley;7;85.83;04-30-2018;05-02-2018
 
-103 Birchmarket Path;Carl Loburg1;Mabscott;10;8.01;04-27-2018;05-04-2018
+259 Highmist Avenue;Dan Deldon1;Oak Hill;7;47.32;04-26-2018;05-02-2018
 
-488 Birchmarket Path;Carl Loburg2;Shady;10;37.99;04-22-2018;05-04-2018
-
 #ENDLAWN
-Douglas Gustin;440 Highshin Circle;(954) 539 4088;54.54
-149 Highshin Circle;Douglas Gustin0;Glade;7;26.59;04-26-2018;05-01-2018
-
-364 Highshin Circle;Douglas Gustin1;Shady;7;44.37;04-22-2018;05-01-2018
-
-464 Highshin Circle;Douglas Gustin2;Daniels;7;36.97;04-23-2018;05-01-2018
-
+Greg Donelas;254 Fountaintree Lane;(952) 835 1413;81.95
 #ENDLAWN
-Bill Guslo;645 Bronzelane Path;(763) 301 1514;5.49
-284 Bronzelane Path;Bill Guslo0;Mount Hope;14;75.07;04-28-2018;05-08-2018
+James Manmen;156 Laurelshield Path;(948) 533 3470;72.81
+565 Laurelshield Path;James Manmen0;Oak Hill;10;43.14;04-26-2018;05-05-2018
 
-66 Bronzelane Path;Bill Guslo1;Daniels;10;79.08;04-23-2018;05-04-2018
-
 #ENDLAWN
-Don Thindone;73 Smokeshin Lane;(995) 529 1638;92.37
-186 Smokeshin Lane;Don Thindone0;Daniels;30;14.44;04-23-2018;05-24-2018
-
-113 Smokeshin Lane;Don Thindone1;Daniels;10;33.27;04-23-2018;05-04-2018
+Matt Derred;91 Goldwinter Drive;(791) 651 6700;22.57
+484 Goldwinter Drive;Matt Derred0;Oak Hill;7;0.31;04-26-2018;05-02-2018
 
 #ENDLAWN
-Matt Usisson;388 Sunfish Circle;(330) 188 6947;82.02
-549 Sunfish Circle;Matt Usisson0;Shady;7;26.83;04-22-2018;05-01-2018
+Bill Thinburn;579 Northmist Drive;(867) 365 6524;26.88
+466 Northmist Drive;Bill Thinburn0;Shady;14;4.05;04-23-2018;05-09-2018
 
-613 Sunfish Circle;Matt Usisson1;Shady;14;42.90;04-22-2018;05-08-2018
-
 #ENDLAWN
-Craig Treyfree;355 Sourstone Way;(734) 838 2540;46.97
-583 Sourstone Way;Craig Treyfree0;Glade;14;10.61;04-26-2018;05-08-2018
+Ted Kinford;294 Sourboar Circle;(655) 621 6385;79.12
+205 Sourboar Circle;Ted Kinford0;Mabscott;14;91.51;04-28-2018;05-09-2018
 
-457 Sourstone Way;Craig Treyfree1;Daniels;30;75.61;04-23-2018;05-24-2018
+37 Sourboar Circle;Ted Kinford1;Mount Hope;14;17.00;04-29-2018;05-09-2018
 
-124 Sourstone Way;Craig Treyfree2;Mabscott;7;37.74;04-27-2018;05-01-2018
+276 Sourboar Circle;Ted Kinford2;Mount Hope;14;76.72;04-29-2018;05-09-2018
 
 #ENDLAWN
-Jared Sangus;63 Lonetree Boulevard;(564) 307 7896;50.43
-252 Lonetree Boulevard;Jared Sangus0;Oak Hill;7;22.72;04-25-2018;05-01-2018
+Douglas Negrete;6375 Syracuse St;9519662082;0.00
+6375 Syracuse street chino ca 91710;Front Yard;Chino;7;15.00;04-25-2018;04-27-2018
 
-#ENDLAWN
-Example Client;123 Example Billing Address Ave;temp;0.00
-#ENDLAWN
-Example Client;123 Example Billing Address Ave;temp;0.00
 #ENDLAWN
 #ENDCLIENT
 ama824111@gmail.com
 ama824111@gmail.com
 #ENDEMAILS
 3
-04-24-2018
+04-25-2018
 F
-Riverside Lawn Care
+Test Company
 #ENDALL

@@ -1,3 +1,5 @@
-Tue April 24 4:22:56 PM :: Added Client: Example Client 123 Example Billing Address Ave $0.00
-Tue April 24 4:30:21 PM :: Added Client: Example Client 123 Example Billing Address Ave $0.00
-Tue April 24 5:16:43 PM :: Added Client: Example Client 123 Example Billing Address Ave $0.00
+Wed April 25 4:22:18 PM :: Added Client: Example Client 123 Example Billing Address Ave $0.00
+Wed April 25 4:22:58 PM :: Removed Client: Example Client 123 Example Billing Address Ave $0.00
+Wed April 25 4:56:22 PM :: Added Client: Douglas Negrete 6375 Syracuse Street $0.00
+Wed April 25 4:57:09 PM :: Added Lawn: Douglas Negrete - Front Yard, 6375 Syracuse street chino ca 91710 for $15.00
+Wed April 25 6:49:17 PM :: Added Lawn: Douglas Negrete - test, test lawn for $12.00

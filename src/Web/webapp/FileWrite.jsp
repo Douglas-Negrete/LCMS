@@ -1,8 +1,10 @@
 <%@ page import = "java.io.*,java.util.*" %>
 
 <html>
+<link rel="stylesheet" href="w3.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body style = "background-color: #AEF2A9;">
-<h1> Lawns Processed! </h1>
 <%
 try
 {
@@ -41,7 +43,7 @@ try
 	Iterator it = ss.iterator();
 	
 	temp = inFile.nextLine();
-    pw.println(temp);
+	pw.println(temp);
 	
 	while (it.hasNext()) 
 	{
@@ -152,7 +154,12 @@ try
 
 }catch(FileNotFoundException e){e.printStackTrace();}
 %>
+
+<div class="w3-padding w3-display-top w3-center">
+<h1> Lawns Processed! </h1>
 <h2> Comment changes won't be reflected on the Web Page </h2>
 <h2> You Can Hit Back in Your Browser to Return </h2>
+</div>
+
 </body>
 </html>
