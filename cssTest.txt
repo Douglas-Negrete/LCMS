@@ -1,9 +1,0 @@
-#FILESTART
-#ENDCLIENT
-test
-#ENDEMAILS
-3
-04-24-2018
-T
-Lawn Care Made Simple
-#ENDALL

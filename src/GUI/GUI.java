@@ -47,15 +47,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -182,12 +177,12 @@ public class GUI extends Application {
 		else {
 
 			try {
-				
+
 				io.readInBackupFile();
 				io.populateLawns();
 				io.writeLawnsHTML();
 				io.checkAutoBackup();
-				
+
 			}
 			catch(Exception e) {
 
@@ -211,19 +206,18 @@ public class GUI extends Application {
 			primaryStage.setTitle("Lawn Care Made Simple ("+io.companyName+")");//title
 		else
 			primaryStage.setTitle("Lawn Care Made Simple");
-		VBox v = new VBox();
-		v.setStyle("-fx-background-color: #aef2a9");    // #c7ffc4");
-		Scene scene = new Scene(v, 1150, 600);//window size
+
+		VBox sceneVBox = new VBox();
+		sceneVBox.setStyle("-fx-background-color: #aef2a9");    // #c7ffc4");
+		Scene scene = new Scene(sceneVBox, 1150, 600);//window size
 		primaryStage.getIcons().add(new Image("file:image/icon/lawnMower.png"));
 
 		primaryStage.setMinHeight(600);
 		primaryStage.setMinWidth(1150);
-		//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/lawnMower.png")));
 		Image image = new Image("file:/image/icon/lawnMower.png");
 		primaryStage.getIcons().add(image);
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
-		menuBar.setStyle("-fx-background-color: #d8e5d7");
 		Menu menuFile = new Menu("File");//file submenu for the menu
 		Menu menuView = new Menu("View");//view what is displayed in the right pane list
 		Menu menuBackup = new Menu("Backup");
@@ -296,6 +290,7 @@ public class GUI extends Application {
 		TextArea lawnTA = new TextArea();
 		TextArea notesTA = new TextArea();
 		TextArea sortedLawnTA = new TextArea();
+		TextArea helpTA = new TextArea();
 
 		Button clntPageBtn = new Button("New Client"),
 				lwnPageBtn = new Button("New Lawn"),
@@ -341,6 +336,7 @@ public class GUI extends Application {
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
 		menuBar.getMenus().addAll(menuFile, menuView, menuBackup, menuPreferences);
+		menuBar.setStyle("-fx-background-color: #d8e5d7");
 
 		menuFile.getItems().addAll(importList, save);
 
@@ -410,6 +406,8 @@ public class GUI extends Application {
 
 			public void handle(ActionEvent t) {
 
+				searchTextField.clear();
+
 				centerPane.getChildren().clear();
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
@@ -443,6 +441,8 @@ public class GUI extends Application {
 		lawn.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent t) {
+
+				searchTextField.clear();
 
 				io.populateLawns();
 
@@ -491,7 +491,10 @@ public class GUI extends Application {
 				populateSortedLawnTA(sortedLawnTA);
 				sortedLawnTA.positionCaret(1);
 				serverBtn.getChildren().clear();
-				serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+				if(io.getServer())
+					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+				else
+					serverBtn.getChildren().add(lSendBtn);
 				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 				border.setLeft(leftPane);
 
@@ -640,11 +643,11 @@ public class GUI extends Application {
 
 				backupTitleLbl.setText("FAQ");
 
-				notesTA.clear();
-				io.printFAQFileTA(notesTA);
-				notesTA.positionCaret(1);
+				helpTA.clear();
+				io.printFAQFileTA(helpTA);
+				helpTA.positionCaret(1);
 				displayInfo.getChildren().clear();
-				displayInfo.getChildren().addAll(backupTitleLbl, notesTA);
+				displayInfo.getChildren().addAll(backupTitleLbl, helpTA);
 
 				centerPane.getChildren().add(displayInfo);
 
@@ -716,7 +719,10 @@ public class GUI extends Application {
 					displayInfo.getChildren().addAll(notesTA, btnPane);
 					leftPane.getChildren().clear();
 					serverBtn.getChildren().clear();
-					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					if(io.getServer())
+						serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					else
+						serverBtn.getChildren().add(lSendBtn);
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
@@ -998,6 +1004,12 @@ public class GUI extends Application {
 		sortedLawnTA.setMinHeight(400);
 		sortedLawnTA.setMaxHeight(500);
 		sortedLawnTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
+		
+		helpTA.setWrapText(true);
+		helpTA.setEditable(false);
+		helpTA.setMinHeight(440);
+		helpTA.setMinWidth(600);
+		helpTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 
 		clntPageBtn.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -1303,7 +1315,7 @@ public class GUI extends Application {
 						if(i != -1) {//if the client exists
 
 							if(!lAddressTF.getText().equals("") && !lLawnNameTF.getText().equals("") && !lGenLocationTF.getText().equals("") && 
-									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {
+									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {//if the text fields are not empty
 
 								io.getLawn(tempLwn.getAddress()).setClient(io.getClient(io.getClientIndex(lClientTF.getText())));
 								io.getLawn(tempLwn.getAddress()).setAddress(lAddressTF.getText());
@@ -1332,7 +1344,7 @@ public class GUI extends Application {
 								lPriceTF.setText("");
 
 							}
-							else {
+							else {// one or more of the text fields are not filled in
 
 								Alert alert = new Alert(AlertType.INFORMATION);//creates a dialog box warning the user that the lawn had an error
 								alert.setTitle("Lawn Creation Error");
@@ -1349,6 +1361,7 @@ public class GUI extends Application {
 							alert.setTitle("Lawn Creation Error");
 							alert.setHeaderText(null);
 							alert.setContentText("The client entered does not exist!");
+							alert.showAndWait();
 
 						}
 
@@ -1541,7 +1554,9 @@ public class GUI extends Application {
 				}
 				else {// if we are making the edit from the lawn page
 
-					tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
+					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedItem());
 					centerPane.getChildren().clear();
 					btnPane.getChildren().clear();
 					addLwnBtn.setText("Update Lawn");
@@ -1668,6 +1683,7 @@ public class GUI extends Application {
 						Optional<ButtonType> result = alert.showAndWait();
 						if (result.get() == buttonTypeOne){
 							tempClnt.removeLawn(tempClnt.getLawnFromAddress(comboBox.getValue()));
+							io.lawnList.remove(tempClnt.getLawnFromAddress(comboBox.getValue()));
 						}
 						else {
 							cName.setText(tempClnt.getName());
@@ -2289,8 +2305,31 @@ public class GUI extends Application {
 
 	public ListView<String> populateList(ListView<String> listView, String[] s) {
 
+		String[] newList = new String[s.length];
+		String temp[];
+		int count = 1;
+		
+		for(int i = 0; i < s.length; i++) {
+			
+			temp = s[0].split(",");
+			tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
+			
+			if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
+				
+				newList[i] = s[i];
+				
+			}
+			else {
+				
+				newList[s.length - count] = s[i];
+				count++;
+				
+			}
+			
+		}
+		
 		listView.getItems().clear();
-		listView.getItems().addAll(s);
+		listView.getItems().addAll(newList);
 		return listView;
 
 	}//end populateList

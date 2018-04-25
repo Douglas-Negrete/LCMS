@@ -1,7 +1,7 @@
 <%@ page import = "java.io.*,java.util.*" %>
 
 <html>
-<body>
+<body style = "background-color: #AEF2A9;">
 <h1> Lawns Processed! </h1>
 <%
 try

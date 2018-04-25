@@ -52,11 +52,11 @@ public class FileIO {
 		}
 
 	}//end default constructor
-	
+
 	public void resetBackup() {
-		
+
 		this.backupFileLocation.delete();
-		
+
 	}
 
 	public int getBackupInterval() {
@@ -166,6 +166,7 @@ public class FileIO {
 
 		try
 		{
+
 			writer = new FileWriter(file);
 			outFile = new PrintWriter(writer);
 
@@ -173,13 +174,19 @@ public class FileIO {
 
 			for(int i = 0; i < lawnList.size(); i++) {
 
+				//if the lawn is has not been mowed yet, or if it is not disabled
 				if((lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
 						lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
 						lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
 
-					arr.add(lawnList.get(i).getAddress() + "\n" +
-							"unmowed\n"+
-							lawnList.get(i).getNotes());
+					if(lawnList.get(i).getNotes().length() > 0)
+						arr.add(lawnList.get(i).getAddress() + "\n" +
+								"unmowed\n"+
+								lawnList.get(i).getNotes());
+					else
+						arr.add(lawnList.get(i).getAddress() + "\n" +
+								"unmowed\n"+
+								"No Comment");
 
 				}
 
@@ -308,7 +315,7 @@ public class FileIO {
 
 	public void readInBackupFile()//LinkedList<Client> list) 
 	{
-		
+
 		FileReader reader;
 		Scanner inFile;
 
@@ -967,9 +974,11 @@ public class FileIO {
 			"Daniels", "Shady" };
 
 
-	public Client clientCreator()
-	{
+	public Client clientCreator() {
+
 		Random rand = new Random();
+
+		rand.setSeed(Calendar.getInstance().getTimeInMillis());
 
 		int num1 = rand.nextInt(names.length);
 		int num2 = rand.nextInt(lastNames.length);
