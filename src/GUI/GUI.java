@@ -1135,8 +1135,8 @@ public class GUI extends Application {
 							if(!lAddressTF.getText().equals("") && !lLawnNameTF.getText().equals("") && !lGenLocationTF.getText().equals("") && 
 									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {//are all of the fields filled in
 
-								io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText(), lLawnNameTF.getText(),
-										lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()),
+								io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText().replaceAll(";", ","), lLawnNameTF.getText().replaceAll(";", ","),
+										lGenLocationTF.getText().replaceAll(";", ","), Integer.parseInt(lIntervalTF.getText()),
 										Double.parseDouble(lPriceTF.getText())));
 
 								io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
@@ -1179,8 +1179,8 @@ public class GUI extends Application {
 							if(!lAddressTF.getText().equals("") && !lLawnNameTF.getText().equals("") && !lGenLocationTF.getText().equals("") && 
 									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {
 
-								io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText(), lLawnNameTF.getText(),
-										lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()),
+								io.addLawn(i, new Lawn(io.getClient(i), lAddressTF.getText().replaceAll(";", ","), lLawnNameTF.getText().replaceAll(";", ","),
+										lGenLocationTF.getText().replaceAll(";", ","), Integer.parseInt(lIntervalTF.getText()),
 										Double.parseDouble(lPriceTF.getText())));
 
 								io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
@@ -1278,12 +1278,13 @@ public class GUI extends Application {
 									sidePanelBtn.getChildren().clear();
 									centerPane.getChildren().clear();
 
-									io.addClient(new Client(lClientTF.getText(), addressPhone.getKey(), addressPhone.getValue()));
+									io.addClient(new Client(lClientTF.getText().replaceAll(";", ","), 
+											addressPhone.getKey().replaceAll(";", ","), addressPhone.getValue().replaceAll(";", ",")));
 
-									io.addLawn(io.getClientIndex(lClientTF.getText()), 
-											new Lawn(io.getClient(io.getClientIndex(lClientTF.getText())), lAddressTF.getText(), 
-													lLawnNameTF.getText(), lGenLocationTF.getText(), Integer.parseInt(lIntervalTF.getText()), 
-													Double.parseDouble(lPriceTF.getText())));
+									io.addLawn(io.getClientIndex(lClientTF.getText().replaceAll(";", ",")), 
+											new Lawn(io.getClient(io.getClientIndex(lClientTF.getText())), lAddressTF.getText().replaceAll(";", ","), 
+													lLawnNameTF.getText().replaceAll(";", ","), lGenLocationTF.getText().replaceAll(";", ","), 
+													Integer.parseInt(lIntervalTF.getText()), Double.parseDouble(lPriceTF.getText())));
 
 									io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
 
