@@ -200,6 +200,7 @@ public class GUI extends Application {
 				}
 
 			}
+			
 		}
 
 		if(!io.companyName.equals(""))
@@ -457,7 +458,9 @@ public class GUI extends Application {
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 				listView.getFocusModel().focus(0);
-				tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
+				String temp[] = listView.getFocusModel().getFocusedItem().split(";");
+				tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
+				System.out.println(tempLwn.getClient().getName());
 				notesTA.clear();
 				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
@@ -1330,10 +1333,10 @@ public class GUI extends Application {
 								sidePanelBtn.getChildren().clear();
 								centerPane.getChildren().clear();
 
-								io.getLawn(tempLwn.getAddress()).setClient(io.getClient(io.getClientIndex(lClientTF.getText())));
-								io.getLawn(tempLwn.getAddress()).setAddress(lAddressTF.getText());
-								io.getLawn(tempLwn.getAddress()).setLawnName(lLawnNameTF.getText());
-								io.getLawn(tempLwn.getAddress()).setGenLocation(lGenLocationTF.getText());
+								io.getLawn(tempLwn.getAddress()).setClient(io.getClient(io.getClientIndex(lClientTF.getText().replaceAll(";", ","))));
+								io.getLawn(tempLwn.getAddress()).setAddress(lAddressTF.getText().replaceAll(";", ","));
+								io.getLawn(tempLwn.getAddress()).setLawnName(lLawnNameTF.getText().replaceAll(";", ","));
+								io.getLawn(tempLwn.getAddress()).setGenLocation(lGenLocationTF.getText().replaceAll(";", ","));
 								io.getLawn(tempLwn.getAddress()).setInterval(Integer.parseInt(lIntervalTF.getText()));
 								io.getLawn(tempLwn.getAddress()).setPrice(Double.parseDouble(lPriceTF.getText()));
 
@@ -1357,7 +1360,7 @@ public class GUI extends Application {
 								Alert alert = new Alert(AlertType.INFORMATION);//creates a dialog box warning the user that the lawn had an error
 								alert.setTitle("Lawn Creation Error");
 								alert.setHeaderText(null);
-								alert.setContentText("All fields must be filled in!");
+								alert.setContentText("There was an error with how the data was input!");
 								alert.showAndWait();
 
 							}
