@@ -214,8 +214,6 @@ public class GUI extends Application {
 
 		primaryStage.setMinHeight(600);
 		primaryStage.setMinWidth(1150);
-		Image image = new Image("file:/image/icon/lawnMower.png");
-		primaryStage.getIcons().add(image);
 
 		MenuBar menuBar = new MenuBar();//The menu for the topPane
 		Menu menuFile = new Menu("File");//file submenu for the menu
@@ -336,7 +334,7 @@ public class GUI extends Application {
 		BorderPane border = new BorderPane();//the layout for the scene, this layout has five sections: top, left, center, right, bottom
 
 		menuBar.getMenus().addAll(menuFile, menuView, menuBackup, menuPreferences);
-		menuBar.setStyle("-fx-background-color: #d8e5d7");
+		menuBar.setStyle("-fx-background-color: linear-gradient(#f0f5f0 0%, #e1ebe0 25%, #d2e1d1 75%, #c3d7c1 100%);");
 
 		menuFile.getItems().addAll(importList, save);
 
@@ -358,7 +356,6 @@ public class GUI extends Application {
 					fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("LCMS Files", "*.lcms"));
 					selectedFile = fileChooser.showOpenDialog(primaryStage);
 					if (selectedFile != null) {
-						System.out.println(selectedFile);
 						try {
 							io.clearLists();
 							io.setBackupFile(selectedFile);
@@ -388,14 +385,15 @@ public class GUI extends Application {
 
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK){
-					// ... user chose OK
+					
 					io.generateBackupFile();
 
 					alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("Backup Completed");
 					alert.setHeaderText("You have successfully saved!");
 					alert.setContentText("You have saved the file to the location: " + io.getBackupLocation());
-					alert.show();
+					alert.showAndWait();
+					
 				}
 
 			}//end handle
@@ -405,14 +403,15 @@ public class GUI extends Application {
 		client.setOnAction(new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent t) {
-
-				searchTextField.clear();
-
-				centerPane.getChildren().clear();
-				sidePanelBtn.getChildren().clear();
-				leftPane.getChildren().clear();
-				displayInfo.getChildren().clear();
+				
 				shown = 0;
+
+				leftPane.getChildren().clear();
+				sidePanelBtn.getChildren().clear();
+				displayInfo.getChildren().clear();
+				centerPane.getChildren().clear();
+				addClntLwnLbl.getChildren().clear();
+
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 				listView.getFocusModel().focus(0);
@@ -423,16 +422,14 @@ public class GUI extends Application {
 				cNum.setText(tempClnt.getPhoneNum());
 				lawnTA.clear();
 				populateLawnTA(lawnTA, cName.getText());
-				centerPane.getChildren().clear();
-				addClntLwnLbl.getChildren().clear();
+				searchTextField.clear();
+
+				sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
-				displayInfo.getChildren().clear();
 				displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 				centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
-				border.setCenter(centerPane);
-				sidePanelBtn.getChildren().clear();
-				sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 				border.setLeft(sidePanelBtn);
+				border.setCenter(centerPane);
 
 			}//end handle
 
@@ -442,24 +439,26 @@ public class GUI extends Application {
 
 			public void handle(ActionEvent t) {
 
-				searchTextField.clear();
-
+				tempClnt = null;// added this line to get the edit lawn button to work
+				shown = 1;
+				
 				io.populateLawns();
 
-				tempClnt = null;// added this line to get the edit lawn button to work
-
+				leftPane.getChildren().clear();
 				sidePanelBtn.getChildren().clear();
+				serverBtn.getChildren().clear();
+				btnPane.getChildren().clear();
 				centerPane.getChildren().clear();
 				displayInfo.getChildren().clear();
-				shown = 1;
+
+				sortedLawnTA.clear();
+				populateSortedLawnTA(sortedLawnTA);
+				sortedLawnTA.positionCaret(1);
 				rightPane.getChildren().remove(1);
 				rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
 				listView.getFocusModel().focus(0);
 				tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedIndex());
-				displayInfo.getChildren().clear();
 				notesTA.clear();
-				notesTA.setMaxWidth(325);
-				notesTA.setMinHeight(400);
 				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -470,7 +469,7 @@ public class GUI extends Application {
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-				btnPane.getChildren().clear();
+				searchTextField.clear();
 				if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
 					lMowedCheckBox.setSelected(true);
 				else
@@ -483,20 +482,16 @@ public class GUI extends Application {
 					lStopMowCheckBox.setSelected(true);
 				else
 					lStopMowCheckBox.setSelected(false);
-				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
-				displayInfo.getChildren().addAll(notesTA, btnPane);
-				leftPane.getChildren().clear();
-				border.setCenter(displayInfo);
-				sortedLawnTA.clear();
-				populateSortedLawnTA(sortedLawnTA);
-				sortedLawnTA.positionCaret(1);
-				serverBtn.getChildren().clear();
+				
+				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 				if(io.getServer())
 					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
 				else
 					serverBtn.getChildren().add(lSendBtn);
-				leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
+				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
+				displayInfo.getChildren().addAll(notesTA, btnPane);
 				border.setLeft(leftPane);
+				border.setCenter(displayInfo);
 
 			}//end handle
 
@@ -508,13 +503,14 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
 				displayInfo.getChildren().clear();
+				
 				backupTitleLbl.setText("Transactions");
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.printTransactionFileTA(lawnTA);
 				lawnTA.positionCaret(1);
+				
 				displayInfo.getChildren().addAll(backupTitleLbl, transactionsLbl, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -527,21 +523,23 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
-				displayInfo.getChildren().clear();
-				backupTitleLbl.setText("Backup File");
+				sidePanelBtn.getChildren().clear();
 				centerPane.getChildren().clear();
+				displayInfo.getChildren().clear();
+				
+				backupEmailLbl.setText("The backup will be sent to this email: ");
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
+				backupTitleLbl.setText("Backup File");
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.generateBackupFile();
 				io.printBackupFileTA(lawnTA);
 				lawnTA.positionCaret(1);
 				lawnTA.autosize();
+				
+				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -556,17 +554,19 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
-				displayInfo.getChildren().clear();
-				backupTitleLbl.setText("Backup Transactions");
 				centerPane.getChildren().clear();
+				displayInfo.getChildren().clear();
+
+				backupEmailLbl.setText("The backup will be sent to this email: ");
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
+				backupTitleLbl.setText("Backup Transactions");
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.printTransactionFileTA(lawnTA);
 				lawnTA.positionCaret(1);
+				
+				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -581,19 +581,21 @@ public class GUI extends Application {
 
 				io.createBillFile();
 
-				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
+				sidePanelBtn.getChildren().clear();
 				displayInfo.getChildren().clear();
-				backupTitleLbl.setText("Backup Bills");
 				centerPane.getChildren().clear();
+				
+				backupEmailLbl.setText("The backup will be sent to this email: ");
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
+				backupTitleLbl.setText("Backup Bills");
 				lawnTA.clear();
 				lawnTA.autosize();
 				io.printBillFileTA(lawnTA);
 				lawnTA.positionCaret(1);
+				
+				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
 				border.setCenter(displayInfo);
 
@@ -606,25 +608,25 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				leftPane.getChildren().clear();
 				sidePanelBtn.getChildren().clear();
+				settingsItems.getChildren().clear();
 				btnPane.getChildren().clear();
 				displayInfo.getChildren().clear();
-				leftPane.getChildren().clear();
+				centerPane.getChildren().clear();
+
+				border.requestFocus();
 
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-
 				sCompanyNameTF.setPromptText(io.companyName);
-
-				settingsItems.getChildren().clear();
 				if(io.getServer())
 					disableServerCheckBox.setSelected(false);
 				else
 					disableServerCheckBox.setSelected(true);
+				
 				settingsItems.getChildren().addAll(settingsTFPane, sBackupBtnPane, disableServerCheckBox, emailComboBox, settingsBtnPane);
 				settingsItems.setAlignment(Pos.CENTER_LEFT);
-
-				centerPane.getChildren().clear();
 				centerPane.getChildren().addAll(settingsLbl, settingsItems);
 				border.setCenter(centerPane);
 
@@ -637,20 +639,18 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				centerPane.getChildren().clear();
-				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
+				sidePanelBtn.getChildren().clear();
+				displayInfo.getChildren().clear();
+				centerPane.getChildren().clear();
 
 				backupTitleLbl.setText("FAQ");
-
 				helpTA.clear();
 				io.printFAQFileTA(helpTA);
 				helpTA.positionCaret(1);
-				displayInfo.getChildren().clear();
+				
 				displayInfo.getChildren().addAll(backupTitleLbl, helpTA);
-
 				centerPane.getChildren().add(displayInfo);
-
 				border.setCenter(centerPane);
 
 			}//end handle
@@ -662,8 +662,14 @@ public class GUI extends Application {
 
 			@Override
 			public void handle(MouseEvent event) {
+				
+				displayInfo.getChildren().clear();
 
 				if(shown == 0) {
+
+					sidePanelBtn.getChildren().clear();
+					addClntLwnLbl.getChildren().clear();
+					centerPane.getChildren().clear();
 
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
@@ -672,26 +678,24 @@ public class GUI extends Application {
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
-					centerPane.getChildren().clear();
-					addClntLwnLbl.getChildren().clear();
+
+					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
-					displayInfo.getChildren().clear();
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
-					border.setCenter(centerPane);
-					sidePanelBtn.getChildren().clear();
-					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 					border.setLeft(sidePanelBtn);
+					border.setCenter(centerPane);
 
 				}
 				else if(shown == 1) {
 
-					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					leftPane.getChildren().clear();
+					serverBtn.getChildren().clear();
+					btnPane.getChildren().clear();
+					
+					String temp[] = listView.getFocusModel().getFocusedItem().split(";");
 					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
-					displayInfo.getChildren().clear();
 					notesTA.clear();
-					notesTA.setMaxWidth(325);
-					notesTA.setMinHeight(400);
 					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -702,7 +706,6 @@ public class GUI extends Application {
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-					btnPane.getChildren().clear();
 					if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
 						lMowedCheckBox.setSelected(true);
 					else
@@ -715,15 +718,14 @@ public class GUI extends Application {
 						lStopMowCheckBox.setSelected(true);
 					else
 						lStopMowCheckBox.setSelected(false);
-					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
-					displayInfo.getChildren().addAll(notesTA, btnPane);
-					leftPane.getChildren().clear();
-					serverBtn.getChildren().clear();
+					
+					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
 					if(io.getServer())
 						serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
 					else
 						serverBtn.getChildren().add(lSendBtn);
-					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
+					displayInfo.getChildren().addAll(notesTA, btnPane);
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
 
@@ -737,8 +739,14 @@ public class GUI extends Application {
 
 			@Override
 			public void handle(KeyEvent event) {
+				
+				displayInfo.getChildren().clear();
 
 				if(shown == 0) {
+
+					sidePanelBtn.getChildren().clear();
+					addClntLwnLbl.getChildren().clear();
+					centerPane.getChildren().clear();
 
 					tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 					cName.setText(tempClnt.getName());
@@ -747,26 +755,24 @@ public class GUI extends Application {
 					cNum.setText(tempClnt.getPhoneNum());
 					lawnTA.clear();
 					populateLawnTA(lawnTA, cName.getText());
-					centerPane.getChildren().clear();
-					addClntLwnLbl.getChildren().clear();
+
+					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
-					displayInfo.getChildren().clear();
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
-					border.setCenter(centerPane);
-					sidePanelBtn.getChildren().clear();
-					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 					border.setLeft(sidePanelBtn);
+					border.setCenter(centerPane);
 
 				}
 				else if(shown == 1) {
 
-					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					leftPane.getChildren().clear();
+					serverBtn.getChildren().clear();
+					btnPane.getChildren().clear();
+					
+					String temp[] = listView.getFocusModel().getFocusedItem().split(";");
 					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
-					displayInfo.getChildren().clear();
 					notesTA.clear();
-					notesTA.setMaxWidth(325);
-					notesTA.setMinHeight(400);
 					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -777,7 +783,6 @@ public class GUI extends Application {
 					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-					btnPane.getChildren().clear();
 					if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
 						lMowedCheckBox.setSelected(true);
 					else
@@ -790,12 +795,14 @@ public class GUI extends Application {
 						lStopMowCheckBox.setSelected(true);
 					else
 						lStopMowCheckBox.setSelected(false);
-					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
-					displayInfo.getChildren().addAll(notesTA, btnPane);
-					leftPane.getChildren().clear();
-					serverBtn.getChildren().clear();
-					serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, serverBtn);
+					if(io.getServer())
+						serverBtn.getChildren().addAll(lSendBtn, lUpdateFromHTML);
+					else
+						serverBtn.getChildren().add(lSendBtn);
+					displayInfo.getChildren().addAll(notesTA, btnPane);
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
 
@@ -862,8 +869,9 @@ public class GUI extends Application {
 
 				io.setBackupInterval(newValue);
 
-			}
-		});
+			}//end changed
+			
+		});//end addlistener
 
 		disableServerCheckBox.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -884,6 +892,9 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				btnPane.getChildren().clear();
+				displayInfo.getChildren().clear();
+
 				if(lMowedCheckBox.isSelected()) {
 					io.appendToTransactionFile("Lawn checked off: " + tempLwn.toTransaction());
 					tempLwn.checkLawnOff();
@@ -895,10 +906,7 @@ public class GUI extends Application {
 					io.appendToTransactionFile("Client " + tempLwn.getClient().getName() + " now owes: " + tempLwn.getClient().getOwes());
 				}
 
-				displayInfo.getChildren().clear();
 				notesTA.clear();
-				notesTA.setMaxWidth(325);
-				notesTA.setMinHeight(400);
 				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -909,7 +917,6 @@ public class GUI extends Application {
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-				btnPane.getChildren().clear();
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 
@@ -922,6 +929,9 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				btnPane.getChildren().clear();
+				displayInfo.getChildren().clear();
+				
 				if(lSkipCheckBox.isSelected()) {
 					tempLwn.skipLawn();
 					tempLwn.setSkip(true);
@@ -931,10 +941,7 @@ public class GUI extends Application {
 					tempLwn.setSkip(false);
 				}
 
-				displayInfo.getChildren().clear();
 				notesTA.clear();
-				notesTA.setMaxWidth(325);
-				notesTA.setMinHeight(400);
 				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -945,7 +952,6 @@ public class GUI extends Application {
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-				btnPane.getChildren().clear();
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 
@@ -958,15 +964,15 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				btnPane.getChildren().clear();
+				displayInfo.getChildren().clear();
+
 				if(lStopMowCheckBox.isSelected())
 					tempLwn.stopLawn();
 				else
 					tempLwn.unStopLawn();
 
-				displayInfo.getChildren().clear();
 				notesTA.clear();
-				notesTA.setMaxWidth(325);
-				notesTA.setMinHeight(400);
 				notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 				notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 				notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -977,7 +983,6 @@ public class GUI extends Application {
 				notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
 				notesTA.appendText("------------------------------------------------------\n");
 				notesTA.appendText("Notes:\n" + tempLwn.getNotes());
-				btnPane.getChildren().clear();
 				btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 				displayInfo.getChildren().addAll(notesTA, btnPane);
 
@@ -995,6 +1000,7 @@ public class GUI extends Application {
 
 		notesTA.setWrapText(true);
 		notesTA.setEditable(false);
+		notesTA.setMaxWidth(325);
 		notesTA.setMinHeight(400);
 		notesTA.setStyle("-fx-control-inner-background:#"+textFieldsColor);
 
@@ -1018,18 +1024,18 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
-				centerPane.getChildren().clear();
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
 				btnPane.getChildren().clear();
+				centerPane.getChildren().clear();
+				
 				cNameTF.setText("");
 				cBiAdTF.setText("");
 				cPhoneNumTF.setText("");
 				addClntBtn.setText("Add Client");
-				btnPane.getChildren().addAll(addClntBtn, cnclAddBtn);
-				addClntLwnLbl.getChildren().clear();
 				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cPhoneNumLbl);
-				addClntLwnTF.getChildren().clear();
 				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cPhoneNumTF, btnPane);
+				btnPane.getChildren().addAll(addClntBtn, cnclAddBtn);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -1044,9 +1050,11 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
-				centerPane.getChildren().clear();
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
 				btnPane.getChildren().clear();
+				centerPane.getChildren().clear();
+				
 				addLwnBtn.setText("Add Lawn");
 				lClientTF.setPromptText("");
 				lClientTF.setText("");
@@ -1055,12 +1063,10 @@ public class GUI extends Application {
 				lGenLocationTF.setText("");
 				lIntervalTF.setText("");
 				lPriceTF.setText("");
-				btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
-				addClntLwnLbl.getChildren().clear();
-				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
-				addClntLwnTF.getChildren().clear();
 				datePicker.setValue(Calendar.getInstance().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
 				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
+				btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -1074,6 +1080,11 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				if(!cNameTF.getText().equals("") && !cBiAdTF.getText().equals("") && !cPhoneNumTF.getText().equals("")) {
+
+					sidePanelBtn.getChildren().clear();
+					addClntLwnLbl.getChildren().clear();
+					addClntLwnTF.getChildren().clear();
+					centerPane.getChildren().clear();
 
 					if(addClntBtn.getText().equals("Update Client")) {
 						io.getClient(io.getClientIndex(tempClnt.getName())).setName(cNameTF.getText());
@@ -1092,10 +1103,6 @@ public class GUI extends Application {
 					cNameTF.setText("");
 					cBiAdTF.setText("");
 					cPhoneNumTF.setText("");
-					addClntLwnLbl.getChildren().clear();
-					addClntLwnTF.getChildren().clear();
-					sidePanelBtn.getChildren().clear();
-					centerPane.getChildren().clear();
 
 				}
 				else {
@@ -1119,7 +1126,7 @@ public class GUI extends Application {
 
 				try {
 
-					if(!addLwnBtn.getText().equals("Update Lawn")) {//if it isn't an update lawn
+					if(!addLwnBtn.getText().equals("Update Lawn")) {//if it isn't an update lawn, so it is an add lawn
 
 						int i = io.getClientIndex(lClientTF.getText());//checks to see if the client is in the list
 
@@ -1133,8 +1140,6 @@ public class GUI extends Application {
 										Double.parseDouble(lPriceTF.getText())));
 
 								io.getLawn(lAddressTF.getText()).setNextMow(java.sql.Date.valueOf(datePicker.getValue()));
-								
-								//io.lawnList.add(io.getLawn(lAddressTF.getText()));
 
 								rightPane.getChildren().remove(1);
 								if(shown == 0)
@@ -1268,6 +1273,11 @@ public class GUI extends Application {
 
 								result.ifPresent(addressPhone -> {
 
+									addClntLwnLbl.getChildren().clear();
+									addClntLwnTF.getChildren().clear();
+									sidePanelBtn.getChildren().clear();
+									centerPane.getChildren().clear();
+
 									io.addClient(new Client(lClientTF.getText(), addressPhone.getKey(), addressPhone.getValue()));
 
 									io.addLawn(io.getClientIndex(lClientTF.getText()), 
@@ -1284,11 +1294,6 @@ public class GUI extends Application {
 										rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 									else if(shown == 1)
 										rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
-
-									addClntLwnLbl.getChildren().clear();
-									addClntLwnTF.getChildren().clear();
-									sidePanelBtn.getChildren().clear();
-									centerPane.getChildren().clear();
 
 									lClientTF.setText("");
 									lClientTF.setPromptText("");
@@ -1319,6 +1324,11 @@ public class GUI extends Application {
 							if(!lAddressTF.getText().equals("") && !lLawnNameTF.getText().equals("") && !lGenLocationTF.getText().equals("") && 
 									!lIntervalTF.getText().equals("") && !lPriceTF.getText().equals("")) {//if the text fields are not empty
 
+								addClntLwnLbl.getChildren().clear();
+								addClntLwnTF.getChildren().clear();
+								sidePanelBtn.getChildren().clear();
+								centerPane.getChildren().clear();
+
 								io.getLawn(tempLwn.getAddress()).setClient(io.getClient(io.getClientIndex(lClientTF.getText())));
 								io.getLawn(tempLwn.getAddress()).setAddress(lAddressTF.getText());
 								io.getLawn(tempLwn.getAddress()).setLawnName(lLawnNameTF.getText());
@@ -1331,11 +1341,6 @@ public class GUI extends Application {
 									rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
 								else if(shown == 1)
 									rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
-
-								addClntLwnLbl.getChildren().clear();
-								addClntLwnTF.getChildren().clear();
-								sidePanelBtn.getChildren().clear();
-								centerPane.getChildren().clear();
 
 								lClientTF.setText("");
 								lClientTF.setPromptText("");
@@ -1387,8 +1392,13 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
+				centerPane.getChildren().clear();
+
 				cNameTF.setText("");
 				cBiAdTF.setText("");
+				cPhoneNumTF.setText("");
 
 				lClientTF.setText("");
 				lClientTF.setPromptText("");
@@ -1398,22 +1408,52 @@ public class GUI extends Application {
 				lIntervalTF.setText("");
 				lPriceTF.setText("");
 
-				addClntLwnLbl.getChildren().clear();
-				addClntLwnTF.getChildren().clear();
-				centerPane.getChildren().clear();
+				if(shown == 0) {
 
-				if(addClntBtn.getText().equals("Update Client") || addClntBtn.getText().equals("Update Lawn")) {
-
-					centerPane.getChildren().clear();
 					sidePanelBtn.getChildren().clear();
-					addClntLwnLbl.getChildren().clear();
-					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
 					displayInfo.getChildren().clear();
+					centerPane.getChildren().clear();
+
+					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
+					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
 					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
-					border.setCenter(centerPane);
-					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, delClntBtn, delLwnBtn);
 					border.setLeft(sidePanelBtn);
+					border.setCenter(centerPane);
+
+				}
+				else if(shown == 1) {
+
+					btnPane.getChildren().clear();
+					displayInfo.getChildren().clear();
+
+					notesTA.clear();
+					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
+					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
+					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
+					notesTA.appendText("Client:\t\t\t" + tempLwn.getClient().getName() + "\n");
+					notesTA.appendText("Last Mowed:\t\t" + tempLwn.sf.format(tempLwn.getLastMow()) + "\n");
+					notesTA.appendText("Next Mow:\t\t" + tempLwn.sf.format(tempLwn.getNextMow()) + "\n");
+					notesTA.appendText("Cost:\t\t\t\t" + df.format(tempLwn.getPrice()) + "\n");
+					notesTA.appendText("Interval:\t\t\t" + tempLwn.getInterval() + "\n");
+					notesTA.appendText("------------------------------------------------------\n");
+					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
+					if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
+						lMowedCheckBox.setSelected(true);
+					else
+						lMowedCheckBox.setSelected(false);
+					if(tempLwn.getSkip())
+						lSkipCheckBox.setSelected(true);
+					else
+						lSkipCheckBox.setSelected(false);
+					if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) == 0)
+						lStopMowCheckBox.setSelected(true);
+					else
+						lStopMowCheckBox.setSelected(false);
+
+					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
+					displayInfo.getChildren().addAll(notesTA, btnPane);
+					border.setCenter(displayInfo);
 
 				}
 
@@ -1426,11 +1466,12 @@ public class GUI extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 
-				//sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
-				centerPane.getChildren().clear();
+				addClntLwnLbl.getChildren().clear();
+				addClntLwnTF.getChildren().clear();
 				btnPane.getChildren().clear();
+				centerPane.getChildren().clear();
+
 				addLwnBtn.setText("Add Lawn");
 				lClientTF.setPromptText(tempClnt.getName());
 				lAddressTF.setText("");
@@ -1439,9 +1480,7 @@ public class GUI extends Application {
 				lIntervalTF.setText("");
 				lPriceTF.setText("");
 				btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
-				addClntLwnLbl.getChildren().clear();
 				addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
-				addClntLwnTF.getChildren().clear();
 				addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
@@ -1457,17 +1496,18 @@ public class GUI extends Application {
 			public void handle(ActionEvent event) {
 
 				sidePanelBtn.getChildren().clear();
-				centerPane.getChildren().clear();
-				btnPane.getChildren().clear();
-				addClntBtn.setText("Update Client");
-				btnPane.getChildren().addAll(addClntBtn, cnclAddBtn);
 				addClntLwnLbl.getChildren().clear();
-				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cPhoneNumLbl);
 				addClntLwnTF.getChildren().clear();
+				btnPane.getChildren().clear();
+				centerPane.getChildren().clear();
+
+				addClntBtn.setText("Update Client");
+				addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cPhoneNumLbl);
 				cNameTF.setText(tempClnt.getName());
 				cBiAdTF.setText(tempClnt.getBillAddress());
 				cPhoneNumTF.setText(tempClnt.getPhoneNum());
 				addClntLwnTF.getChildren().addAll(cNameTF, cBiAdTF, cPhoneNumTF, btnPane);
+				btnPane.getChildren().addAll(addClntBtn, cnclAddBtn);
 				centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 				border.setCenter(centerPane);
 
@@ -1484,13 +1524,15 @@ public class GUI extends Application {
 
 					if(tempClnt.lawnListSize() > 1) {//are there more than 1 lawns?
 
+						centerPane.getChildren().clear();
+						
 						ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnAddresses());
 						final ComboBox<String> comboBox = new ComboBox<>(options);
-						centerPane.getChildren().clear();
 						if(!tempClnt.getName().endsWith("s"))
 							lLawnLbl.setText(tempClnt.getName() + "'s Lawns: ");
 						else
 							lLawnLbl.setText(tempClnt.getName() + "' Lawns: ");
+						
 						centerPane.getChildren().addAll(lLawnLbl, comboBox);
 
 						comboBox.setOnAction(new EventHandler<ActionEvent>() {
@@ -1498,9 +1540,12 @@ public class GUI extends Application {
 							@Override
 							public void handle(ActionEvent event) {
 
-								tempLwn = tempClnt.getLawnFromAddress(comboBox.getValue());
-								centerPane.getChildren().clear();
 								btnPane.getChildren().clear();
+								addClntLwnLbl.getChildren().clear();
+								addClntLwnTF.getChildren().clear();
+								centerPane.getChildren().clear();
+
+								tempLwn = tempClnt.getLawnFromAddress(comboBox.getValue());
 								addLwnBtn.setText("Update Lawn");
 								lClientTF.setText(tempLwn.getClient().getName());
 								lAddressTF.setText(tempLwn.getAddress().toString());
@@ -1510,9 +1555,7 @@ public class GUI extends Application {
 								lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 								datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 								btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
-								addClntLwnLbl.getChildren().clear();
 								addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
-								addClntLwnTF.getChildren().clear();
 								addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
 								centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 								border.setCenter(centerPane);
@@ -1524,9 +1567,12 @@ public class GUI extends Application {
 					}
 					else if(tempClnt.lawnListSize() == 1) {// is there only one lawn in the list?
 
-						tempLwn = tempClnt.getSingleLawn(0);
-						centerPane.getChildren().clear();
 						btnPane.getChildren().clear();
+						addClntLwnLbl.getChildren().clear();
+						addClntLwnTF.getChildren().clear();
+						centerPane.getChildren().clear();
+
+						tempLwn = tempClnt.getSingleLawn(0);
 						addLwnBtn.setText("Update Lawn");
 						lClientTF.setText(tempLwn.getClient().getName());
 						lAddressTF.setText(tempLwn.getAddress().toString());
@@ -1536,9 +1582,7 @@ public class GUI extends Application {
 						lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 						datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 						btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
-						addClntLwnLbl.getChildren().clear();
 						addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
-						addClntLwnTF.getChildren().clear();
 						addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
 						centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 						border.setCenter(centerPane);
@@ -1556,11 +1600,14 @@ public class GUI extends Application {
 				}
 				else {// if we are making the edit from the lawn page
 
-					String temp[] = listView.getFocusModel().getFocusedItem().split(",");
+					String temp[] = listView.getFocusModel().getFocusedItem().split(";");
 					tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
-					//tempLwn = io.lawnList.get(listView.getFocusModel().getFocusedItem());
-					centerPane.getChildren().clear();
+
 					btnPane.getChildren().clear();
+					addClntLwnLbl.getChildren().clear();
+					addClntLwnTF.getChildren().clear();
+					centerPane.getChildren().clear();
+
 					addLwnBtn.setText("Update Lawn");
 					lClientTF.setText(tempLwn.getClient().getName());
 					lAddressTF.setText(tempLwn.getAddress().toString());
@@ -1569,10 +1616,9 @@ public class GUI extends Application {
 					lIntervalTF.setText("" + tempLwn.getInterval());
 					lPriceTF.setText("" + df.format(tempLwn.getPrice()));
 					datePicker.setValue(tempLwn.getNextMow().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
 					btnPane.getChildren().addAll(addLwnBtn, cnclAddBtn);
-					addClntLwnLbl.getChildren().clear();
 					addClntLwnLbl.getChildren().addAll(lClientLbl, lAddressLbl, lLawnNameLbl, lGenLocationLbl, lIntervalLbl, lPriceLbl, lDateLbl);
-					addClntLwnTF.getChildren().clear();
 					addClntLwnTF.getChildren().addAll(lClientTF, lAddressTF, lLawnNameTF, lGenLocationTF, lIntervalTF, lPriceTF, datePicker, btnPane);
 					centerPane.getChildren().addAll(addClntLwnLbl, addClntLwnTF);
 					border.setCenter(centerPane);
@@ -1595,6 +1641,7 @@ public class GUI extends Application {
 
 				Optional<String> newOwes = owes.showAndWait();
 				try {
+
 					if(newOwes.isPresent()) {
 						String oldOwes = tempClnt.getOwes();
 						tempClnt.setOwed(Double.parseDouble(newOwes.get()));
@@ -1603,6 +1650,7 @@ public class GUI extends Application {
 						displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 						io.appendToTransactionFile("Owed amount for " + tempClnt.getName() + " changed from " + oldOwes + " to " + tempClnt.getOwes());
 					}
+
 				}
 				catch(Exception e) {
 					Alert alert = new Alert(AlertType.ERROR);
@@ -1622,29 +1670,39 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				centerPane.getChildren().clear();
-				border.setCenter(centerPane);
 
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Delete Client");
 				alert.setHeaderText("Are you sure?");
 				alert.setContentText("Deleting a client is permanant.");
 
-				ButtonType buttonTypeOne = new ButtonType("Delete");
-				ButtonType buttonTypeTwo = new ButtonType("Cancel");
+				ButtonType delBtn = new ButtonType("Delete");
+				ButtonType cnclBtn = new ButtonType("Cancel");
 
-				alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+				alert.getButtonTypes().setAll(delBtn, cnclBtn);
 
 				Optional<ButtonType> result = alert.showAndWait();
-				if (result.get() == buttonTypeOne){
-					// ... user chose first option
+				if (result.get() == delBtn){//user chose to delete the client
 
-					io.removeAssociatedLawns(tempClnt);
-					io.removeClient(io.getClientIndex(tempClnt.getName()));
-					rightPane.getChildren().remove(1);
-					if(shown == 0)
-						rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
-					else if(shown == 1)
-						rightPane.getChildren().add(1, populateList(listView, io.getLawnNames(), 1));
+					io.removeAssociatedLawns(tempClnt);//removes all lawns that the client owns
+					io.removeClient(io.getClientIndex(tempClnt.getName()));//removes the client from the list
+					rightPane.getChildren().remove(1);//redisplays the listview
+					rightPane.getChildren().add(1, populateList(listView, io.getClientNames(), 0));
+
+				}
+				else {
+
+					addClntLwnLbl.getChildren().clear();
+					displayInfo.getChildren().clear();
+					centerPane.getChildren().clear();
+					sidePanelBtn.getChildren().clear();
+
+					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
+					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
+					sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
+					border.setCenter(centerPane);
+					border.setLeft(sidePanelBtn);
 
 				}
 
@@ -1652,83 +1710,133 @@ public class GUI extends Application {
 
 		});//end setonaction
 
+		//deletes lawns from the client page
 		delLwnBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 
-				ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnAddresses());
-				final ComboBox<String> comboBox = new ComboBox<>(options);
-				centerPane.getChildren().clear();
-				if(!tempClnt.getName().endsWith("s"))
-					lLawnLbl.setText(tempClnt.getName() + "'s Lawns: ");
-				else
-					lLawnLbl.setText(tempClnt.getName() + "' Lawns: ");
-				centerPane.getChildren().addAll(lLawnLbl, comboBox);
+				if(tempClnt.lawnListSize() > 1) {
 
-				comboBox.setOnAction(new EventHandler<ActionEvent>() {
+					centerPane.getChildren().clear();
 
-					@Override
-					public void handle(ActionEvent event) {
+					ObservableList<String> options = FXCollections.observableArrayList(tempClnt.getLawnAddresses());
+					final ComboBox<String> comboBox = new ComboBox<>(options);
+					if(!tempClnt.getName().endsWith("s"))
+						lLawnLbl.setText(tempClnt.getName() + "'s Lawns: ");
+					else
+						lLawnLbl.setText(tempClnt.getName() + "' Lawns: ");
 
-						centerPane.getChildren().clear();
+					centerPane.getChildren().addAll(lLawnLbl, comboBox);
 
-						Alert alert = new Alert(AlertType.CONFIRMATION);
-						alert.setTitle("Delete Lawn");
-						alert.setHeaderText("Delete " + tempClnt.getLawnFromAddress(comboBox.getValue()).getAddress() + "?");
-						alert.setContentText("Deleting a Lawn is permanant.");
+					comboBox.setOnAction(new EventHandler<ActionEvent>() {
 
-						ButtonType buttonTypeOne = new ButtonType("Delete");
-						ButtonType buttonTypeTwo = new ButtonType("Cancel");
+						@Override
+						public void handle(ActionEvent event) {
 
-						alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+							Alert alert = new Alert(AlertType.CONFIRMATION);
+							alert.setTitle("Delete Lawn");
+							alert.setHeaderText("Delete " + tempClnt.getLawnFromAddress(comboBox.getValue()).getAddress() + "?");
+							alert.setContentText("Deleting a Lawn is permanant.");
 
-						Optional<ButtonType> result = alert.showAndWait();
-						if (result.get() == buttonTypeOne){
-							io.lawnList.remove(tempClnt.getLawnFromAddress(comboBox.getValue()));
-							tempClnt.removeLawn(tempClnt.getLawnFromAddress(comboBox.getValue()));
-						}
-						else {
+							ButtonType delBtn = new ButtonType("Delete");
+							ButtonType cnclBtn = new ButtonType("Cancel");
+
+							alert.getButtonTypes().setAll(delBtn, cnclBtn);
+
+							Optional<ButtonType> result = alert.showAndWait();
+							if (result.get() == delBtn){
+								io.lawnList.remove(tempClnt.getLawnFromAddress(comboBox.getValue()));
+								tempClnt.removeLawn(tempClnt.getLawnFromAddress(comboBox.getValue()));
+							}
+
+							addClntLwnLbl.getChildren().clear();
+							displayInfo.getChildren().clear();
+							centerPane.getChildren().clear();
+
 							cName.setText(tempClnt.getName());
 							cAddr.setText(tempClnt.getBillAddress());
 							cOwes.setText("$" + df.format(tempClnt.getOwed()));
 							lawnTA.clear();
 							populateLawnTA(lawnTA, cName.getText());
-							centerPane.getChildren().clear();
-							addClntLwnLbl.getChildren().clear();
-							addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl);
-							displayInfo.getChildren().clear();
-							displayInfo.getChildren().addAll(cName, cAddr, cOwes);
+
+							addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
+							displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
 							centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
 							border.setCenter(centerPane);
-						}
 
-					}//end handle
+						}//end handle
 
-				});//end combobox setonaction
+					});//end combobox setonaction
+
+				}
+				else if(tempClnt.lawnListSize() == 1) {
+					
+					Alert alert = new Alert(AlertType.CONFIRMATION);
+					alert.setTitle("Delete Lawn");
+					alert.setHeaderText("Delete " + tempClnt.getSingleLawn(0).getAddress() + "?");
+					alert.setContentText("Deleting a Lawn is permanant.");
+
+					ButtonType delBtn = new ButtonType("Delete");
+					ButtonType cnclBtn = new ButtonType("Cancel");
+
+					alert.getButtonTypes().setAll(delBtn, cnclBtn);
+
+					Optional<ButtonType> result = alert.showAndWait();
+					if (result.get() == delBtn){
+						io.lawnList.remove(tempClnt.getSingleLawn(0));
+						tempClnt.removeLawn(tempClnt.getSingleLawn(0));
+					}
+
+					addClntLwnLbl.getChildren().clear();
+					displayInfo.getChildren().clear();
+					centerPane.getChildren().clear();
+
+					cName.setText(tempClnt.getName());
+					cAddr.setText(tempClnt.getBillAddress());
+					cOwes.setText("$" + df.format(tempClnt.getOwed()));
+					lawnTA.clear();
+					populateLawnTA(lawnTA, cName.getText());
+
+					addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
+					displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+					centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
+					border.setCenter(centerPane);
+					
+				}
+				else {//there are no lawns in the client's lawn list
+
+					backupTitleLbl.setText("This client has no lawns");
+					centerPane.getChildren().clear();
+					centerPane.getChildren().add(backupTitleLbl);
+					border.setCenter(centerPane);
+
+				}
 
 			}//end handle
 
 		});//end setonaction
 
+		//add a note to a lawn
 		lAddNoteBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 
-				if(backupTitleLbl.getText().equals("Add Note")) {
+				if(backupTitleLbl.getText().equals("Add Note")) {//if we are on the add note page
 
 					backupTitleLbl.setText("");
-					if(!notesTA.getText().equals(""))
-						tempLwn.addNotes(notesTA.getText());
-					else
-						tempLwn.setNotes("");
-					notesTA.setEditable(false);
 
+					if(!notesTA.getText().equals(""))
+						tempLwn.addNotes(notesTA.getText());//addnotes is the method with the correct formatting when there are notes present
+					else
+						tempLwn.setNotes("");//this method literally just sets notes to blank, which is what we want
+
+					btnPane.getChildren().clear();
 					displayInfo.getChildren().clear();
+					leftPane.getChildren().clear();
+
 					notesTA.clear();
-					notesTA.setMaxWidth(325);
-					notesTA.setMinHeight(400);
 					notesTA.appendText("Name:\t\t\t" + tempLwn.getLawnName() + "\n");
 					notesTA.appendText("Address:\t\t\t" + tempLwn.getAddress() + "\n");
 					notesTA.appendText("General Location:\t" + tempLwn.getGenLocation() + "\n");
@@ -1740,20 +1848,27 @@ public class GUI extends Application {
 					notesTA.appendText("------------------------------------------------------\n");
 					notesTA.appendText("Notes:\n" + tempLwn.getNotes());
 					notesTA.autosize();
-					btnPane.getChildren().clear();
 					if(tempLwn.sf.format(tempLwn.getLastMow()).equals(tempLwn.sf.format(Calendar.getInstance().getTime())))
 						lMowedCheckBox.setSelected(true);
 					else
 						lMowedCheckBox.setSelected(false);
+					if(tempLwn.getSkip())
+						lSkipCheckBox.setSelected(true);
+					else
+						lSkipCheckBox.setSelected(false);
+					if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) == 0)
+						lStopMowCheckBox.setSelected(true);
+					else
+						lStopMowCheckBox.setSelected(false);
+
 					btnPane.getChildren().addAll(lMowedCheckBox, lSkipCheckBox, lStopMowCheckBox, editLwnBtn, lAddNoteBtn);
 					displayInfo.getChildren().addAll(notesTA, btnPane);
-					leftPane.getChildren().clear();
 					leftPane.getChildren().addAll(iSortedLawnsLbl, sortedLawnTA, lSendBtn);
 					border.setLeft(leftPane);
 					border.setCenter(displayInfo);
 
 				}
-				else {
+				else {//else we are in the lawn page, and we want to get to the add note page
 
 					notesTA.clear();
 					notesTA.setText(tempLwn.getNotes());
@@ -1770,6 +1885,7 @@ public class GUI extends Application {
 
 		});//end setonaction
 
+		//add an email to the email list
 		sAddBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1778,11 +1894,9 @@ public class GUI extends Application {
 				TextInputDialog dialog = new TextInputDialog();
 				dialog.setTitle("Add Email");
 				dialog.setHeaderText("Add an email to the mailing list");
-				dialog.getDialogPane().lookupButton(ButtonType.CANCEL).setVisible(false);
-				dialog.initStyle(StageStyle.UNDECORATED);
 
 				Optional<String> resultAddress = dialog.showAndWait();
-				if(!resultAddress.get().equals("")) {
+				if(!resultAddress.get().equals("") && resultAddress.isPresent()) {//if the email is not blank, and if there is a value given
 					io.emailList.add(resultAddress.get());
 					settingsItems.getChildren().remove(3);
 					emailComboBox.setItems(FXCollections.observableArrayList(io.emailList));
@@ -1794,11 +1908,13 @@ public class GUI extends Application {
 
 		});//end setonaction saddbtn
 
+		//button to delete emails from the email list
 		sDelBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 
+				//if there is an email selected
 				if(!emailComboBox.getSelectionModel().getSelectedItem().equals(null)) {
 
 					io.emailList.remove(io.emailList.indexOf(emailComboBox.getSelectionModel().getSelectedItem()));
@@ -1812,6 +1928,7 @@ public class GUI extends Application {
 
 		});//end setonaction sdelbtn
 
+		//updates the company name
 		sUpdateBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1826,6 +1943,7 @@ public class GUI extends Application {
 
 		});//end setonaction sSubmitbtn
 
+		//edit the email that will be used to backup the program
 		sEditBackupBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1853,23 +1971,24 @@ public class GUI extends Application {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setTitle("Error");
 					alert.setHeaderText("Input Error!");
-					alert.show();
+					alert.showAndWait();
 				}
 
 			}//end handle
 
 		});//end setonaction seditbackupbtn
 
+		//button that actually sends messages through email
 		bSendBtn.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 
-				if(backupTitleLbl.getText().equals("Backup File")) {
+				if(backupTitleLbl.getText().equals("Backup File")) {//if we are in the backup tab
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
 
-						String temp = emailComboBox.getValue();
+						String temp = emailComboBox.getValue();//gets the current email
 
 						Task<Integer> task = new Task<Integer>() {
 
@@ -1919,7 +2038,7 @@ public class GUI extends Application {
 					}
 
 				}
-				else if(backupTitleLbl.getText().equals("Backup Transactions")) {
+				else if(backupTitleLbl.getText().equals("Backup Transactions")) {// if we are in the transactions tab
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
 
@@ -1973,11 +2092,11 @@ public class GUI extends Application {
 					}
 
 				}
-				else if(backupTitleLbl.getText().equals("Backup Bills")) {
+				else if(backupTitleLbl.getText().equals("Backup Bills")) {//if we are in the bills tab
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
 
-						String temp = emailComboBox.getValue();
+						String temp = emailComboBox.getValue();//gets the selected email
 
 						Task<Integer> task = new Task<Integer>() {
 
@@ -2027,14 +2146,15 @@ public class GUI extends Application {
 					}
 
 				}
-				else if(backupTitleLbl.getText().equals("Send Lawn List")) {
+				else if(backupTitleLbl.getText().equals("Send Lawn List")) {//if we are sending the lawn list through email
 
 					if(!emailComboBox.getSelectionModel().isEmpty()) {//is there a value being used?
 
-						String temp = emailComboBox.getValue();
+						String temp = emailComboBox.getValue();//gets the selected email
 
 						Task<Integer> task = new Task<Integer>() {
 
+							//inner method because the task can not access a method outside of 'start'
 							public String populateMailLawnList() {
 
 								String att = "";
@@ -2046,7 +2166,6 @@ public class GUI extends Application {
 
 								for(int i = 0; i < io.lawnList.size(); i++) {
 
-									//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
 									if((io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
 											io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
 											io.lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
@@ -2058,6 +2177,7 @@ public class GUI extends Application {
 									}
 
 								}
+
 								return att;
 
 							}//end populateMailLawnList
@@ -2113,6 +2233,7 @@ public class GUI extends Application {
 
 		});//end setonaction bSendbtn
 
+		//button used to send all the lawns that need to be mowed for the day through email
 		lSendBtn.setOnAction(new EventHandler<ActionEvent>(){
 
 			@Override
@@ -2120,18 +2241,23 @@ public class GUI extends Application {
 
 				sidePanelBtn.getChildren().clear();
 				leftPane.getChildren().clear();
-
 				displayInfo.getChildren().clear();
-				backupTitleLbl.setText("Send Lawn List");
 				centerPane.getChildren().clear();
+
+				backupTitleLbl.setText("Send Lawn List");
+				backupEmailLbl.setText("Today's Lawn list will be sent to: ");
+
 				ObservableList<String> options = FXCollections.observableArrayList(io.emailList);
 				emailComboBox.setItems(options);
-				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
+
 				lawnTA.clear();
 				lawnTA.autosize();
 				populateMailLawnList(lawnTA);
 				lawnTA.autosize();
+
+				centerPane.getChildren().addAll(backupEmailLbl, emailComboBox, bSendBtn);
 				displayInfo.getChildren().addAll(backupTitleLbl, centerPane, lawnTA);
+
 				border.setCenter(displayInfo);
 
 			}//end handle
@@ -2148,7 +2274,8 @@ public class GUI extends Application {
 			}//end handle
 
 		});//end setonaction
-		
+
+		//when the program starts, the first client will be displayed
 		listView.getFocusModel().focus(0);
 		tempClnt = io.getClient(io.getClientIndex(listView.getFocusModel().getFocusedItem()));
 		cName.setText(tempClnt.getName());
@@ -2157,15 +2284,15 @@ public class GUI extends Application {
 		cNum.setText(tempClnt.getPhoneNum());
 		lawnTA.clear();
 		populateLawnTA(lawnTA, cName.getText());
-		centerPane.getChildren().clear();
 		addClntLwnLbl.getChildren().clear();
-		addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
 		displayInfo.getChildren().clear();
+		sidePanelBtn.getChildren().clear();
+		centerPane.getChildren().clear();
+		addClntLwnLbl.getChildren().addAll(cNameLbl, cBiAdLbl, cOwesLbl, cPhoneNumLbl);
 		displayInfo.getChildren().addAll(cName, cAddr, cOwes, cNum);
+		sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 		centerPane.getChildren().addAll(addClntLwnLbl, displayInfo, lawnTA);
 		border.setCenter(centerPane);
-		sidePanelBtn.getChildren().clear();
-		sidePanelBtn.getChildren().addAll(cAddLawnBtn, editClntBtn, editLwnBtn, editOwesBtn, delClntBtn, delLwnBtn);
 		border.setLeft(sidePanelBtn);
 
 		backupTitleLbl.setFont(new Font(30));
@@ -2250,7 +2377,6 @@ public class GUI extends Application {
 		border.setCenter(centerPane);
 		border.setRight(rightPane);
 
-		//primaryStage.setScene(new Scene(border, 1100, 600));
 		((VBox) scene.getRoot()).getChildren().addAll(menuBar, border);
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -2259,9 +2385,7 @@ public class GUI extends Application {
 			public void handle(WindowEvent we) {
 
 				io.generateBackupFile();
-				System.out.println("program is almost closed!");
 				System.exit(0);
-				System.out.println("window is closing");
 
 			}//end handle
 
@@ -2274,7 +2398,7 @@ public class GUI extends Application {
 		Client temp = io.getClient(io.getClientIndex(s));
 
 		if(temp.lawnListSize() == 0)
-			ta.appendText("\n\n\n\n\n\n\n\n\n\n\n\n                                 No lawns associated with this client yet");
+			ta.appendText("\n\n\n\n\n\n\n\n\n\n\n\n                               No lawns associated with this client yet");
 		else
 			for(int i = 0; i < temp.lawnListSize(); i++) {
 
@@ -2289,7 +2413,6 @@ public class GUI extends Application {
 
 		for(int i = 0; i < io.lawnList.size(); i++) {
 
-			//if(new SimpleDateFormat("MM-dd-yyyy").format(io.lawnList.get((io.lawnList.size()-1) - i).getNextMow()).equals(new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime()))) {
 			if((io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) < 0 ||
 					io.lawnList.get(i).getNextMow().compareTo(Calendar.getInstance().getTime()) == 0) &&
 					io.lawnList.get(i).getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
@@ -2331,23 +2454,22 @@ public class GUI extends Application {
 
 			String[] newList = new String[s.length];
 			String temp[];
-			int count = 1;
+			int count = 0;
 
 			for(int i = 0; i < s.length; i++) {
 
-				temp = s[0].split(",");
-				System.out.println(temp[temp.length-1]);
+				temp = s[i].split(";");
 				tempLwn = io.lawnList.get(io.getFromLawnName(temp[temp.length-1].trim()));
 
 				if(tempLwn.getNextMow().compareTo(java.sql.Date.valueOf("2000-01-01")) != 0) {
 
-					newList[i] = s[i];
+					newList[i-count] = s[i];
 
 				}
 				else {
 
-					newList[s.length - count] = s[i];
 					count++;
+					newList[s.length - count] = s[i];
 
 				}
 
@@ -2359,16 +2481,17 @@ public class GUI extends Application {
 
 		}
 		else {
-			
+
 			listView.getItems().clear();
 			listView.getItems().addAll(s);
 			return listView;
-			
+
 		}
-			
+
 
 	}//end populateList
 
+	//searches whatever is in the listview and displays results back in listview
 	public String[] search(TextField search, String[] list) {
 
 		ArrayList<String> temp = new ArrayList<>();

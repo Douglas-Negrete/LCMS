@@ -250,7 +250,7 @@ public class FileIO {
 				outFile.println("F");
 			else
 				outFile.println("T");
-			outFile.println(companyName.replaceAll(";",","));
+			outFile.println(companyName.replaceAll(";","~"));
 			outFile.println("#ENDALL");
 
 			outFile.close();
@@ -737,7 +737,7 @@ public class FileIO {
 
 		for(int i = 0; i < lawnList.size(); i++) {
 
-			names[i] = lawnList.get(i).getClient().getName() + ", " + lawnList.get(i).getAddress() + ", " + lawnList.get(i).getLawnName();
+			names[i] = lawnList.get(i).getClient().getName() + "; " + lawnList.get(i).getAddress() + "; " + lawnList.get(i).getLawnName();
 
 		}
 

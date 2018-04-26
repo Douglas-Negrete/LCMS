@@ -3,3 +3,27 @@ Wed April 25 4:22:58 PM :: Removed Client: Example Client 123 Example Billing Ad
 Wed April 25 4:56:22 PM :: Added Client: Douglas Negrete 6375 Syracuse Street $0.00
 Wed April 25 4:57:09 PM :: Added Lawn: Douglas Negrete - Front Yard, 6375 Syracuse street chino ca 91710 for $15.00
 Wed April 25 6:49:17 PM :: Added Lawn: Douglas Negrete - test, test lawn for $12.00
+Wed April 25 8:03:30 PM :: Owed amount for George Freedone changed from $96.94 to $10.00
+Wed April 25 8:03:34 PM :: Owed amount for George Freedone changed from $10.00 to $95.00
+Wed April 25 8:20:39 PM :: Owed amount for George Freedone changed from $95.00 to $96.64
+Wed April 25 8:20:57 PM :: Owed amount for George Freedone changed from $96.64 to $96.94
+Wed April 25 9:18:22 PM :: Removed Client: Jeremy Treyson 362 Wintercore Boulevard $99.35
+Wed April 25 9:18:49 PM :: Removed Client: James Lomen 478 Goldstore Drive $87.79
+Wed April 25 9:18:59 PM :: Removed Client: Greg Dinmill 129 Coldfish Boulevard $84.16
+Wed April 25 10:14:43 PM :: Lawn checked off: Richard Richmill - Richard Richmill2, 475 Laureltown Circle for $32.83
+Wed April 25 10:14:43 PM :: Client Richard Richmill now owes: $121.68
+Wed April 25 10:14:59 PM :: Lawn checked off: Dan Fordus - Dan Fordus1, 134 Fountainstile Lane for $89.16
+Wed April 25 10:14:59 PM :: Client Dan Fordus now owes: $179.09
+Wed April 25 10:15:08 PM :: Lawn checked off: Sam Santhorn - Sam Santhorn2, 511 Suntown Path for $30.68
+Wed April 25 10:15:08 PM :: Client Sam Santhorn now owes: $118.09
+Wed April 25 10:15:11 PM :: Lawn checked off: Sarah Redder - Sarah Redder2, 258 Icecore Path for $96.67
+Wed April 25 10:15:11 PM :: Client Sarah Redder now owes: $169.11
+Wed April 25 10:15:13 PM :: Lawn checked off: Bill Tinthin - Bill Tinthin0, 260 Eastlane Avenue for $82.63
+Wed April 25 10:15:13 PM :: Client Bill Tinthin now owes: $145.48
+Wed April 25 10:56:33 PM :: Added Lawn: Alex Tindel - front, 6375 syracuse st, chino for $10.00
+Wed April 25 11:03:34 PM :: Added Lawn: Alex Tindel - back, 6375 syracuse street, chino for $5.00
+Wed April 25 11:09:54 PM :: Added Lawn: Douglas Negrete - test, 6375 for $4.00
+Wed April 25 11:12:46 PM :: Added Lawn: Douglas Negrete - test lawn, test address for $6.00
+Wed April 25 11:19:12 PM :: Added Lawn: Douglas Negrete - front, 6375 syracuse st~ chino for $8.00
+Wed April 25 11:22:10 PM :: Added Lawn: Douglas Negrete - test, 6375 for $7.00
+Wed April 25 11:22:19 PM :: Removed Client: Douglas Negrete 6375 Syracuse St $0.00
